@@ -7,16 +7,26 @@ const $=(s,c)=>(c||document).querySelector(s);
 const $$=(s,c)=>[...(c||document).querySelectorAll(s)];
 const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+let heroGoTo=null;
 
 /* ---------- HERO LOADER ---------- */
 const heroLoader=document.getElementById('heroLoader');
 if(heroLoader){
-  const dismiss=()=>{heroLoader.classList.add('done');heroLoader.addEventListener('transitionend',()=>heroLoader.remove(),{once:true});};
+  const t0=performance.now();
+  function dismiss(){
+    const delay=Math.max(0,800-(performance.now()-t0));
+    setTimeout(()=>{
+      heroLoader.classList.add('done');
+      const cleanup=()=>heroLoader.remove();
+      heroLoader.addEventListener('transitionend',cleanup,{once:true});
+      setTimeout(cleanup,1100);
+    },delay);
+  }
   const probe=new Image();
   probe.onload=dismiss;
   probe.onerror=dismiss;
   probe.src='https://commons.wikimedia.org/wiki/Special:FilePath/Sigiriya%20Fortress%2C%20Sri%20Lanka.jpg?width=2400';
-  setTimeout(dismiss,6000);
+  setTimeout(dismiss,5000);
 }
 
 /* ---------- HERO SLIDESHOW ---------- */
@@ -39,9 +49,11 @@ if(heroLoader){
     restartKenBurns(slides[current]);
     slides[current].classList.add('active');
     dots[current].classList.add('active');
+    $$('.dest-item').forEach((d,idx)=>d.classList.toggle('active',idx===current));
     if(label){label.classList.remove('visible');setTimeout(()=>{label.textContent=LABELS[current];label.classList.add('visible');},200);}
     if(manual){clearInterval(timer);startTimer();}
   }
+  heroGoTo=goTo;
 
   dots.forEach((d,i)=>d.addEventListener('click',()=>{d.blur();goTo(i,true);}));
   const heroBg=$('#heroBg');
@@ -61,6 +73,15 @@ if(heroLoader){
    'Unawatuna%20beach.jpg'].forEach((f,i)=>
     setTimeout(()=>{new Image().src='https://commons.wikimedia.org/wiki/Special:FilePath/'+f+'?width=2400';},2000+i*1000));
 })();
+
+/* ---------- DESTINATIONS STRIP → HERO WIRING ---------- */
+$$('.dest-item')[0]?.classList.add('active');
+$$('.dest-item').forEach((item,i)=>{
+  item.addEventListener('click',()=>{
+    if(heroGoTo)heroGoTo(i,true);
+    document.getElementById('top').scrollIntoView({behavior:'smooth'});
+  });
+});
 
 /* ---------- HERO HEADLINE LETTER REVEAL ---------- */
 const h1=$('#heroH1');
@@ -146,13 +167,15 @@ $$('[data-count]').forEach(el=>countIo.observe(el));
 const thumb=$('#thumb'),thumbPh=$('#thumbPh');
 $$('.tour-wrap').forEach(wrap=>{
   const tour=$('.tour',wrap);
-  const detail=$('.tour-detail',wrap);
   tour.addEventListener('click',()=>{
     const open=wrap.classList.toggle('open');
     if(open){
-      detail.style.maxHeight=detail.scrollHeight+'px';
-      $$('.tour-wrap.open').forEach(o=>{if(o!==wrap){o.classList.remove('open');$('.tour-detail',o).style.maxHeight='0px';}});
-    }else{detail.style.maxHeight='0px';}
+      $$('.tour-wrap.open').forEach(o=>{if(o!==wrap)o.classList.remove('open');});
+    }
+    tour.setAttribute('aria-expanded',String(open));
+  });
+  tour.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();tour.click();}
   });
   if(fine&&thumb){
     tour.addEventListener('mouseenter',()=>{if(wrap.classList.contains('open'))return;thumbPh.className='ph '+tour.dataset.ph;thumb.classList.add('show');});
@@ -160,7 +183,6 @@ $$('.tour-wrap').forEach(wrap=>{
     tour.addEventListener('mousemove',e=>{thumb.style.left=(e.clientX+26)+'px';thumb.style.top=(e.clientY-165)+'px';});
   }
 });
-addEventListener('resize',()=>{$$('.tour-wrap.open').forEach(o=>{const d=$('.tour-detail',o);d.style.maxHeight=d.scrollHeight+'px';});});
 
 /* ============================================================
    MAP
@@ -389,7 +411,7 @@ if(lb){
   const items=$$('.gitem');
   const data=items.map(g=>({ph:g.dataset.ph,cap:$('.cap',g)?.textContent||''}));
   const stage=$('.lb-stage',lb);
-  let cur=0;
+  let cur=0,lastFocus=null;
   // build two stacked layers for crossfade
   const layerA=document.createElement('div'),layerB=document.createElement('div');
   layerA.className='ph active';layerB.className='ph';
@@ -404,18 +426,58 @@ if(lb){
     $('#lbCap').textContent=data[cur].cap;
     $('#lbCount').textContent=String(cur+1).padStart(2,'0')+' / '+String(data.length).padStart(2,'0');
   }
-  function open(i){render(i);lb.classList.add('open');document.body.style.overflow='hidden';}
-  function close(){lb.classList.remove('open');document.body.style.overflow='';}
+  function shakeArrow(el){
+    el.classList.remove('edge-hit');
+    el.offsetWidth;
+    el.classList.add('edge-hit');
+    el.addEventListener('animationend',()=>el.classList.remove('edge-hit'),{once:true});
+  }
+  function open(i){
+    render(i);
+    lb.classList.add('open');
+    lb.setAttribute('role','dialog');
+    lb.setAttribute('aria-modal','true');
+    document.body.style.overflow='hidden';
+    lastFocus=document.activeElement;
+    setTimeout(()=>$('#lbNext').focus(),50);
+  }
+  function close(){
+    lb.classList.remove('open');
+    document.body.style.overflow='';
+    lastFocus?.focus();
+  }
   items.forEach((g,i)=>g.onclick=()=>open(i));
   $('#lbx').onclick=close;
-  $('#lbPrev').onclick=e=>{e.stopPropagation();render(cur-1);};
-  $('#lbNext').onclick=e=>{e.stopPropagation();render(cur+1);};
+  $('#lbPrev').onclick=e=>{
+    e.stopPropagation();
+    if(cur===0){shakeArrow($('#lbPrev'));return;}
+    render(cur-1);
+  };
+  $('#lbNext').onclick=e=>{
+    e.stopPropagation();
+    if(cur===data.length-1){shakeArrow($('#lbNext'));return;}
+    render(cur+1);
+  };
   lb.onclick=e=>{if(e.target===lb||e.target===stage)close();};
   addEventListener('keydown',e=>{
     if(!lb.classList.contains('open'))return;
-    if(e.key==='Escape')close();
-    if(e.key==='ArrowLeft')render(cur-1);
-    if(e.key==='ArrowRight')render(cur+1);
+    if(e.key==='Escape'){close();return;}
+    if(e.key==='ArrowLeft'){
+      if(cur===0){shakeArrow($('#lbPrev'));return;}
+      render(cur-1);
+    }
+    if(e.key==='ArrowRight'){
+      if(cur===data.length-1){shakeArrow($('#lbNext'));return;}
+      render(cur+1);
+    }
+    if(e.key==='Tab'){
+      const focusable=[...$('#lbPrev,#lbNext,#lbx').parentElement.querySelectorAll('button,[tabindex]:not([tabindex="-1"])')];
+      const lbFocusable=focusable.filter(el=>lb.contains(el));
+      if(!lbFocusable.length)return;
+      const first=lbFocusable[0],last=lbFocusable[lbFocusable.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    }
   });
 }
 
@@ -428,7 +490,10 @@ if(qSlides.length&&qNav){
   qSlides.forEach((_,i)=>{const b=document.createElement('button');if(i===0)b.classList.add('active');b.onclick=()=>go(i,true);qNav.appendChild(b);});
   const dots=$$('button',qNav);
   function go(i,manual){
-    qSlides[qi].classList.remove('active');dots[qi].classList.remove('active');
+    const leaving=qSlides[qi];
+    leaving.classList.add('leaving');
+    leaving.addEventListener('transitionend',()=>leaving.classList.remove('active','leaving'),{once:true});
+    dots[qi].classList.remove('active');
     qi=(i+qSlides.length)%qSlides.length;
     qSlides[qi].classList.add('active');dots[qi].classList.add('active');
     if(manual)restart();
@@ -488,9 +553,16 @@ $$('[style*="background-image"]').forEach(el=>{
 if(fine&&!reduce){
   document.body.classList.add('has-cursor');
   const dot=$('#curDot'),ring=$('#curRing'),lab=$('#curLabel');
-  let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+  let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,vx=0,vy=0;
   addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;});
-  (function loop(){rx+=(mx-rx)*0.18;ry+=(my-ry)*0.18;ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(loop);})();
+  (function loop(){
+    const stiffness=0.12,damping=0.75;
+    vx=(vx+(mx-rx)*stiffness)*damping;
+    vy=(vy+(my-ry)*stiffness)*damping;
+    rx+=vx;ry+=vy;
+    ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+    requestAnimationFrame(loop);
+  })();
   const hotSel='a,button,.tour,.gitem,.pin,.mo,.chip,.route-btn,.q-nav button';
   document.addEventListener('mouseover',e=>{
     const t=e.target.closest(hotSel);
