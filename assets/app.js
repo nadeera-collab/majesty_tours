@@ -487,15 +487,21 @@ if(lb){
 const qSlides=$$('.q-slide'),qNav=$('#qNav');
 if(qSlides.length&&qNav){
   let qi=0,qTimer;
-  qSlides.forEach((_,i)=>{const b=document.createElement('button');if(i===0)b.classList.add('active');b.onclick=()=>go(i,true);qNav.appendChild(b);});
+  qSlides[0].classList.add('active');
+  qSlides.forEach((_,i)=>{
+    const b=document.createElement('button');
+    if(i===0)b.classList.add('active');
+    b.setAttribute('aria-label','Review '+(i+1));
+    b.onclick=()=>go(i,true);
+    qNav.appendChild(b);
+  });
   const dots=$$('button',qNav);
   function go(i,manual){
-    const leaving=qSlides[qi];
-    leaving.classList.add('leaving');
-    leaving.addEventListener('transitionend',()=>leaving.classList.remove('active','leaving'),{once:true});
+    qSlides[qi].classList.remove('active');
     dots[qi].classList.remove('active');
     qi=(i+qSlides.length)%qSlides.length;
-    qSlides[qi].classList.add('active');dots[qi].classList.add('active');
+    qSlides[qi].classList.add('active');
+    dots[qi].classList.add('active');
     if(manual)restart();
   }
   function restart(){clearInterval(qTimer);qTimer=setInterval(()=>go(qi+1),6500);}
