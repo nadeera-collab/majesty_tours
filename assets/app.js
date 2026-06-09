@@ -77,9 +77,13 @@ if(heroLoader){
 /* ---------- DESTINATIONS STRIP → HERO WIRING ---------- */
 $$('.dest-item')[0]?.classList.add('active');
 $$('.dest-item').forEach((item,i)=>{
-  item.addEventListener('click',()=>{
+  function activate(){
     if(heroGoTo)heroGoTo(i,true);
     document.getElementById('top').scrollIntoView({behavior:'smooth'});
+  }
+  item.addEventListener('click',activate);
+  item.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}
   });
 });
 
@@ -115,12 +119,17 @@ const prog=$('#scrollProg');
 function onScroll(){
   nav.classList.toggle('scrolled',scrollY>40);
   const h=document.documentElement.scrollHeight-innerHeight;
-  if(prog)prog.style.width=(scrollY/h*100)+'%';
+  if(prog)prog.style.transform='scaleX('+(scrollY/h)+')';
 }
 addEventListener('scroll',onScroll,{passive:true});onScroll();
 
 const burger=$('#burger'),links=$('#links');
-burger.onclick=()=>{links.classList.toggle('open');burger.classList.toggle('open');};
+burger.onclick=()=>{
+  links.classList.toggle('open');
+  burger.classList.toggle('open');
+  burger.setAttribute('aria-expanded',String(links.classList.contains('open')));
+  burger.setAttribute('aria-label',links.classList.contains('open')?'Close navigation menu':'Open navigation menu');
+};
 $$('a',links).forEach(a=>a.onclick=()=>{links.classList.remove('open');burger.classList.remove('open');});
 
 /* active section highlight */
@@ -256,6 +265,7 @@ if(svg&&M){
   Object.keys(cityInfo).forEach(key=>{
     const c=M.cities[key];if(!c)return;
     const g=document.createElementNS(NS,'g');g.setAttribute('class','pin');g.dataset.city=key;
+    g.setAttribute('tabindex','0');g.setAttribute('role','button');g.setAttribute('aria-label',cityInfo[key].label+' — view location');
     const halo=document.createElementNS(NS,'circle');halo.setAttribute('class','halo');halo.setAttribute('cx',c[0]);halo.setAttribute('cy',c[1]);halo.setAttribute('r','4');
     const core=document.createElementNS(NS,'circle');core.setAttribute('class','core');core.setAttribute('cx',c[0]);core.setAttribute('cy',c[1]);core.setAttribute('r','3.4');
     g.appendChild(halo);g.appendChild(core);
@@ -266,6 +276,7 @@ if(svg&&M){
     t.textContent=cityInfo[key].label;
     svg.appendChild(t);
     g.addEventListener('click',ev=>{ev.stopPropagation();showTip(key);});
+    g.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();ev.stopPropagation();showTip(key);}});
   });
 
   // tooltip
@@ -446,7 +457,10 @@ if(lb){
     document.body.style.overflow='';
     lastFocus?.focus();
   }
-  items.forEach((g,i)=>g.onclick=()=>open(i));
+  items.forEach((g,i)=>{
+    g.onclick=()=>open(i);
+    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(i);}});
+  });
   $('#lbx').onclick=close;
   $('#lbPrev').onclick=e=>{
     e.stopPropagation();
@@ -521,8 +535,12 @@ if(form){
   });
   function setErr(field,msg){
     const f=field.closest('.field');f.classList.add('invalid');$('.err',f).textContent=msg;
+    field.setAttribute('aria-invalid','true');
   }
-  function clearErr(field){field.closest('.field')?.classList.remove('invalid');}
+  function clearErr(field){
+    field.closest('.field')?.classList.remove('invalid');
+    field.removeAttribute('aria-invalid');
+  }
   $$('input,textarea',form).forEach(i=>i.addEventListener('input',()=>clearErr(i)));
   form.onsubmit=e=>{
     e.preventDefault();
@@ -583,5 +601,12 @@ if(fine&&!reduce){
   document.addEventListener('mouseleave',()=>{dot.style.opacity=0;ring.style.opacity=0;});
   document.addEventListener('mouseenter',()=>{dot.style.opacity=1;ring.style.opacity=.55;});
 }
+
+/* Reveal safety net: ensure content is never permanently hidden if IntersectionObserver
+   doesn't fire (background tab, headless renderer, slow connection). */
+setTimeout(()=>{
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in'));
+  document.querySelectorAll('.split:not(.in)').forEach(el=>el.classList.add('in'));
+},3500);
 
 })();
