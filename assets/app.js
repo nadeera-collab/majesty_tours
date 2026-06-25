@@ -123,6 +123,43 @@ function onScroll(){
 }
 addEventListener('scroll',onScroll,{passive:true});onScroll();
 
+/* ---------- PARALLAX ---------- */
+(function(){
+  if(reduce)return;
+
+  const LAYERS=[
+    ['.hero-bg',    0.08],
+    ['.hero-inner', 0.20],
+    ['#interPar',   0.35],
+  ];
+
+  const layers=LAYERS.map(([sel,spd])=>{
+    const el=document.querySelector(sel);
+    return el?{el,spd}:null;
+  }).filter(Boolean);
+
+  if(!layers.length)return;
+
+  let parTick=false;
+
+  function updateParallax(){
+    parTick=false;
+    const vh=window.innerHeight;
+    layers.forEach(({el,spd})=>{
+      const r=el.getBoundingClientRect();
+      if(r.bottom<-vh||r.top>vh*2)return;
+      const centerOffset=(r.top+r.height/2)-vh/2;
+      el.style.transform='translateY('+((centerOffset*spd*-1).toFixed(2))+'px)';
+    });
+  }
+
+  window.addEventListener('scroll',()=>{
+    if(!parTick){parTick=true;requestAnimationFrame(updateParallax);}
+  },{passive:true});
+
+  requestAnimationFrame(updateParallax);
+})();
+
 const burger=$('#burger'),links=$('#links');
 burger.onclick=()=>{
   const isOpen=links.classList.toggle('open');
@@ -398,25 +435,30 @@ const seasonData={
     'High season opens festive, dry and bright along the south and west.'
   ]
 };
-const monthsBox=$('#months'),seasonReadout=$('#seasonReadout'),seasonNote=$('#seasonNote');
+const monthsBox=$('#months'),seasonReadout=$('#seasonReadout');
 if(monthsBox){
   const MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   MO.forEach((m,i)=>{
     const b=document.createElement('button');b.className='mo';b.textContent=m;b.dataset.i=i;
+    if(seasonData.scores[0][i]>=70)b.classList.add('mo-west');
+    if(seasonData.scores[3][i]>=70)b.classList.add('mo-east');
     b.onclick=()=>setMonth(i);monthsBox.appendChild(b);
   });
   function setMonth(i){
     $$('.mo',monthsBox).forEach(b=>b.classList.toggle('active',+b.dataset.i===i));
-    seasonReadout.innerHTML=seasonData.regions.map((r,ri)=>{
-      const v=seasonData.scores[ri][i];
+    const scored=seasonData.regions.map((r,ri)=>({r,v:seasonData.scores[ri][i]}));
+    const best=scored.reduce((a,b)=>b.v>a.v?b:a);
+    const bestTag=best.v>=85?'Excellent':best.v>=70?'Good':best.v>=58?'Fair':'Off-season';
+    const rows=scored.map(({r,v})=>{
       const tag=v>=85?'Excellent':v>=70?'Good':v>=58?'Fair':'Off-season';
-      return `<div class="reg"><span class="rn">${r}</span><span class="gauge"><i data-w="${v}"></i></span><span class="rv">${tag}</span></div>`;
+      const cls=v>=85?'q-exc':v>=70?'q-good':v>=58?'q-fair':'q-off';
+      return `<div class="reg"><span class="rn">${r}</span><span class="gauge"><i class="${cls}" data-w="${v}"></i></span><span class="rv">${tag}</span></div>`;
     }).join('');
-    requestAnimationFrame(()=>requestAnimationFrame(()=>{$$('#seasonReadout .gauge i').forEach(g=>g.style.transform='scaleX('+g.dataset.w/100+')');}))
-    seasonNote.innerHTML=`<b>${MO[i]} </b> ${seasonData.notes[i]}`;
+    seasonReadout.innerHTML=`<div class="best-pick"><div class="bp-label">Best this month</div><div class="bp-region">${best.r}<span class="bp-tag">${bestTag}</span></div></div>${rows}`;
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{$$('#seasonReadout .gauge i').forEach(g=>g.style.transform='scaleX('+g.dataset.w/100+')');}));
   }
   const now=new Date().getMonth();
-  setMonth(now); // populate immediately so it's never empty
+  setMonth(now);
   const seasonIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){setMonth(now);seasonIo.disconnect();}}),{threshold:.12});
   seasonIo.observe($('#season'));
 }
@@ -501,6 +543,53 @@ if(lb){
     }
   });
 }
+
+/* ============================================================
+   GALLERY EXPAND / COLLAPSE
+   ============================================================ */
+{
+  const galWrap = document.querySelector('.gallery-wrap');
+  const galGrid = document.querySelector('.gallery');
+  const galBtn  = document.querySelector('.gal-toggle');
+  if (galBtn && galGrid && galWrap) {
+    galBtn.addEventListener('click', () => {
+      const expanded = galGrid.classList.toggle('expanded');
+      galWrap.classList.toggle('expanded', expanded);
+      galBtn.setAttribute('aria-expanded', expanded);
+      if (expanded) {
+        galGrid.style.maxHeight = galGrid.scrollHeight + 'px';
+        galBtn.textContent = 'Show less';
+      } else {
+        galGrid.style.maxHeight = '460px';
+        galBtn.textContent = 'View all 47 photos';
+      }
+    });
+  }
+}
+
+/* ============================================================
+   TOUR MEDIA SLIDESHOW
+   ============================================================ */
+$$('.media-dots').forEach(dotsEl=>{
+  const media=dotsEl.closest('.media');
+  const slides=$$('.media-slide',media);
+  const capEl=$('.badge-cap',media);
+  if(!slides.length)return;
+  slides.forEach((_,i)=>{
+    const b=document.createElement('button');
+    b.className='media-dot'+(i===0?' active':'');
+    b.setAttribute('aria-label','Photo '+(i+1));
+    b.onclick=e=>{
+      e.stopPropagation();
+      slides.forEach(s=>s.classList.remove('active'));
+      dotsEl.querySelectorAll('.media-dot').forEach(d=>d.classList.remove('active'));
+      slides[i].classList.add('active');
+      b.classList.add('active');
+      if(capEl)capEl.textContent=slides[i].dataset.cap||'';
+    };
+    dotsEl.append(b);
+  });
+});
 
 /* ============================================================
    TESTIMONIAL CAROUSEL
