@@ -131,7 +131,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .5s var(-
 @keyframes spin-ring{to{transform:rotate(360deg)}}
 
 .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding-bottom:6vh;overflow:hidden}
-.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;will-change:transform}
 .hero-slide{position:absolute;inset:-12% 0;background-size:cover;background-position:center;will-change:transform,opacity;opacity:0;transition:opacity 1.8s cubic-bezier(.4,0,.2,1);transform:scale(1.08);animation:kenburns 26s ease-in-out forwards}
 .hero-slide.active{opacity:1}
 @keyframes kenburns{to{transform:scale(1.16) translateY(-2%)}}
@@ -143,7 +143,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .5s var(-
 .hero-slide[data-slide="5"]{background-color:#1f6b6b;background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Unawatuna%20beach.jpg?width=2400');background-position:center 50%}
 .hero-grad{position:absolute;inset:0;z-index:2;background:linear-gradient(105deg,rgba(33,26,18,.5) 0%,rgba(33,26,18,.1) 45%,transparent 70%)}
 .hero-vignette{position:absolute;inset:0;z-index:3;background:linear-gradient(to bottom,rgba(33,26,18,.12) 0%,rgba(33,26,18,calc(var(--hero-dark))) 100%)}
-.hero-inner{position:relative;z-index:5;width:100%}
+.hero-inner{position:relative;z-index:5;width:100%;will-change:transform}
 .hero .eyebrow{color:var(--gold);margin-bottom:1.4rem}
 .hero h1{font-size:clamp(3.2rem,7vw,6rem);color:var(--paper);text-shadow:0 2px 40px rgba(33,26,18,.35);max-width:14ch;font-weight:500}
 .hero h1 .lt{display:inline-block;opacity:0;transform:translateY(118%) rotate(4deg);animation:rise calc(1s / var(--motion,1)) var(--ease) forwards}
@@ -170,7 +170,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .5s var(-
 .hsd.active{width:36px;background:var(--gold)}
 .hsd.active::after{content:'';position:absolute;inset:0;background:rgba(244,236,224,.5);border-radius:2px;transform:scaleX(0);transform-origin:left;animation:hsd-fill var(--slide-dur,7s) linear forwards}
 @keyframes hsd-fill{to{transform:scaleX(1)}}
-@media(prefers-reduced-motion:reduce){.hero-slide{transition:opacity .1s;animation:none!important}.hero-slide.active{animation:none!important;transform:scale(1.08)}.hsd.active::after{animation:none;transform:scaleX(1)}}
+@media(prefers-reduced-motion:reduce){.hero-slide{transition:opacity .1s;animation:none!important}.hero-slide.active{animation:none!important;transform:scale(1.08)}.hsd.active::after{animation:none;transform:scaleX(1)}.scroll-cue .line::after{animation:none;transform:translateX(0);background:var(--gold)}.logo .mark .stamp{animation:none}.wa{animation:none;box-shadow:0 10px 30px rgba(37,211,102,.4)}.cursor-dot{animation:none}.hero-loader-ring{animation:none}.hero-bg,.hero-inner,#interPar{will-change:auto;transform:none!important}}
 @media(max-width:900px){.hero-slide-label{display:none}.hero-slide-ui{bottom:3rem}}
 
 /* ---------- DESTINATIONS STRIP ---------- */
@@ -197,7 +197,7 @@ section{position:relative}
 .sec-head h2{font-size:clamp(2.4rem,5.5vw,4.6rem)}
 .reveal{opacity:0;transform:translateY(42px);transition:calc(1s / var(--motion,1)) var(--ease)}
 .reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}.reveal.d5{transition-delay:.5s}
 /* word-by-word heading reveal */
 .split .w{display:inline-block;overflow:hidden;vertical-align:top}
 .split .w i{display:inline-block;font-style:inherit;transform:translateY(105%);transition:transform .9s var(--ease)}
@@ -224,7 +224,7 @@ section{position:relative}
 .tour{display:grid;grid-template-columns:auto 1fr auto auto;gap:2.5rem;align-items:center;padding:2.4rem 0;border-top:1px solid var(--line);cursor:pointer;transition:.5s var(--ease);position:relative;will-change:transform}
 .tour-wrap:last-child .tour{border-bottom:1px solid var(--line)}
 .tour .num{font-family:var(--display);font-size:1.1rem;color:var(--forest-deep);font-style:italic}
-.tour .name{font-family:var(--display);font-size:clamp(1.8rem,4vw,3.4rem);transition:.5s var(--ease)}
+.tour .name{font-family:var(--display);font-size:clamp(1.8rem,4vw,3.4rem);transition:.5s var(--ease);text-wrap:balance}
 .tour .tags{font-size:.78rem;letter-spacing:.06em;color:var(--text-mid);margin-top:.4rem}
 .tour .meta{text-align:right;font-size:.82rem;color:var(--text-muted)}
 .tour .meta b{font-family:var(--display);font-size:1.5rem;display:block;color:var(--ink)}
@@ -257,16 +257,34 @@ section{position:relative}
 .tour-detail .media .ph{position:absolute;inset:0;transform:scale(1.05);transition:transform 8s ease}
 .tour-wrap.open .tour-detail .media .ph{transform:scale(1.14)}
 .tour-detail .media .badge-cap{position:absolute;left:1rem;bottom:1rem;background:rgba(33,26,18,.6);backdrop-filter:blur(6px);color:var(--paper);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;padding:.5rem .9rem;border-radius:30px}
-.detail-cta{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.6rem;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--forest-deep);border-bottom:1px solid var(--forest-deep);padding-bottom:.25rem;transition:gap .3s}
+.detail-cta{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.6rem;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--forest-deep);border-bottom:1px solid var(--forest-deep);padding-bottom:.25rem;transition:gap .3s var(--ease),opacity .6s var(--ease),transform .6s var(--ease);opacity:0;transform:translateX(-16px)}
+.tour-wrap.open .detail-cta{opacity:1;transform:none;transition-delay:.32s}
 .detail-cta:hover{gap:1.1rem}
 /* floating hover thumb (desktop) */
 .tour-thumb{position:fixed;width:260px;height:330px;border-radius:6px;overflow:hidden;pointer-events:none;opacity:0;transform:scale(.85) rotate(-4deg);transition:opacity .4s,transform .4s;z-index:60;box-shadow:0 30px 70px rgba(33,26,18,.4);top:0;left:0}
 .tour-thumb.show{opacity:1;transform:scale(1) rotate(-3deg)}
 .tour-thumb .ph{width:100%;height:100%}
 
+/* ---------- ACTIVITIES ---------- */
+.activities{background:var(--bg)}
+.activities .sec-head > p{color:var(--text-muted)}
+.act-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-top:3.5rem}
+.act-card{padding:1.6rem 1.4rem;border:1px solid var(--card-border);border-radius:6px;transition:.4s var(--ease)}
+.act-card:hover{background:var(--paper-2);transform:translateY(-4px)}
+.act-ico{width:32px;height:32px;margin-bottom:1rem;stroke:var(--forest);display:block}
+.act-card h4{font-family:var(--display);font-size:1.1rem;margin-bottom:.4rem;font-weight:400}
+.act-card p{color:var(--text-muted);font-size:.8rem;line-height:1.5}
+.act-note{margin-top:2.5rem;text-align:center;font-size:.8rem;color:var(--text-faint);letter-spacing:.06em}
+/* fleet transfer banner */
+.fleet-xfer{margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(244,236,224,.12);display:flex;gap:1.5rem;align-items:flex-start}
+.fleet-xfer-ico{width:40px;height:40px;flex:none;stroke:var(--gold);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.fleet-xfer-body strong{color:var(--paper);font-family:var(--display);font-size:1.1rem;font-weight:400;display:block;margin-bottom:.3rem}
+.fleet-xfer-body p{color:var(--text-light);font-size:.88rem;line-height:1.6}
+.fleet-assurance{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(244,236,224,.08);color:var(--text-light);font-size:.82rem;line-height:1.6;letter-spacing:.02em}
+
 /* ---------- INTERSTITIAL (new cinematic parallax) ---------- */
 .interstitial{height:88vh;min-height:560px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--paper)}
-.interstitial .par{position:absolute;inset:-14% 0;background-size:cover;background-position:center;will-change:transform}
+.interstitial .par{position:absolute;inset:-20% 0;background-size:cover;background-position:center;will-change:transform}
 .interstitial .par.bg{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tea%20plantation%20in%20Sri%20Lanka.jpg?width=2000');background-color:#2c3c26}
 .interstitial .scrim{position:absolute;inset:0;background:radial-gradient(circle at center,rgba(33,26,18,.25),rgba(33,26,18,.7))}
 .interstitial .inner{position:relative;z-index:3;max-width:60rem;padding:0 5vw}
@@ -321,25 +339,46 @@ section{position:relative}
 .map-tip .tip-body b{font-family:var(--display);font-size:1.05rem;display:block}
 .map-tip .tip-body span{font-size:.76rem;color:var(--text-mid)}
 
-/* ---------- WHEN TO GO (new) ---------- */
+/* ---------- WHEN TO GO ---------- */
 .season{background:var(--bg)}
 .season .sec-head > p{color:var(--text-muted)}
-.season-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:4rem;align-items:start}
-.months{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:2rem}
-.mo{flex:1 1 auto;min-width:60px;text-align:center;padding:.7rem .3rem;border:1px solid var(--line);border-radius:6px;cursor:pointer;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);transition:.35s var(--ease);background:transparent}
+/* month strip — full-width 12-col grid above the two-column data panel */
+.months{display:grid;grid-template-columns:repeat(12,1fr);gap:.4rem;margin:2.5rem 0}
+.mo{text-align:center;padding:.85rem .2rem .65rem;border:1px solid var(--line);border-radius:6px;cursor:pointer;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mid);transition:.3s var(--ease);background:transparent}
 .mo:hover{border-color:var(--forest);color:var(--forest-deep)}
-.mo.active{background:var(--navy);color:var(--paper);border-color:var(--navy)}
-.season-card{margin-top:2rem;border-radius:10px;overflow:hidden;border:1px solid var(--line);min-height:120px}
-.season-readout{padding:.4rem 0}
-.season-readout .reg{display:flex;align-items:center;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}
-.season-readout .reg:last-child{border-bottom:none}
-.season-readout .reg .gauge{width:120px;height:6px;border-radius:6px;background:var(--paper-2);overflow:hidden;flex:none}
-.season-readout .reg .gauge i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--tea),var(--gold));width:100%;transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
-.season-readout .reg .rn{font-family:var(--display);font-size:1.15rem;flex:1}
-.season-readout .reg .rv{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);width:88px;text-align:right}
+.mo.active{background:var(--navy);color:var(--paper);border-color:var(--navy);box-shadow:none}
+/* season stripe: inset bottom border shows which coast peaks */
+.mo-west{box-shadow:inset 0 -3px 0 var(--forest)}
+.mo-east{box-shadow:inset 0 -3px 0 oklch(54% .18 228)}
+.mo-west.mo-east{box-shadow:inset 0 -3px 0 var(--gold)}
+/* two-column data panel */
+.season-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:4rem;align-items:start}
+/* left column */
 .season-aside .lead{font-family:var(--display);font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.34;font-weight:300}
-.season-aside .verdict{margin-top:1.5rem;padding:1.2rem 1.4rem;background:oklch(42% .09 140 / 9%);border:1px solid oklch(42% .09 140 / 22%);border-radius:8px;font-size:.95rem}
-.season-aside .verdict b{font-family:var(--display);font-style:italic;color:var(--forest-deep)}
+.season-legend{margin-top:1.8rem;display:flex;flex-direction:column;gap:.6rem}
+.sl-item{display:flex;align-items:center;gap:.7rem;font-size:.8rem;color:var(--text-mid)}
+.sl-dot{width:10px;height:10px;border-radius:50%;flex:none}
+.sl-dot.west{background:var(--forest)}
+.sl-dot.east{background:oklch(54% .18 228)}
+.sl-dot.mixed{background:var(--gold)}
+/* right column readout */
+.season-readout{padding:.2rem 0}
+/* best-pick card */
+.best-pick{padding:1.1rem 1.3rem;background:oklch(30% .06 140 / 8%);border:1px solid oklch(42% .09 140 / 20%);border-radius:8px;margin-bottom:1.6rem}
+.best-pick .bp-label{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mid);margin-bottom:.35rem}
+.best-pick .bp-region{font-family:var(--display);font-size:1.25rem;color:var(--forest-deep)}
+.best-pick .bp-tag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);margin-left:.7rem}
+/* region rows */
+.season-readout .reg{display:flex;align-items:center;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--line)}
+.season-readout .reg:last-child{border-bottom:none}
+.season-readout .reg .rn{font-family:var(--display);font-size:1rem;flex:none;width:165px}
+.season-readout .reg .gauge{height:5px;border-radius:5px;background:var(--paper-2);overflow:hidden;flex:1}
+.season-readout .reg .gauge i{display:block;height:100%;border-radius:5px;width:100%;transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
+.season-readout .reg .gauge i.q-exc{background:var(--forest)}
+.season-readout .reg .gauge i.q-good{background:var(--gold)}
+.season-readout .reg .gauge i.q-fair{background:oklch(55% .06 50)}
+.season-readout .reg .gauge i.q-off{background:var(--line)}
+.season-readout .reg .rv{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);flex:none;width:76px;text-align:right;white-space:nowrap}
 
 /* ---------- GALLERY ---------- */
 .gal-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem}
@@ -358,6 +397,15 @@ section{position:relative}
 .g5{grid-column:span 4;grid-row:span 2}
 .g6{grid-column:span 5;grid-row:span 2}
 
+/* gallery expand / collapse */
+.gallery-wrap{position:relative}
+.gallery-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:140px;background:linear-gradient(transparent,#0c1a2e);pointer-events:none;transition:opacity .35s ease}
+.gallery-wrap.expanded::after{opacity:0}
+.gallery{max-height:460px;overflow:hidden;transition:max-height .55s cubic-bezier(.4,0,.2,1)}
+.gallery.expanded{overflow:visible}
+.gal-toggle{display:block;margin:1.5rem auto 0;background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff;padding:.6rem 1.6rem;border-radius:2rem;font-size:.85rem;letter-spacing:.06em;cursor:pointer;transition:background .2s,border-color .2s,opacity .2s;font-family:var(--body)}
+.gal-toggle:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.5)}
+
 /* photo placeholders */
 .ph{background-size:cover;background-position:center;background-color:#46402a}
 .ph-sigiriya{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Sigiriya%20Fortress%2C%20Sri%20Lanka.jpg?width=1600');background-color:#8a3b2e}
@@ -372,7 +420,7 @@ section{position:relative}
 .ph-kandy{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Temple%20of%20the%20Tooth%2C%20Kandy.jpg?width=1600');background-color:#2f3a44}
 
 /* ---------- FLEET ---------- */
-.fleet{background:var(--navy);color:var(--paper)}
+.fleet{background:var(--navy);color:var(--paper);padding-top:3rem;padding-bottom:3rem}
 .fleet .sec-head > p{color:var(--text-light)}
 .fleet h2{color:var(--paper);font-size:clamp(2.4rem,5vw,4.4rem)}
 .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3.5rem}
@@ -496,7 +544,10 @@ footer .logo-tagline{color:rgba(244,236,224,.55)}
   .navlinks a{font-size:1.4rem;font-family:var(--display);color:var(--ink)}
   .burger{display:flex;z-index:1001;min-width:44px;min-height:44px;justify-content:center;align-items:center}
   .intro,.map-grid,.contact-grid,.foot-grid,.sec-head,.season-grid,.tour-detail-inner{grid-template-columns:1fr;gap:2.5rem}
+  .months{grid-template-columns:repeat(6,1fr)}
   .fleet-grid{grid-template-columns:1fr}
+  .act-grid{grid-template-columns:repeat(2,1fr)}
+  .fleet-xfer{flex-direction:column;gap:1rem}
   .gallery{grid-template-columns:repeat(6,1fr);grid-auto-rows:120px}
   .g1,.g2,.g3,.g4,.g5,.g6{grid-column:span 3;grid-row:span 2}
   .tour{grid-template-columns:auto 1fr auto;gap:1.2rem;row-gap:.6rem}
@@ -511,6 +562,8 @@ footer .logo-tagline{color:rgba(244,236,224,.55)}
   .g1,.g2,.g3,.g4,.g5,.g6{grid-column:span 1;grid-row:span 1}
   .logo-tagline{display:none}
   .lb .x{top:12px;right:12px}
+  .months{grid-template-columns:repeat(4,1fr)}
+  .season-readout .reg .rn{width:auto;flex:1}
 }
 
 /* ---------- DEST STRIP < 460px: 2-column ---------- */
@@ -535,8 +588,94 @@ footer .logo-tagline{color:rgba(244,236,224,.55)}
   .cookie{bottom:max(20px,calc(14px + env(safe-area-inset-bottom)))}
 }
 
+/* ============================================================
+   LOCAL PHOTOGRAPHY
+   ============================================================ */
+.ph-whale-aerial{background-image:url('img-whale-aerial.jpg');background-color:#0c1a2e;background-position:center 35%}
+.ph-whale-drone{background-image:url('img-whale-drone.jpg');background-color:#0c1a2e;background-position:center 40%}
+.ph-dolphins{background-image:url('img-dolphins.jpg');background-color:#0e233e;background-position:center 50%}
+.ph-dolphins-jump{background-image:url('img-dolphins-jump.jpg');background-color:#0e233e;background-position:center 40%}
+.ph-whale-tail{background-image:url('img-whale-tail.jpg');background-color:#1a2e40;background-position:center 50%}
+.ph-tea-pickers{background-image:url('img-tea-pickers.jpg');background-color:#2c3c26;background-position:center 40%}
+.ph-tea-moment{background-image:url('img-tea-moment.jpg');background-color:#2c3c26;background-position:center 30%}
+.ph-tea-guests{background-image:url('img-tea-guests.jpg');background-color:#2c3c26;background-position:center 35%}
+.ph-sigiriya-group{background-image:url('img-sigiriya.jpg');background-color:#8a3b2e;background-position:center 30%}
+.ph-safari-jeep{background-image:url('img-safari-jeep.jpg');background-color:#2c3c26;background-position:center 40%}
+.ph-turtle{background-image:url('img-turtle.jpg');background-color:#c2a06a;background-position:center 50%}
+.ph-mangrove{background-image:url('img-mangrove.jpg');background-color:#2c3c26;background-position:center 50%}
+.ph-surf{background-image:url('img-surf.jpg');background-color:#1f6b6b;background-position:center 40%}
+.ph-airport-welcome{background-image:url('img-airport-welcome.jpg');background-color:#3a2010;background-position:center 40%}
+/* real leopard over stock */
+.ph-leopard{background-image:url('img-leopard.jpg');background-color:#2a1a08;background-position:center 35%}
+/* new gallery images */
+.ph-whale-breach{background-image:url('img-whale-breach.jpg');background-color:#0c1a2e;background-position:center 35%}
+.ph-whale-beneath{background-image:url('img-whale-beneath.jpg');background-color:#0c1a2e;background-position:center 50%}
+.ph-whale-shark{background-image:url('img-whale-shark.jpg');background-color:#0c1a2e;background-position:center 50%}
+.ph-whale-boat-side{background-image:url('img-whale-boat-side.jpg');background-color:#0c1a2e;background-position:center 50%}
+.ph-whale-coast{background-image:url('img-whale-coast.jpg');background-color:#0c1a2e;background-position:center 40%}
+.ph-whale-fluke-still{background-image:url('img-whale-fluke-still.jpg');background-color:#0c1a2e;background-position:center 45%}
+.ph-whale-horizon{background-image:url('img-whale-horizon.jpg');background-color:#0c1a2e;background-position:center 40%}
+.ph-whale-watch-deck{background-image:url('img-whale-watch-deck.jpg');background-color:#0c2a3a;background-position:center 35%}
+.ph-whale-surface-close{background-image:url('img-whale-surface-close.jpg');background-color:#0c1a2e;background-position:center 50%}
+.ph-whale-fluke-rise{background-image:url('img-whale-fluke-rise.jpg');background-color:#0c1a2e;background-position:center 40%}
+.ph-whale-tail-mountain{background-image:url('img-whale-tail-mountain.jpg');background-color:#1a2e40;background-position:center 45%}
+.ph-dolphin-beneath{background-image:url('img-dolphin-beneath.jpg');background-color:#0e233e;background-position:center 50%}
+.ph-whale-watch-boats{background-image:url('img-whale-watch-boats.jpg');background-color:#0c1a2e;background-position:center 50%}
+.ph-boat-launch{background-image:url('img-boat-launch.jpg');background-color:#0c2a3a;background-position:center 40%}
+.ph-snorkeling{background-image:url('img-snorkeling.jpg');background-color:#0e4a4a;background-position:center 50%}
+.ph-ocean-ready{background-image:url('img-ocean-ready.jpg');background-color:#0c2a3a;background-position:center 40%}
+.ph-jeep-family{background-image:url('img-jeep-family.jpg');background-color:#2a1a08;background-position:center 40%}
+.ph-jeep-kids{background-image:url('img-jeep-kids.jpg');background-color:#2a3a10;background-position:center 35%}
+.ph-tea-factory{background-image:url('img-tea-factory.jpg');background-color:#2c3c26;background-position:center 35%}
+.ph-tea-hillside{background-image:url('img-tea-hillside.jpg');background-color:#2c3c26;background-position:center 40%}
+.ph-plantation-arrival{background-image:url('img-plantation-arrival.jpg');background-color:#2c3c26;background-position:center 40%}
+.ph-tea-photography{background-image:url('img-tea-photography.jpg');background-color:#2c3c26;background-position:center 35%}
+.ph-tea-connection{background-image:url('img-tea-connection.jpg');background-color:#2c3c26;background-position:center 30%}
+.ph-tea-portrait{background-image:url('img-tea-portrait.jpg');background-color:#2c3c26;background-position:center 25%}
+.ph-tea-pair{background-image:url('img-tea-pair.jpg');background-color:#2c3c26;background-position:center 25%}
+.ph-tea-lesson{background-image:url('img-tea-lesson.jpg');background-color:#2c3c26;background-position:center 35%}
+.ph-van-boarding{background-image:url('img-van-boarding.jpg');background-color:#2c3c26;background-position:center 40%}
+.ph-resort-guests{background-image:url('img-resort-guests.jpg');background-color:#3a2010;background-position:center 30%}
+.ph-journey-end{background-image:url('img-journey-end.jpg');background-color:#2c3c26;background-position:center 40%}
+.ph-airport-family{background-image:url('img-airport-family.jpg');background-color:#3a2010;background-position:center 30%}
+.ph-welcome-nameplate{background-image:url('img-welcome-nameplate.jpg');background-color:#3a2010;background-position:center 25%}
+.ph-nameplate-richi{background-image:url('img-nameplate-richi.jpg');background-color:#3a2010;background-position:center 25%}
+/* interstitial: whale drone over tea plantation */
+.interstitial .par.bg{background-image:url('img-whale-drone.jpg');background-color:#0c1a2e}
+
+/* ---------- GALLERY EXTRA ROWS (g7–g47) ---------- */
+.g7{grid-column:span 6;grid-row:span 2}
+.g8{grid-column:span 6;grid-row:span 2}
+.g9{grid-column:span 4;grid-row:span 2}
+.g10{grid-column:span 4;grid-row:span 2}
+.g11{grid-column:span 4;grid-row:span 2}
+.g12{grid-column:span 12;grid-row:span 2}
+.g13{grid-column:span 4;grid-row:span 2}
+.g14{grid-column:span 4;grid-row:span 2}
+.g15{grid-column:span 4;grid-row:span 2}
+.g16{grid-column:span 6;grid-row:span 2}
+.g17{grid-column:span 6;grid-row:span 2}
+.g18,.g19,.g20,.g21,.g22,.g23,.g24,.g25,.g26,.g27,.g28,.g29{grid-column:span 4;grid-row:span 2}
+.g30{grid-column:span 6;grid-row:span 2}
+.g31{grid-column:span 6;grid-row:span 2}
+.g32,.g33,.g34,.g35,.g36,.g37,.g38,.g39,.g40,.g41,.g42,.g43{grid-column:span 4;grid-row:span 2}
+.g44{grid-column:span 12;grid-row:span 2}
+.g45,.g46,.g47{grid-column:span 4;grid-row:span 2}
+@media(max-width:900px){.g7,.g8,.g9,.g10,.g11{grid-column:span 3;grid-row:span 2}.g12{grid-column:span 6;grid-row:span 2}.g13,.g14,.g15{grid-column:span 4;grid-row:span 2}.g44{grid-column:span 6;grid-row:span 2}}
+@media(max-width:560px){.g7,.g8,.g9,.g10,.g11,.g12,.g13,.g14,.g15,.g16,.g17,.g18,.g19,.g20,.g21,.g22,.g23,.g24,.g25,.g26,.g27,.g28,.g29,.g30,.g31,.g32,.g33,.g34,.g35,.g36,.g37,.g38,.g39,.g40,.g41,.g42,.g43,.g44,.g45,.g46,.g47{grid-column:span 1;grid-row:span 1}}
+
+/* ---------- TOUR MEDIA SLIDESHOW ---------- */
+.media-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.05);transition:opacity .9s var(--ease),transform 8s ease}
+.media-slide.active{opacity:1}
+.tour-wrap.open .media-slide.active{transform:scale(1.14)}
+.media-dots{position:absolute;bottom:1rem;right:1rem;display:flex;gap:.4rem;z-index:10;align-items:center}
+.media-dot{width:6px;height:6px;border-radius:50%;background:rgba(244,236,224,.3);border:1px solid rgba(244,236,224,.55);padding:0;cursor:pointer;transition:background .3s,transform .3s}
+.media-dot.active{background:var(--paper);transform:scale(1.4)}
+@media(pointer:coarse){.media-dot{padding:6px;background-clip:content-box}}
+
 /* ---------- GALLERY SECTION (dark) ---------- */
 .gallery-sec{background:var(--navy)}
+.gallery-sec .pad{padding-bottom:2.5rem}
 .gallery-sec .gal-head h2{color:var(--paper);font-size:clamp(2.4rem,5.5vw,4.6rem)}
 .gallery-sec .gal-head p{color:oklch(95% .013 65 / 62%);max-width:30ch}
 
