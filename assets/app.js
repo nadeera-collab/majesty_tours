@@ -125,12 +125,19 @@ addEventListener('scroll',onScroll,{passive:true});onScroll();
 
 const burger=$('#burger'),links=$('#links');
 burger.onclick=()=>{
-  links.classList.toggle('open');
+  const isOpen=links.classList.toggle('open');
   burger.classList.toggle('open');
-  burger.setAttribute('aria-expanded',String(links.classList.contains('open')));
-  burger.setAttribute('aria-label',links.classList.contains('open')?'Close navigation menu':'Open navigation menu');
+  burger.setAttribute('aria-expanded',String(isOpen));
+  burger.setAttribute('aria-label',isOpen?'Close navigation menu':'Open navigation menu');
+  if(isOpen){const first=links.querySelector('a');if(first)setTimeout(()=>first.focus(),50);}
 };
-$$('a',links).forEach(a=>a.onclick=()=>{links.classList.remove('open');burger.classList.remove('open');});
+$$('a',links).forEach(a=>a.onclick=()=>{
+  links.classList.remove('open');
+  burger.classList.remove('open');
+  burger.setAttribute('aria-expanded','false');
+  burger.setAttribute('aria-label','Open navigation menu');
+  burger.focus();
+});
 
 /* active section highlight */
 const navMap={};
@@ -138,8 +145,8 @@ $$('.navlinks a[href^="#"]').forEach(a=>{const id=a.getAttribute('href').slice(1
 const secObserver=new IntersectionObserver(es=>{
   es.forEach(e=>{
     if(e.isIntersecting){
-      $$('.navlinks a').forEach(a=>a.classList.remove('current'));
-      const a=navMap[e.target.id];if(a)a.classList.add('current');
+      $$('.navlinks a').forEach(a=>{a.classList.remove('current');a.removeAttribute('aria-current');});
+      const a=navMap[e.target.id];if(a){a.classList.add('current');a.setAttribute('aria-current','true');}
     }
   });
 },{rootMargin:'-45% 0px -50% 0px'});
@@ -403,9 +410,9 @@ if(monthsBox){
     seasonReadout.innerHTML=seasonData.regions.map((r,ri)=>{
       const v=seasonData.scores[ri][i];
       const tag=v>=85?'Excellent':v>=70?'Good':v>=58?'Fair':'Off-season';
-      return `<div class="reg"><span class="rn">${r}</span><span class="gauge"><i style="width:0" data-w="${v}"></i></span><span class="rv">${tag}</span></div>`;
+      return `<div class="reg"><span class="rn">${r}</span><span class="gauge"><i data-w="${v}"></i></span><span class="rv">${tag}</span></div>`;
     }).join('');
-    requestAnimationFrame(()=>requestAnimationFrame(()=>{$$('#seasonReadout .gauge i').forEach(g=>g.style.width=g.dataset.w+'%');}));
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{$$('#seasonReadout .gauge i').forEach(g=>g.style.transform='scaleX('+g.dataset.w/100+')');}))
     seasonNote.innerHTML=`<b>${MO[i]} </b> ${seasonData.notes[i]}`;
   }
   const now=new Date().getMonth();
@@ -446,14 +453,14 @@ if(lb){
   function open(i){
     render(i);
     lb.classList.add('open');
-    lb.setAttribute('role','dialog');
-    lb.setAttribute('aria-modal','true');
+    lb.removeAttribute('aria-hidden');
     document.body.style.overflow='hidden';
     lastFocus=document.activeElement;
-    setTimeout(()=>$('#lbNext').focus(),50);
+    setTimeout(()=>$('#lbx').focus(),50);
   }
   function close(){
     lb.classList.remove('open');
+    lb.setAttribute('aria-hidden','true');
     document.body.style.overflow='';
     lastFocus?.focus();
   }
@@ -552,7 +559,10 @@ if(form){
     if(!ok){const first=$('.field.invalid input,.field.invalid textarea');first?.focus();return;}
     // success
     form.style.display='none';
-    $('#formSuccess').classList.add('show');
+    const successEl=$('#formSuccess');
+    successEl.classList.add('show');
+    const successH=successEl.querySelector('h3');
+    if(successH){successH.setAttribute('tabindex','-1');successH.focus();}
   };
 }
 
