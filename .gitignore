@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+assets/.DS_Store
+
+# Raw source material (not referenced by the website)
+majesty contents/
+
+# Editor
+.vscode/
