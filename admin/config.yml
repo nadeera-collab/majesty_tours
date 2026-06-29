@@ -1,0 +1,55 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: assets
+public_folder: assets
+
+collections:
+  - name: "site"
+    label: "Website Content"
+    files:
+
+      - label: "Contact & Info"
+        name: "contact"
+        file: "content.json"
+        format: json
+        fields:
+          - label: "Contact Details"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Primary Phone", name: "phone_primary", widget: "string" }
+              - { label: "Secondary Phone", name: "phone_secondary", widget: "string" }
+              - { label: "Email Address", name: "email", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+
+          - label: "Platform Links"
+            name: "platforms"
+            widget: "object"
+            fields:
+              - { label: "Google Business URL", name: "google", widget: "string" }
+              - { label: "TripAdvisor URL", name: "tripadvisor", widget: "string" }
+              - { label: "Airbnb Experiences URL", name: "airbnb", widget: "string" }
+              - { label: "GetYourGuide URL", name: "getyourguide", widget: "string" }
+              - { label: "Viator URL", name: "viator", widget: "string" }
+              - { label: "TourRadar URL", name: "tourradar", widget: "string" }
+
+          - label: "Stats"
+            name: "stats"
+            widget: "object"
+            fields:
+              - { label: "Years Guiding", name: "years", widget: "number" }
+              - { label: "Routes Mapped", name: "routes", widget: "number" }
+              - { label: "Traveller Rating", name: "rating", widget: "number", value_type: "float" }
+
+          - label: "Tours"
+            name: "tours"
+            widget: "list"
+            allow_add: false
+            minimize_collapsed: true
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Tags / Destinations", name: "tags", widget: "string" }
+              - { label: "Price (e.g. from $390)", name: "price", widget: "string" }
+              - { label: "Duration (e.g. 4 days · private)", name: "duration", widget: "string" }

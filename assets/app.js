@@ -1,6 +1,59 @@
 /* ============================================================
    MAJESTY TOURS interactivity
    ============================================================ */
+
+/* ---------- CONTENT LOADER ---------- */
+(function(){
+  function applyContent(data){
+    const c = data.contact || {};
+    const p = data.platforms || {};
+    const s = data.stats || {};
+    const tours = data.tours || [];
+
+    const set = (sel, val) => { const el = document.querySelector(sel); if(el && val) el.textContent = val; };
+    const href = (sel, val) => { const el = document.querySelector(sel); if(el && val && val !== '#') el.href = val; };
+
+    set('[data-c="phone_primary"]', c.phone_primary);
+    set('[data-c="phone_secondary"]', c.phone_secondary);
+    set('[data-c="email"]', c.email);
+    set('[data-c="location"]', c.location);
+
+    href('[data-p="google"]', p.google);
+    href('[data-p="tripadvisor"]', p.tripadvisor);
+    href('[data-p="airbnb"]', p.airbnb);
+    href('[data-p="getyourguide"]', p.getyourguide);
+    href('[data-p="viator"]', p.viator);
+    href('[data-p="tourradar"]', p.tourradar);
+
+    if(s.years)   { const el = document.querySelector('[data-count="17"]'); if(el){ el.dataset.count = s.years; el.textContent = s.years; el.nextElementSibling && (el.nextElementSibling.textContent = s.years); } }
+    if(s.routes)  { const el = document.querySelector('[data-count="40"]'); if(el){ el.dataset.count = s.routes; el.textContent = s.routes; el.nextElementSibling && (el.nextElementSibling.textContent = s.routes); } }
+    if(s.rating)  { const el = document.querySelector('[data-count="4.9"]'); if(el){ el.dataset.count = s.rating; el.textContent = s.rating; el.nextElementSibling && (el.nextElementSibling.textContent = s.rating); } }
+
+    tours.forEach((t, i) => {
+      const wrap = document.querySelector(`[data-tour-index="${i}"]`);
+      if(!wrap) return;
+      const nameEl = wrap.querySelector('.name');
+      const tagsEl = wrap.querySelector('.tags');
+      const priceEl = wrap.querySelector('.meta b');
+      const durEl = wrap.querySelector('.meta');
+      if(nameEl && t.name) nameEl.textContent = t.name;
+      if(tagsEl && t.tags) tagsEl.textContent = t.tags;
+      if(priceEl && t.price) priceEl.textContent = t.price;
+      if(durEl && t.duration) {
+        const b = durEl.querySelector('b');
+        durEl.textContent = '';
+        if(b) durEl.appendChild(b);
+        durEl.appendChild(document.createTextNode(t.duration));
+      }
+    });
+  }
+
+  fetch('/content.json')
+    .then(r => r.ok ? r.json() : null)
+    .then(d => { if(d) applyContent(d); })
+    .catch(() => {});
+})();
+
 (function(){
 'use strict';
 const $=(s,c)=>(c||document).querySelector(s);

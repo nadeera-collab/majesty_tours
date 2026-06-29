@@ -1,0 +1,53 @@
+{
+  "contact": {
+    "phone_primary": "+94 75 549 9691",
+    "phone_secondary": "+94 71 089 1883",
+    "email": "info@majestytourssrilanka.com",
+    "location": "Island-wide, Sri Lanka"
+  },
+  "platforms": {
+    "google": "#",
+    "tripadvisor": "#",
+    "airbnb": "#",
+    "getyourguide": "#",
+    "viator": "#",
+    "tourradar": "#"
+  },
+  "stats": {
+    "years": 17,
+    "routes": 40,
+    "rating": 4.9
+  },
+  "tours": [
+    {
+      "name": "The Cultural Triangle",
+      "tags": "Sigiriya · Dambulla · Polonnaruwa · Kandy",
+      "price": "from $390",
+      "duration": "4 days · private"
+    },
+    {
+      "name": "Hill Country & Tea",
+      "tags": "Nuwara Eliya · Ella · Haputale · the blue train",
+      "price": "from $310",
+      "duration": "3 days · private"
+    },
+    {
+      "name": "Wildlife & Safari",
+      "tags": "Yala · Udawalawe · Wilpattu leopard country",
+      "price": "from $260",
+      "duration": "2 days · private"
+    },
+    {
+      "name": "The Southern Coast",
+      "tags": "Galle · Mirissa whales · Unawatuna · stilt fishers",
+      "price": "from $280",
+      "duration": "3 days · private"
+    },
+    {
+      "name": "The Grand Island",
+      "tags": "Everything above · coast to summit · island-wide",
+      "price": "from $1,640",
+      "duration": "14 days · private"
+    }
+  ]
+}
