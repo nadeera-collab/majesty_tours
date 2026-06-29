@@ -53,3 +53,29 @@ collections:
               - { label: "Tags / Destinations", name: "tags", widget: "string" }
               - { label: "Price (e.g. from $390)", name: "price", widget: "string" }
               - { label: "Duration (e.g. 4 days · private)", name: "duration", widget: "string" }
+              - label: "Slideshow Images"
+                name: "images"
+                widget: "list"
+                allow_add: true
+                allow_delete: true
+                minimize_collapsed: true
+                summary: "{{fields.caption}}"
+                fields:
+                  - { label: "Photo", name: "image", widget: "image", required: false }
+                  - { label: "Caption", name: "caption", widget: "string", required: false }
+
+      - label: "Gallery Photos"
+        name: "gallery"
+        file: "gallery.json"
+        format: json
+        fields:
+          - label: "Gallery Items"
+            name: "items"
+            widget: "list"
+            allow_add: true
+            allow_delete: true
+            minimize_collapsed: true
+            summary: "{{fields.caption}}"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Caption", name: "caption", widget: "string" }
