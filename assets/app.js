@@ -176,6 +176,23 @@ $$('a',links).forEach(a=>a.onclick=()=>{
   burger.focus();
 });
 
+/* ---------- NAV KEYBOARD: ESCAPE + FOCUS TRAP ---------- */
+document.addEventListener('keydown',e=>{
+  if(!links.classList.contains('open'))return;
+  if(e.key==='Escape'){
+    links.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+    burger.setAttribute('aria-label','Open navigation menu');
+    burger.focus();
+  }
+});
+document.addEventListener('focusin',e=>{
+  if(links.classList.contains('open')&&!links.contains(e.target)&&e.target!==burger){
+    const first=$$('a',links)[0];if(first)first.focus();
+  }
+});
+
 /* active section highlight */
 const navMap={};
 $$('.navlinks a[href^="#"]').forEach(a=>{const id=a.getAttribute('href').slice(1);if(id)navMap[id]=a;});
@@ -568,6 +585,24 @@ if(lb){
 }
 
 /* ============================================================
+   GALLERY LAZY BACKGROUND IMAGES
+   ============================================================ */
+{
+  const OVERRIDE={'ph-sigiriya-group':'img-sigiriya.jpg'};
+  function phToUrl(ph){return 'assets/'+(OVERRIDE[ph]||ph.replace('ph-','img-')+'.jpg');}
+  const lazyBg=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(!e.isIntersecting)return;
+      const phEl=e.target.querySelector('.ph');
+      if(phEl&&!phEl.style.backgroundImage)
+        phEl.style.backgroundImage="url('"+phToUrl(e.target.dataset.ph)+"')";
+      lazyBg.unobserve(e.target);
+    });
+  },{rootMargin:'400px 0px'});
+  $$('.gitem[data-ph]').forEach(g=>lazyBg.observe(g));
+}
+
+/* ============================================================
    TOUR MEDIA SLIDESHOW
    ============================================================ */
 $$('.media-dots').forEach(dotsEl=>{
@@ -620,7 +655,12 @@ if(qSlides.length&&qNav){
 
 /* ============================================================
    CONTACT FORM
+   Set up: create a free form at https://formspree.io pointing
+   to info@majestytourssrilanka.com, then replace YOUR_FORM_ID
+   below with the ID from your Formspree dashboard.
    ============================================================ */
+const FORM_ENDPOINT='https://formspree.io/f/YOUR_FORM_ID';
+
 const form=$('#inquiryForm');
 if(form){
   // journey chips
@@ -638,7 +678,11 @@ if(form){
     field.removeAttribute('aria-invalid');
   }
   $$('input,textarea',form).forEach(i=>i.addEventListener('input',()=>clearErr(i)));
-  form.onsubmit=e=>{
+
+  const submitBtn=form.querySelector('[type="submit"]');
+  const errBanner=$('#formError');
+
+  form.onsubmit=async(e)=>{
     e.preventDefault();
     if(form.company_website.value)return; // honeypot
     let ok=true;
@@ -646,12 +690,34 @@ if(form){
     if(!name.value.trim()){setErr(name,'Please tell us your name.');ok=false;}
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)){setErr(email,'A valid email lets us reply.');ok=false;}
     if(!ok){const first=$('.field.invalid input,.field.invalid textarea');first?.focus();return;}
-    // success
-    form.style.display='none';
-    const successEl=$('#formSuccess');
-    successEl.classList.add('show');
-    const successH=successEl.querySelector('h3');
-    if(successH){successH.setAttribute('tabindex','-1');successH.focus();}
+
+    // loading state — prevent double-submit
+    submitBtn.disabled=true;
+    submitBtn.innerHTML='Sending <span class="arr">&#8230;</span>';
+    if(errBanner)errBanner.hidden=true;
+
+    try{
+      const fd=new FormData(form);
+      const res=await fetch(FORM_ENDPOINT,{method:'POST',body:fd,headers:{'Accept':'application/json'}});
+      if(res.ok){
+        form.style.display='none';
+        const successEl=$('#formSuccess');
+        successEl.classList.add('show');
+        const successH=successEl.querySelector('h3');
+        if(successH){successH.setAttribute('tabindex','-1');successH.focus();}
+      }else{
+        const data=await res.json().catch(()=>({}));
+        throw new Error(data.error||'The server returned an error.');
+      }
+    }catch(err){
+      if(errBanner){
+        errBanner.textContent='Something went wrong — please try again, or reach us directly at info@majestytourssrilanka.com';
+        errBanner.hidden=false;
+        errBanner.focus();
+      }
+      submitBtn.disabled=false;
+      submitBtn.innerHTML='Send inquiry <span class="arr">→</span>';
+    }
   };
 }
 
