@@ -23,31 +23,62 @@
       "name": "The Cultural Triangle",
       "tags": "Sigiriya · Dambulla · Polonnaruwa · Kandy",
       "price": "from $390",
-      "duration": "4 days · private"
+      "duration": "4 days · private",
+      "images": [
+        { "image": "assets/img-sigiriya.jpg", "caption": "Sigiriya · Lion Rock" },
+        { "image": "", "caption": "Dambulla · Cave Temples" },
+        { "image": "", "caption": "Kandy · Temple of the Tooth" }
+      ]
     },
     {
       "name": "Hill Country & Tea",
       "tags": "Nuwara Eliya · Ella · Haputale · the blue train",
       "price": "from $310",
-      "duration": "3 days · private"
+      "duration": "3 days · private",
+      "images": [
+        { "image": "assets/img-tea-pickers.jpg", "caption": "Tea country · Nuwara Eliya" },
+        { "image": "assets/img-tea-moment.jpg", "caption": "Meeting the tea pickers" },
+        { "image": "assets/img-tea-guests.jpg", "caption": "Learning to pick tea" },
+        { "image": "", "caption": "Ella · Nine Arches Bridge" }
+      ]
     },
     {
       "name": "Wildlife & Safari",
       "tags": "Yala · Udawalawe · Wilpattu leopard country",
       "price": "from $260",
-      "duration": "2 days · private"
+      "duration": "2 days · private",
+      "images": [
+        { "image": "assets/img-leopard.jpg", "caption": "Yala · leopard at water" },
+        { "image": "assets/img-safari-jeep.jpg", "caption": "Into the wild" },
+        { "image": "assets/img-turtle.jpg", "caption": "Sea turtle, southern coast" },
+        { "image": "", "caption": "Udawalawe · elephants" }
+      ]
     },
     {
       "name": "The Southern Coast",
       "tags": "Galle · Mirissa whales · Unawatuna · stilt fishers",
       "price": "from $280",
-      "duration": "3 days · private"
+      "duration": "3 days · private",
+      "images": [
+        { "image": "assets/img-whale-aerial.jpg", "caption": "Blue whale · Mirissa" },
+        { "image": "assets/img-whale-drone.jpg", "caption": "Blue whale, aerial view" },
+        { "image": "assets/img-dolphins.jpg", "caption": "Spinner dolphins, offshore" },
+        { "image": "assets/img-surf.jpg", "caption": "Riding a wave · Weligama" },
+        { "image": "", "caption": "Stilt fishers · Koggala" }
+      ]
     },
     {
       "name": "The Grand Island",
       "tags": "Everything above · coast to summit · island-wide",
       "price": "from $1,640",
-      "duration": "14 days · private"
+      "duration": "14 days · private",
+      "images": [
+        { "image": "assets/img-whale-aerial.jpg", "caption": "Blue whale · Mirissa" },
+        { "image": "assets/img-tea-pickers.jpg", "caption": "Tea country · Nuwara Eliya" },
+        { "image": "assets/img-leopard.jpg", "caption": "Yala · leopard" },
+        { "image": "assets/img-sigiriya.jpg", "caption": "Sigiriya · Lion Rock" },
+        { "image": "", "caption": "The southern coast" }
+      ]
     }
   ]
 }
