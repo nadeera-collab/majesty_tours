@@ -62,7 +62,7 @@
     });
   }
 
-  fetch('/content.json')
+  fetch('./content.json')
     .then(r => r.ok ? r.json() : null)
     .then(d => { if(d) applyContent(d); })
     .catch(() => {});
@@ -275,6 +275,7 @@ const secObserver=new IntersectionObserver(es=>{
 
 
 /* ---------- REVEAL ON SCROLL ---------- */
+document.documentElement.classList.add('js-ready');
 const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
 }),{threshold:.16});
@@ -560,7 +561,7 @@ function renderGallery(items){
     const ph=IMG_TO_PH[filename]||'ph-'+filename.replace(/^img-/,'').replace(/\.[^.]+$/,'');
     const delay=(i%3===1)?' d1':(i%3===2)?' d2':'';
     const el=document.createElement('div');
-    el.className='gitem g'+(i+1)+' reveal'+delay;
+    el.className='gitem g'+(i+1);
     el.dataset.ph=ph;
     el.dataset.img=item.image||'';
     el.setAttribute('role','button');
@@ -686,7 +687,8 @@ function initGalleryExpand(){
   };
 }
 
-fetch('/gallery.json')
+initGalleryExpand();
+fetch('./gallery.json')
   .then(r=>r.ok?r.json():null)
   .then(data=>{
     if(!data||!data.items)return;
@@ -694,7 +696,6 @@ fetch('/gallery.json')
     $$('#galleryGrid .gitem').forEach(el=>io.observe(el));
     initLightbox();
     initGalleryLazy();
-    initGalleryExpand();
     const galBtn=document.querySelector('.gal-toggle');
     if(galBtn)galBtn.textContent='View all '+data.items.length+' photos';
   })
@@ -757,7 +758,7 @@ if(qSlides.length&&qNav){
    to info@majestytourssrilanka.com, then replace YOUR_FORM_ID
    below with the ID from your Formspree dashboard.
    ============================================================ */
-const FORM_ENDPOINT='https://formspree.io/f/YOUR_FORM_ID';
+const FORM_ENDPOINT='https://script.google.com/macros/s/AKfycbyVav5fXjtOAd-0zj9ivhdMW-GxYR5Qccof2cK3yxYSb99KpRIMiq4NMtCMh2WwgcAhWQ/exec';
 
 const form=$('#inquiryForm');
 if(form){
@@ -796,17 +797,13 @@ if(form){
 
     try{
       const fd=new FormData(form);
-      const res=await fetch(FORM_ENDPOINT,{method:'POST',body:fd,headers:{'Accept':'application/json'}});
-      if(res.ok){
-        form.style.display='none';
-        const successEl=$('#formSuccess');
-        successEl.classList.add('show');
-        const successH=successEl.querySelector('h3');
-        if(successH){successH.setAttribute('tabindex','-1');successH.focus();}
-      }else{
-        const data=await res.json().catch(()=>({}));
-        throw new Error(data.error||'The server returned an error.');
-      }
+      // Google Apps Script requires no-cors; response is opaque so we show success optimistically
+      await fetch(FORM_ENDPOINT,{method:'POST',body:fd,mode:'no-cors'});
+      form.style.display='none';
+      const successEl=$('#formSuccess');
+      successEl.classList.add('show');
+      const successH=successEl.querySelector('h3');
+      if(successH){successH.setAttribute('tabindex','-1');successH.focus();}
     }catch(err){
       if(errBanner){
         errBanner.textContent='Something went wrong — please try again, or reach us directly at info@majestytourssrilanka.com';
@@ -870,6 +867,6 @@ if(fine&&!reduce){
 setTimeout(()=>{
   document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in'));
   document.querySelectorAll('.split:not(.in)').forEach(el=>el.classList.add('in'));
-},3500);
+},1200);
 
 })();
