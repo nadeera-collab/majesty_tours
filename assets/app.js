@@ -62,10 +62,12 @@
     });
   }
 
-  fetch('./content.json')
-    .then(r => r.ok ? r.json() : null)
-    .then(d => { if(d) applyContent(d); })
-    .catch(() => {});
+  if(location.protocol !== 'file:'){
+    fetch('./content.json')
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { if(d) applyContent(d); })
+      .catch(() => {});
+  }
 })();
 
 (function(){
@@ -688,18 +690,23 @@ function initGalleryExpand(){
 }
 
 initGalleryExpand();
-fetch('./gallery.json')
-  .then(r=>r.ok?r.json():null)
-  .then(data=>{
-    if(!data||!data.items)return;
-    renderGallery(data.items);
-    $$('#galleryGrid .gitem').forEach(el=>io.observe(el));
-    initLightbox();
-    initGalleryLazy();
-    const galBtn=document.querySelector('.gal-toggle');
-    if(galBtn)galBtn.textContent='View all '+data.items.length+' photos';
-  })
-  .catch(()=>{});
+function _initGallery(data){
+  if(!data||!data.items)return;
+  renderGallery(data.items);
+  $$('#galleryGrid .gitem').forEach(el=>io.observe(el));
+  initLightbox();
+  initGalleryLazy();
+  const galBtn=document.querySelector('.gal-toggle');
+  if(galBtn)galBtn.textContent='View all '+data.items.length+' photos';
+}
+if(window.GALLERY_DATA){
+  _initGallery(window.GALLERY_DATA);
+}else if(location.protocol !== 'file:'){
+  fetch('./gallery.json')
+    .then(r=>r.ok?r.json():null)
+    .then(_initGallery)
+    .catch(()=>{});
+}
 
 /* ============================================================
    TOUR MEDIA SLIDESHOW
@@ -709,20 +716,52 @@ $$('.media-dots').forEach(dotsEl=>{
   const slides=$$('.media-slide',media);
   const capEl=$('.badge-cap',media);
   if(!slides.length)return;
+  dotsEl.innerHTML='';
+  if(slides[0])slides[0].classList.add('active');
+  let current=0;
+
+  function goTo(i){
+    i=Math.max(0,Math.min(slides.length-1,i));
+    slides.forEach(s=>s.classList.remove('active'));
+    dotsEl.querySelectorAll('.media-dot').forEach(d=>d.classList.remove('active'));
+    slides[i].classList.add('active');
+    dotsEl.querySelectorAll('.media-dot')[i]?.classList.add('active');
+    if(capEl)capEl.textContent=slides[i].dataset.cap||'';
+    current=i;
+  }
+
   slides.forEach((_,i)=>{
     const b=document.createElement('button');
     b.className='media-dot'+(i===0?' active':'');
     b.setAttribute('aria-label','Photo '+(i+1));
-    b.onclick=e=>{
-      e.stopPropagation();
-      slides.forEach(s=>s.classList.remove('active'));
-      dotsEl.querySelectorAll('.media-dot').forEach(d=>d.classList.remove('active'));
-      slides[i].classList.add('active');
-      b.classList.add('active');
-      if(capEl)capEl.textContent=slides[i].dataset.cap||'';
-    };
+    b.onclick=e=>{e.stopPropagation();goTo(i);};
     dotsEl.append(b);
   });
+
+  // drag / swipe
+  let startX=0,dragging=false,moved=false;
+  media.addEventListener('pointerdown',e=>{
+    if(e.button&&e.button!==0)return;
+    startX=e.clientX;dragging=true;moved=false;
+    media.setPointerCapture(e.pointerId);
+  });
+  media.addEventListener('pointermove',e=>{
+    if(!dragging)return;
+    if(Math.abs(e.clientX-startX)>6)moved=true;
+  });
+  media.addEventListener('pointerup',e=>{
+    if(!dragging)return;
+    dragging=false;
+    const dx=e.clientX-startX;
+    if(moved&&Math.abs(dx)>40){
+      e.stopPropagation();
+      goTo(dx<0?current+1:current-1);
+    }
+    moved=false;
+  });
+  media.addEventListener('pointercancel',()=>{dragging=false;moved=false;});
+  // prevent click-through after a drag
+  media.addEventListener('click',e=>{if(moved)e.stopPropagation();});
 });
 
 /* ============================================================
@@ -760,14 +799,280 @@ if(qSlides.length&&qNav){
    ============================================================ */
 const FORM_ENDPOINT='https://script.google.com/macros/s/AKfycbyVav5fXjtOAd-0zj9ivhdMW-GxYR5Qccof2cK3yxYSb99KpRIMiq4NMtCMh2WwgcAhWQ/exec';
 
+function wireCopyBtn(btnId,getTextFn){
+  const btn=document.getElementById(btnId);
+  if(!btn)return;
+  btn.addEventListener('click',()=>{
+    const text=getTextFn();
+    if(!text)return;
+    navigator.clipboard.writeText(text).then(()=>{
+      btn.classList.add('copied');
+      setTimeout(()=>btn.classList.remove('copied'),2000);
+    }).catch(()=>{});
+  });
+}
+wireCopyBtn('copyInqId',()=>document.getElementById('inqIdDisplay')?.textContent?.trim());
+wireCopyBtn('copyFcRef',()=>document.getElementById('fcSuccessRef')?.textContent?.replace(/^Ref:\s*/,'').trim());
+
+/* ============================================================
+   CART — page-scoped so section buttons share the same state
+   ============================================================ */
+const cart=new Set();
+const cartPrices=new Map();
+
+// Restore cart from localStorage
+(function(){
+  try{
+    const saved=localStorage.getItem('majesty_cart');
+    if(saved){
+      const {items,prices}=JSON.parse(saved);
+      if(Array.isArray(items))items.forEach(i=>cart.add(i));
+      if(prices&&typeof prices==='object')Object.entries(prices).forEach(([k,v])=>cartPrices.set(k,v));
+    }
+  }catch(e){}
+})();
+
+function renderCartTags(container){
+  container.innerHTML='';
+  cart.forEach(item=>{
+    const tag=document.createElement('span');
+    tag.className='cart-tag';
+    tag.innerHTML=`${item}<button type="button" aria-label="Remove ${item}">×</button>`;
+    tag.querySelector('button').onclick=()=>cartToggle(item);
+    container.appendChild(tag);
+  });
+}
+
+const cartToggleBtn=document.querySelector('.cart-toggle');
+const cartBody=document.getElementById('cartBody');
+cartToggleBtn?.addEventListener('click',()=>{
+  const expanded=cartToggleBtn.getAttribute('aria-expanded')==='true';
+  cartToggleBtn.setAttribute('aria-expanded',String(!expanded));
+  cartBody.hidden=expanded;
+});
+
+function saveCart(){
+  try{
+    const prices={};
+    cartPrices.forEach((v,k)=>prices[k]=v);
+    localStorage.setItem('majesty_cart',JSON.stringify({items:[...cart],prices}));
+  }catch(e){}
+}
+
+function updateCart(){
+  saveCart();
+  const cartField=$('#cartField');
+  if(cartField)cartField.value=buildCartString();
+
+  // auto-expand cart body when items are added
+  if(cart.size>0&&cartBody&&cartBody.hidden){
+    cartBody.hidden=false;
+    cartToggleBtn?.setAttribute('aria-expanded','true');
+  }
+
+  // sync .in-cart on every [data-item] element across all sections
+  $$('.cart-item[data-item]').forEach(el=>el.classList.toggle('in-cart',cart.has(el.dataset.item)));
+  $$('.tour-cart-btn[data-item]').forEach(el=>el.classList.toggle('in-cart',cart.has(el.dataset.item)));
+  $$('.act-card[data-item]').forEach(el=>el.classList.toggle('in-cart',cart.has(el.dataset.item)));
+  $$('.fleet-xfer-cart[data-item]').forEach(el=>el.classList.toggle('in-cart',cart.has(el.dataset.item)));
+
+  // in-form basket
+  const basket=$('#cartBasket');
+  const basketItems=$('#cartBasketItems');
+  if(basket&&basketItems){
+    if(cart.size===0){basket.hidden=true;basketItems.innerHTML='';}
+    else{basket.hidden=false;renderCartTags(basketItems);}
+  }
+
+  // floating cart
+  const fc=$('#floatCart');
+  if(fc){
+    const badge=fc.querySelector('.fc-badge');
+    if(badge)badge.textContent=cart.size;
+    fc.classList.toggle('has-items',cart.size>0);
+    if(cart.size===0)fc.classList.remove('open');
+    const fcItems=fc.querySelector('.fc-items');
+    if(fcItems){
+      if(cart.size===0)fcItems.innerHTML='<span class="fc-empty">No items yet — explore above</span>';
+      else renderCartTags(fcItems);
+    }
+    const hasItems=cart.size>0;
+    const s1=$('#fcStep1'),s2=$('#fcStep2'),fcSteps=$('#fcSteps');
+    if(s1)s1.hidden=!hasItems;
+    if(s2)s2.hidden=true;
+    if(fcSteps)fcSteps.hidden=!hasItems;
+    document.querySelectorAll('.fc-step-dot').forEach((d,i)=>d.classList.toggle('active',i===0));
+  }
+}
+
+function animateCartAdd(sourceEl){
+  // bounce the clicked button
+  if(sourceEl){
+    sourceEl.classList.remove('bounce');
+    void sourceEl.offsetWidth;
+    sourceEl.classList.add('bounce');
+    sourceEl.addEventListener('animationend',()=>sourceEl.classList.remove('bounce'),{once:true});
+  }
+  // ring ping on the float toggle
+  const toggle=document.querySelector('#floatCart .fc-toggle');
+  if(toggle){
+    toggle.classList.remove('adding');
+    void toggle.offsetWidth;
+    toggle.classList.add('adding');
+    toggle.addEventListener('animationend',()=>toggle.classList.remove('adding'),{once:true});
+  }
+  // pop the badge count
+  const badge=document.querySelector('#floatCart .fc-badge');
+  if(badge){
+    badge.classList.remove('pop');
+    void badge.offsetWidth;
+    badge.classList.add('pop');
+    badge.addEventListener('animationend',()=>badge.classList.remove('pop'),{once:true});
+  }
+}
+
+function cartToggle(item,sourceEl){
+  const adding=!cart.has(item);
+  if(adding){
+    cart.add(item);
+    const priceEl=sourceEl?.dataset?.price?sourceEl:sourceEl?.closest('[data-price]');
+    if(priceEl?.dataset?.price)cartPrices.set(item,priceEl.dataset.price);
+  }else{
+    cart.delete(item);
+    cartPrices.delete(item);
+  }
+  updateCart();
+  if(adding)animateCartAdd(sourceEl);
+}
+
+function buildCartString(){
+  return [...cart].map(item=>{
+    const p=cartPrices.get(item);
+    return p?`${item} (${p})`:item;
+  }).join(', ');
+}
+function buildCartTotalHint(){
+  let total=0;
+  cartPrices.forEach(p=>{
+    const m=p.match(/\$([0-9,]+)/);
+    if(m)total+=parseInt(m[1].replace(',',''),10);
+  });
+  return total>0?`$${total.toLocaleString()}`:'';
+}
+
+// Wire in-form cart buttons
+$$('.cart-add').forEach(btn=>{
+  btn.onclick=()=>{
+    const row=btn.closest('.cart-item');
+    if(row)cartToggle(row.dataset.item,btn);
+  };
+});
+
+// Wire tour detail buttons
+$$('.tour-cart-btn[data-item]').forEach(btn=>btn.onclick=()=>cartToggle(btn.dataset.item,btn));
+
+// Wire activity card buttons
+$$('.act-card[data-item]').forEach(card=>{
+  card.querySelector('.act-cart-btn')?.addEventListener('click',e=>cartToggle(card.dataset.item,e.currentTarget));
+});
+
+// Wire fleet transfer button
+$$('.fleet-xfer-cart').forEach(btn=>btn.onclick=()=>cartToggle(btn.dataset.item,btn));
+
+// Floating cart — use event delegation because #floatCart is injected after this script
+document.addEventListener('click',e=>{
+  const fc=document.querySelector('#floatCart');
+  if(!fc)return;
+  if(e.target.closest('#floatCart .fc-toggle')){
+    const open=fc.classList.toggle('open');
+    fc.querySelector('.fc-toggle')?.setAttribute('aria-expanded',open);
+  }else if(!e.target.closest('#floatCart')){
+    fc.classList.remove('open');
+  }
+});
+
+// Float cart step navigation
+document.addEventListener('click',e=>{
+  if(e.target.closest('#fcNext')){
+    const df=$('#fcDateFrom'),dt=$('#fcDateTo'),err=$('#fcError1');
+    if(!df?.value){err.textContent='Please select a check-in date.';err.hidden=false;return;}
+    if(!dt?.value||dt.value<=df.value){err.textContent='Please select a valid check-out date.';err.hidden=false;return;}
+    err.hidden=true;
+    $('#fcStep1').hidden=true;$('#fcStep2').hidden=false;
+    document.querySelectorAll('.fc-step-dot').forEach((d,i)=>d.classList.toggle('active',i===1));
+  }
+  if(e.target.closest('#fcBack')){
+    $('#fcStep2').hidden=true;$('#fcStep1').hidden=false;$('#fcError').hidden=true;
+    document.querySelectorAll('.fc-step-dot').forEach((d,i)=>d.classList.toggle('active',i===0));
+  }
+});
+
+// Float cart mini-form submit
+document.addEventListener('click',e=>{
+  if(!e.target.closest('#fcSubmit'))return;
+  const nameEl=$('#fcName'),phoneEl=$('#fcPhone'),emailEl=$('#fcEmail'),errEl=$('#fcError');
+  const name=nameEl.value.trim(),phone=phoneEl.value.trim(),email=emailEl.value.trim();
+  if(!name||!phone||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
+    errEl.textContent=!name?'Please enter your name.':!phone?'Please enter your phone number.':'Please enter a valid email.';
+    errEl.hidden=false;
+    return;
+  }
+  errEl.hidden=true;
+  const fcSub=$('#fcSubmit');
+  if(fcSub){fcSub.disabled=true;fcSub.innerHTML='<span class="btn-spinner"></span>Sending…';}
+
+  (async()=>{
+    try{
+      const now=new Date();
+      const pad=n=>String(n).padStart(2,'0');
+      const datePart=`${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}`;
+      const timePart=`${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
+      const rand=Math.floor(1000+Math.random()*9000);
+      const inquiryId=`MT-${datePart}-${timePart}-${rand}`;
+
+      const fd=new FormData();
+      fd.append('name',name);
+      fd.append('phone',phone);
+      fd.append('email',email);
+      fd.append('cart',buildCartString());
+      fd.append('cart_total_hint',buildCartTotalHint());
+      fd.append('date_from',$('#fcDateFrom')?.value||'');
+      fd.append('date_to',$('#fcDateTo')?.value||'');
+      fd.append('pax',$('#fcPaxField')?.value||'');
+      fd.append('when',$('#fcWhenSummary')?.value||'');
+      fd.append('message','');
+      fd.append('inquiry_id',inquiryId);
+      await fetch(FORM_ENDPOINT,{method:'POST',body:fd,mode:'no-cors'});
+
+      // Show inline thank-you
+      const fcPanel=$('#floatCart .fc-panel');
+      const fcRef=$('#fcSuccessRef');
+      if(fcRef)fcRef.textContent=`Ref: ${inquiryId}`;
+      if(fcPanel)fcPanel.classList.add('fc-done');
+
+      // Reset after 6 s
+      setTimeout(()=>{
+        if(fcPanel)fcPanel.classList.remove('fc-done');
+        cart.clear();cartPrices.clear();localStorage.removeItem('majesty_cart');updateCart();
+        window._resetDatePicker?.();
+        window._resetFcDatePicker?.();
+        ['#fcName','#fcPhone','#fcEmail'].forEach(s=>{const el=$(s);if(el)el.value='';});
+        if(fcSub){fcSub.disabled=false;fcSub.innerHTML='Send inquiry →';}
+        document.querySelector('#floatCart')?.classList.remove('open');
+      },6000);
+
+    }catch(err){
+      if(errEl){errEl.textContent='Something went wrong — please try again.';errEl.hidden=false;}
+      if(fcSub){fcSub.disabled=false;fcSub.innerHTML='Send inquiry →';}
+    }
+  })();
+});
+
+/* ============================================================
+   CONTACT FORM
+   ============================================================ */
 const form=$('#inquiryForm');
 if(form){
-  // journey chips
-  $$('.chip').forEach(ch=>ch.onclick=()=>{
-    $$('.chip').forEach(c=>c.classList.remove('sel'));
-    ch.classList.add('sel');
-    $('#tourField').value=ch.dataset.tour;
-  });
   function setErr(field,msg){
     const f=field.closest('.field');f.classList.add('invalid');$('.err',f).textContent=msg;
     field.setAttribute('aria-invalid','true');
@@ -785,25 +1090,55 @@ if(form){
     e.preventDefault();
     if(form.company_website.value)return; // honeypot
     let ok=true;
-    const name=form.name,email=form.email;
+    const name=form.name,email=form.email,phone=form.phone;
     if(!name.value.trim()){setErr(name,'Please tell us your name.');ok=false;}
+    if(!phone.value.trim()){setErr(phone,'A phone number lets us reach you quickly.');ok=false;}
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)){setErr(email,'A valid email lets us reply.');ok=false;}
     if(!ok){const first=$('.field.invalid input,.field.invalid textarea');first?.focus();return;}
 
-    // loading state — prevent double-submit
     submitBtn.disabled=true;
-    submitBtn.innerHTML='Sending <span class="arr">&#8230;</span>';
+    submitBtn.innerHTML='<span class="btn-spinner"></span>Sending…';
     if(errBanner)errBanner.hidden=true;
 
     try{
+      const now=new Date();
+      const pad=n=>String(n).padStart(2,'0');
+      const datePart=`${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}`;
+      const timePart=`${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
+      const rand=Math.floor(1000+Math.random()*9000);
+      const inquiryId=`MT-${datePart}-${timePart}-${rand}`;
+
       const fd=new FormData(form);
-      // Google Apps Script requires no-cors; response is opaque so we show success optimistically
+      fd.append('cart_total_hint',buildCartTotalHint());
+      fd.append('inquiry_id',inquiryId);
       await fetch(FORM_ENDPOINT,{method:'POST',body:fd,mode:'no-cors'});
+
+      const idDisplay=$('#inqIdDisplay');
+      if(idDisplay)idDisplay.textContent=inquiryId;
       form.style.display='none';
       const successEl=$('#formSuccess');
       successEl.classList.add('show');
       const successH=successEl.querySelector('h3');
       if(successH){successH.setAttribute('tabindex','-1');successH.focus();}
+
+      // auto-dismiss after 7 s — fade out, reset everything
+      setTimeout(()=>{
+        successEl.classList.add('fade-out');
+        setTimeout(()=>{
+          successEl.classList.remove('show','fade-out');
+          form.reset();
+          cart.clear();cartPrices.clear();localStorage.removeItem('majesty_cart');
+          updateCart();
+          if(cartBody){cartBody.hidden=true;cartToggleBtn?.setAttribute('aria-expanded','false');}
+          window._resetDatePicker?.();
+          window._resetFcDatePicker?.();
+          form.style.display='';
+          $('#floatCart')?.classList.remove('open');
+          ['#fcName','#fcPhone','#fcEmail'].forEach(s=>{const el=$(s);if(el)el.value='';});
+          const fcErr=$('#fcError');if(fcErr)fcErr.hidden=true;
+          const fcSub2=$('#fcSubmit');if(fcSub2){fcSub2.disabled=false;fcSub2.innerHTML='Send inquiry →';}
+        },600);
+      },7000);
     }catch(err){
       if(errBanner){
         errBanner.textContent='Something went wrong — please try again, or reach us directly at info@majestytourssrilanka.com';
@@ -812,9 +1147,209 @@ if(form){
       }
       submitBtn.disabled=false;
       submitBtn.innerHTML='Send inquiry <span class="arr">→</span>';
+      const fcSub=$('#fcSubmit');
+      if(fcSub){fcSub.disabled=false;fcSub.innerHTML='Send inquiry →';}
     }
   };
 }
+
+/* ============================================================
+   DATE RANGE PICKER + PAX  (reusable)
+   ============================================================ */
+function initDateRangePicker(cfg){
+  const trigger=cfg.trigger,display=cfg.display,drop=cfg.drop,hint=cfg.hint;
+  if(!trigger||!drop)return null;
+
+  const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const DAYS=['Su','Mo','Tu','We','Th','Fr','Sa'];
+  const today=new Date();today.setHours(0,0,0,0);
+
+  let rangeStart=null,rangeEnd=null,hoverDate=null;
+  let viewYear=today.getFullYear(),viewMonth=today.getMonth();
+  let pax=cfg.defaultPax||2;
+
+  /* PAX */
+  function syncPax(){
+    if(cfg.paxCountEl)cfg.paxCountEl.textContent=pax;
+    if(cfg.paxSEl)cfg.paxSEl.textContent=pax===1?'':'s';
+    if(cfg.paxField)cfg.paxField.value=pax;
+    if(cfg.paxMinus)cfg.paxMinus.disabled=pax<=1;
+    if(cfg.paxPlus)cfg.paxPlus.disabled=pax>=30;
+    syncWhen();
+  }
+  cfg.paxMinus?.addEventListener('click',()=>{if(pax>1){pax--;syncPax();}});
+  cfg.paxPlus?.addEventListener('click',()=>{if(pax<30){pax++;syncPax();}});
+  syncPax();
+
+  /* OPEN / CLOSE */
+  trigger.addEventListener('click',()=>toggleDrop());
+  trigger.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleDrop();}});
+  if(!cfg.inline){
+    document.addEventListener('click',e=>{
+      if(!document.contains(e.target))return;
+      if(!e.target.closest(cfg.closeSelector||'.field--when'))closeDrop();
+    });
+  }
+  function toggleDrop(){if(drop.hidden){openDrop();}else{closeDrop();}}
+  function openDrop(){drop.hidden=false;trigger.setAttribute('aria-expanded','true');renderCalendars();}
+  function closeDrop(){drop.hidden=true;trigger.setAttribute('aria-expanded','false');}
+
+  /* RENDER */
+  function renderCalendars(){
+    const ny=viewMonth===11?viewYear+1:viewYear;
+    const nm=(viewMonth+1)%12;
+    renderMonth(cfg.calMonth0,viewYear,viewMonth,true,cfg.singleMonth||!cfg.calMonth1);
+    if(!cfg.singleMonth&&cfg.calMonth1)renderMonth(cfg.calMonth1,ny,nm,false,true);
+    updateHover();
+  }
+
+  function renderMonth(container,year,month,showPrev,showNext){
+    if(!container)return;
+    const firstDay=new Date(year,month,1).getDay();
+    const daysInMonth=new Date(year,month+1,0).getDate();
+    const isPastMonth=year<today.getFullYear()||(year===today.getFullYear()&&month<today.getMonth());
+
+    container.innerHTML=`
+      <div class="cal-nav">
+        ${showPrev?`<button type="button" class="cal-nav-btn cal-prev" aria-label="Previous month" ${isPastMonth?'disabled':''}>
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>`:'<span></span>'}
+        <span class="cal-month-label">${MONTHS[month]} ${year}</span>
+        ${showNext?`<button type="button" class="cal-nav-btn cal-next" aria-label="Next month">
+          <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>`:'<span></span>'}
+      </div>
+      <div class="cal-weekdays">${DAYS.map(d=>`<div class="cal-weekday">${d}</div>`).join('')}</div>
+      <div class="cal-days"></div>`;
+
+    container.querySelector('.cal-prev')?.addEventListener('click',e=>{
+      e.stopPropagation();
+      if(viewMonth===0){viewMonth=11;viewYear--;}else viewMonth--;
+      renderCalendars();
+    });
+    container.querySelector('.cal-next')?.addEventListener('click',e=>{
+      e.stopPropagation();
+      if(viewMonth===11){viewMonth=0;viewYear++;}else viewMonth++;
+      renderCalendars();
+    });
+
+    const grid=container.querySelector('.cal-days');
+    for(let i=0;i<firstDay;i++){
+      const e=document.createElement('div');e.className='cal-day cal-day--empty';grid.appendChild(e);
+    }
+    for(let d=1;d<=daysInMonth;d++){
+      const date=new Date(year,month,d);date.setHours(0,0,0,0);
+      const ts=date.getTime();
+      const btn=document.createElement('button');
+      btn.type='button';btn.className='cal-day';btn.textContent=d;btn.dataset.ts=ts;
+
+      if(date<today){
+        btn.classList.add('cal-day--disabled');
+      }else{
+        if(ts===today.getTime())btn.classList.add('cal-day--today');
+        applyRangeClasses(btn,date,ts);
+        btn.addEventListener('click',e=>{e.stopPropagation();handleDay(date);});
+        btn.addEventListener('mouseenter',()=>{hoverDate=date;updateHover();});
+        btn.addEventListener('mouseleave',()=>{hoverDate=null;updateHover();});
+      }
+      grid.appendChild(btn);
+    }
+  }
+
+  function applyRangeClasses(btn,date,ts){
+    const sTs=rangeStart?rangeStart.getTime():null;
+    const eTs=rangeEnd?rangeEnd.getTime():null;
+    if(sTs&&ts===sTs)btn.classList.add('cal-day--start','cal-day--range-start-edge');
+    if(eTs&&ts===eTs)btn.classList.add('cal-day--end','cal-day--range-end-edge');
+    if(sTs&&eTs&&date>rangeStart&&date<rangeEnd)btn.classList.add('cal-day--in-range');
+  }
+
+  function updateHover(){
+    $$('.cal-day',drop).forEach(btn=>{
+      btn.classList.remove('cal-day--hover','cal-day--hover-end');
+      if(rangeStart&&!rangeEnd&&hoverDate&&hoverDate>rangeStart){
+        const ts=parseInt(btn.dataset.ts);
+        const date=new Date(ts);
+        if(date>rangeStart&&date<hoverDate)btn.classList.add('cal-day--hover');
+        if(ts===hoverDate.getTime())btn.classList.add('cal-day--hover-end');
+      }
+    });
+  }
+
+  function handleDay(date){
+    if(!rangeStart||rangeEnd||date<=rangeStart){
+      rangeStart=date;rangeEnd=null;
+      if(hint)hint.textContent='Now choose your end date';
+    }else{
+      rangeEnd=date;
+      syncFields();
+      if(hint)hint.textContent='Dates selected ✓';
+      if(!cfg.inline)setTimeout(closeDrop,340);
+    }
+    renderCalendars();
+  }
+
+  function fmt(d){return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});}
+
+  function syncFields(){
+    if(cfg.dateFrom)cfg.dateFrom.value=rangeStart?rangeStart.toISOString().slice(0,10):'';
+    if(cfg.dateTo)cfg.dateTo.value=rangeEnd?rangeEnd.toISOString().slice(0,10):'';
+    if(display){
+      if(rangeStart&&rangeEnd){
+        display.textContent=`${fmt(rangeStart)}  →  ${fmt(rangeEnd)}`;
+        display.classList.add('has-dates');
+      }else if(rangeStart){
+        display.textContent=`${fmt(rangeStart)}  →  ?`;
+        display.classList.add('has-dates');
+      }else{
+        display.textContent='Select dates';
+        display.classList.remove('has-dates');
+      }
+    }
+    syncWhen();
+  }
+
+  function syncWhen(){
+    if(!cfg.whenSummary)return;
+    const parts=[];
+    if(rangeStart&&rangeEnd)parts.push(`${fmt(rangeStart)} – ${fmt(rangeEnd)}`);
+    else if(rangeStart)parts.push(`From ${fmt(rangeStart)}`);
+    parts.push(`${pax} traveller${pax===1?'':'s'}`);
+    cfg.whenSummary.value=parts.join(', ');
+  }
+
+  /* If inline (float cart), open immediately */
+  if(cfg.inline)openDrop();
+
+  return function reset(){
+    rangeStart=null;rangeEnd=null;hoverDate=null;pax=cfg.defaultPax||2;
+    syncPax();syncFields();
+    if(hint)hint.textContent='Choose a start date';
+    viewYear=today.getFullYear();viewMonth=today.getMonth();
+    if(cfg.inline)renderCalendars();
+  };
+}
+
+/* Init main form date picker */
+window._resetDatePicker=initDateRangePicker({
+  trigger:$('#dateTrigger'),display:$('#dateDisplay'),drop:$('#calDropdown'),hint:$('#calHint'),
+  calMonth0:$('#calMonth0'),calMonth1:$('#calMonth1'),
+  paxMinus:$('#paxMinus'),paxPlus:$('#paxPlus'),paxCountEl:$('#paxCount'),paxSEl:$('#paxS'),
+  paxField:$('#paxField'),dateFrom:$('#dateFrom'),dateTo:$('#dateTo'),whenSummary:$('#whenSummary'),
+  closeSelector:'.field--when',defaultPax:2,
+});
+
+/* Init float cart date picker after DOM is fully parsed */
+document.addEventListener('DOMContentLoaded',()=>{
+  // Render any cart items restored from localStorage
+  if(cart.size>0)updateCart();
+
+  window._resetFcDatePicker=initDateRangePicker({
+    trigger:$('#fcDateTrigger'),display:$('#fcDateDisplay'),drop:$('#fcCalDropdown'),hint:$('#fcCalHint'),
+    calMonth0:$('#fcCalMonth0'),calMonth1:null,singleMonth:true,inline:true,
+    paxMinus:$('#fcPaxMinus'),paxPlus:$('#fcPaxPlus'),paxCountEl:$('#fcPaxCount'),paxSEl:$('#fcPaxS'),
+    paxField:$('#fcPaxField'),dateFrom:$('#fcDateFrom'),dateTo:$('#fcDateTo'),whenSummary:$('#fcWhenSummary'),
+    closeSelector:'#fcStep1',defaultPax:2,
+  });
+});
 
 /* ============================================================
    COOKIE
