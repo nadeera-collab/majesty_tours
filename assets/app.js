@@ -66,7 +66,7 @@
     fetch('./content.json')
       .then(r => r.ok ? r.json() : null)
       .then(d => { if(d) applyContent(d); })
-      .catch(() => {});
+      .catch(err => console.error('Failed to load content.json:', err));
   }
 })();
 
@@ -200,6 +200,7 @@ addEventListener('scroll',onScroll,{passive:true});onScroll();
     ['.hero-bg',    0.08],
     ['.hero-inner', 0.20],
     ['#interPar',   0.35],
+    ['#interParReviews', 0.35],
   ];
 
   const layers=LAYERS.map(([sel,spd])=>{
@@ -328,12 +329,14 @@ $$('.tour-wrap').forEach(wrap=>{
    MAP
    ============================================================ */
 const M=window.MAP;
+const rootStyle=getComputedStyle(document.documentElement);
+const routeColor=name=>rootStyle.getPropertyValue('--route-'+name).trim();
 const routes={
-  culture:{label:'The Cultural Triangle',days:'4 days',stops:['Colombo','Dambulla','Sigiriya','Polonnaruwa','Kandy'],blurb:'Dry-zone kingdoms rock fortress, cave temples and the last royal capital.',color:'#c9a227'},
-  hill:{label:'Hill Country & Tea',days:'3 days',stops:['Kandy','NuwaraEliya','Ella'],blurb:'The misted tea highlands, the blue train and the bridge at Ella.',color:'#7fae5e'},
-  wild:{label:'Wildlife & Safari',days:'2 days',stops:['Colombo','Ella','Yala'],blurb:'Leopard country at the southern edge of the dry forest.',color:'#d8954a'},
-  coast:{label:'Southern Coast',days:'3 days',stops:['Colombo','Galle','Mirissa'],blurb:'Dutch ramparts, stilt fishers and the whales off Mirissa.',color:'#4aa3a0'},
-  grand:{label:'The Grand Island',days:'14 days',stops:['Colombo','Dambulla','Sigiriya','Polonnaruwa','Kandy','NuwaraEliya','Ella','Yala','Mirissa','Galle'],blurb:'Everything coast to summit, north to south, unhurried over two weeks.',color:'#e0703a'}
+  culture:{label:'The Cultural Triangle',days:'4 days',stops:['Colombo','Dambulla','Sigiriya','Polonnaruwa','Kandy'],blurb:'Dry-zone kingdoms rock fortress, cave temples and the last royal capital.',color:routeColor('culture')},
+  hill:{label:'Hill Country & Tea',days:'3 days',stops:['Kandy','NuwaraEliya','Ella'],blurb:'The misted tea highlands, the blue train and the bridge at Ella.',color:routeColor('hill')},
+  wild:{label:'Wildlife & Safari',days:'2 days',stops:['Colombo','Ella','Yala'],blurb:'Leopard country at the southern edge of the dry forest.',color:routeColor('wild')},
+  coast:{label:'Southern Coast',days:'3 days',stops:['Colombo','Galle','Mirissa'],blurb:'Dutch ramparts, stilt fishers and the whales off Mirissa.',color:routeColor('coast')},
+  grand:{label:'The Grand Island',days:'14 days',stops:['Colombo','Dambulla','Sigiriya','Polonnaruwa','Kandy','NuwaraEliya','Ella','Yala','Mirissa','Galle'],blurb:'Everything coast to summit, north to south, unhurried over two weeks.',color:routeColor('grand')}
 };
 const cityInfo={
   Colombo:{label:'Colombo',sub:'Capital · arrival',ph:'ph-beach'},
@@ -569,7 +572,16 @@ function renderGallery(items){
     el.setAttribute('role','button');
     el.setAttribute('tabindex','0');
     el.setAttribute('aria-label',(item.caption||'')+' — open full screen');
-    el.innerHTML='<div class="ph '+ph+'"></div><div class="cap">'+(item.caption||'')+'</div><div class="plus" aria-hidden="true">+</div>';
+    const phEl=document.createElement('div');
+    phEl.className='ph '+ph;
+    const capEl=document.createElement('div');
+    capEl.className='cap';
+    capEl.textContent=item.caption||'';
+    const plusEl=document.createElement('div');
+    plusEl.className='plus';
+    plusEl.setAttribute('aria-hidden','true');
+    plusEl.textContent='+';
+    el.append(phEl,capEl,plusEl);
     grid.appendChild(el);
   });
 }
@@ -609,13 +621,15 @@ function initLightbox(){
     lb.removeAttribute('aria-hidden');
     document.body.style.overflow='hidden';
     lastFocus=document.activeElement;
+    requestAnimationFrame(()=>requestAnimationFrame(()=>lb.classList.add('show')));
     setTimeout(()=>$('#lbx').focus(),50);
   }
   function close(){
-    lb.classList.remove('open');
+    lb.classList.remove('show');
     lb.setAttribute('aria-hidden','true');
     document.body.style.overflow='';
     lastFocus?.focus();
+    setTimeout(()=>lb.classList.remove('open'),300);
   }
   items.forEach((g,i)=>{
     g.onclick=()=>open(i);
@@ -705,7 +719,11 @@ if(window.GALLERY_DATA){
   fetch('./gallery.json')
     .then(r=>r.ok?r.json():null)
     .then(_initGallery)
-    .catch(()=>{});
+    .catch(err=>{
+      console.error('Failed to load gallery.json:', err);
+      const grid=document.getElementById('galleryGrid');
+      if(grid)grid.textContent='Photos are on their way back shortly.';
+    });
 }
 
 /* ============================================================
@@ -820,14 +838,20 @@ wireCopyBtn('copyFcRef',()=>document.getElementById('fcSuccessRef')?.textContent
 const cart=new Set();
 const cartPrices=new Map();
 
+const CART_SCHEMA_VERSION=1;
+
 // Restore cart from localStorage
 (function(){
   try{
     const saved=localStorage.getItem('majesty_cart');
     if(saved){
-      const {items,prices}=JSON.parse(saved);
-      if(Array.isArray(items))items.forEach(i=>cart.add(i));
-      if(prices&&typeof prices==='object')Object.entries(prices).forEach(([k,v])=>cartPrices.set(k,v));
+      const{v,items,prices}=JSON.parse(saved);
+      if(v===CART_SCHEMA_VERSION){
+        if(Array.isArray(items))items.forEach(i=>cart.add(i));
+        if(prices&&typeof prices==='object')Object.entries(prices).forEach(([k,v])=>cartPrices.set(k,v));
+      }else{
+        localStorage.removeItem('majesty_cart');
+      }
     }
   }catch(e){}
 })();
@@ -837,8 +861,13 @@ function renderCartTags(container){
   cart.forEach(item=>{
     const tag=document.createElement('span');
     tag.className='cart-tag';
-    tag.innerHTML=`${item}<button type="button" aria-label="Remove ${item}">×</button>`;
-    tag.querySelector('button').onclick=()=>cartToggle(item);
+    tag.appendChild(document.createTextNode(item));
+    const removeBtn=document.createElement('button');
+    removeBtn.type='button';
+    removeBtn.setAttribute('aria-label','Remove '+item);
+    removeBtn.textContent='×';
+    removeBtn.onclick=()=>cartToggle(item);
+    tag.appendChild(removeBtn);
     container.appendChild(tag);
   });
 }
@@ -855,7 +884,7 @@ function saveCart(){
   try{
     const prices={};
     cartPrices.forEach((v,k)=>prices[k]=v);
-    localStorage.setItem('majesty_cart',JSON.stringify({items:[...cart],prices}));
+    localStorage.setItem('majesty_cart',JSON.stringify({v:CART_SCHEMA_VERSION,items:[...cart],prices}));
   }catch(e){}
 }
 

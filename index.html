@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
 </head>
 <body>
 
@@ -257,6 +257,16 @@
   </div>
 </section>
 
+<!-- INTERSTITIAL (before reviews) -->
+<section class="interstitial interstitial--reviews">
+  <div class="par bg par--reviews" id="interParReviews"></div>
+  <div class="scrim"></div>
+  <div class="inner reveal">
+    <div class="eyebrow">In their words</div>
+    <blockquote>"Every journey ends the same way: already planning the next one."</blockquote>
+  </div>
+</section>
+
 <!-- TESTIMONIAL (early, before tours) -->
 <section class="pad wrap">
   <div class="testimonial-row">
@@ -298,7 +308,7 @@
       <div class="tour-wrap reveal" data-tour-index="0">
         <div class="tour" data-ph="ph-sigiriya-group" data-cursor="Open" role="button" tabindex="0" aria-expanded="false">
           <div class="num">01</div>
-          <div><span class="name">The Cultural Triangle</span><div class="tags">Sigiriya · Dambulla · Polonnaruwa · Kandy</div></div>
+          <div><h3 class="name">The Cultural Triangle</h3><div class="tags">Sigiriya · Dambulla · Polonnaruwa · Kandy</div></div>
           <div class="meta"><b>from $390</b>4 days · private</div>
           <div class="toggle"></div>
         </div>
@@ -325,7 +335,7 @@
       <div class="tour-wrap reveal" data-tour-index="1">
         <div class="tour" data-ph="ph-tea-pickers" data-cursor="Open" role="button" tabindex="0" aria-expanded="false">
           <div class="num">02</div>
-          <div><span class="name">Hill Country &amp; Tea</span><div class="tags">Nuwara Eliya · Ella · Haputale · the blue train</div></div>
+          <div><h3 class="name">Hill Country &amp; Tea</h3><div class="tags">Nuwara Eliya · Ella · Haputale · the blue train</div></div>
           <div class="meta"><b>from $310</b>3 days · private</div>
           <div class="toggle"></div>
         </div>
@@ -352,7 +362,7 @@
       <div class="tour-wrap reveal" data-tour-index="2">
         <div class="tour" data-ph="ph-leopard" data-cursor="Open" role="button" tabindex="0" aria-expanded="false">
           <div class="num">03</div>
-          <div><span class="name">Wildlife &amp; Safari</span><div class="tags">Yala · Udawalawe · Wilpattu leopard country</div></div>
+          <div><h3 class="name">Wildlife &amp; Safari</h3><div class="tags">Yala · Udawalawe · Wilpattu leopard country</div></div>
           <div class="meta"><b>from $260</b>2 days · private</div>
           <div class="toggle"></div>
         </div>
@@ -378,7 +388,7 @@
       <div class="tour-wrap reveal" data-tour-index="3">
         <div class="tour" data-ph="ph-whale-aerial" data-cursor="Open" role="button" tabindex="0" aria-expanded="false">
           <div class="num">04</div>
-          <div><span class="name">The Southern Coast</span><div class="tags">Galle · Mirissa whales · Unawatuna · stilt fishers</div></div>
+          <div><h3 class="name">The Southern Coast</h3><div class="tags">Galle · Mirissa whales · Unawatuna · stilt fishers</div></div>
           <div class="meta"><b>from $280</b>3 days · private</div>
           <div class="toggle"></div>
         </div>
@@ -406,7 +416,7 @@
       <div class="tour-wrap reveal" data-tour-index="4">
         <div class="tour" data-ph="ph-whale-aerial" data-cursor="Open" role="button" tabindex="0" aria-expanded="false">
           <div class="num">05</div>
-          <div><span class="name">The Grand Island</span><div class="tags">Everything above · coast to summit · island-wide</div></div>
+          <div><h3 class="name">The Grand Island</h3><div class="tags">Everything above · coast to summit · island-wide</div></div>
           <div class="meta"><b>from $1,640</b>14 days · private</div>
           <div class="toggle"></div>
         </div>
@@ -450,7 +460,7 @@
         <svg class="act-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z"/>
         </svg>
-        <h4>Airport Transfers</h4>
+        <h3>Airport Transfers</h3>
         <p>Pickups, drop-offs and meet-and-greet, any hour, any terminal.</p>
         <button type="button" class="act-cart-btn" aria-label="Add Airport Transfers to journey">+</button>
       </div>
@@ -459,7 +469,7 @@
         <svg class="act-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M3 16L6 8H18L21 16H3Z M12 8V4 M3 20Q7 22 12 21Q17 22 21 20"/>
         </svg>
-        <h4>Cruise Shore Excursions</h4>
+        <h3>Cruise Shore Excursions</h3>
         <p>Full-day guided trips from any Sri Lankan port, back before sail-away.</p>
         <button type="button" class="act-cart-btn" aria-label="Add Cruise Shore Excursions to journey">+</button>
       </div>
@@ -469,7 +479,7 @@
           <circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/>
           <path d="M9 12H15 M12 9V5 M9 6L5.5 3 M15 6L18.5 3"/>
         </svg>
-        <h4>Bird Watching</h4>
+        <h3>Bird Watching</h3>
         <p>Sinharaja, Bundala and Kitulgala with specialist local guides.</p>
         <button type="button" class="act-cart-btn" aria-label="Add Bird Watching to journey">+</button>
       </div>
@@ -478,7 +488,7 @@
         <svg class="act-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M1 21H23 M12 3L3 21H21L12 3Z M8 21L12 13L16 21"/>
         </svg>
-        <h4>Camping</h4>
+        <h3>Camping</h3>
         <p>Overnight camps in Yala buffer zones and highland forests.</p>
         <button type="button" class="act-cart-btn" aria-label="Add Camping to journey">+</button>
       </div>
@@ -487,7 +497,7 @@
         <svg class="act-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M2 12Q5 9 8 12Q11 15 14 12Q17 9 22 12 M2 17Q5 14 8 17Q11 20 14 17Q17 14 22 17 M8 8L6 5 M16 6L19 3"/>
         </svg>
-        <h4>Water Sports</h4>
+        <h3>Water Sports</h3>
         <p>Jet ski, wakeboarding and kite surfing at Negombo, Bentota and Kalpitiya.</p>
         <button type="button" class="act-cart-btn" aria-label="Add Water Sports to journey">+</button>
       </div>
@@ -496,7 +506,7 @@
         <svg class="act-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M4 8H20V15C20 18 16.4 20 12 20C7.6 20 4 18 4 15V8Z M2 10H4 M20 10H22 M10 15Q12 17 14 15"/>
         </svg>
-        <h4>Snorkelling &amp; Diving</h4>
+        <h3>Snorkelling &amp; Diving</h3>
         <p>Coral gardens off Hikkaduwa, Trincomalee and Pigeon Island.</p>
         <button type="button" class="act-cart-btn" aria-label="Add Snorkelling &amp; Diving to journey">+</button>
       </div>
@@ -505,7 +515,7 @@
         <svg class="act-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M2 16L7 8H17L22 16H2Z M12 8V4 M2 20Q7 22 12 21Q17 22 22 20"/>
         </svg>
-        <h4>Boat &amp; Lagoon Tours</h4>
+        <h3>Boat &amp; Lagoon Tours</h3>
         <p>Madu Ganga mangroves, Negombo lagoon and Koggala Lake by boat.</p>
         <button type="button" class="act-cart-btn" aria-label="Add Boat &amp; Lagoon Tours to journey">+</button>
       </div>
@@ -514,7 +524,7 @@
         <svg class="act-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M5 3C5 3 3 15 12 18C21 15 19 3 19 3C15 3 12 7 12 7C12 7 9 3 5 3Z M12 7V21"/>
         </svg>
-        <h4>Spice &amp; Herb Gardens</h4>
+        <h3>Spice &amp; Herb Gardens</h3>
         <p>Working spice gardens in Matale and Kandy with guided tastings.</p>
         <button type="button" class="act-cart-btn" aria-label="Add Spice &amp; Herb Gardens to journey">+</button>
       </div>
@@ -524,7 +534,7 @@
           <path d="M21 19H3C2 19 1 18.1 1 17V8C1 6.9 2 6 3 6H7L9 3H15L17 6H21C22 6 23 6.9 23 8V17C23 18.1 22 19 21 19Z"/>
           <circle cx="12" cy="12" r="3"/>
         </svg>
-        <h4>Photography Tours</h4>
+        <h3>Photography Tours</h3>
         <p>Golden-hour sessions at temples, tea estates and wildlife hotspots.</p>
         <button type="button" class="act-cart-btn" aria-label="Add Photography Tours to journey">+</button>
       </div>
@@ -533,7 +543,7 @@
         <svg class="act-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M3 12L12 3L21 12V20H15V15H9V20H3V12Z"/>
         </svg>
-        <h4>Village Experiences</h4>
+        <h3>Village Experiences</h3>
         <p>Cooking lessons, paddy farming and life inside a working Sri Lankan village.</p>
         <button type="button" class="act-cart-btn" aria-label="Add Village Experiences to journey">+</button>
       </div>
@@ -1030,15 +1040,17 @@
 <script>window.GALLERY_DATA={"items":[{"image":"assets/img-leopard.jpg","caption":"Yala · leopard at water"},{"image":"assets/img-whale-aerial.jpg","caption":"Blue whale, Mirissa"},{"image":"assets/img-turtle.jpg","caption":"Sea turtle, southern coast"},{"image":"assets/img-surf.jpg","caption":"Riding a wave, Weligama"},{"image":"assets/img-tea-pickers.jpg","caption":"Tea country, Nuwara Eliya"},{"image":"assets/img-dolphins-jump.jpg","caption":"Spinner dolphins, offshore Mirissa"},{"image":"assets/img-whale-drone.jpg","caption":"Blue whale, aerial · Mirissa"},{"image":"assets/img-sigiriya.jpg","caption":"Sigiriya · the Lion Rock"},{"image":"assets/img-tea-moment.jpg","caption":"Tea estate · a shared moment"},{"image":"assets/img-mangrove.jpg","caption":"Madu Ganga · mangrove lagoon"},{"image":"assets/img-safari-jeep.jpg","caption":"Yala · ready for the wild"},{"image":"assets/img-airport-welcome.jpg","caption":"Welcome · the island awaits"},{"image":"assets/img-dolphins.jpg","caption":"Spinner dolphins · Mirissa"},{"image":"assets/img-tea-guests.jpg","caption":"Learning to pick tea · Ella"},{"image":"assets/img-whale-tail.jpg","caption":"Whale tail · Mirissa"},{"image":"assets/img-whale-breach.jpg","caption":"Blue whale breaching · Mirissa"},{"image":"assets/img-whale-beneath.jpg","caption":"Blue whale, below the surface"},{"image":"assets/img-whale-shark.jpg","caption":"Whale shark · the Indian Ocean"},{"image":"assets/img-whale-boat-side.jpg","caption":"Up close · whale next to the boat"},{"image":"assets/img-whale-coast.jpg","caption":"Blue whale · the southern coast"},{"image":"assets/img-whale-fluke-still.jpg","caption":"Whale fluke · calm seas"},{"image":"assets/img-whale-horizon.jpg","caption":"Watching · whale on the horizon"},{"image":"assets/img-whale-watch-deck.jpg","caption":"On the water · Mirissa whale watch"},{"image":"assets/img-whale-surface-close.jpg","caption":"Blue whale, surfacing · Mirissa"},{"image":"assets/img-whale-fluke-rise.jpg","caption":"Whale tail · the southern coast"},{"image":"assets/img-whale-tail-mountain.jpg","caption":"Whale tail · mountains behind"},{"image":"assets/img-dolphin-beneath.jpg","caption":"Dolphin · aerial view"},{"image":"assets/img-whale-watch-boats.jpg","caption":"The whale watching fleet · Mirissa"},{"image":"assets/img-boat-launch.jpg","caption":"Ready to sail · morning departure"},{"image":"assets/img-snorkeling.jpg","caption":"Snorkelling · the southern coast"},{"image":"assets/img-ocean-ready.jpg","caption":"Life vests on · ready for the sea"},{"image":"assets/img-jeep-family.jpg","caption":"Family on safari · Yala"},{"image":"assets/img-jeep-kids.jpg","caption":"Into the wild · Yala"},{"image":"assets/img-tea-factory.jpg","caption":"Inside the tea factory · hill country"},{"image":"assets/img-tea-hillside.jpg","caption":"On the hillside · Nuwara Eliya"},{"image":"assets/img-plantation-arrival.jpg","caption":"Arriving at the plantation · Ella"},{"image":"assets/img-tea-photography.jpg","caption":"A moment worth capturing · Ella"},{"image":"assets/img-tea-connection.jpg","caption":"Connection · tea country"},{"image":"assets/img-tea-portrait.jpg","caption":"A portrait · tea estate"},{"image":"assets/img-tea-pair.jpg","caption":"Side by side · Nuwara Eliya"},{"image":"assets/img-tea-lesson.jpg","caption":"Learning the craft · Ella"},{"image":"assets/img-van-boarding.jpg","caption":"En route · into the hill country"},{"image":"assets/img-resort-guests.jpg","caption":"A pause · on the road"},{"image":"assets/img-journey-end.jpg","caption":"Until next time · a Majesty farewell"},{"image":"assets/img-airport-family.jpg","caption":"Arrival · welcome to Sri Lanka"},{"image":"assets/img-welcome-nameplate.jpg","caption":"A name on a board · the best feeling"},{"image":"assets/img-nameplate-richi.jpg","caption":"Welcome, Richi · we've been waiting"}]};</script>
 <script src="assets/app.js?v=3"></script>
 <script>
-  if(window.netlifyIdentity){
-    window.netlifyIdentity.on('init',function(user){
-      if(!user){
-        window.netlifyIdentity.on('login',function(){
-          document.location.href='/admin/';
-        });
-      }
-    });
-  }
+  document.addEventListener('DOMContentLoaded',function(){
+    if(window.netlifyIdentity){
+      window.netlifyIdentity.on('init',function(user){
+        if(!user){
+          window.netlifyIdentity.on('login',function(){
+            document.location.href='/admin/';
+          });
+        }
+      });
+    }
+  });
 </script>
 
 <!-- FLOATING CART -->
