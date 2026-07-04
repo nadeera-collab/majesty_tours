@@ -184,6 +184,9 @@
 <div class="platform-bar">
   <div class="wrap">
     <span class="plat-bar-label">Find us on</span>
+    <div class="scroll-group" data-scroll-group>
+    <button class="scroll-arrow scroll-arrow--prev" type="button" data-scroll-dir="-1" aria-label="Scroll platforms left">‹</button>
+    <div class="scroll-track plat-track" data-scroll-track>
     <a class="plat plat--h" data-p="google" href="#" aria-label="Majesty Tours on Google Business Profile" target="_blank" rel="noopener noreferrer">
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -235,6 +238,9 @@
       </svg>
       <span>TourRadar</span>
     </a>
+    </div>
+    <button class="scroll-arrow scroll-arrow--next" type="button" data-scroll-dir="1" aria-label="Scroll platforms right">›</button>
+    </div>
   </div>
 </div>
 
@@ -742,7 +748,9 @@
     <div class="contact-grid">
       <div class="reveal">
         <form id="inquiryForm" novalidate>
-          <input type="text" name="company_website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="hp" aria-hidden="true">
+            <input type="text" name="hp_confirm_x9" tabindex="-1" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+          </div>
           <input type="hidden" name="cart" id="cartField" value="">
 
           <div class="field-row">
@@ -869,7 +877,9 @@
     <!-- Platform partners -->
     <div class="foot-platforms">
       <p class="foot-plat-label">Find us on</p>
-      <div class="plat-row">
+      <div class="scroll-group" data-scroll-group>
+      <button class="scroll-arrow scroll-arrow--prev" type="button" data-scroll-dir="-1" aria-label="Scroll platforms left">‹</button>
+      <div class="plat-row scroll-track" data-scroll-track>
 
         <!-- Google Business Profile -->
         <a class="plat" href="#" aria-label="Majesty Tours on Google Business Profile" target="_blank" rel="noopener noreferrer">
@@ -934,6 +944,8 @@
           <span>TourRadar</span>
         </a>
 
+      </div>
+      <button class="scroll-arrow scroll-arrow--next" type="button" data-scroll-dir="1" aria-label="Scroll platforms right">›</button>
       </div>
     </div>
 

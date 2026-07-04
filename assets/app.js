@@ -74,6 +74,15 @@
 'use strict';
 const $=(s,c)=>(c||document).querySelector(s);
 const $$=(s,c)=>[...(c||document).querySelectorAll(s)];
+/* Current date/time in Sri Lanka (UTC+5:30), independent of the visitor's own timezone */
+function nowInColombo(){
+  const parts=new Intl.DateTimeFormat('en-CA',{
+    timeZone:'Asia/Colombo',year:'numeric',month:'2-digit',day:'2-digit',
+    hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false,
+  }).formatToParts(new Date());
+  const get=t=>parts.find(p=>p.type===t).value;
+  return {year:get('year'),month:get('month'),day:get('day'),hour:get('hour'),minute:get('minute'),second:get('second')};
+}
 const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
 let heroGoTo=null;
@@ -1039,6 +1048,7 @@ document.addEventListener('click',e=>{
 // Float cart mini-form submit
 document.addEventListener('click',e=>{
   if(!e.target.closest('#fcSubmit'))return;
+  if($('#fcSubmit').disabled)return; // already submitting
   const nameEl=$('#fcName'),phoneEl=$('#fcPhone'),emailEl=$('#fcEmail'),errEl=$('#fcError');
   const name=nameEl.value.trim(),phone=phoneEl.value.trim(),email=emailEl.value.trim();
   if(!name||!phone||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
@@ -1052,10 +1062,9 @@ document.addEventListener('click',e=>{
 
   (async()=>{
     try{
-      const now=new Date();
-      const pad=n=>String(n).padStart(2,'0');
-      const datePart=`${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}`;
-      const timePart=`${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
+      const now=nowInColombo();
+      const datePart=`${now.year}${now.month}${now.day}`;
+      const timePart=`${now.hour}${now.minute}${now.second}`;
       const rand=Math.floor(1000+Math.random()*9000);
       const inquiryId=`MT-${datePart}-${timePart}-${rand}`;
 
@@ -1071,7 +1080,10 @@ document.addEventListener('click',e=>{
       fd.append('when',$('#fcWhenSummary')?.value||'');
       fd.append('message','');
       fd.append('inquiry_id',inquiryId);
-      await fetch(FORM_ENDPOINT,{method:'POST',body:fd,mode:'no-cors'});
+      const ac=new AbortController();
+      const to=setTimeout(()=>ac.abort(),20000);
+      await fetch(FORM_ENDPOINT,{method:'POST',body:fd,mode:'no-cors',signal:ac.signal});
+      clearTimeout(to);
 
       // Show inline thank-you
       const fcPanel=$('#floatCart .fc-panel');
@@ -1117,7 +1129,8 @@ if(form){
 
   form.onsubmit=async(e)=>{
     e.preventDefault();
-    if(form.company_website.value)return; // honeypot
+    if(submitBtn.disabled)return; // already submitting
+    if(form.hp_confirm_x9.value)return; // honeypot
     let ok=true;
     const name=form.name,email=form.email,phone=form.phone;
     if(!name.value.trim()){setErr(name,'Please tell us your name.');ok=false;}
@@ -1130,17 +1143,19 @@ if(form){
     if(errBanner)errBanner.hidden=true;
 
     try{
-      const now=new Date();
-      const pad=n=>String(n).padStart(2,'0');
-      const datePart=`${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}`;
-      const timePart=`${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
+      const now=nowInColombo();
+      const datePart=`${now.year}${now.month}${now.day}`;
+      const timePart=`${now.hour}${now.minute}${now.second}`;
       const rand=Math.floor(1000+Math.random()*9000);
       const inquiryId=`MT-${datePart}-${timePart}-${rand}`;
 
       const fd=new FormData(form);
       fd.append('cart_total_hint',buildCartTotalHint());
       fd.append('inquiry_id',inquiryId);
-      await fetch(FORM_ENDPOINT,{method:'POST',body:fd,mode:'no-cors'});
+      const ac=new AbortController();
+      const to=setTimeout(()=>ac.abort(),20000);
+      await fetch(FORM_ENDPOINT,{method:'POST',body:fd,mode:'no-cors',signal:ac.signal});
+      clearTimeout(to);
 
       const idDisplay=$('#inqIdDisplay');
       if(idDisplay)idDisplay.textContent=inquiryId;
@@ -1317,10 +1332,11 @@ function initDateRangePicker(cfg){
   }
 
   function fmt(d){return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});}
+  function isoDate(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
 
   function syncFields(){
-    if(cfg.dateFrom)cfg.dateFrom.value=rangeStart?rangeStart.toISOString().slice(0,10):'';
-    if(cfg.dateTo)cfg.dateTo.value=rangeEnd?rangeEnd.toISOString().slice(0,10):'';
+    if(cfg.dateFrom)cfg.dateFrom.value=rangeStart?isoDate(rangeStart):'';
+    if(cfg.dateTo)cfg.dateTo.value=rangeEnd?isoDate(rangeEnd):'';
     if(display){
       if(rangeStart&&rangeEnd){
         display.textContent=`${fmt(rangeStart)}  →  ${fmt(rangeEnd)}`;
@@ -1378,6 +1394,28 @@ document.addEventListener('DOMContentLoaded',()=>{
     paxField:$('#fcPaxField'),dateFrom:$('#fcDateFrom'),dateTo:$('#fcDateTo'),whenSummary:$('#fcWhenSummary'),
     closeSelector:'#fcStep1',defaultPax:2,
   });
+});
+
+/* ============================================================
+   PLATFORM SCROLLERS (find-us-on bars, header + footer)
+   ============================================================ */
+$$('[data-scroll-group]').forEach(group=>{
+  const track=$('[data-scroll-track]',group);
+  const prev=group.querySelector('[data-scroll-dir="-1"]');
+  const next=group.querySelector('[data-scroll-dir="1"]');
+  if(!track||!prev||!next)return;
+  const step=()=>track.clientWidth*0.75;
+  const update=()=>{
+    const max=track.scrollWidth-track.clientWidth;
+    group.classList.toggle('no-overflow',max<=4);
+    prev.disabled=track.scrollLeft<=4;
+    next.disabled=track.scrollLeft>=max-4;
+  };
+  prev.addEventListener('click',()=>track.scrollBy({left:-step(),behavior:'smooth'}));
+  next.addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
+  track.addEventListener('scroll',update,{passive:true});
+  addEventListener('resize',update);
+  update();
 });
 
 /* ============================================================
