@@ -570,26 +570,38 @@ function renderGallery(items){
   grid.innerHTML='';
   const IMG_TO_PH={'img-sigiriya.jpg':'ph-sigiriya-group'};
   items.forEach((item,i)=>{
-    const filename=(item.image||'').replace(/^.*\//,'');
-    const ph=IMG_TO_PH[filename]||'ph-'+filename.replace(/^img-/,'').replace(/\.[^.]+$/,'');
-    const delay=(i%3===1)?' d1':(i%3===2)?' d2':'';
+    const isVideo=!!item.video;
+    const src=item.video||item.image||'';
+    const filename=src.replace(/^.*\//,'');
+    const ph=IMG_TO_PH[filename]||'ph-'+filename.replace(/^(img|vid)-/,'').replace(/\.[^.]+$/,'');
     const el=document.createElement('div');
-    el.className='gitem g'+(i+1);
+    el.className='gitem g'+(i+1)+(isVideo?' video-item':'');
     el.dataset.ph=ph;
-    el.dataset.img=item.image||'';
+    if(isVideo)el.dataset.video=src;else el.dataset.img=src;
     el.setAttribute('role','button');
     el.setAttribute('tabindex','0');
-    el.setAttribute('aria-label',(item.caption||'')+' — open full screen');
-    const phEl=document.createElement('div');
-    phEl.className='ph '+ph;
+    el.setAttribute('aria-label',(item.caption||'')+(isVideo?' — play video':' — open full screen'));
+    let mediaEl;
+    if(isVideo){
+      mediaEl=document.createElement('video');
+      mediaEl.className='ph';
+      mediaEl.muted=true;
+      mediaEl.loop=true;
+      mediaEl.playsInline=true;
+      mediaEl.preload='none';
+      mediaEl.setAttribute('aria-hidden','true');
+    }else{
+      mediaEl=document.createElement('div');
+      mediaEl.className='ph '+ph;
+    }
     const capEl=document.createElement('div');
     capEl.className='cap';
     capEl.textContent=item.caption||'';
     const plusEl=document.createElement('div');
     plusEl.className='plus';
     plusEl.setAttribute('aria-hidden','true');
-    plusEl.textContent='+';
-    el.append(phEl,capEl,plusEl);
+    plusEl.textContent=isVideo?'▶':'+';
+    el.append(mediaEl,capEl,plusEl);
     grid.appendChild(el);
   });
 }
@@ -599,7 +611,7 @@ function initLightbox(){
   if(!lb)return;
   const items=$$('.gitem');
   if(!items.length)return;
-  const data=items.map(g=>({ph:g.dataset.ph,img:g.dataset.img||'',cap:$('.cap',g)?.textContent||''}));
+  const data=items.map(g=>({ph:g.dataset.ph,img:g.dataset.img||'',video:g.dataset.video||'',cap:$('.cap',g)?.textContent||''}));
   const stage=$('.lb-stage',lb);
   let cur=0,lastFocus=null;
   stage.innerHTML='';
@@ -607,12 +619,29 @@ function initLightbox(){
   layerA.className='ph active';layerB.className='ph';
   stage.append(layerA,layerB);
   let front=layerA,back=layerB;
+  function pauseVideosIn(layer){layer.querySelectorAll('video').forEach(v=>v.pause());}
+  function fillLayer(layer,item){
+    layer.innerHTML='';
+    layer.style.backgroundImage='';
+    if(item.video){
+      const v=document.createElement('video');
+      v.src=item.video;
+      v.controls=true;
+      v.playsInline=true;
+      v.preload='metadata';
+      v.className='lb-video';
+      layer.appendChild(v);
+    }else if(item.img){
+      layer.style.backgroundImage="url('"+item.img+"')";
+    }
+  }
   function render(i){
     cur=(i+data.length)%data.length;
+    pauseVideosIn(back);
     back.className='ph '+data[cur].ph;
-    back.style.backgroundImage=data[cur].img?"url('"+data[cur].img+"')":'';
+    fillLayer(back,data[cur]);
     back.offsetWidth;
-    front.classList.remove('active');back.classList.add('active');
+    pauseVideosIn(front);front.classList.remove('active');back.classList.add('active');
     [front,back]=[back,front];
     $('#lbCap').textContent=data[cur].cap;
     $('#lbCount').textContent=String(cur+1).padStart(2,'0')+' / '+String(data.length).padStart(2,'0');
@@ -633,6 +662,7 @@ function initLightbox(){
     setTimeout(()=>$('#lbx').focus(),50);
   }
   function close(){
+    pauseVideosIn(front);pauseVideosIn(back);
     lb.classList.remove('show');
     lb.setAttribute('aria-hidden','true');
     document.body.style.overflow='';
@@ -682,7 +712,12 @@ function initGalleryLazy(){
     es.forEach(e=>{
       if(!e.isIntersecting)return;
       const phEl=e.target.querySelector('.ph');
-      if(phEl&&!phEl.style.backgroundImage){
+      if(phEl&&e.target.dataset.video){
+        if(!phEl.getAttribute('src')){
+          phEl.setAttribute('src',e.target.dataset.video);
+          phEl.addEventListener('loadeddata',()=>{phEl.play().then(()=>phEl.pause()).catch(()=>{});},{once:true});
+        }
+      }else if(phEl&&!phEl.style.backgroundImage){
         const imgPath=e.target.dataset.img;
         phEl.style.backgroundImage=imgPath?"url('"+imgPath+"')":'';
       }
