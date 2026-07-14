@@ -13,6 +13,11 @@
     "viator": "#",
     "tourradar": "#"
   },
+  "social": {
+    "tiktok": "#",
+    "instagram": "#",
+    "facebook": "#"
+  },
   "stats": {
     "years": 17,
     "routes": 40,
@@ -65,6 +70,28 @@
         { "image": "assets/img-dolphins.jpg", "caption": "Spinner dolphins, offshore" },
         { "image": "assets/img-surf.jpg", "caption": "Riding a wave · Weligama" },
         { "image": "", "caption": "Stilt fishers · Koggala" }
+      ]
+    },
+    {
+      "name": "Trincomalee & the East Coast",
+      "tags": "Koneswaram Temple · Fort Frederick · Pigeon Island · Nilaveli",
+      "price": "from $300",
+      "duration": "3 days · private",
+      "images": [
+        { "image": "", "caption": "Fort Frederick · Trincomalee" },
+        { "image": "", "caption": "Trincomalee harbour" },
+        { "image": "", "caption": "Pigeon Island · reef snorkelling" }
+      ]
+    },
+    {
+      "name": "Arugam Bay Surf Escape",
+      "tags": "Main Point · Pottuvil Lagoon · Kumana wildlife",
+      "price": "from $270",
+      "duration": "3 days · private",
+      "images": [
+        { "image": "", "caption": "Arugam Bay · the surf capital" },
+        { "image": "", "caption": "Arugam Bay beach" },
+        { "image": "", "caption": "Waves at Arugam Bay" }
       ]
     },
     {

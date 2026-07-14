@@ -33,6 +33,8 @@
   --route-wild:#d8954a;
   --route-coast:#4aa3a0;
   --route-grand:#e0703a;
+  --route-trinco:#2f7dc9;
+  --route-arugam:#c9542f;
   --paper-a6:oklch(95% .013 65 / 6%);
   --paper-a9:oklch(95% .013 65 / 9%);
   --paper-a10:oklch(95% .013 65 / 10%);
@@ -311,6 +313,22 @@ section{position:relative}
 /* ---------- TOURS (expandable) ---------- */
 .tours{background:var(--bg-alt)}
 .tours .sec-head > p{color:var(--text-muted)}
+.fact-row{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:1.4rem;margin-top:.4rem}
+.fact-row span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tea-deep);display:flex;align-items:center;gap:.5rem}
+.fact-row span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none}
+
+.colombo-promo{display:grid;grid-template-columns:auto 1fr;gap:2.2rem;align-items:center;background:var(--navy);color:var(--paper);border-radius:8px;padding:2.2rem 2.4rem;margin-bottom:2.6rem}
+.colombo-promo-media{width:120px;flex:none;color:var(--gold)}
+.colombo-bus-ico{width:100%;height:auto}
+.colombo-promo-badge{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+.colombo-promo-body h3{font-family:var(--display);font-size:clamp(1.5rem,2.6vw,2rem);font-weight:400;margin-bottom:.6rem}
+.colombo-promo-body p{color:var(--paper-a75);font-size:.92rem;line-height:1.6;max-width:62ch}
+.colombo-promo-body strong{color:var(--paper)}
+@media(max-width:640px){
+  .colombo-promo{grid-template-columns:1fr;text-align:center;padding:2rem 1.4rem}
+  .colombo-promo-media{width:88px;margin:0 auto}
+}
+
 .tour{display:grid;grid-template-columns:auto 1fr auto auto;gap:2.5rem;align-items:center;padding:1.7rem 0;border-top:1px solid var(--line);cursor:pointer;transition:transform .22s var(--ease-hover);position:relative}
 .tour:focus-visible{will-change:transform}
 .tour:active .toggle{transform:scale(.88);transition-duration:80ms}
@@ -389,7 +407,10 @@ section{position:relative}
 .route-btn[data-route="hill"] .dot{background:var(--route-hill)}
 .route-btn[data-route="wild"] .dot{background:var(--route-wild)}
 .route-btn[data-route="coast"] .dot{background:var(--route-coast)}
+.route-btn[data-route="trinco"] .dot{background:var(--route-trinco)}
+.route-btn[data-route="arugam"] .dot{background:var(--route-arugam)}
 .route-btn[data-route="grand"] .dot{background:var(--route-grand)}
+.map-note{margin-top:1.2rem;font-size:.78rem;color:var(--text-mid);letter-spacing:.04em}
 .route-btn{display:flex;align-items:center;gap:1rem;background:none;border:none;color:var(--paper);font-family:var(--display);font-size:1.25rem;padding:.75rem 0;cursor:pointer;border-bottom:1px solid rgba(244,236,224,.12);transition:.4s var(--ease);text-align:left;width:100%}
 .route-btn .dot{width:11px;height:11px;border-radius:50%;flex:none;transition:.4s;box-shadow:0 0 0 0 transparent}
 .route-btn.active{color:var(--gold);transform:translateX(.6rem)}
@@ -504,6 +525,12 @@ section{position:relative}
 .ph-gal{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Galle%20Fort.jpg?width=1600');background-color:#46402a}
 .ph-elephant{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Sri%20Lankan%20elephant.jpg?width=1600');background-color:#3a3325}
 .ph-kandy{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Temple%20of%20the%20Tooth%2C%20Kandy.jpg?width=1600');background-color:#2f3a44}
+.ph-trinco{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Fort%20Frederick%20Trincomalee%2C%20Sri%20Lanka.jpg?width=1600');background-color:#1f4a5e}
+.ph-trinco-harbour{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Trincomalee%20harbour.jpg?width=1600');background-color:#1f4a5e}
+.ph-pigeon{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/A%20beautiful%20view%20of%20Pigeon%20Island.jpg?width=1600');background-color:#0e4a6a}
+.ph-arugam{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Arugam%20Bay.jpg?width=1600');background-color:#1f6b6b}
+.ph-arugam-beach{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Arugam%20bay%20beach.jpg?width=1600');background-color:#1f6b6b}
+.ph-arugam-waves{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Arugam%20Waves%20(238816201).jpeg?width=1600');background-color:#0e4a6a}
 
 /* ---------- FLEET ---------- */
 .fleet{background:var(--navy);color:var(--paper);padding-top:3rem;padding-bottom:3rem}
@@ -735,6 +762,13 @@ footer .logo-tagline{color:rgba(244,236,224,.55)}
 .plat{display:flex;flex-direction:column;align-items:center;gap:.55rem;transition:transform .3s var(--ease);text-decoration:none}
 .plat svg{height:26px;width:auto;display:block}
 .plat>span{font-family:var(--body);font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,236,224,.65);white-space:nowrap}
+
+.foot-social{padding-bottom:1.8rem;border-bottom:1px solid rgba(244,236,224,.1);margin-bottom:1.8rem}
+.social-row{display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap}
+.social{display:flex;align-items:center;gap:.55rem;color:rgba(244,236,224,.75);text-decoration:none;transition:.3s var(--ease)}
+.social:hover{color:var(--gold);transform:translateY(-2px)}
+.social svg{width:20px;height:20px;flex-shrink:0}
+.social>span{font-family:var(--body);font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase}
 
 /* ---------- WHATSAPP + COOKIE + LIGHTBOX ---------- */
 .wa{position:fixed;bottom:26px;right:26px;height:58px;background:#25d366;border-radius:50px;display:flex;align-items:center;padding:0 14px;gap:0;z-index:900;box-shadow:0 10px 30px rgba(37,211,102,.4);transition:box-shadow .4s var(--ease),transform .4s var(--ease);animation:pulse 2.6s infinite;white-space:nowrap;text-decoration:none}

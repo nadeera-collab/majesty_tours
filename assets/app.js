@@ -25,6 +25,11 @@
     href('[data-p="viator"]', p.viator);
     href('[data-p="tourradar"]', p.tourradar);
 
+    const soc = data.social || {};
+    href('[data-p="tiktok"]', soc.tiktok);
+    href('[data-p="instagram"]', soc.instagram);
+    href('[data-p="facebook"]', soc.facebook);
+
     if(s.years)   { const el = document.querySelector('[data-count="17"]'); if(el){ el.dataset.count = s.years; el.textContent = s.years; el.nextElementSibling && (el.nextElementSibling.textContent = s.years); } }
     if(s.routes)  { const el = document.querySelector('[data-count="40"]'); if(el){ el.dataset.count = s.routes; el.textContent = s.routes; el.nextElementSibling && (el.nextElementSibling.textContent = s.routes); } }
     if(s.rating)  { const el = document.querySelector('[data-count="4.9"]'); if(el){ el.dataset.count = s.rating; el.textContent = s.rating; el.nextElementSibling && (el.nextElementSibling.textContent = s.rating); } }
@@ -332,11 +337,13 @@ const M=window.MAP;
 const rootStyle=getComputedStyle(document.documentElement);
 const routeColor=name=>rootStyle.getPropertyValue('--route-'+name).trim();
 const routes={
-  culture:{label:'The Cultural Triangle',days:'4 days',stops:['Colombo','Dambulla','Sigiriya','Polonnaruwa','Kandy'],blurb:'Dry-zone kingdoms rock fortress, cave temples and the last royal capital.',color:routeColor('culture')},
-  hill:{label:'Hill Country & Tea',days:'3 days',stops:['Kandy','NuwaraEliya','Ella'],blurb:'The misted tea highlands, the blue train and the bridge at Ella.',color:routeColor('hill')},
-  wild:{label:'Wildlife & Safari',days:'2 days',stops:['Colombo','Ella','Yala'],blurb:'Leopard country at the southern edge of the dry forest.',color:routeColor('wild')},
-  coast:{label:'Southern Coast',days:'3 days',stops:['Colombo','Galle','Mirissa'],blurb:'Dutch ramparts, stilt fishers and the whales off Mirissa.',color:routeColor('coast')},
-  grand:{label:'The Grand Island',days:'14 days',stops:['Colombo','Dambulla','Sigiriya','Polonnaruwa','Kandy','NuwaraEliya','Ella','Yala','Mirissa','Galle'],blurb:'Everything coast to summit, north to south, unhurried over two weeks.',color:routeColor('grand')}
+  culture:{label:'The Cultural Triangle',days:'4 days',stops:['Colombo','Dambulla','Sigiriya','Polonnaruwa','Kandy','Colombo'],blurb:'Dry-zone kingdoms rock fortress, cave temples and the last royal capital, round trip from Colombo.',color:routeColor('culture')},
+  hill:{label:'Hill Country & Tea',days:'3 days',stops:['Colombo','Kandy','NuwaraEliya','Ella','Colombo'],blurb:'The misted tea highlands, the blue train and the bridge at Ella, round trip from Colombo.',color:routeColor('hill')},
+  wild:{label:'Wildlife & Safari',days:'2 days',stops:['Colombo','Ella','Yala','Colombo'],blurb:'Leopard country at the southern edge of the dry forest, round trip from Colombo.',color:routeColor('wild')},
+  coast:{label:'Southern Coast',days:'3 days',stops:['Colombo','Galle','Mirissa','Colombo'],blurb:'Dutch ramparts, stilt fishers and the whales off Mirissa, round trip from Colombo.',color:routeColor('coast')},
+  trinco:{label:'Trincomalee',days:'3 days',stops:['Colombo','Dambulla','Trincomalee','Colombo'],blurb:'The natural harbour, Koneswaram Temple and Pigeon Island, round trip from Colombo.',color:routeColor('trinco')},
+  arugam:{label:'Arugam Bay',days:'3 days',stops:['Colombo','Ella','ArugamBay','Colombo'],blurb:"Sri Lanka's surf capital and the wetlands of Kumana, round trip from Colombo.",color:routeColor('arugam')},
+  grand:{label:'The Grand Island',days:'14 days',stops:['Colombo','Dambulla','Sigiriya','Polonnaruwa','Kandy','NuwaraEliya','Ella','Yala','Mirissa','Galle','Colombo'],blurb:'Everything coast to summit, north to south, unhurried over two weeks, round trip from Colombo.',color:routeColor('grand')}
 };
 const cityInfo={
   Colombo:{label:'Colombo',sub:'Capital · arrival',ph:'ph-beach'},
@@ -349,12 +356,13 @@ const cityInfo={
   Yala:{label:'Yala',sub:'Leopard safari',ph:'ph-leopard'},
   Galle:{label:'Galle',sub:'Dutch fort & ramparts',ph:'ph-gal'},
   Anuradhapura:{label:'Anuradhapura',sub:'Ancient capital',ph:'ph-temple'},
-  Trincomalee:{label:'Trincomalee',sub:'East coast harbour',ph:'ph-beach'},
+  Trincomalee:{label:'Trincomalee',sub:'East coast harbour',ph:'ph-trinco'},
   Jaffna:{label:'Jaffna',sub:'Northern peninsula',ph:'ph-temple'},
   Mirissa:{label:'Mirissa',sub:'Whales & surf',ph:'ph-beach'},
   Polonnaruwa:{label:'Polonnaruwa',sub:'Medieval ruins',ph:'ph-temple'},
   Batticaloa:{label:'Batticaloa',sub:'Lagoon city',ph:'ph-beach'},
-  Mannar:{label:'Mannar',sub:'Baobabs & birds',ph:'ph-beach'}
+  Mannar:{label:'Mannar',sub:'Baobabs & birds',ph:'ph-beach'},
+  ArugamBay:{label:'Arugam Bay',sub:"Sri Lanka's surf capital",ph:'ph-arugam'}
 };
 
 const svg=$('#islandSvg');
@@ -395,7 +403,7 @@ if(svg&&M){
   }
 
   // pins + labels
-  const labelOffsets={Galle:[-6,14,'end'],Mirissa:[8,16,'start'],Ella:[10,4,'start'],NuwaraEliya:[-10,-8,'end'],Mannar:[12,4,'start'],Jaffna:[12,2,'start'],Dambulla:[-9,14,'end'],Yala:[10,4,'start']};
+  const labelOffsets={Galle:[-6,14,'end'],Mirissa:[8,16,'start'],Ella:[10,4,'start'],NuwaraEliya:[-10,-8,'end'],Mannar:[12,4,'start'],Jaffna:[12,2,'start'],Dambulla:[-9,14,'end'],Yala:[10,4,'start'],ArugamBay:[10,14,'start']};
   Object.keys(cityInfo).forEach(key=>{
     const c=M.cities[key];if(!c)return;
     const g=document.createElementNS(NS,'g');g.setAttribute('class','pin');g.dataset.city=key;
