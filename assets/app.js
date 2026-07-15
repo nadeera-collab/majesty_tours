@@ -99,13 +99,13 @@ if(heroLoader){
   const probe=new Image();
   probe.onload=dismiss;
   probe.onerror=dismiss;
-  probe.src='https://commons.wikimedia.org/wiki/Special:FilePath/Sigiriya%20Fortress%2C%20Sri%20Lanka.jpg?width=2400';
+  probe.src='assets/img-sigiriya-aerial.jpg';
   setTimeout(dismiss,5000);
 }
 
 /* ---------- HERO SLIDESHOW ---------- */
 (function(){
-  const LABELS=['Sigiriya','Ella tea country','Yala leopards','Galle Fort','Kandy','Mirissa whales'];
+  const LABELS=['Sigiriya','Ella tea country','Yala leopards','Coastal retreat','Pinnawala elephants','Yala peacock','Nine Arch Bridge','Yala safari'];
   const INTERVAL=7000;
   const slides=$$('.hero-slide');
   const dots=$$('.hsd');
@@ -123,7 +123,6 @@ if(heroLoader){
     restartKenBurns(slides[current]);
     slides[current].classList.add('active');
     dots[current].classList.add('active');
-    $$('.dest-item').forEach((d,idx)=>d.classList.toggle('active',idx===current));
     if(label){label.classList.remove('visible');setTimeout(()=>{label.textContent=LABELS[current];label.classList.add('visible');},200);}
     if(manual){clearInterval(timer);startTimer();}
   }
@@ -140,26 +139,15 @@ if(heroLoader){
   function startTimer(){timer=setInterval(()=>{if(!paused)goTo(current+1,false);},INTERVAL);}
   startTimer();
 
-  ['202312%20Nine%20Arches%20Bridge%2C%20Sri%20Lanka.jpg',
-   'Sri%20Lankan%20leopard%20(Panthera%20pardus%20kotiya)%20male.jpg',
-   'Galle%20Fort.jpg',
-   'Temple%20of%20the%20Tooth%2C%20Kandy.jpg',
-   'Unawatuna%20beach.jpg'].forEach((f,i)=>
-    setTimeout(()=>{new Image().src='https://commons.wikimedia.org/wiki/Special:FilePath/'+f+'?width=2400';},2000+i*1000));
+  ['img-ravana-falls.jpg',
+   'img-leopard-waterhole.jpg',
+   'img-infinity-pool.jpg',
+   'img-elephant-river-overlook.jpg',
+   'img-peacock-fan.jpg',
+   'img-nine-arch-bridge.jpg',
+   'img-safari-kid-thumbsup.jpg'].forEach((f,i)=>
+    setTimeout(()=>{new Image().src='assets/'+f;},2000+i*600));
 })();
-
-/* ---------- DESTINATIONS STRIP → HERO WIRING ---------- */
-$$('.dest-item')[0]?.classList.add('active');
-$$('.dest-item').forEach((item,i)=>{
-  function activate(){
-    if(heroGoTo)heroGoTo(i,true);
-    document.getElementById('top').scrollIntoView({behavior:'smooth'});
-  }
-  item.addEventListener('click',activate);
-  item.addEventListener('keydown',e=>{
-    if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}
-  });
-});
 
 /* ---------- HERO HEADLINE LETTER REVEAL ---------- */
 const h1=$('#heroH1');
