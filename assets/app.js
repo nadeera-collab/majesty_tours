@@ -267,7 +267,7 @@ const secObserver=new IntersectionObserver(es=>{
     }
   });
 },{rootMargin:'-45% 0px -50% 0px'});
-['about','tours','map','season','gallery','fleet','contact'].forEach(id=>{const s=$('#'+id);if(s)secObserver.observe(s);});
+['about','tours','activities','map','season','gallery','fleet','contact'].forEach(id=>{const s=$('#'+id);if(s)secObserver.observe(s);});
 
 
 /* ---------- REVEAL ON SCROLL ---------- */
@@ -1039,6 +1039,102 @@ $$('.act-card[data-item]').forEach(card=>{
 // Wire fleet transfer button
 $$('.fleet-xfer-cart').forEach(btn=>btn.onclick=()=>cartToggle(btn.dataset.item,btn));
 
+/* ============================================================
+   FLEET GALLERIES — per-vehicle-category lightbox
+   ============================================================ */
+function fleetRange(slug,label,count){
+  const images=[];
+  for(let n=1;n<=count;n++)images.push({img:`assets/fleet/${slug}/${n}.jpg`,cap:label});
+  return{label,images};
+}
+const FLEET_GALLERIES={
+  'sedan':{label:'Luxury Sedan Car',images:[
+    {img:'assets/img-fleet-car.png',cap:'Luxury Sedan Car'}
+  ]},
+  'kdh-flat-roof':fleetRange('kdh-flat-roof','KDH Van · Flat Roof',37),
+  'kdh-high-roof':fleetRange('kdh-high-roof','KDH Van · High Roof',30),
+  'mini-coaster':fleetRange('mini-coaster','Mini Coaster',7),
+  'coaster':fleetRange('coaster','Coaster',5),
+  'suv':fleetRange('suv','SUV',37)
+};
+
+function initFleetGalleries(){
+  const lb=$('#fleetLb');
+  if(!lb)return;
+  const stage=$('#fleetLbStage',lb);
+  let data=[],cur=0,lastFocus=null;
+  const layerA=document.createElement('div'),layerB=document.createElement('div');
+  layerA.className='ph active';layerB.className='ph';
+  stage.append(layerA,layerB);
+  let front=layerA,back=layerB;
+  function render(i){
+    cur=(i+data.length)%data.length;
+    back.style.backgroundImage="url('"+data[cur].img+"')";
+    back.offsetWidth;
+    front.classList.remove('active');back.classList.add('active');
+    [front,back]=[back,front];
+    $('#fleetLbCap').textContent=data[cur].cap||'';
+    $('#fleetLbCount').textContent=String(cur+1).padStart(2,'0')+' / '+String(data.length).padStart(2,'0');
+  }
+  function shakeArrow(el){
+    el.classList.remove('edge-hit');
+    el.offsetWidth;
+    el.classList.add('edge-hit');
+    el.addEventListener('animationend',()=>el.classList.remove('edge-hit'),{once:true});
+  }
+  function open(slug,i){
+    const gal=FLEET_GALLERIES[slug];
+    if(!gal)return;
+    data=gal.images;
+    render(i||0);
+    lb.classList.add('open');
+    lb.removeAttribute('aria-hidden');
+    document.body.style.overflow='hidden';
+    lastFocus=document.activeElement;
+    requestAnimationFrame(()=>requestAnimationFrame(()=>lb.classList.add('show')));
+    setTimeout(()=>$('#fleetLbx').focus(),50);
+  }
+  function close(){
+    lb.classList.remove('show');
+    lb.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    lastFocus?.focus();
+    setTimeout(()=>lb.classList.remove('open'),300);
+  }
+  $$('.vehicle[data-fleet]').forEach(card=>{
+    card.setAttribute('role','button');
+    card.setAttribute('tabindex','0');
+    card.setAttribute('aria-label','View '+(FLEET_GALLERIES[card.dataset.fleet]?.label||'vehicle')+' photo gallery');
+    card.addEventListener('click',()=>open(card.dataset.fleet,0));
+    card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(card.dataset.fleet,0);}});
+  });
+  $('#fleetLbx').onclick=close;
+  $('#fleetLbPrev').onclick=e=>{
+    e.stopPropagation();
+    if(cur===0){shakeArrow($('#fleetLbPrev'));return;}
+    render(cur-1);
+  };
+  $('#fleetLbNext').onclick=e=>{
+    e.stopPropagation();
+    if(cur===data.length-1){shakeArrow($('#fleetLbNext'));return;}
+    render(cur+1);
+  };
+  lb.onclick=e=>{if(e.target===lb||e.target===stage)close();};
+  addEventListener('keydown',e=>{
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape'){close();return;}
+    if(e.key==='ArrowLeft'){
+      if(cur===0){shakeArrow($('#fleetLbPrev'));return;}
+      render(cur-1);
+    }
+    if(e.key==='ArrowRight'){
+      if(cur===data.length-1){shakeArrow($('#fleetLbNext'));return;}
+      render(cur+1);
+    }
+  });
+}
+initFleetGalleries();
+
 // Floating cart — use event delegation because #floatCart is injected after this script
 document.addEventListener('click',e=>{
   const fc=document.querySelector('#floatCart');
@@ -1417,6 +1513,41 @@ document.addEventListener('DOMContentLoaded',()=>{
 const cookie=$('#cookie');
 if(cookie&&!localStorage.getItem('mt_cookie')){setTimeout(()=>cookie.classList.add('show'),2000);}
 $('#cookieOk')?.addEventListener('click',()=>{localStorage.setItem('mt_cookie','1');cookie.classList.remove('show');});
+
+/* ============================================================
+   ANNOUNCEMENT BAR
+   ============================================================ */
+(function(){
+  const bar=$('#annbar');
+  if(!bar)return;
+  const closeBtn=$('#annbarClose');
+  const KEY='mt_annbar_dismissed';
+
+  function setOffset(){
+    const h=bar.classList.contains('show')?bar.offsetHeight:0;
+    document.documentElement.style.setProperty('--annbar-offset',h+'px');
+    document.body.classList.toggle('annbar-visible',h>0);
+  }
+
+  if(!localStorage.getItem(KEY)){
+    bar.hidden=false;
+    bar.offsetHeight; // force reflow so the reveal transition plays even on a backgrounded tab
+    bar.classList.add('show');
+    setOffset();
+  }
+
+  closeBtn?.addEventListener('click',()=>{
+    bar.classList.remove('show');
+    localStorage.setItem(KEY,'1');
+    setOffset();
+    setTimeout(()=>{
+      bar.hidden=true;
+      $('.logo')?.focus();
+    },520);
+  });
+
+  addEventListener('resize',()=>{if(bar.classList.contains('show'))setOffset();});
+})();
 
 /* ============================================================
    IMAGE FALLBACK

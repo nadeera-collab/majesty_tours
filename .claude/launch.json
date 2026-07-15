@@ -12,6 +12,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["serve", "-l", "3001", "."],
       "port": 3001
+    },
+    {
+      "name": "static-preview",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "3057", "--directory", "C:\\Users\\User\\Documents\\majesty_tours"],
+      "port": 3057
     }
   ]
 }
