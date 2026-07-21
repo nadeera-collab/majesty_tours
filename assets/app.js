@@ -99,13 +99,13 @@ if(heroLoader){
   const probe=new Image();
   probe.onload=dismiss;
   probe.onerror=dismiss;
-  probe.src='https://commons.wikimedia.org/wiki/Special:FilePath/Sigiriya%20Fortress%2C%20Sri%20Lanka.jpg?width=2400';
+  probe.src='assets/img-sigiriya-aerial.jpg';
   setTimeout(dismiss,5000);
 }
 
 /* ---------- HERO SLIDESHOW ---------- */
 (function(){
-  const LABELS=['Sigiriya','Ella tea country','Yala leopards','Galle Fort','Kandy','Mirissa whales'];
+  const LABELS=['Sigiriya','Ella tea country','Yala leopards','Coastal retreat','Pinnawala elephants','Yala peacock','Nine Arch Bridge','Yala safari'];
   const INTERVAL=7000;
   const slides=$$('.hero-slide');
   const dots=$$('.hsd');
@@ -123,7 +123,6 @@ if(heroLoader){
     restartKenBurns(slides[current]);
     slides[current].classList.add('active');
     dots[current].classList.add('active');
-    $$('.dest-item').forEach((d,idx)=>d.classList.toggle('active',idx===current));
     if(label){label.classList.remove('visible');setTimeout(()=>{label.textContent=LABELS[current];label.classList.add('visible');},200);}
     if(manual){clearInterval(timer);startTimer();}
   }
@@ -140,26 +139,15 @@ if(heroLoader){
   function startTimer(){timer=setInterval(()=>{if(!paused)goTo(current+1,false);},INTERVAL);}
   startTimer();
 
-  ['202312%20Nine%20Arches%20Bridge%2C%20Sri%20Lanka.jpg',
-   'Sri%20Lankan%20leopard%20(Panthera%20pardus%20kotiya)%20male.jpg',
-   'Galle%20Fort.jpg',
-   'Temple%20of%20the%20Tooth%2C%20Kandy.jpg',
-   'Unawatuna%20beach.jpg'].forEach((f,i)=>
-    setTimeout(()=>{new Image().src='https://commons.wikimedia.org/wiki/Special:FilePath/'+f+'?width=2400';},2000+i*1000));
+  ['img-ravana-falls.jpg',
+   'img-leopard-waterhole.jpg',
+   'img-infinity-pool.jpg',
+   'img-elephant-river-overlook.jpg',
+   'img-peacock-fan.jpg',
+   'img-nine-arch-bridge.jpg',
+   'img-safari-kid-thumbsup.jpg'].forEach((f,i)=>
+    setTimeout(()=>{new Image().src='assets/'+f;},2000+i*600));
 })();
-
-/* ---------- DESTINATIONS STRIP → HERO WIRING ---------- */
-$$('.dest-item')[0]?.classList.add('active');
-$$('.dest-item').forEach((item,i)=>{
-  function activate(){
-    if(heroGoTo)heroGoTo(i,true);
-    document.getElementById('top').scrollIntoView({behavior:'smooth'});
-  }
-  item.addEventListener('click',activate);
-  item.addEventListener('keydown',e=>{
-    if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}
-  });
-});
 
 /* ---------- HERO HEADLINE LETTER REVEAL ---------- */
 const h1=$('#heroH1');
@@ -279,7 +267,7 @@ const secObserver=new IntersectionObserver(es=>{
     }
   });
 },{rootMargin:'-45% 0px -50% 0px'});
-['about','tours','map','season','gallery','fleet','contact'].forEach(id=>{const s=$('#'+id);if(s)secObserver.observe(s);});
+['about','tours','activities','map','season','gallery','fleet','contact'].forEach(id=>{const s=$('#'+id);if(s)secObserver.observe(s);});
 
 
 /* ---------- REVEAL ON SCROLL ---------- */
@@ -570,26 +558,38 @@ function renderGallery(items){
   grid.innerHTML='';
   const IMG_TO_PH={'img-sigiriya.jpg':'ph-sigiriya-group'};
   items.forEach((item,i)=>{
-    const filename=(item.image||'').replace(/^.*\//,'');
-    const ph=IMG_TO_PH[filename]||'ph-'+filename.replace(/^img-/,'').replace(/\.[^.]+$/,'');
-    const delay=(i%3===1)?' d1':(i%3===2)?' d2':'';
+    const isVideo=!!item.video;
+    const src=item.video||item.image||'';
+    const filename=src.replace(/^.*\//,'');
+    const ph=IMG_TO_PH[filename]||'ph-'+filename.replace(/^(img|vid)-/,'').replace(/\.[^.]+$/,'');
     const el=document.createElement('div');
-    el.className='gitem g'+(i+1);
+    el.className='gitem g'+(i+1)+(isVideo?' video-item':'');
     el.dataset.ph=ph;
-    el.dataset.img=item.image||'';
+    if(isVideo)el.dataset.video=src;else el.dataset.img=src;
     el.setAttribute('role','button');
     el.setAttribute('tabindex','0');
-    el.setAttribute('aria-label',(item.caption||'')+' — open full screen');
-    const phEl=document.createElement('div');
-    phEl.className='ph '+ph;
+    el.setAttribute('aria-label',(item.caption||'')+(isVideo?' — play video':' — open full screen'));
+    let mediaEl;
+    if(isVideo){
+      mediaEl=document.createElement('video');
+      mediaEl.className='ph';
+      mediaEl.muted=true;
+      mediaEl.loop=true;
+      mediaEl.playsInline=true;
+      mediaEl.preload='none';
+      mediaEl.setAttribute('aria-hidden','true');
+    }else{
+      mediaEl=document.createElement('div');
+      mediaEl.className='ph '+ph;
+    }
     const capEl=document.createElement('div');
     capEl.className='cap';
     capEl.textContent=item.caption||'';
     const plusEl=document.createElement('div');
     plusEl.className='plus';
     plusEl.setAttribute('aria-hidden','true');
-    plusEl.textContent='+';
-    el.append(phEl,capEl,plusEl);
+    plusEl.textContent=isVideo?'▶':'+';
+    el.append(mediaEl,capEl,plusEl);
     grid.appendChild(el);
   });
 }
@@ -599,7 +599,7 @@ function initLightbox(){
   if(!lb)return;
   const items=$$('.gitem');
   if(!items.length)return;
-  const data=items.map(g=>({ph:g.dataset.ph,img:g.dataset.img||'',cap:$('.cap',g)?.textContent||''}));
+  const data=items.map(g=>({ph:g.dataset.ph,img:g.dataset.img||'',video:g.dataset.video||'',cap:$('.cap',g)?.textContent||''}));
   const stage=$('.lb-stage',lb);
   let cur=0,lastFocus=null;
   stage.innerHTML='';
@@ -607,12 +607,29 @@ function initLightbox(){
   layerA.className='ph active';layerB.className='ph';
   stage.append(layerA,layerB);
   let front=layerA,back=layerB;
+  function pauseVideosIn(layer){layer.querySelectorAll('video').forEach(v=>v.pause());}
+  function fillLayer(layer,item){
+    layer.innerHTML='';
+    layer.style.backgroundImage='';
+    if(item.video){
+      const v=document.createElement('video');
+      v.src=item.video;
+      v.controls=true;
+      v.playsInline=true;
+      v.preload='metadata';
+      v.className='lb-video';
+      layer.appendChild(v);
+    }else if(item.img){
+      layer.style.backgroundImage="url('"+item.img+"')";
+    }
+  }
   function render(i){
     cur=(i+data.length)%data.length;
+    pauseVideosIn(back);
     back.className='ph '+data[cur].ph;
-    back.style.backgroundImage=data[cur].img?"url('"+data[cur].img+"')":'';
+    fillLayer(back,data[cur]);
     back.offsetWidth;
-    front.classList.remove('active');back.classList.add('active');
+    pauseVideosIn(front);front.classList.remove('active');back.classList.add('active');
     [front,back]=[back,front];
     $('#lbCap').textContent=data[cur].cap;
     $('#lbCount').textContent=String(cur+1).padStart(2,'0')+' / '+String(data.length).padStart(2,'0');
@@ -633,6 +650,7 @@ function initLightbox(){
     setTimeout(()=>$('#lbx').focus(),50);
   }
   function close(){
+    pauseVideosIn(front);pauseVideosIn(back);
     lb.classList.remove('show');
     lb.setAttribute('aria-hidden','true');
     document.body.style.overflow='';
@@ -682,7 +700,12 @@ function initGalleryLazy(){
     es.forEach(e=>{
       if(!e.isIntersecting)return;
       const phEl=e.target.querySelector('.ph');
-      if(phEl&&!phEl.style.backgroundImage){
+      if(phEl&&e.target.dataset.video){
+        if(!phEl.getAttribute('src')){
+          phEl.setAttribute('src',e.target.dataset.video);
+          phEl.addEventListener('loadeddata',()=>{phEl.play().then(()=>phEl.pause()).catch(()=>{});},{once:true});
+        }
+      }else if(phEl&&!phEl.style.backgroundImage){
         const imgPath=e.target.dataset.img;
         phEl.style.backgroundImage=imgPath?"url('"+imgPath+"')":'';
       }
@@ -1015,6 +1038,102 @@ $$('.act-card[data-item]').forEach(card=>{
 
 // Wire fleet transfer button
 $$('.fleet-xfer-cart').forEach(btn=>btn.onclick=()=>cartToggle(btn.dataset.item,btn));
+
+/* ============================================================
+   FLEET GALLERIES — per-vehicle-category lightbox
+   ============================================================ */
+function fleetRange(slug,label,count){
+  const images=[];
+  for(let n=1;n<=count;n++)images.push({img:`assets/fleet/${slug}/${n}.jpg`,cap:label});
+  return{label,images};
+}
+const FLEET_GALLERIES={
+  'sedan':{label:'Luxury Sedan Car',images:[
+    {img:'assets/img-fleet-car.png',cap:'Luxury Sedan Car'}
+  ]},
+  'kdh-flat-roof':fleetRange('kdh-flat-roof','KDH Van · Flat Roof',37),
+  'kdh-high-roof':fleetRange('kdh-high-roof','KDH Van · High Roof',30),
+  'mini-coaster':fleetRange('mini-coaster','Mini Coaster',7),
+  'coaster':fleetRange('coaster','Coaster',5),
+  'suv':fleetRange('suv','SUV',37)
+};
+
+function initFleetGalleries(){
+  const lb=$('#fleetLb');
+  if(!lb)return;
+  const stage=$('#fleetLbStage',lb);
+  let data=[],cur=0,lastFocus=null;
+  const layerA=document.createElement('div'),layerB=document.createElement('div');
+  layerA.className='ph active';layerB.className='ph';
+  stage.append(layerA,layerB);
+  let front=layerA,back=layerB;
+  function render(i){
+    cur=(i+data.length)%data.length;
+    back.style.backgroundImage="url('"+data[cur].img+"')";
+    back.offsetWidth;
+    front.classList.remove('active');back.classList.add('active');
+    [front,back]=[back,front];
+    $('#fleetLbCap').textContent=data[cur].cap||'';
+    $('#fleetLbCount').textContent=String(cur+1).padStart(2,'0')+' / '+String(data.length).padStart(2,'0');
+  }
+  function shakeArrow(el){
+    el.classList.remove('edge-hit');
+    el.offsetWidth;
+    el.classList.add('edge-hit');
+    el.addEventListener('animationend',()=>el.classList.remove('edge-hit'),{once:true});
+  }
+  function open(slug,i){
+    const gal=FLEET_GALLERIES[slug];
+    if(!gal)return;
+    data=gal.images;
+    render(i||0);
+    lb.classList.add('open');
+    lb.removeAttribute('aria-hidden');
+    document.body.style.overflow='hidden';
+    lastFocus=document.activeElement;
+    requestAnimationFrame(()=>requestAnimationFrame(()=>lb.classList.add('show')));
+    setTimeout(()=>$('#fleetLbx').focus(),50);
+  }
+  function close(){
+    lb.classList.remove('show');
+    lb.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    lastFocus?.focus();
+    setTimeout(()=>lb.classList.remove('open'),300);
+  }
+  $$('.vehicle[data-fleet]').forEach(card=>{
+    card.setAttribute('role','button');
+    card.setAttribute('tabindex','0');
+    card.setAttribute('aria-label','View '+(FLEET_GALLERIES[card.dataset.fleet]?.label||'vehicle')+' photo gallery');
+    card.addEventListener('click',()=>open(card.dataset.fleet,0));
+    card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(card.dataset.fleet,0);}});
+  });
+  $('#fleetLbx').onclick=close;
+  $('#fleetLbPrev').onclick=e=>{
+    e.stopPropagation();
+    if(cur===0){shakeArrow($('#fleetLbPrev'));return;}
+    render(cur-1);
+  };
+  $('#fleetLbNext').onclick=e=>{
+    e.stopPropagation();
+    if(cur===data.length-1){shakeArrow($('#fleetLbNext'));return;}
+    render(cur+1);
+  };
+  lb.onclick=e=>{if(e.target===lb||e.target===stage)close();};
+  addEventListener('keydown',e=>{
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape'){close();return;}
+    if(e.key==='ArrowLeft'){
+      if(cur===0){shakeArrow($('#fleetLbPrev'));return;}
+      render(cur-1);
+    }
+    if(e.key==='ArrowRight'){
+      if(cur===data.length-1){shakeArrow($('#fleetLbNext'));return;}
+      render(cur+1);
+    }
+  });
+}
+initFleetGalleries();
 
 // Floating cart — use event delegation because #floatCart is injected after this script
 document.addEventListener('click',e=>{
@@ -1394,6 +1513,41 @@ document.addEventListener('DOMContentLoaded',()=>{
 const cookie=$('#cookie');
 if(cookie&&!localStorage.getItem('mt_cookie')){setTimeout(()=>cookie.classList.add('show'),2000);}
 $('#cookieOk')?.addEventListener('click',()=>{localStorage.setItem('mt_cookie','1');cookie.classList.remove('show');});
+
+/* ============================================================
+   ANNOUNCEMENT BAR
+   ============================================================ */
+(function(){
+  const bar=$('#annbar');
+  if(!bar)return;
+  const closeBtn=$('#annbarClose');
+  const KEY='mt_annbar_dismissed';
+
+  function setOffset(){
+    const h=bar.classList.contains('show')?bar.offsetHeight:0;
+    document.documentElement.style.setProperty('--annbar-offset',h+'px');
+    document.body.classList.toggle('annbar-visible',h>0);
+  }
+
+  if(!localStorage.getItem(KEY)){
+    bar.hidden=false;
+    bar.offsetHeight; // force reflow so the reveal transition plays even on a backgrounded tab
+    bar.classList.add('show');
+    setOffset();
+  }
+
+  closeBtn?.addEventListener('click',()=>{
+    bar.classList.remove('show');
+    localStorage.setItem(KEY,'1');
+    setOffset();
+    setTimeout(()=>{
+      bar.hidden=true;
+      $('.logo')?.focus();
+    },520);
+  });
+
+  addEventListener('resize',()=>{if(bar.classList.contains('show'))setOffset();});
+})();
 
 /* ============================================================
    IMAGE FALLBACK
