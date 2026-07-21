@@ -238,14 +238,17 @@ body.annbar-visible .hero{padding-top:calc(8rem + var(--annbar-offset,0px))}
 .hero-slide{position:absolute;inset:-12% 0;background-size:cover;background-position:center;will-change:transform,opacity;opacity:0;transition:opacity 1.8s cubic-bezier(.4,0,.2,1);transform:scale(1.08);animation:kenburns 26s ease-in-out forwards}
 .hero-slide.active{opacity:1}
 @keyframes kenburns{to{transform:scale(1.16) translateY(-2%)}}
-.hero-slide[data-slide="0"]{background-color:#3d5642;background-image:url('img-sigiriya-aerial.jpg');background-position:center 40%}
-.hero-slide[data-slide="1"]{background-color:#2c3c26;background-image:url('img-ravana-falls.jpg');background-position:center 45%}
-.hero-slide[data-slide="2"]{background-color:#6b5a33;background-image:url('img-leopard-waterhole.jpg');background-position:center 55%}
-.hero-slide[data-slide="3"]{background-color:#2f6b5e;background-image:url('img-infinity-pool.jpg');background-position:center 65%}
-.hero-slide[data-slide="4"]{background-color:#4a5d47;background-image:url('img-elephant-river-overlook.jpg');background-position:center 55%}
-.hero-slide[data-slide="5"]{background-color:#8a7a3a;background-image:url('img-peacock-fan.jpg');background-position:center 50%}
-.hero-slide[data-slide="6"]{background-color:#2f4a2e;background-image:url('img-nine-arch-bridge.jpg');background-position:center 65%}
-.hero-slide[data-slide="7"]{background-color:#b8a878;background-image:url('img-safari-kid-thumbsup.jpg');background-position:center 35%}
+.hero-slide[data-slide="0"]{background-color:#3d5642;background-image:url('sigiriya-hero.jpg');background-position:center 40%}
+.hero-slide[data-slide="1"]{background-color:#2c3c26;background-image:url('ella.jpg');background-position:center 45%}
+.hero-slide[data-slide="2"]{background-color:#4a4230;background-image:url('kandy.jpg');background-position:center 50%}
+.hero-slide[data-slide="3"]{background-color:#b8a878;background-image:url('img-safari-kid-thumbsup.jpg');background-position:center 35%}
+.hero-slide[data-slide="4"]{background-color:#8a7a3a;background-image:url('img-peacock-fan.jpg');background-position:center 50%}
+.hero-slide[data-slide="5"]{background-color:#6b5a33;background-image:url('img-leopard-waterhole.jpg');background-position:center 55%}
+.hero-slide[data-slide="6"]{background-color:#3a5a6b;background-image:url('galle-fort.jpg');background-position:center 50%}
+.hero-slide[data-slide="7"]{background-color:#2f6b5e;background-image:url('beach.jpg');background-position:center 55%}
+.hero-slide[data-slide="8"]{background-color:#4a5d47;background-image:url('img-elephant-river-overlook.jpg');background-position:center 55%}
+.hero-slide[data-slide="9"]{background-color:#3d5642;background-image:url('tea.jpg');background-position:center 50%}
+.hero-slide[data-slide="10"]{background-color:#2f3a4a;background-image:url('colombo.jpg');background-position:center 50%}
 .hero-grad{position:absolute;inset:0;z-index:2;background:linear-gradient(105deg,rgba(33,26,18,.5) 0%,rgba(33,26,18,.1) 45%,transparent 70%)}
 .hero-vignette{position:absolute;inset:0;z-index:3;background:linear-gradient(to bottom,rgba(33,26,18,.12) 0%,rgba(33,26,18,calc(var(--hero-dark))) 100%)}
 .hero-inner{position:relative;z-index:5;width:100%;will-change:transform}
@@ -276,9 +279,7 @@ body.annbar-visible .hero{padding-top:calc(8rem + var(--annbar-offset,0px))}
 .hsd.active{width:36px;background:var(--gold)}
 .hsd.active::after{content:'';position:absolute;inset:0;background:rgba(244,236,224,.5);border-radius:2px;transform:scaleX(0);transform-origin:left;animation:hsd-fill var(--slide-dur,7s) linear forwards}
 @keyframes hsd-fill{to{transform:scaleX(1)}}
-.hero-offer-badge{position:absolute;right:5vw;bottom:2.4rem;z-index:6;display:flex;align-items:center;gap:.6rem;background:rgba(33,26,18,.55);backdrop-filter:blur(8px);color:var(--paper);border:1px solid rgba(201,162,39,.5);border-radius:30px;padding:.65rem 1.1rem;font-size:.76rem;letter-spacing:.05em;max-width:280px;opacity:0;animation:fade 1s ease forwards;animation-delay:1.6s}
-.hero-offer-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none}
-@media(prefers-reduced-motion:reduce){.hero-slide{transition:opacity .1s;animation:none!important}.hero-slide.active{animation:none!important;transform:scale(1.08)}.hsd.active::after{animation:none;transform:scaleX(1)}.scroll-cue .line::after{animation:none;transform:translateX(0);background:var(--gold)}.logo .mark .stamp{animation:none}.wa{animation:none;box-shadow:0 10px 30px rgba(37,211,102,.4)}.cursor-dot{animation:none}.hero-loader-ring{animation:none}.hero-bg,.hero-inner,#interPar{will-change:auto;transform:none!important}.lb .lb-stage{transform:none!important}.hero-offer-badge{animation:none;opacity:1}.annbar{transition:none}}
+@media(prefers-reduced-motion:reduce){.hero-slide{transition:opacity .1s;animation:none!important}.hero-slide.active{animation:none!important;transform:scale(1.08)}.hsd.active::after{animation:none;transform:scaleX(1)}.scroll-cue .line::after{animation:none;transform:translateX(0);background:var(--gold)}.logo .mark .stamp{animation:none}.wa{animation:none;box-shadow:0 10px 30px rgba(37,211,102,.4)}.cursor-dot{animation:none}.hero-loader-ring{animation:none}.hero-bg,.hero-inner,#interPar{will-change:auto;transform:none!important}.lb .lb-stage{transform:none!important}.annbar{transition:none}}
 @media(max-width:900px){.hero-slide-label{display:none}.hero-slide-ui{bottom:3rem}}
 
 /* ---------- SECTION SCAFFOLD ---------- */
@@ -839,7 +840,7 @@ footer .logo-tagline{color:rgba(244,236,224,.55)}
   .g1,.g2,.g3,.g4,.g5,.g6{grid-column:span 3;grid-row:span 2}
   .tour{grid-template-columns:auto 1fr auto;gap:1.2rem;row-gap:.6rem}
   .tour .meta{grid-column:2/3;text-align:left}
-  .tour-thumb,.hero-meta,.hero-offer-badge{display:none}
+  .tour-thumb,.hero-meta{display:none}
   .tour-free-flag{font-size:.58rem;padding:.26rem .6rem;top:.3rem}
   .navlinks .nav-badge{font-size:.85rem!important;padding:.6rem 1.2rem!important}
 }

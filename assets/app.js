@@ -105,7 +105,7 @@ if(heroLoader){
 
 /* ---------- HERO SLIDESHOW ---------- */
 (function(){
-  const LABELS=['Sigiriya','Ella tea country','Yala leopards','Coastal retreat','Pinnawala elephants','Yala peacock','Nine Arch Bridge','Yala safari'];
+  const LABELS=['Sigiriya','Ella tea country','Kandy','Yala safari','Udawalawe peacock','Yala leopards','Galle Fort','Southern coast','Pinnawala elephants','Tea country','Colombo'];
   const INTERVAL=7000;
   const slides=$$('.hero-slide');
   const dots=$$('.hsd');
@@ -139,13 +139,16 @@ if(heroLoader){
   function startTimer(){timer=setInterval(()=>{if(!paused)goTo(current+1,false);},INTERVAL);}
   startTimer();
 
-  ['img-ravana-falls.jpg',
-   'img-leopard-waterhole.jpg',
-   'img-infinity-pool.jpg',
-   'img-elephant-river-overlook.jpg',
+  ['ella.jpg',
+   'kandy.jpg',
+   'img-safari-kid-thumbsup.jpg',
    'img-peacock-fan.jpg',
-   'img-nine-arch-bridge.jpg',
-   'img-safari-kid-thumbsup.jpg'].forEach((f,i)=>
+   'img-leopard-waterhole.jpg',
+   'galle-fort.jpg',
+   'beach.jpg',
+   'img-elephant-river-overlook.jpg',
+   'tea.jpg',
+   'colombo.jpg'].forEach((f,i)=>
     setTimeout(()=>{new Image().src='assets/'+f;},2000+i*600));
 })();
 
