@@ -65,6 +65,204 @@
       });
       if(t.images[0] && t.images[0].caption && capEl) capEl.textContent = t.images[0].caption;
     });
+
+    tours.forEach((t, i) => {
+      const wrap = document.querySelector('[data-tour-index="' + i + '"]');
+      if(!wrap) return;
+      const daysContainer = wrap.querySelector('[data-itin-days]');
+      if(daysContainer && t.itinerary && t.itinerary.length){
+        daysContainer.innerHTML = '';
+        t.itinerary.forEach(day => daysContainer.appendChild(buildDayNode(day)));
+      }
+      const moreContainer = wrap.querySelector('[data-tour-more]');
+      if(moreContainer){
+        moreContainer.innerHTML = '';
+        moreContainer.appendChild(buildTourMore(t));
+      }
+    });
+  }
+
+  /* ---------- full itinerary day builder ---------- */
+  function buildDayNode(day){
+    const div = document.createElement('div');
+    div.className = 'day';
+    const dn = document.createElement('div');
+    dn.className = 'dn';
+    dn.textContent = day.day;
+    div.appendChild(dn);
+
+    const body = document.createElement('div');
+    const h4 = document.createElement('h4');
+    h4.textContent = day.title;
+    body.appendChild(h4);
+    if(day.text){
+      const p = document.createElement('p');
+      p.textContent = day.text;
+      body.appendChild(p);
+    }
+
+    function appendHighlights(container, highlights){
+      if(!highlights || !highlights.length) return;
+      const ul = document.createElement('ul');
+      ul.className = 'day-highlights';
+      highlights.forEach(h => {
+        const li = document.createElement('li');
+        li.textContent = h;
+        ul.appendChild(li);
+      });
+      container.appendChild(ul);
+    }
+    function appendOvernight(container, overnight){
+      if(!overnight) return;
+      const el = document.createElement('div');
+      el.className = 'day-overnight';
+      el.textContent = 'Overnight: ' + overnight;
+      container.appendChild(el);
+    }
+
+    if(day.options && day.options.length){
+      div.classList.add('day-options');
+      day.options.forEach(opt => {
+        const optDiv = document.createElement('div');
+        optDiv.className = 'day-option';
+        const label = document.createElement('div');
+        label.className = 'day-option-label';
+        label.textContent = opt.label;
+        optDiv.appendChild(label);
+        appendHighlights(optDiv, opt.highlights);
+        appendOvernight(optDiv, opt.overnight);
+        body.appendChild(optDiv);
+      });
+    } else {
+      appendHighlights(body, day.highlights);
+      appendOvernight(body, day.overnight);
+    }
+    div.appendChild(body);
+    return div;
+  }
+
+  /* ---------- "Full trip details" panel builder ---------- */
+  function buildTourMore(t){
+    const frag = document.createDocumentFragment();
+    const label = document.createElement('div');
+    label.className = 'tour-more-label';
+    label.textContent = 'Full trip details';
+
+    const panel = document.createElement('div');
+    panel.className = 'tour-more-panel';
+
+    function addSection(title, buildFn){
+      const sec = document.createElement('div');
+      sec.className = 'tour-more-section';
+      const h5 = document.createElement('h5');
+      h5.textContent = title;
+      sec.appendChild(h5);
+      buildFn(sec);
+      panel.appendChild(sec);
+    }
+
+    if(t.highlights && t.highlights.length){
+      addSection('Tour Highlights', sec => {
+        const list = document.createElement('div');
+        list.className = 'chip-list';
+        t.highlights.forEach(h => {
+          const chip = document.createElement('span');
+          chip.className = 'chip';
+          chip.textContent = h;
+          list.appendChild(chip);
+        });
+        sec.appendChild(list);
+      });
+    }
+
+    if(t.inclusions && t.inclusions.length){
+      addSection('Inclusions', sec => {
+        const ul = document.createElement('ul');
+        ul.className = 'incl-list';
+        t.inclusions.forEach(inc => {
+          const li = document.createElement('li');
+          li.textContent = inc;
+          ul.appendChild(li);
+        });
+        sec.appendChild(ul);
+      });
+    }
+
+    if(t.themes && t.themes.length){
+      addSection('Tour Themes', sec => {
+        const wrap = document.createElement('div');
+        wrap.className = 'theme-badges';
+        t.themes.forEach(th => {
+          const badge = document.createElement('span');
+          badge.className = 'theme-badge';
+          const icon = document.createElement('span');
+          icon.className = 'theme-icon';
+          icon.setAttribute('aria-hidden', 'true');
+          icon.textContent = th.icon;
+          badge.appendChild(icon);
+          badge.appendChild(document.createTextNode(th.label));
+          wrap.appendChild(badge);
+        });
+        sec.appendChild(wrap);
+      });
+    }
+
+    if(t.facts){
+      addSection('Tour Facts', sec => {
+        const dl = document.createElement('dl');
+        dl.className = 'facts-grid';
+        const rows = [
+          ['Duration', t.facts.duration],
+          ['Tour Type', t.facts.type],
+          ['Starting Point', t.facts.start],
+          ['Ending Point', t.facts.end],
+          ['Destinations', t.facts.destinations],
+          ['UNESCO Sites', t.facts.unesco],
+          ['National Parks', t.facts.parks],
+          ['Best For', t.facts.bestFor]
+        ];
+        rows.forEach(([label, val]) => {
+          if(val === undefined || val === null || val === '') return;
+          const item = document.createElement('div');
+          item.className = 'fact-item';
+          const dt = document.createElement('dt');
+          dt.textContent = label;
+          const dd = document.createElement('dd');
+          dd.textContent = val;
+          item.appendChild(dt);
+          item.appendChild(dd);
+          dl.appendChild(item);
+        });
+        sec.appendChild(dl);
+      });
+    }
+
+    if(t.destinationsCovered && t.destinationsCovered.length){
+      addSection('Destinations Covered', sec => {
+        const list = document.createElement('div');
+        list.className = 'chip-list';
+        t.destinationsCovered.forEach(d => {
+          const chip = document.createElement('span');
+          chip.className = 'chip chip--dest';
+          chip.textContent = d;
+          list.appendChild(chip);
+        });
+        sec.appendChild(list);
+      });
+    }
+
+    if(t.whyChoose){
+      addSection('Why Choose This Tour?', sec => {
+        const p = document.createElement('p');
+        p.className = 'why-choose';
+        p.textContent = t.whyChoose;
+        sec.appendChild(p);
+      });
+    }
+
+    frag.appendChild(label);
+    frag.appendChild(panel);
+    return frag;
   }
 
   if(location.protocol !== 'file:'){
@@ -302,14 +500,20 @@ $$('[data-count]').forEach(el=>countIo.observe(el));
 
 /* ---------- TOURS: expand + hover thumb ---------- */
 const thumb=$('#thumb'),thumbPh=$('#thumbPh');
+function setDetailMaxHeight(wrap){
+  const detail=$('.tour-detail',wrap);
+  if(!detail)return;
+  detail.style.maxHeight=wrap.classList.contains('open')?detail.scrollHeight+'px':'';
+}
 $$('.tour-wrap').forEach(wrap=>{
   const tour=$('.tour',wrap);
   tour.addEventListener('click',()=>{
     const open=wrap.classList.toggle('open');
     if(open){
-      $$('.tour-wrap.open').forEach(o=>{if(o!==wrap)o.classList.remove('open');});
+      $$('.tour-wrap.open').forEach(o=>{if(o!==wrap){o.classList.remove('open');setDetailMaxHeight(o);}});
     }
     tour.setAttribute('aria-expanded',String(open));
+    setDetailMaxHeight(wrap);
   });
   tour.addEventListener('keydown',e=>{
     if(e.key==='Enter'||e.key===' '){e.preventDefault();tour.click();}
@@ -321,6 +525,14 @@ $$('.tour-wrap').forEach(wrap=>{
   }
 });
 
+/* ---------- TOURS: keep open cards sized correctly as content loads in ---------- */
+const tourListEl=$('#tourList');
+if(tourListEl){
+  new MutationObserver(()=>{
+    $$('.tour-wrap.open').forEach(setDetailMaxHeight);
+  }).observe(tourListEl,{childList:true,subtree:true});
+}
+
 /* ============================================================
    MAP
    ============================================================ */
@@ -328,13 +540,13 @@ const M=window.MAP;
 const rootStyle=getComputedStyle(document.documentElement);
 const routeColor=name=>rootStyle.getPropertyValue('--route-'+name).trim();
 const routes={
-  culture:{label:'The Cultural Triangle',days:'4 days',stops:['Colombo','Dambulla','Sigiriya','Polonnaruwa','Kandy','Colombo'],blurb:'Dry-zone kingdoms rock fortress, cave temples and the last royal capital, round trip from Colombo.',color:routeColor('culture')},
-  hill:{label:'Hill Country & Tea',days:'3 days',stops:['Colombo','Kandy','NuwaraEliya','Ella','Colombo'],blurb:'The misted tea highlands, the blue train and the bridge at Ella, round trip from Colombo.',color:routeColor('hill')},
-  wild:{label:'Wildlife & Safari',days:'2 days',stops:['Colombo','Ella','Yala','Colombo'],blurb:'Leopard country at the southern edge of the dry forest, round trip from Colombo.',color:routeColor('wild')},
-  coast:{label:'Southern Coast',days:'3 days',stops:['Colombo','Galle','Mirissa','Colombo'],blurb:'Dutch ramparts, stilt fishers and the whales off Mirissa, round trip from Colombo.',color:routeColor('coast')},
-  trinco:{label:'Trincomalee',days:'3 days',stops:['Colombo','Dambulla','Trincomalee','Colombo'],blurb:'The natural harbour, Koneswaram Temple and Pigeon Island, round trip from Colombo.',color:routeColor('trinco')},
-  arugam:{label:'Arugam Bay',days:'3 days',stops:['Colombo','Ella','ArugamBay','Colombo'],blurb:"Sri Lanka's surf capital and the wetlands of Kumana, round trip from Colombo.",color:routeColor('arugam')},
-  grand:{label:'The Grand Island',days:'14 days',stops:['Colombo','Dambulla','Sigiriya','Polonnaruwa','Kandy','NuwaraEliya','Ella','Yala','Mirissa','Galle','Colombo'],blurb:'Everything coast to summit, north to south, unhurried over two weeks, round trip from Colombo.',color:routeColor('grand')}
+  culture:{label:'The Cultural Triangle',days:'5 days',price:'from $690',tourIndex:0,stops:['Colombo','Dambulla','Sigiriya','Polonnaruwa','Kandy','Colombo'],blurb:'Dry-zone kingdoms rock fortress, cave temples and the last royal capital, round trip from Colombo.',color:routeColor('culture')},
+  hill:{label:'Hill Country & Tea',days:'4 days',price:'from $590',tourIndex:1,stops:['Colombo','Kandy','NuwaraEliya','Ella','Colombo'],blurb:'The misted tea highlands, the blue train and the bridge at Ella, round trip from Colombo.',color:routeColor('hill')},
+  wild:{label:'Wildlife & Safari',days:'3 days',price:'from $390',tourIndex:2,stops:['Colombo','Bentota','Udawalawe','Galle','Colombo'],blurb:'A turtle hatchery at Bentota, elephant herds at Udawalawe (or leopards in Yala) and the ramparts of Galle, round trip from Colombo.',color:routeColor('wild')},
+  coast:{label:'Southern Coast',days:'3 days',price:'from $390',tourIndex:3,stops:['Colombo','Balapitiya','Kosgoda','Galle','Mirissa','Unawatuna','Colombo'],blurb:"Cinnamon islands, a turtle hatchery, Galle's ramparts, the whales off Mirissa and Unawatuna's bay, round trip from Colombo.",color:routeColor('coast')},
+  trinco:{label:'East Coast',days:'4 days',price:'from $590',tourIndex:4,stops:['Colombo','Dambulla','Trincomalee','Nilaveli','Minneriya','PigeonIsland','Pasikuda','Colombo'],blurb:"Koneswaram Temple, Pigeon Island's reef, an elephant safari at Minneriya and the beaches of Pasikuda, round trip from Colombo.",color:routeColor('trinco')},
+  arugam:{label:'Arugam Bay',days:'3 days',price:'from $390',tourIndex:5,stops:['Colombo','ArugamBay','Kumana','Colombo'],blurb:"Sri Lanka's surf capital and the wetlands of Kumana, round trip from Colombo.",color:routeColor('arugam')},
+  grand:{label:'The Grand Island',days:'14 days',price:'from $1,990',tourIndex:6,stops:['Colombo','Sigiriya','Polonnaruwa','Kandy','NuwaraEliya','Ella','Yala','Mirissa','Galle','Trincomalee','Pasikuda','Colombo'],blurb:'Everything coast to summit, north to south, unhurried over two weeks, round trip from Colombo.',color:routeColor('grand')}
 };
 const cityInfo={
   Colombo:{label:'Colombo',sub:'Capital · arrival',ph:'ph-beach'},
@@ -347,13 +559,23 @@ const cityInfo={
   Yala:{label:'Yala',sub:'Leopard safari',ph:'ph-leopard'},
   Galle:{label:'Galle',sub:'Dutch fort & ramparts',ph:'ph-gal'},
   Anuradhapura:{label:'Anuradhapura',sub:'Ancient capital',ph:'ph-temple'},
-  Trincomalee:{label:'Trincomalee',sub:'East coast harbour',ph:'ph-trinco'},
+  Trincomalee:{label:'East Coast',sub:'East coast harbour',ph:'ph-trinco'},
   Jaffna:{label:'Jaffna',sub:'Northern peninsula',ph:'ph-temple'},
   Mirissa:{label:'Mirissa',sub:'Whales & surf',ph:'ph-beach'},
   Polonnaruwa:{label:'Polonnaruwa',sub:'Medieval ruins',ph:'ph-temple'},
   Batticaloa:{label:'Batticaloa',sub:'Lagoon city',ph:'ph-beach'},
   Mannar:{label:'Mannar',sub:'Baobabs & birds',ph:'ph-beach'},
-  ArugamBay:{label:'Arugam Bay',sub:"Sri Lanka's surf capital",ph:'ph-arugam'}
+  ArugamBay:{label:'Arugam Bay',sub:"Sri Lanka's surf capital",ph:'ph-arugam'},
+  Bentota:{label:'Bentota',sub:'River safari & turtle hatchery',ph:'ph-beach'},
+  Udawalawe:{label:'Udawalawe',sub:'Elephant herds',ph:'ph-elephant'},
+  Balapitiya:{label:'Balapitiya',sub:'Madu River safari',ph:'ph-beach'},
+  Kosgoda:{label:'Kosgoda',sub:'Turtle hatchery',ph:'ph-beach'},
+  Unawatuna:{label:'Unawatuna',sub:'Beach & coral reef',ph:'ph-beach'},
+  Nilaveli:{label:'Nilaveli',sub:'White-sand beach',ph:'ph-beach'},
+  Minneriya:{label:'Minneriya',sub:'Elephant Gathering',ph:'ph-elephant'},
+  PigeonIsland:{label:'Pigeon Island',sub:'Coral reef & snorkelling',ph:'ph-pigeon'},
+  Pasikuda:{label:'Pasikuda',sub:'Calm-water beach resorts',ph:'ph-beach'},
+  Kumana:{label:'Kumana',sub:'Wetland safari & birdlife',ph:'ph-leopard'}
 };
 
 const svg=$('#islandSvg');
@@ -380,6 +602,17 @@ if(svg&&M){
   dot.setAttribute('class','travel-dot');dot.setAttribute('r','5');
   svg.appendChild(dot);
 
+  // route meta panel: shows price + a link into that tour's full detail card
+  const rm=$('#routeMeta');
+  rm.addEventListener('click',e=>{
+    const btn=e.target.closest('.route-meta-link');
+    if(!btn)return;
+    const wrap=document.querySelector(`.tour-wrap[data-tour-index="${btn.dataset.tourIndex}"]`);
+    if(!wrap)return;
+    if(!wrap.classList.contains('open'))$('.tour',wrap).click();
+    wrap.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+  });
+
   // smooth path through points (Catmull-Rom -> bezier)
   function smooth(pts){
     if(pts.length<2)return '';
@@ -394,7 +627,7 @@ if(svg&&M){
   }
 
   // pins + labels
-  const labelOffsets={Galle:[-6,14,'end'],Mirissa:[8,16,'start'],Ella:[10,4,'start'],NuwaraEliya:[-10,-8,'end'],Mannar:[12,4,'start'],Jaffna:[12,2,'start'],Dambulla:[-9,14,'end'],Yala:[10,4,'start'],ArugamBay:[10,14,'start']};
+  const labelOffsets={Galle:[-6,14,'end'],Mirissa:[8,16,'start'],Ella:[10,4,'start'],NuwaraEliya:[-10,-8,'end'],Mannar:[12,4,'start'],Jaffna:[12,2,'start'],Dambulla:[-9,14,'end'],Yala:[10,4,'start'],ArugamBay:[10,14,'start'],Bentota:[8,-4,'start'],Udawalawe:[8,-6,'start'],Balapitiya:[10,4,'start'],Kosgoda:[10,4,'start'],Unawatuna:[10,-6,'start'],Nilaveli:[-8,10,'end'],PigeonIsland:[-8,-8,'end'],Minneriya:[4,22,'start'],Pasikuda:[8,-8,'start'],Kumana:[-8,12,'end']};
   Object.keys(cityInfo).forEach(key=>{
     const c=M.cities[key];if(!c)return;
     const g=document.createElementNS(NS,'g');g.setAttribute('class','pin');g.dataset.city=key;
@@ -456,8 +689,7 @@ if(svg&&M){
     // highlight pins
     $$('.pin').forEach(p=>p.classList.toggle('on',r.stops.includes(p.dataset.city)));
     // route meta
-    const rm=$('#routeMeta');
-    rm.innerHTML=`<b>${r.stops.map(s=>cityInfo[s].label).join(' → ')}</b><br>${r.blurb}`;
+    rm.innerHTML=`<b>${r.stops.map(s=>cityInfo[s].label).join(' → ')}</b><br>${r.blurb}<div class="route-meta-cta"><span class="route-meta-price">${r.price}</span><button type="button" class="route-meta-link" data-tour-index="${r.tourIndex}">View full itinerary <span class="arr">→</span></button></div>`;
     rm.classList.add('show');
     // active button
     $$('.route-btn').forEach(b=>b.classList.toggle('active',b.dataset.route===name));
@@ -514,7 +746,7 @@ const seasonData={
     'Peak season continues ideal across the cultural triangle and the south.',
     'Lovely island-wide; the hill country is crisp and clear before the heat.',
     'Shoulder the east coast wakes up as the south begins to soften.',
-    'The east coast hits its stride; Trincomalee and Arugam Bay are at their best.',
+    'The east coast hits its stride; Arugam Bay is at its best.',
     'East-coast season quieter, cheaper everywhere else, with afternoon showers in the south.',
     'Prime east-coast surf and sun; cultural sites remain very doable.',
     'East coast still excellent; the Kandy Esala Perahera lights up the hills.',
@@ -872,7 +1104,7 @@ wireCopyBtn('copyFcRef',()=>document.getElementById('fcSuccessRef')?.textContent
 const cart=new Set();
 const cartPrices=new Map();
 
-const CART_SCHEMA_VERSION=1;
+const CART_SCHEMA_VERSION=2;
 
 // Restore cart from localStorage
 (function(){
