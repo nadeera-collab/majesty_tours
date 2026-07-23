@@ -53,8 +53,8 @@
         { "icon": "📸", "label": "Sightseeing" },
         { "icon": "🚗", "label": "Road Trips" }
       ],
-      "facts": { "duration": "5 Days / 4 Nights", "type": "Private Tour", "start": "Bandaranaike International Airport (BIA)", "end": "Bandaranaike International Airport (BIA)", "destinations": 6, "unesco": 4, "bestFor": "Couples • Families • Friends • Solo Travelers" },
-      "destinationsCovered": ["Bandaranaike International Airport (BIA)", "Dambulla", "Sigiriya", "Polonnaruwa", "Kandy", "Colombo"],
+      "facts": { "duration": "5 Days / 4 Nights", "type": "Private Tour", "start": "Bandaranaike International Airport (BIA)", "end": "Bandaranaike International Airport (BIA)", "destinations": 5, "unesco": 4, "bestFor": "Couples • Families • Friends • Solo Travelers" },
+      "destinationsCovered": ["Dambulla", "Sigiriya", "Polonnaruwa", "Kandy", "Colombo"],
       "whyChoose": "Experience the very best of Sri Lanka's Cultural Triangle in the comfort of a private vehicle with an experienced chauffeur guide. Explore ancient cities, climb the iconic Sigiriya Lion Rock Fortress, visit sacred temples, enjoy an authentic Sigiriya Village Experience with a traditional Sri Lankan lunch, and conclude your journey with a guided tour of Colombo before your departure. Carefully crafted to offer the perfect balance of history, culture, nature, and relaxation, this itinerary promises an unforgettable Sri Lankan holiday."
     },
     {
@@ -86,8 +86,8 @@
         { "icon": "📸", "label": "Sightseeing" },
         { "icon": "🚗", "label": "Road Trips" }
       ],
-      "facts": { "duration": "4 Days / 3 Nights", "type": "Private Tour", "start": "Bandaranaike International Airport (BIA)", "end": "Bandaranaike International Airport (BIA)", "destinations": 4, "bestFor": "Couples • Families • Friends • Solo Travelers" },
-      "destinationsCovered": ["Bandaranaike International Airport (BIA)", "Kandy", "Nuwara Eliya", "Ella"],
+      "facts": { "duration": "4 Days / 3 Nights", "type": "Private Tour", "start": "Bandaranaike International Airport (BIA)", "end": "Bandaranaike International Airport (BIA)", "destinations": 3, "bestFor": "Couples • Families • Friends • Solo Travelers" },
+      "destinationsCovered": ["Kandy", "Nuwara Eliya", "Ella"],
       "whyChoose": "Experience the very best of Sri Lanka's spectacular hill country in comfort with your own private chauffeur guide. Ride the world-famous Blue Train through breathtaking mountain scenery, visit working tea plantations and factories, stroll through the colonial charm of Nuwara Eliya, and discover Ella's iconic viewpoints, waterfalls, and lush landscapes. Designed for nature lovers and adventure seekers alike, this journey offers the perfect blend of relaxation, scenic beauty, and unforgettable experiences in Sri Lanka's enchanting tea country."
     },
     {
@@ -123,8 +123,8 @@
         { "icon": "📸", "label": "Sightseeing" },
         { "icon": "🚗", "label": "Road Trips" }
       ],
-      "facts": { "duration": "3 Days / 2 Nights", "type": "Private Tour", "start": "Bandaranaike International Airport (BIA)", "end": "Bandaranaike International Airport (BIA)", "destinations": 5, "unesco": 1, "bestFor": "Couples • Families • Friends • Solo Travelers • Wildlife Enthusiasts" },
-      "destinationsCovered": ["Bandaranaike International Airport (BIA)", "Bentota", "Udawalawe National Park or Yala National Park", "Galle", "Colombo"],
+      "facts": { "duration": "3 Days / 2 Nights", "type": "Private Tour", "start": "Bandaranaike International Airport (BIA)", "end": "Bandaranaike International Airport (BIA)", "destinations": 4, "unesco": 1, "bestFor": "Couples • Families • Friends • Solo Travelers • Wildlife Enthusiasts" },
+      "destinationsCovered": ["Bentota", "Udawalawe National Park or Yala National Park", "Galle", "Colombo"],
       "whyChoose": "Discover Sri Lanka's spectacular wildlife with the flexibility to choose the safari experience that suits you best. Cruise through the scenic Madu River, visit a sea turtle hatchery, and explore either Udawalawe National Park, renowned for its magnificent elephant herds, or Yala National Park, famous for its elusive leopards and rich biodiversity. Complete your journey with a visit to the UNESCO-listed Galle Fort and a short Colombo City Tour before your departure. Carefully crafted to combine wildlife, nature, coastal beauty, heritage, and city sightseeing, this private tour offers an unforgettable Sri Lankan experience in just three days."
     },
     {
@@ -159,8 +159,8 @@
         { "icon": "📸", "label": "Sightseeing" },
         { "icon": "🚗", "label": "Road Trips" }
       ],
-      "facts": { "duration": "3 Days / 2 Nights", "type": "Private Tour", "start": "Bandaranaike International Airport (BIA)", "end": "Bandaranaike International Airport (BIA)", "destinations": 7, "unesco": 1, "bestFor": "Couples • Families • Friends • Solo Travelers" },
-      "destinationsCovered": ["Bandaranaike International Airport (BIA)", "Balapitiya", "Kosgoda", "Galle", "Mirissa", "Unawatuna", "Colombo"],
+      "facts": { "duration": "3 Days / 2 Nights", "type": "Private Tour", "start": "Bandaranaike International Airport (BIA)", "end": "Bandaranaike International Airport (BIA)", "destinations": 6, "unesco": 1, "bestFor": "Couples • Families • Friends • Solo Travelers" },
+      "destinationsCovered": ["Balapitiya", "Kosgoda", "Galle", "Mirissa", "Unawatuna", "Colombo"],
       "whyChoose": "Experience the very best of Sri Lanka's Southern Coast in the comfort of a private vehicle with an experienced chauffeur guide. Cruise through the enchanting Madu River, visit a traditional cinnamon island, explore a spice and herbal garden, learn about sea turtle conservation, wander the historic streets of the UNESCO-listed Galle Fort, witness majestic blue whales and spinner dolphins in Mirissa, snorkel in crystal-clear waters, enjoy thrilling water sports, unwind on the golden beaches of Unawatuna, and finish your holiday with a guided tour of Colombo's iconic landmarks and shopping districts before your airport transfer. Carefully crafted to offer the perfect balance of nature, adventure, heritage, city exploration, and relaxation, this itinerary promises an unforgettable Sri Lankan coastal holiday."
     },
     {
@@ -196,8 +196,8 @@
         { "icon": "📸", "label": "Sightseeing" },
         { "icon": "🚗", "label": "Road Trips" }
       ],
-      "facts": { "duration": "4 Days / 3 Nights", "type": "Private Tour", "start": "Bandaranaike International Airport (BIA)", "end": "Bandaranaike International Airport (BIA)", "destinations": 8, "unesco": 1, "parks": 2, "bestFor": "Couples • Families • Friends • Solo Travelers" },
-      "destinationsCovered": ["Bandaranaike International Airport (BIA)", "Dambulla", "Trincomalee", "Nilaveli", "Minneriya", "Pigeon Island", "Pasikuda", "Colombo"],
+      "facts": { "duration": "4 Days / 3 Nights", "type": "Private Tour", "start": "Bandaranaike International Airport (BIA)", "end": "Bandaranaike International Airport (BIA)", "destinations": 7, "unesco": 1, "parks": 2, "bestFor": "Couples • Families • Friends • Solo Travelers" },
+      "destinationsCovered": ["Dambulla", "Trincomalee", "Nilaveli", "Minneriya", "Pigeon Island", "Pasikuda", "Colombo"],
       "whyChoose": "Experience the untouched paradise of Sri Lanka's spectacular East Coast in the comfort of a private vehicle with an experienced chauffeur guide. Visit the UNESCO-listed Dambulla Cave Temple, embark on a seasonal whale and dolphin watching excursion in Trincomalee, explore the sacred Koneswaram Temple and the dramatic cliffs of Swami Rock, enjoy an exciting safari in Minneriya National Park, snorkel among colourful coral reefs and tropical marine life at Pigeon Island National Park, unwind on the pristine beaches of Nilaveli and Pasikuda, experience exciting water sports, and conclude your journey with a guided tour of Colombo's iconic landmarks and shopping districts before your airport transfer. Carefully designed to combine marine adventures, wildlife, heritage, city exploration, and relaxation, this itinerary offers the perfect East Coast holiday."
     },
     {
@@ -229,8 +229,8 @@
         { "icon": "🏙️", "label": "City Tour" },
         { "icon": "🚗", "label": "Road Trips" }
       ],
-      "facts": { "duration": "3 Days / 2 Nights", "type": "Private Tour", "start": "Bandaranaike International Airport (BIA)", "end": "Bandaranaike International Airport (BIA)", "destinations": 5, "parks": 1, "bestFor": "Surfers • Couples • Families • Friends • Solo Travelers" },
-      "destinationsCovered": ["Bandaranaike International Airport (BIA)", "Arugam Bay", "Pottuvil", "Kumana National Park", "Colombo"],
+      "facts": { "duration": "3 Days / 2 Nights", "type": "Private Tour", "start": "Bandaranaike International Airport (BIA)", "end": "Bandaranaike International Airport (BIA)", "destinations": 4, "parks": 1, "bestFor": "Surfers • Couples • Families • Friends • Solo Travelers" },
+      "destinationsCovered": ["Arugam Bay", "Pottuvil", "Kumana National Park", "Colombo"],
       "whyChoose": "Experience the excitement of Sri Lanka's most famous surfing destination with the comfort of a private vehicle and an experienced chauffeur guide. Enjoy surfing sessions at Arugam Bay, one of the world's most popular surfing locations, with optional lessons and equipment arrangements available for beginners and experienced surfers. Explore the peaceful waters of Pottuvil Lagoon, discover the incredible wildlife of Kumana National Park including elephants, leopards, crocodiles, and exotic birds, and complete your journey with a guided Colombo city tour before your airport transfer. Carefully designed to combine adventure, beach relaxation, wildlife, and sightseeing, this itinerary offers an unforgettable Sri Lankan holiday experience."
     },
     {
@@ -278,8 +278,8 @@
         { "icon": "📸", "label": "Sightseeing" },
         { "icon": "🚗", "label": "Road Trips" }
       ],
-      "facts": { "duration": "14 Days / 13 Nights", "type": "Private Tour", "start": "Bandaranaike International Airport (BIA)", "end": "Bandaranaike International Airport (BIA)", "destinations": 12, "unesco": 4, "parks": 2, "bestFor": "Couples • Families • Friends • Solo Travelers" },
-      "destinationsCovered": ["Bandaranaike International Airport (BIA)", "Sigiriya", "Polonnaruwa", "Kandy", "Nuwara Eliya", "Ella", "Yala National Park", "Mirissa", "Galle", "Trincomalee", "Pasikuda", "Colombo"],
+      "facts": { "duration": "14 Days / 13 Nights", "type": "Private Tour", "start": "Bandaranaike International Airport (BIA)", "end": "Bandaranaike International Airport (BIA)", "destinations": 11, "unesco": 4, "parks": 2, "bestFor": "Couples • Families • Friends • Solo Travelers" },
+      "destinationsCovered": ["Sigiriya", "Polonnaruwa", "Kandy", "Nuwara Eliya", "Ella", "Yala National Park", "Mirissa", "Galle", "Trincomalee", "Pasikuda", "Colombo"],
       "whyChoose": "Experience the very best of Sri Lanka on one extraordinary journey around the island. Climb the iconic Sigiriya Lion Rock Fortress, explore the ancient kingdoms of Polonnaruwa, visit the sacred Temple of the Tooth, witness rescued elephants at Pinnawala Elephant Orphanage, and enjoy the vibrant Kandy Cultural Dance Performance. Travel through the breathtaking tea country aboard the world-famous Blue Train, discover Ella's spectacular mountain scenery, embark on an unforgettable safari in Yala National Park, witness majestic blue whales and spinner dolphins in Mirissa, wander through the historic streets of the UNESCO-listed Galle Fort, explore the spiritual landmarks of Trincomalee, snorkel among colourful coral reefs at Pigeon Island National Park, unwind on the pristine beaches of Pasikuda, and conclude your adventure with a guided tour of Colombo before your departure. Carefully crafted to avoid repetitive experiences while maintaining the perfect balance of culture, heritage, wildlife, adventure, nature, beaches, and relaxation, The Grand Island offers the ultimate Sri Lankan holiday experience."
     }
   ]
