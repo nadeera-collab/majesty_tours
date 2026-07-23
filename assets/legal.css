@@ -1,0 +1,122 @@
+/* ============================================================
+   MAJESTY TOURS Sri Lanka — Legal pages
+   Shared styling for Privacy, Terms and Cancellation pages
+   ============================================================ */
+:root{
+  --ink:#211a12;
+  --paper:#f4ece0;
+  --paper-2:#ece0cf;
+  --forest:#4a6b39;
+  --forest-deep:#33492a;
+  --gold:#c9a227;
+  --clay:#8a3b2e;
+  --navy:#0e233e;
+  --bg:#f6f0e6;
+  --line:rgba(14,35,62,.14);
+  --card-border:rgba(138,92,46,.16);
+  --text-muted:#4a4033;
+  --text-mid:#6a5d4c;
+  --display:"EB Garamond",Georgia,serif;
+  --body:"Barlow",system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--body);
+  font-weight:400;
+  line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+::selection{background:var(--forest);color:var(--paper)}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;line-height:1.1;letter-spacing:-.01em;text-wrap:balance}
+a{color:var(--forest-deep);text-decoration:none;border-bottom:1px solid rgba(74,107,57,.35);transition:color .2s var(--ease),border-color .2s var(--ease)}
+a:hover{color:var(--clay);border-color:var(--clay)}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+
+.skip-link{position:absolute;top:-100%;left:1rem;z-index:50;background:var(--navy);color:var(--paper);padding:.6rem 1.4rem;border-radius:4px;font-size:.85rem;border:none;transition:top .2s var(--ease)}
+.skip-link:focus{top:1rem}
+
+.wrap{width:min(820px,92vw);margin-inline:auto}
+
+/* ---------- NAV ---------- */
+.legal-nav{
+  position:sticky;top:0;z-index:20;
+  background:rgba(246,240,230,.9);
+  backdrop-filter:saturate(1.2) blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.legal-nav .wrap{width:min(1120px,92vw);display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0}
+.legal-logo{display:flex;align-items:center;gap:.7rem;border:none}
+.legal-logo:hover{color:inherit}
+.legal-logo img{width:34px;height:auto}
+.legal-logo .name{font-family:var(--display);font-size:1.2rem;letter-spacing:.01em;color:var(--navy)}
+.legal-logo .tag{display:block;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-mid)}
+.legal-back{font-size:.82rem;letter-spacing:.04em;border:none;color:var(--text-mid)}
+.legal-back:hover{color:var(--clay)}
+
+/* ---------- HEADER BAND ---------- */
+.legal-head{background:var(--navy);color:var(--paper);padding:clamp(3rem,7vw,5rem) 0 clamp(2.4rem,5vw,3.4rem)}
+.legal-head .wrap{width:min(820px,92vw)}
+.legal-eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.legal-head h1{font-size:clamp(2.3rem,6vw,3.4rem);color:var(--paper)}
+.legal-head p{margin-top:1rem;color:rgba(244,236,224,.78);font-size:1.02rem;max-width:56ch}
+.legal-updated{margin-top:1.4rem;font-size:.8rem;letter-spacing:.03em;color:rgba(244,236,224,.6)}
+
+/* ---------- TAB LINKS ---------- */
+.legal-tabs{border-bottom:1px solid var(--line);background:var(--paper)}
+.legal-tabs .wrap{width:min(820px,92vw);display:flex;flex-wrap:wrap;gap:.4rem;padding:.5rem 0}
+.legal-tabs a{
+  border:none;font-size:.86rem;letter-spacing:.02em;color:var(--text-mid);
+  padding:.55rem .9rem;border-radius:999px;
+}
+.legal-tabs a:hover{color:var(--navy);background:var(--paper-2)}
+.legal-tabs a[aria-current="page"]{color:var(--navy);background:var(--paper-2);font-weight:500}
+
+/* ---------- BODY ---------- */
+.legal-body{padding:clamp(2.5rem,6vw,4.5rem) 0 clamp(3rem,7vw,5rem)}
+.legal-body h2{
+  font-size:clamp(1.4rem,3vw,1.75rem);color:var(--navy);
+  margin:2.6rem 0 .9rem;padding-top:1.6rem;border-top:1px solid var(--line);
+}
+.legal-body h2:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.legal-body h3{font-size:1.15rem;color:var(--forest-deep);margin:1.7rem 0 .5rem}
+.legal-body p{margin:0 0 1rem;color:var(--text-muted)}
+.legal-body ul,.legal-body ol{margin:0 0 1.2rem;padding-left:1.3rem;color:var(--text-muted)}
+.legal-body li{margin-bottom:.5rem}
+.legal-body li::marker{color:var(--forest)}
+.legal-body strong{font-weight:500;color:var(--ink)}
+.lead{font-size:1.12rem;color:var(--text-muted);margin-bottom:1.6rem}
+
+/* ---------- REFUND TABLE ---------- */
+.legal-table-wrap{overflow-x:auto;margin:1.4rem 0 1.8rem;border:1px solid var(--card-border);border-radius:10px}
+table.legal-table{width:100%;border-collapse:collapse;font-size:.95rem;min-width:460px}
+table.legal-table th,table.legal-table td{text-align:left;padding:.85rem 1.1rem;border-bottom:1px solid var(--line)}
+table.legal-table thead th{background:var(--navy);color:var(--paper);font-family:var(--body);font-weight:500;letter-spacing:.02em}
+table.legal-table tbody tr:last-child td{border-bottom:none}
+table.legal-table tbody tr:nth-child(odd){background:rgba(255,255,255,.35)}
+table.legal-table td:last-child{font-weight:500;color:var(--navy)}
+
+/* ---------- CALLOUT ---------- */
+.callout{
+  background:#fff;border:1px solid var(--card-border);border-left:3px solid var(--gold);
+  border-radius:8px;padding:1.2rem 1.4rem;margin:1.6rem 0;
+}
+.callout p:last-child{margin-bottom:0}
+.callout--info{border-left-color:var(--forest)}
+
+/* ---------- CONTACT BLOCK ---------- */
+.legal-contact{background:var(--paper-2);border-radius:12px;padding:1.6rem 1.8rem;margin-top:2.2rem}
+.legal-contact h2{border-top:none;padding-top:0;margin-top:0}
+.legal-contact address{font-style:normal;color:var(--text-muted);line-height:1.9}
+
+/* ---------- FOOTER ---------- */
+.legal-foot{background:var(--navy);color:rgba(244,236,224,.72);padding:2.6rem 0;font-size:.85rem}
+.legal-foot .wrap{width:min(1120px,92vw);display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between}
+.legal-foot a{color:rgba(244,236,224,.85);border:none}
+.legal-foot a:hover{color:var(--gold)}
+.legal-foot .foot-links{display:flex;gap:1rem;flex-wrap:wrap}
