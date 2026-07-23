@@ -268,8 +268,13 @@
   if(location.protocol !== 'file:'){
     fetch('./content.json')
       .then(r => r.ok ? r.json() : null)
-      .then(d => { if(d) applyContent(d); })
-      .catch(err => console.error('Failed to load content.json:', err));
+      .then(d => applyContent(d || window.CONTENT_DATA))
+      .catch(err => {
+        console.error('Failed to load content.json:', err);
+        if(window.CONTENT_DATA) applyContent(window.CONTENT_DATA);
+      });
+  } else if(window.CONTENT_DATA){
+    applyContent(window.CONTENT_DATA);
   }
 })();
 
