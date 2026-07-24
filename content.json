@@ -32,7 +32,7 @@
       "route": "Bandaranaike International Airport (BIA) → Dambulla → Sigiriya → Polonnaruwa → Kandy → Colombo → Bandaranaike International Airport (BIA)",
       "overview": "Discover the timeless beauty of Sri Lanka's Cultural Triangle on a journey through ancient kingdoms, UNESCO World Heritage Sites, breathtaking landscapes, and vibrant local traditions. This carefully designed tour combines history, culture, nature, and city sightseeing, making it the perfect introduction to Sri Lanka.",
       "images": [
-        { "image": "assets/img-sigiriya.jpg", "caption": "Sigiriya · Lion Rock" },
+        { "image": "assets/img-sigiriya.webp", "caption": "Sigiriya · Lion Rock" },
         { "image": "", "caption": "Dambulla · Cave Temples" },
         { "image": "", "caption": "Kandy · Temple of the Tooth" }
       ],
@@ -65,9 +65,9 @@
       "route": "Bandaranaike International Airport (BIA) → Kandy → Nuwara Eliya → Ella → Bandaranaike International Airport (BIA)",
       "overview": "Escape to the cool highlands of Sri Lanka on an unforgettable journey through misty mountains, endless tea plantations, breathtaking train rides, cascading waterfalls, and charming colonial towns. Discover the island's world-famous tea country while enjoying spectacular viewpoints, scenic landscapes, colonial heritage, and authentic local experiences.",
       "images": [
-        { "image": "assets/img-tea-pickers.jpg", "caption": "Tea country · Nuwara Eliya" },
-        { "image": "assets/img-tea-moment.jpg", "caption": "Meeting the tea pickers" },
-        { "image": "assets/img-tea-guests.jpg", "caption": "Learning to pick tea" },
+        { "image": "assets/img-tea-pickers.webp", "caption": "Tea country · Nuwara Eliya" },
+        { "image": "assets/img-tea-moment.webp", "caption": "Meeting the tea pickers" },
+        { "image": "assets/img-tea-guests.webp", "caption": "Learning to pick tea" },
         { "image": "", "caption": "Ella · Nine Arches Bridge" }
       ],
       "itinerary": [
@@ -98,9 +98,9 @@
       "route": "Bandaranaike International Airport (BIA) → Bentota → Udawalawe or Yala National Park → Galle → Colombo → Bandaranaike International Airport (BIA)",
       "overview": "Discover the best of Sri Lanka's wildlife and southern coastline on this exciting three-day adventure. Cruise through the tranquil mangrove forests of the Madu River, visit a sea turtle hatchery, and choose between Udawalawe National Park, renowned for its large herds of wild elephants, or Yala National Park, famous for one of the world's highest leopard densities. Complete your journey by exploring the UNESCO-listed Galle Fort and Sri Lanka's vibrant commercial capital before returning to the airport.",
       "images": [
-        { "image": "assets/img-leopard.jpg", "caption": "Yala · leopard at water" },
-        { "image": "assets/img-safari-jeep.jpg", "caption": "Into the wild" },
-        { "image": "assets/img-turtle.jpg", "caption": "Sea turtle, southern coast" },
+        { "image": "assets/img-leopard.webp", "caption": "Yala · leopard at water" },
+        { "image": "assets/img-safari-jeep.webp", "caption": "Into the wild" },
+        { "image": "assets/img-turtle.webp", "caption": "Sea turtle, southern coast" },
         { "image": "", "caption": "Udawalawe · elephants" }
       ],
       "itinerary": [
@@ -135,10 +135,10 @@
       "route": "Bandaranaike International Airport (BIA) → Balapitiya → Kosgoda → Galle → Mirissa → Unawatuna → Colombo → Bandaranaike International Airport (BIA)",
       "overview": "Discover the beauty of Sri Lanka's spectacular southern coastline on an unforgettable journey featuring scenic rivers, diverse wildlife, colonial heritage, pristine beaches, exciting water adventures, and a vibrant city experience. Cruise through the tranquil mangroves of the Madu River, visit a sea turtle conservation project, explore the UNESCO-listed Galle Fort, experience whale watching in Mirissa, enjoy snorkeling and water sports, relax on the golden beaches of Unawatuna, and conclude your journey with a guided tour of Colombo.",
       "images": [
-        { "image": "assets/img-whale-aerial.jpg", "caption": "Blue whale · Mirissa" },
-        { "image": "assets/img-whale-drone.jpg", "caption": "Blue whale, aerial view" },
-        { "image": "assets/img-dolphins.jpg", "caption": "Spinner dolphins, offshore" },
-        { "image": "assets/img-surf.jpg", "caption": "Riding a wave · Weligama" },
+        { "image": "assets/img-whale-aerial.webp", "caption": "Blue whale · Mirissa" },
+        { "image": "assets/img-whale-drone.webp", "caption": "Blue whale, aerial view" },
+        { "image": "assets/img-dolphins.webp", "caption": "Spinner dolphins, offshore" },
+        { "image": "assets/img-surf.webp", "caption": "Riding a wave · Weligama" },
         { "image": "", "caption": "Stilt fishers · Koggala" }
       ],
       "itinerary": [
@@ -241,10 +241,10 @@
       "route": "Bandaranaike International Airport (BIA) → Sigiriya → Polonnaruwa → Kandy → Nuwara Eliya → Ella → Yala National Park → Mirissa → Galle → Trincomalee → Pasikuda → Colombo → Bandaranaike International Airport (BIA)",
       "overview": "Experience the ultimate journey around Sri Lanka on this unforgettable 14-day island adventure. From ancient UNESCO World Heritage Sites and breathtaking hill country landscapes to thrilling wildlife safaris, pristine beaches, marine adventures, scenic train journeys, and vibrant cities, this carefully crafted itinerary showcases the very best the island has to offer. Designed to avoid repeated experiences while maintaining the perfect balance of culture, nature, wildlife, adventure, relaxation, and authentic local encounters, this is the complete Sri Lankan holiday.",
       "images": [
-        { "image": "assets/img-whale-aerial.jpg", "caption": "Blue whale · Mirissa" },
-        { "image": "assets/img-tea-pickers.jpg", "caption": "Tea country · Nuwara Eliya" },
-        { "image": "assets/img-leopard.jpg", "caption": "Yala · leopard" },
-        { "image": "assets/img-sigiriya.jpg", "caption": "Sigiriya · Lion Rock" },
+        { "image": "assets/img-whale-aerial.webp", "caption": "Blue whale · Mirissa" },
+        { "image": "assets/img-tea-pickers.webp", "caption": "Tea country · Nuwara Eliya" },
+        { "image": "assets/img-leopard.webp", "caption": "Yala · leopard" },
+        { "image": "assets/img-sigiriya.webp", "caption": "Sigiriya · Lion Rock" },
         { "image": "", "caption": "The southern coast" }
       ],
       "itinerary": [
