@@ -302,7 +302,7 @@ if(heroLoader){
   const probe=new Image();
   probe.onload=dismiss;
   probe.onerror=dismiss;
-  probe.src='assets/img-sigiriya-aerial.jpg';
+  probe.src='assets/img-sigiriya-aerial.webp';
   setTimeout(dismiss,5000);
 }
 
@@ -342,16 +342,16 @@ if(heroLoader){
   function startTimer(){timer=setInterval(()=>{if(!paused)goTo(current+1,false);},INTERVAL);}
   startTimer();
 
-  ['ella.jpg',
-   'kandy.jpg',
-   'img-safari-kid-thumbsup.jpg',
-   'img-peacock-fan.jpg',
-   'img-leopard-waterhole.jpg',
-   'galle-fort.jpg',
-   'beach.jpg',
-   'img-elephant-river-overlook.jpg',
-   'tea.jpg',
-   'colombo.jpg'].forEach((f,i)=>
+  ['ella.webp',
+   'kandy.webp',
+   'img-safari-kid-thumbsup.webp',
+   'img-peacock-fan.webp',
+   'img-leopard-waterhole.webp',
+   'galle-fort.webp',
+   'beach.webp',
+   'img-elephant-river-overlook.webp',
+   'tea.webp',
+   'colombo.webp'].forEach((f,i)=>
     setTimeout(()=>{new Image().src='assets/'+f;},2000+i*600));
 })();
 
@@ -796,7 +796,7 @@ function renderGallery(items){
   const grid=document.getElementById('galleryGrid');
   if(!grid)return;
   grid.innerHTML='';
-  const IMG_TO_PH={'img-sigiriya.jpg':'ph-sigiriya-group'};
+  const IMG_TO_PH={'img-sigiriya.webp':'ph-sigiriya-group'};
   items.forEach((item,i)=>{
     const isVideo=!!item.video;
     const src=item.video||item.image||'';
@@ -1289,7 +1289,7 @@ function fleetRange(slug,label,count){
 }
 const FLEET_GALLERIES={
   'sedan':{label:'Luxury Sedan Car',images:[
-    {img:'assets/img-fleet-car.png',cap:'Luxury Sedan Car'}
+    {img:'assets/img-fleet-car.webp',cap:'Luxury Sedan Car'}
   ]},
   'kdh-flat-roof':fleetRange('kdh-flat-roof','KDH Van · Flat Roof',37),
   'kdh-high-roof':fleetRange('kdh-high-roof','KDH Van · High Roof',30),

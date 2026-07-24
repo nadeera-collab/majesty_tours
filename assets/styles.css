@@ -238,17 +238,17 @@ body.annbar-visible .hero{padding-top:calc(8rem + var(--annbar-offset,0px))}
 .hero-slide{position:absolute;inset:-12% 0;background-size:cover;background-position:center;will-change:transform,opacity;opacity:0;transition:opacity 1.8s cubic-bezier(.4,0,.2,1);transform:scale(1.08);animation:kenburns 26s ease-in-out forwards}
 .hero-slide.active{opacity:1}
 @keyframes kenburns{to{transform:scale(1.16) translateY(-2%)}}
-.hero-slide[data-slide="0"]{background-color:#3d5642;background-image:url('sigiriya-hero.jpg');background-position:center 40%}
-.hero-slide[data-slide="1"]{background-color:#2c3c26;background-image:url('ella.jpg');background-position:center 45%}
-.hero-slide[data-slide="2"]{background-color:#4a4230;background-image:url('kandy.jpg');background-position:center 50%}
-.hero-slide[data-slide="3"]{background-color:#b8a878;background-image:url('img-safari-kid-thumbsup.jpg');background-position:center 35%}
-.hero-slide[data-slide="4"]{background-color:#8a7a3a;background-image:url('img-peacock-fan.jpg');background-position:center 50%}
-.hero-slide[data-slide="5"]{background-color:#6b5a33;background-image:url('img-leopard-waterhole.jpg');background-position:center 55%}
-.hero-slide[data-slide="6"]{background-color:#3a5a6b;background-image:url('galle-fort.jpg');background-position:center 50%}
-.hero-slide[data-slide="7"]{background-color:#2f6b5e;background-image:url('beach.jpg');background-position:center 55%}
-.hero-slide[data-slide="8"]{background-color:#4a5d47;background-image:url('img-elephant-river-overlook.jpg');background-position:center 55%}
-.hero-slide[data-slide="9"]{background-color:#3d5642;background-image:url('tea.jpg');background-position:center 50%}
-.hero-slide[data-slide="10"]{background-color:#2f3a4a;background-image:url('colombo.jpg');background-position:center 50%}
+.hero-slide[data-slide="0"]{background-color:#3d5642;background-image:url('sigiriya-hero.webp');background-position:center 40%}
+.hero-slide[data-slide="1"]{background-color:#2c3c26;background-image:url('ella.webp');background-position:center 45%}
+.hero-slide[data-slide="2"]{background-color:#4a4230;background-image:url('kandy.webp');background-position:center 50%}
+.hero-slide[data-slide="3"]{background-color:#b8a878;background-image:url('img-safari-kid-thumbsup.webp');background-position:center 35%}
+.hero-slide[data-slide="4"]{background-color:#8a7a3a;background-image:url('img-peacock-fan.webp');background-position:center 50%}
+.hero-slide[data-slide="5"]{background-color:#6b5a33;background-image:url('img-leopard-waterhole.webp');background-position:center 55%}
+.hero-slide[data-slide="6"]{background-color:#3a5a6b;background-image:url('galle-fort.webp');background-position:center 50%}
+.hero-slide[data-slide="7"]{background-color:#2f6b5e;background-image:url('beach.webp');background-position:center 55%}
+.hero-slide[data-slide="8"]{background-color:#4a5d47;background-image:url('img-elephant-river-overlook.webp');background-position:center 55%}
+.hero-slide[data-slide="9"]{background-color:#3d5642;background-image:url('tea.webp');background-position:center 50%}
+.hero-slide[data-slide="10"]{background-color:#2f3a4a;background-image:url('colombo.webp');background-position:center 50%}
 .hero-grad{position:absolute;inset:0;z-index:2;background:linear-gradient(105deg,rgba(33,26,18,.5) 0%,rgba(33,26,18,.1) 45%,transparent 70%)}
 .hero-vignette{position:absolute;inset:0;z-index:3;background:linear-gradient(to bottom,rgba(33,26,18,.12) 0%,rgba(33,26,18,calc(var(--hero-dark))) 100%)}
 .hero-inner{position:relative;z-index:5;width:100%;will-change:transform}
@@ -419,13 +419,13 @@ section{position:relative}
 /* ---------- INTERSTITIAL (new cinematic parallax) ---------- */
 .interstitial{height:88vh;min-height:560px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--paper)}
 .interstitial .par{position:absolute;inset:-20% 0;background-size:cover;background-position:center;will-change:transform}
-.interstitial .par.bg{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tea%20plantation%20in%20Sri%20Lanka.jpg?width=2000');background-color:#2c3c26}
+.interstitial .par.bg{background-image:url('wiki-tea-plantation.webp');background-color:#2c3c26}
 .interstitial .scrim{position:absolute;inset:0;background:radial-gradient(circle at center,rgba(33,26,18,.25),rgba(33,26,18,.7))}
 .interstitial .inner{position:relative;z-index:3;max-width:60rem;padding:0 5vw}
 .interstitial .eyebrow{color:var(--gold)}
 .interstitial blockquote{font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(1.9rem,4.4vw,3.6rem);line-height:1.2;margin-top:1rem}
 .interstitial--reviews{height:56vh;min-height:380px}
-#interParReviews.par.bg{background-image:url('img-tea-pair.jpg');background-color:#2c3c26;background-position:center 28%}
+#interParReviews.par.bg{background-image:url('img-tea-pair.webp');background-color:#2c3c26;background-position:center 28%}
 .interstitial--reviews .scrim{background:linear-gradient(rgba(20,15,10,.62),rgba(20,15,10,.62))}
 .interstitial--reviews blockquote{font-size:clamp(1.5rem,3.2vw,2.4rem)}
 
@@ -558,22 +558,22 @@ section{position:relative}
 
 /* photo placeholders */
 .ph{background-size:cover;background-position:center;background-color:#46402a}
-.ph-sigiriya{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Sigiriya%20Fortress%2C%20Sri%20Lanka.jpg?width=1600');background-color:#8a3b2e}
-.ph-tea{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Tea%20plantation%20in%20Sri%20Lanka.jpg?width=1600');background-color:#2c3c26}
-.ph-leopard{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Sri%20Lankan%20leopard%20(Panthera%20pardus%20kotiya)%20male.jpg?width=1600');background-color:#3a2010}
-.ph-beach{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Unawatuna%20beach.jpg?width=1600');background-color:#1f6b6b}
-.ph-temple{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Dambulla%20Cave%20Temple.jpg?width=1600');background-color:#7a2f1f}
-.ph-train{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/202312%20Nine%20Arches%20Bridge%2C%20Sri%20Lanka.jpg?width=1600');background-color:#2c3c26}
-.ph-stilt{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Stilts%20fishermen%20Sri%20Lanka%2002.jpg?width=1600');background-color:#5e3a1c}
-.ph-gal{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Galle%20Fort.jpg?width=1600');background-color:#46402a}
-.ph-elephant{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Sri%20Lankan%20elephant.jpg?width=1600');background-color:#3a3325}
-.ph-kandy{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Temple%20of%20the%20Tooth%2C%20Kandy.jpg?width=1600');background-color:#2f3a44}
-.ph-trinco{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Fort%20Frederick%20Trincomalee%2C%20Sri%20Lanka.jpg?width=1600');background-color:#1f4a5e}
-.ph-trinco-harbour{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Trincomalee%20harbour.jpg?width=1600');background-color:#1f4a5e}
-.ph-pigeon{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/A%20beautiful%20view%20of%20Pigeon%20Island.jpg?width=1600');background-color:#0e4a6a}
-.ph-arugam{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Arugam%20Bay.jpg?width=1600');background-color:#1f6b6b}
-.ph-arugam-beach{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Arugam%20bay%20beach.jpg?width=1600');background-color:#1f6b6b}
-.ph-arugam-waves{background-image:url('https://commons.wikimedia.org/wiki/Special:FilePath/Arugam%20Waves%20(238816201).jpeg?width=1600');background-color:#0e4a6a}
+.ph-sigiriya{background-image:url('wiki-sigiriya.webp');background-color:#8a3b2e}
+.ph-tea{background-image:url('wiki-tea-plantation.webp');background-color:#2c3c26}
+.ph-leopard{background-image:url('wiki-leopard.webp');background-color:#3a2010}
+.ph-beach{background-image:url('wiki-unawatuna-beach.webp');background-color:#1f6b6b}
+.ph-temple{background-image:url('wiki-dambulla-temple.webp');background-color:#7a2f1f}
+.ph-train{background-image:url('wiki-nine-arches.webp');background-color:#2c3c26}
+.ph-stilt{background-image:url('wiki-stilt-fishermen.webp');background-color:#5e3a1c}
+.ph-gal{background-image:url('wiki-galle-fort.webp');background-color:#46402a}
+.ph-elephant{background-image:url('wiki-elephant.webp');background-color:#3a3325}
+.ph-kandy{background-image:url('wiki-temple-tooth-kandy.webp');background-color:#2f3a44}
+.ph-trinco{background-image:url('wiki-fort-frederick.webp');background-color:#1f4a5e}
+.ph-trinco-harbour{background-image:url('wiki-trinco-harbour.webp');background-color:#1f4a5e}
+.ph-pigeon{background-image:url('wiki-pigeon-island.webp');background-color:#0e4a6a}
+.ph-arugam{background-image:url('wiki-arugam-bay.webp');background-color:#1f6b6b}
+.ph-arugam-beach{background-image:url('wiki-arugam-beach.webp');background-color:#1f6b6b}
+.ph-arugam-waves{background-image:url('wiki-arugam-waves.webp');background-color:#0e4a6a}
 
 /* ---------- FLEET ---------- */
 .fleet{background:var(--navy);color:var(--paper);padding-top:3rem;padding-bottom:3rem}
@@ -906,58 +906,58 @@ footer .logo-tagline{color:rgba(244,236,224,.55)}
 /* ============================================================
    LOCAL PHOTOGRAPHY
    ============================================================ */
-.ph-whale-aerial{background-image:url('img-whale-aerial.jpg');background-color:#0c1a2e;background-position:center 35%}
-.ph-whale-drone{background-image:url('img-whale-drone.jpg');background-color:#0c1a2e;background-position:center 40%}
-.ph-dolphins{background-image:url('img-dolphins.jpg');background-color:#0e233e;background-position:center 50%}
-.ph-dolphins-jump{background-image:url('img-dolphins-jump.jpg');background-color:#0e233e;background-position:center 40%}
-.ph-whale-tail{background-image:url('img-whale-tail.jpg');background-color:#1a2e40;background-position:center 50%}
-.ph-tea-pickers{background-image:url('img-tea-pickers.jpg');background-color:#2c3c26;background-position:center 40%}
-.ph-tea-moment{background-image:url('img-tea-moment.jpg');background-color:#2c3c26;background-position:center 30%}
-.ph-tea-guests{background-image:url('img-tea-guests.jpg');background-color:#2c3c26;background-position:center 35%}
-.ph-sigiriya-group{background-image:url('img-sigiriya.jpg');background-color:#8a3b2e;background-position:center 30%}
-.ph-safari-jeep{background-image:url('img-safari-jeep.jpg');background-color:#2c3c26;background-position:center 40%}
-.ph-turtle{background-image:url('img-turtle.jpg');background-color:#c2a06a;background-position:center 50%}
-.ph-mangrove{background-image:url('img-mangrove.jpg');background-color:#2c3c26;background-position:center 50%}
-.ph-surf{background-image:url('img-surf.jpg');background-color:#1f6b6b;background-position:center 40%}
-.ph-airport-welcome{background-image:url('img-airport-welcome.jpg');background-color:#3a2010;background-position:center 40%}
+.ph-whale-aerial{background-image:url('img-whale-aerial.webp');background-color:#0c1a2e;background-position:center 35%}
+.ph-whale-drone{background-image:url('img-whale-drone.webp');background-color:#0c1a2e;background-position:center 40%}
+.ph-dolphins{background-image:url('img-dolphins.webp');background-color:#0e233e;background-position:center 50%}
+.ph-dolphins-jump{background-image:url('img-dolphins-jump.webp');background-color:#0e233e;background-position:center 40%}
+.ph-whale-tail{background-image:url('img-whale-tail.webp');background-color:#1a2e40;background-position:center 50%}
+.ph-tea-pickers{background-image:url('img-tea-pickers.webp');background-color:#2c3c26;background-position:center 40%}
+.ph-tea-moment{background-image:url('img-tea-moment.webp');background-color:#2c3c26;background-position:center 30%}
+.ph-tea-guests{background-image:url('img-tea-guests.webp');background-color:#2c3c26;background-position:center 35%}
+.ph-sigiriya-group{background-image:url('img-sigiriya.webp');background-color:#8a3b2e;background-position:center 30%}
+.ph-safari-jeep{background-image:url('img-safari-jeep.webp');background-color:#2c3c26;background-position:center 40%}
+.ph-turtle{background-image:url('img-turtle.webp');background-color:#c2a06a;background-position:center 50%}
+.ph-mangrove{background-image:url('img-mangrove.webp');background-color:#2c3c26;background-position:center 50%}
+.ph-surf{background-image:url('img-surf.webp');background-color:#1f6b6b;background-position:center 40%}
+.ph-airport-welcome{background-image:url('img-airport-welcome.webp');background-color:#3a2010;background-position:center 40%}
 /* real leopard over stock */
-.ph-leopard{background-image:url('img-leopard.jpg');background-color:#2a1a08;background-position:center 35%}
+.ph-leopard{background-image:url('img-leopard.webp');background-color:#2a1a08;background-position:center 35%}
 /* new gallery images */
-.ph-whale-breach{background-image:url('img-whale-breach.jpg');background-color:#0c1a2e;background-position:center 35%}
-.ph-whale-beneath{background-image:url('img-whale-beneath.jpg');background-color:#0c1a2e;background-position:center 50%}
-.ph-whale-shark{background-image:url('img-whale-shark.jpg');background-color:#0c1a2e;background-position:center 50%}
-.ph-whale-boat-side{background-image:url('img-whale-boat-side.jpg');background-color:#0c1a2e;background-position:center 50%}
-.ph-whale-coast{background-image:url('img-whale-coast.jpg');background-color:#0c1a2e;background-position:center 40%}
-.ph-whale-fluke-still{background-image:url('img-whale-fluke-still.jpg');background-color:#0c1a2e;background-position:center 45%}
-.ph-whale-horizon{background-image:url('img-whale-horizon.jpg');background-color:#0c1a2e;background-position:center 40%}
-.ph-whale-watch-deck{background-image:url('img-whale-watch-deck.jpg');background-color:#0c2a3a;background-position:center 35%}
-.ph-whale-surface-close{background-image:url('img-whale-surface-close.jpg');background-color:#0c1a2e;background-position:center 50%}
-.ph-whale-fluke-rise{background-image:url('img-whale-fluke-rise.jpg');background-color:#0c1a2e;background-position:center 40%}
-.ph-whale-tail-mountain{background-image:url('img-whale-tail-mountain.jpg');background-color:#1a2e40;background-position:center 45%}
-.ph-dolphin-beneath{background-image:url('img-dolphin-beneath.jpg');background-color:#0e233e;background-position:center 50%}
-.ph-whale-watch-boats{background-image:url('img-whale-watch-boats.jpg');background-color:#0c1a2e;background-position:center 50%}
-.ph-boat-launch{background-image:url('img-boat-launch.jpg');background-color:#0c2a3a;background-position:center 40%}
-.ph-snorkeling{background-image:url('img-snorkeling.jpg');background-color:#0e4a4a;background-position:center 50%}
-.ph-ocean-ready{background-image:url('img-ocean-ready.jpg');background-color:#0c2a3a;background-position:center 40%}
-.ph-jeep-family{background-image:url('img-jeep-family.jpg');background-color:#2a1a08;background-position:center 40%}
-.ph-jeep-kids{background-image:url('img-jeep-kids.jpg');background-color:#2a3a10;background-position:center 35%}
-.ph-tea-factory{background-image:url('img-tea-factory.jpg');background-color:#2c3c26;background-position:center 35%}
-.ph-tea-hillside{background-image:url('img-tea-hillside.jpg');background-color:#2c3c26;background-position:center 40%}
-.ph-plantation-arrival{background-image:url('img-plantation-arrival.jpg');background-color:#2c3c26;background-position:center 40%}
-.ph-tea-photography{background-image:url('img-tea-photography.jpg');background-color:#2c3c26;background-position:center 35%}
-.ph-tea-connection{background-image:url('img-tea-connection.jpg');background-color:#2c3c26;background-position:center 30%}
-.ph-tea-portrait{background-image:url('img-tea-portrait.jpg');background-color:#2c3c26;background-position:center 25%}
-.ph-tea-pair{background-image:url('img-tea-pair.jpg');background-color:#2c3c26;background-position:center 25%}
-.ph-tea-lesson{background-image:url('img-tea-lesson.jpg');background-color:#2c3c26;background-position:center 35%}
-.ph-van-boarding{background-image:url('img-van-boarding.jpg');background-color:#2c3c26;background-position:center 40%}
-.ph-resort-guests{background-image:url('img-resort-guests.jpg');background-color:#3a2010;background-position:center 30%}
-.ph-journey-end{background-image:url('img-journey-end.jpg');background-color:#2c3c26;background-position:center 40%}
-.ph-airport-family{background-image:url('img-airport-family.jpg');background-color:#3a2010;background-position:center 30%}
-.ph-welcome-nameplate{background-image:url('img-welcome-nameplate.jpg');background-color:#3a2010;background-position:center 25%}
-.ph-nameplate-richi{background-image:url('img-nameplate-richi.jpg');background-color:#3a2010;background-position:center 25%}
-.ph-colombo-bus{background-image:url('img-colombo-city-bus.jpg');background-color:#7a1f1f;background-position:center 22%}
+.ph-whale-breach{background-image:url('img-whale-breach.webp');background-color:#0c1a2e;background-position:center 35%}
+.ph-whale-beneath{background-image:url('img-whale-beneath.webp');background-color:#0c1a2e;background-position:center 50%}
+.ph-whale-shark{background-image:url('img-whale-shark.webp');background-color:#0c1a2e;background-position:center 50%}
+.ph-whale-boat-side{background-image:url('img-whale-boat-side.webp');background-color:#0c1a2e;background-position:center 50%}
+.ph-whale-coast{background-image:url('img-whale-coast.webp');background-color:#0c1a2e;background-position:center 40%}
+.ph-whale-fluke-still{background-image:url('img-whale-fluke-still.webp');background-color:#0c1a2e;background-position:center 45%}
+.ph-whale-horizon{background-image:url('img-whale-horizon.webp');background-color:#0c1a2e;background-position:center 40%}
+.ph-whale-watch-deck{background-image:url('img-whale-watch-deck.webp');background-color:#0c2a3a;background-position:center 35%}
+.ph-whale-surface-close{background-image:url('img-whale-surface-close.webp');background-color:#0c1a2e;background-position:center 50%}
+.ph-whale-fluke-rise{background-image:url('img-whale-fluke-rise.webp');background-color:#0c1a2e;background-position:center 40%}
+.ph-whale-tail-mountain{background-image:url('img-whale-tail-mountain.webp');background-color:#1a2e40;background-position:center 45%}
+.ph-dolphin-beneath{background-image:url('img-dolphin-beneath.webp');background-color:#0e233e;background-position:center 50%}
+.ph-whale-watch-boats{background-image:url('img-whale-watch-boats.webp');background-color:#0c1a2e;background-position:center 50%}
+.ph-boat-launch{background-image:url('img-boat-launch.webp');background-color:#0c2a3a;background-position:center 40%}
+.ph-snorkeling{background-image:url('img-snorkeling.webp');background-color:#0e4a4a;background-position:center 50%}
+.ph-ocean-ready{background-image:url('img-ocean-ready.webp');background-color:#0c2a3a;background-position:center 40%}
+.ph-jeep-family{background-image:url('img-jeep-family.webp');background-color:#2a1a08;background-position:center 40%}
+.ph-jeep-kids{background-image:url('img-jeep-kids.webp');background-color:#2a3a10;background-position:center 35%}
+.ph-tea-factory{background-image:url('img-tea-factory.webp');background-color:#2c3c26;background-position:center 35%}
+.ph-tea-hillside{background-image:url('img-tea-hillside.webp');background-color:#2c3c26;background-position:center 40%}
+.ph-plantation-arrival{background-image:url('img-plantation-arrival.webp');background-color:#2c3c26;background-position:center 40%}
+.ph-tea-photography{background-image:url('img-tea-photography.webp');background-color:#2c3c26;background-position:center 35%}
+.ph-tea-connection{background-image:url('img-tea-connection.webp');background-color:#2c3c26;background-position:center 30%}
+.ph-tea-portrait{background-image:url('img-tea-portrait.webp');background-color:#2c3c26;background-position:center 25%}
+.ph-tea-pair{background-image:url('img-tea-pair.webp');background-color:#2c3c26;background-position:center 25%}
+.ph-tea-lesson{background-image:url('img-tea-lesson.webp');background-color:#2c3c26;background-position:center 35%}
+.ph-van-boarding{background-image:url('img-van-boarding.webp');background-color:#2c3c26;background-position:center 40%}
+.ph-resort-guests{background-image:url('img-resort-guests.webp');background-color:#3a2010;background-position:center 30%}
+.ph-journey-end{background-image:url('img-journey-end.webp');background-color:#2c3c26;background-position:center 40%}
+.ph-airport-family{background-image:url('img-airport-family.webp');background-color:#3a2010;background-position:center 30%}
+.ph-welcome-nameplate{background-image:url('img-welcome-nameplate.webp');background-color:#3a2010;background-position:center 25%}
+.ph-nameplate-richi{background-image:url('img-nameplate-richi.webp');background-color:#3a2010;background-position:center 25%}
+.ph-colombo-bus{background-image:url('img-colombo-city-bus.webp');background-color:#7a1f1f;background-position:center 22%}
 /* interstitial: whale drone over tea plantation */
-.interstitial .par.bg{background-image:url('img-whale-drone.jpg');background-color:#0c1a2e}
+.interstitial .par.bg{background-image:url('img-whale-drone.webp');background-color:#0c1a2e}
 /* gallery ph backgrounds are injected by JS IntersectionObserver — never pre-fetch */
 .gitem .ph{background-image:none}
 
