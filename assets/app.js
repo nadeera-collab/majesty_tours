@@ -1307,7 +1307,7 @@ const FLEET_GALLERIES={
   'kdh-high-roof':fleetRange('kdh-high-roof','KDH Van · High Roof',3),
   'mini-coach':fleetRange('mini-coach','Mini Coach',3),
   'coach':fleetRange('coach','Coach',5),
-  'suv':fleetRange('suv','SUV',37)
+  'suv':fleetRange('suv','SUV',5)
 };
 
 function initFleetGalleries(){
