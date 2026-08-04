@@ -35,6 +35,14 @@ collections:
               - { label: "Viator URL", name: "viator", widget: "string" }
               - { label: "TourRadar URL", name: "tourradar", widget: "string" }
 
+          - label: "Social Media Links"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Instagram URL", name: "instagram", widget: "string" }
+              - { label: "Facebook URL", name: "facebook", widget: "string" }
+              - { label: "TikTok URL", name: "tiktok", widget: "string" }
+
           - label: "Stats"
             name: "stats"
             widget: "object"
@@ -77,5 +85,7 @@ collections:
             minimize_collapsed: true
             summary: "{{fields.caption}}"
             fields:
-              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Photo", name: "image", widget: "image", required: false, hint: "Set this for a photo item. Leave blank for a video item." }
+              - { label: "Video", name: "video", widget: "file", required: false, hint: "Set this + Video Poster for a video item (.mp4). Leave blank for a photo item." }
+              - { label: "Video Poster", name: "poster", widget: "image", required: false, hint: "Thumbnail shown before the video plays. Required when Video is set." }
               - { label: "Caption", name: "caption", widget: "string" }

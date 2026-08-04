@@ -11,9 +11,9 @@
   --gold:#c9a227;
   --clay:#8a3b2e;
   --navy:#0e233e;
-  --bg:#f6f0e6;
-  --line:rgba(14,35,62,.14);
-  --card-border:rgba(138,92,46,.16);
+  --bg:oklch(96% .009 258);
+  --line:rgba(14,35,62,.16);
+  --card-border:rgba(138,92,46,.14);
   --text-muted:#4a4033;
   --text-mid:#6a5d4c;
   --display:"EB Garamond",Georgia,serif;

@@ -43,10 +43,12 @@ function setFieldError(wrapper,msg){
   wrapper.classList.add('invalid');
   const err=$('.err',wrapper);
   if(err)err.textContent=msg;
+  $$('input,select,textarea',wrapper).forEach(f=>f.setAttribute('aria-invalid','true'));
 }
 function clearFieldError(wrapper){
   if(!wrapper)return;
   wrapper.classList.remove('invalid');
+  $$('input,select,textarea',wrapper).forEach(f=>f.removeAttribute('aria-invalid'));
 }
 // live-clear on interaction for every field wrapper in the form
 $$('.field',form).forEach(wrapper=>{
@@ -232,6 +234,8 @@ function showFormError(msg){
   if(!errBanner)return;
   errBanner.textContent=msg;
   errBanner.hidden=false;
+  errBanner.setAttribute('tabindex','-1');
+  errBanner.focus();
 }
 function fallbackId(){
   return 'REG-'+Date.now().toString(36)+'-'+Math.floor(Math.random()*1e6).toString(36);

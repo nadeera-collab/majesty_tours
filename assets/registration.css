@@ -64,8 +64,8 @@
 
 /* ---------- PILL TOGGLES (Yes/No radios, language checkboxes) ---------- */
 .radio-pills,.check-pills{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.3rem}
-.radio-pill,.check-pill{position:relative;display:inline-flex;align-items:center;gap:.4rem;
-  padding:.55rem 1.2rem;border:1px solid var(--line);border-radius:999px;
+.radio-pill,.check-pill{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+  min-height:44px;padding:.55rem 1.2rem;border:1px solid var(--line);border-radius:999px;
   font-size:.86rem;color:var(--text-mid);cursor:pointer;transition:.25s var(--ease);user-select:none}
 .radio-pill input,.check-pill input{position:absolute;opacity:0;width:0;height:0}
 .radio-pill:has(input:checked),.check-pill:has(input:checked){border-color:var(--forest);background:var(--forest);color:var(--paper)}

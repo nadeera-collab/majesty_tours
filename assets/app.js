@@ -317,13 +317,24 @@ if(heroLoader){
 /* ---------- HERO SLIDESHOW ---------- */
 (function(){
   const LABELS=['Sigiriya','Ella tea country','Kandy','Yala safari','Udawalawe peacock','Yala leopards','Galle Fort','Southern coast','Pinnawala elephants','Tea country','Colombo'];
+  const BG_FILES=['sigiriya-hero.webp','ella.webp','kandy.webp','img-safari-kid-thumbsup.webp','img-peacock-fan.webp','img-leopard-waterhole.webp','galle-fort.webp','beach.webp','img-elephant-river-overlook.webp','tea.webp','colombo.webp'];
   const INTERVAL=7000;
   const slides=$$('.hero-slide');
   const dots=$$('.hsd');
   const label=$('#heroSlideLabel');
+  const pauseBtn=$('#heroPauseToggle');
   if(!slides.length)return;
-  let current=0,paused=false;
+  let current=0,hoverPaused=false,userPaused=false;
+  const isPaused=()=>hoverPaused||userPaused;
   document.documentElement.style.setProperty('--slide-dur',(INTERVAL/1000)+'s');
+
+  /* CSS ships only a background-color fallback per slide (see styles.css) so the
+     browser doesn't eagerly fetch all 11 photos on load; the real image is assigned
+     here, just-in-time, so only the active/soon-active slides ever request one. */
+  function ensureBg(i){
+    if(!slides[i].style.backgroundImage)slides[i].style.backgroundImage="url('assets/"+BG_FILES[i]+"')";
+  }
+  ensureBg(0);
 
   function restartKenBurns(el){el.style.animation='none';el.offsetHeight;el.style.animation='';}
 
@@ -331,6 +342,7 @@ if(heroLoader){
     slides[current].classList.remove('active');
     dots[current].classList.remove('active');
     current=(i+LABELS.length)%LABELS.length;
+    ensureBg(current);
     restartKenBurns(slides[current]);
     slides[current].classList.add('active');
     dots[current].classList.add('active');
@@ -341,26 +353,30 @@ if(heroLoader){
 
   dots.forEach((d,i)=>d.addEventListener('click',()=>{d.blur();goTo(i,true);}));
   const heroBg=$('#heroBg');
-  if(heroBg){heroBg.addEventListener('mouseenter',()=>{paused=true;});heroBg.addEventListener('mouseleave',()=>{paused=false;});}
+  if(heroBg){heroBg.addEventListener('mouseenter',()=>{hoverPaused=true;});heroBg.addEventListener('mouseleave',()=>{hoverPaused=false;});}
 
-  if(reduce){if(label)label.classList.add('visible');return;}
+  const ICON_PAUSE='<rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect>';
+  const ICON_PLAY='<path d="M8 5l11 7-11 7z"></path>';
+  function setPauseUI(){
+    if(!pauseBtn)return;
+    pauseBtn.setAttribute('aria-pressed',String(userPaused));
+    pauseBtn.setAttribute('aria-label',userPaused?'Play slideshow':'Pause slideshow');
+    const svg=pauseBtn.querySelector('svg');
+    if(svg)svg.innerHTML=userPaused?ICON_PLAY:ICON_PAUSE;
+  }
+  if(pauseBtn)pauseBtn.addEventListener('click',()=>{userPaused=!userPaused;setPauseUI();});
+
+  if(reduce){if(label)label.classList.add('visible');if(pauseBtn)pauseBtn.hidden=true;return;}
   if(label)setTimeout(()=>label.classList.add('visible'),1400);
 
   let timer;
-  function startTimer(){timer=setInterval(()=>{if(!paused)goTo(current+1,false);},INTERVAL);}
+  function startTimer(){timer=setInterval(()=>{if(!isPaused())goTo(current+1,false);},INTERVAL);}
   startTimer();
 
-  ['ella.webp',
-   'kandy.webp',
-   'img-safari-kid-thumbsup.webp',
-   'img-peacock-fan.webp',
-   'img-leopard-waterhole.webp',
-   'galle-fort.webp',
-   'beach.webp',
-   'img-elephant-river-overlook.webp',
-   'tea.webp',
-   'colombo.webp'].forEach((f,i)=>
-    setTimeout(()=>{new Image().src='assets/'+f;},2000+i*600));
+  BG_FILES.forEach((f,i)=>{
+    if(i===0)return;
+    setTimeout(()=>ensureBg(i),2000+i*600);
+  });
 })();
 
 /* ---------- HERO HEADLINE LETTER REVEAL ---------- */
@@ -392,12 +408,17 @@ $$('[data-split]').forEach(el=>{
 /* ---------- NAV ---------- */
 const nav=$('#nav');
 const prog=$('#scrollProg');
+let navTick=false;
 function onScroll(){
+  navTick=false;
   nav.classList.toggle('scrolled',scrollY>40);
   const h=document.documentElement.scrollHeight-innerHeight;
   if(prog)prog.style.transform='scaleX('+(scrollY/h)+')';
 }
-addEventListener('scroll',onScroll,{passive:true});onScroll();
+addEventListener('scroll',()=>{
+  if(!navTick){navTick=true;requestAnimationFrame(onScroll);}
+},{passive:true});
+onScroll();
 
 /* ---------- PARALLAX ---------- */
 (function(){
@@ -734,9 +755,12 @@ if(svg&&M){
     if(instant||reduce){routeEl.style.strokeDashoffset=0;const pt=routeEl.getPointAtLength(len);dot.setAttribute('cx',pt.x);dot.setAttribute('cy',pt.y);}
     else travelRAF=requestAnimationFrame(frame);
   }
-  // gentle continuous travel after draw
+  // gentle continuous travel after draw — paused whenever the map scrolls
+  // out of view (see mapIo below) so it doesn't run forever in the background
+  let mapInView=false,lastRouteLen=null;
   function loopDot(len){
-    if(reduce)return;
+    lastRouteLen=len;
+    if(reduce||!mapInView)return;
     const dur=5200;let t0=performance.now();
     function frame(t){
       const p=((t-t0)%dur)/dur;
@@ -748,9 +772,17 @@ if(svg&&M){
   }
   $$('.route-btn').forEach(b=>b.onclick=()=>{hideTip();drawRoute(b.dataset.route);});
 
-  // auto-draw first route when map enters view
+  // auto-draw first route when map enters view, then keep the travel-dot
+  // loop paused/resumed with visibility instead of running indefinitely
+  let firstDrawn=false;
   const mapIo=new IntersectionObserver(es=>es.forEach(e=>{
-    if(e.isIntersecting){drawRoute('culture');mapIo.disconnect();}
+    mapInView=e.isIntersecting;
+    if(mapInView){
+      if(!firstDrawn){firstDrawn=true;drawRoute('culture');}
+      else if(lastRouteLen!=null)loopDot(lastRouteLen);
+    } else {
+      cancelAnimationFrame(travelRAF);
+    }
   }),{threshold:.35});
   mapIo.observe($('#map'));
 }
@@ -1551,6 +1583,7 @@ if(form){
       if(errBanner){
         errBanner.textContent='Something went wrong — please try again, or reach us directly at info@majestytourssrilanka.com';
         errBanner.hidden=false;
+        errBanner.setAttribute('tabindex','-1');
         errBanner.focus();
       }
       submitBtn.disabled=false;
