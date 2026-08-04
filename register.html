@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Partner Registration · Majesty Tours Sri Lanka</title>
+<meta name="description" content="Register as a driver, chauffeur guide or national guide with Majesty Tours Sri Lanka and get your Partner ID.">
+<link rel="canonical" href="https://majestytourssrilanka.com/register.html">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" href="assets/logo-shield-dark.png">
+<meta name="theme-color" content="#0e233e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/legal.css">
+<link rel="stylesheet" href="assets/registration.css">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<nav class="legal-nav">
+  <div class="wrap">
+    <a href="index.html" class="legal-logo" aria-label="Majesty Tours home">
+      <img src="assets/logo-shield-dark.png" alt="" width="34" height="41">
+      <span>
+        <span class="name">Majesty Tours</span>
+        <span class="tag">Your travel with our care</span>
+      </span>
+    </a>
+    <a href="index.html" class="legal-back">← Back to site</a>
+  </div>
+</nav>
+
+<header class="legal-head">
+  <div class="wrap">
+    <div class="legal-eyebrow">Join our team</div>
+    <h1>Register as a driving or guiding partner</h1>
+    <p>Drivers, chauffeur guides and national guides can register here in a few minutes. Submit your details once and you'll receive your Partner ID immediately.</p>
+  </div>
+</header>
+
+<main id="main" class="reg-body">
+  <div class="wrap">
+
+    <p class="lead">Fill in the quick form below. You'll need a profile photo, your SLTDA registration or guide license certificate, and — if you drive your own vehicle — a photo of it.</p>
+
+    <form id="registerForm" novalidate>
+      <input type="text" name="company_website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="field-row">
+        <div class="field"><label for="reg-name">Full name</label><input id="reg-name" type="text" name="full_name" required aria-required="true" autocomplete="name" aria-describedby="err-full_name" maxlength="100"><div class="err" id="err-full_name" aria-live="polite"></div></div>
+        <div class="field"><label for="reg-phone">Mobile number (WhatsApp)</label><input id="reg-phone" type="tel" name="mobile" required aria-required="true" autocomplete="tel" aria-describedby="err-mobile" maxlength="30" placeholder="+94 75 000 0000"><div class="err" id="err-mobile" aria-live="polite"></div></div>
+      </div>
+
+      <div class="field-row">
+        <div class="field"><label for="reg-email">Email <span style="text-transform:none;letter-spacing:normal">(optional)</span></label><input id="reg-email" type="email" name="email" autocomplete="email" aria-describedby="err-email" maxlength="254"><div class="err" id="err-email" aria-live="polite"></div></div>
+        <div class="field"><label for="reg-location">Current location</label><input id="reg-location" type="text" name="location" required aria-required="true" autocomplete="address-level2" aria-describedby="err-location" maxlength="100" placeholder="e.g. Kandy"><div class="err" id="err-location" aria-live="polite"></div></div>
+      </div>
+
+      <div class="field">
+        <label for="reg-partner-type">Partner type</label>
+        <select id="reg-partner-type" name="partner_type" required aria-required="true" aria-describedby="err-partner_type">
+          <option value="" disabled selected>Select one…</option>
+          <option value="driver">Driver</option>
+          <option value="chauffeur">Chauffeur Guide</option>
+          <option value="national">National Guide</option>
+        </select>
+        <div class="err" id="err-partner_type" aria-live="polite"></div>
+      </div>
+
+      <div class="field" id="languagesField">
+        <fieldset>
+          <legend>Languages spoken</legend>
+          <div class="check-pills" role="group" aria-describedby="err-languages">
+            <label class="check-pill"><input type="checkbox" name="languages" value="English"> English</label>
+            <label class="check-pill"><input type="checkbox" name="languages" value="Sinhala"> Sinhala</label>
+            <label class="check-pill"><input type="checkbox" name="languages" value="Tamil"> Tamil</label>
+            <label class="check-pill"><input type="checkbox" name="languages" value="German"> German</label>
+            <label class="check-pill"><input type="checkbox" name="languages" value="French"> French</label>
+            <label class="check-pill"><input type="checkbox" name="languages" value="Russian"> Russian</label>
+            <label class="check-pill"><input type="checkbox" name="languages" value="Chinese"> Chinese</label>
+            <label class="check-pill"><input type="checkbox" name="languages" value="Japanese"> Japanese</label>
+            <label class="check-pill"><input type="checkbox" name="languages" value="Italian"> Italian</label>
+            <label class="check-pill"><input type="checkbox" name="languages" value="Other"> Other</label>
+          </div>
+        </fieldset>
+        <div class="err" id="err-languages" aria-live="polite"></div>
+      </div>
+
+      <div class="field-row">
+        <div class="field"><label for="reg-experience">Years of experience</label><input id="reg-experience" type="number" name="years_experience" min="0" max="60" required aria-required="true" aria-describedby="err-years_experience"><div class="err" id="err-years_experience" aria-live="polite"></div></div>
+        <div class="field" id="sltdaField">
+          <fieldset>
+            <legend>SLTDA registered?</legend>
+            <div class="radio-pills" role="radiogroup" aria-describedby="err-sltda_registered">
+              <label class="radio-pill"><input type="radio" name="sltda_registered" value="yes"> Yes</label>
+              <label class="radio-pill"><input type="radio" name="sltda_registered" value="no"> No</label>
+            </div>
+          </fieldset>
+          <div class="err" id="err-sltda_registered" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="field"><label for="reg-license">SLTDA or guide license number</label><input id="reg-license" type="text" name="license_number" required aria-required="true" aria-describedby="err-license_number" maxlength="60"><div class="err" id="err-license_number" aria-live="polite"></div></div>
+
+      <div class="field" id="vehicleYesNoField">
+        <fieldset>
+          <legend>Do you own a vehicle?</legend>
+          <div class="radio-pills" role="radiogroup" aria-describedby="err-own_vehicle">
+            <label class="radio-pill"><input type="radio" name="own_vehicle" value="yes"> Yes</label>
+            <label class="radio-pill"><input type="radio" name="own_vehicle" value="no"> No</label>
+          </div>
+        </fieldset>
+        <div class="err" id="err-own_vehicle" aria-live="polite"></div>
+      </div>
+
+      <div class="field-row reveal-fields" id="vehicleFieldsWrap" hidden>
+        <div class="field">
+          <label for="reg-vehicle-type">Vehicle type</label>
+          <select id="reg-vehicle-type" name="vehicle_type" aria-describedby="err-vehicle_type">
+            <option value="" disabled selected>Select one…</option>
+            <option value="Sedan">Sedan</option>
+            <option value="SUV">SUV</option>
+            <option value="KDH Van (Flat Roof)">KDH Van (Flat Roof)</option>
+            <option value="KDH Van (High Roof)">KDH Van (High Roof)</option>
+            <option value="Mini Coaster">Mini Coaster</option>
+            <option value="Coaster">Coaster</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="err" id="err-vehicle_type" aria-live="polite"></div>
+        </div>
+        <div class="field">
+          <label for="reg-passenger-capacity">Passenger capacity</label>
+          <input id="reg-passenger-capacity" type="number" name="passenger_capacity" min="1" max="60" aria-describedby="err-passenger_capacity">
+          <div class="err" id="err-passenger_capacity" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="field field-file">
+        <label for="reg-profile-photo">Profile photo</label>
+        <input type="file" id="reg-profile-photo" name="profile_photo" accept="image/*" required aria-required="true" aria-describedby="err-profile_photo">
+        <div class="file-hint">A clear photo of your face, JPG or PNG.</div>
+        <div class="file-preview" id="preview-profile_photo" hidden>
+          <img alt="" hidden>
+          <span class="file-chip" hidden></span>
+          <button type="button" class="file-remove" aria-label="Remove profile photo">×</button>
+        </div>
+        <div class="err" id="err-profile_photo" aria-live="polite"></div>
+      </div>
+
+      <div class="field field-file">
+        <label for="reg-license-doc">SLTDA / license certificate</label>
+        <input type="file" id="reg-license-doc" name="license_doc" accept="image/*,.pdf" required aria-required="true" aria-describedby="err-license_doc">
+        <div class="file-hint">Photo or scan of your certificate, JPG, PNG or PDF.</div>
+        <div class="file-preview" id="preview-license_doc" hidden>
+          <img alt="" hidden>
+          <span class="file-chip" hidden></span>
+          <button type="button" class="file-remove" aria-label="Remove certificate">×</button>
+        </div>
+        <div class="err" id="err-license_doc" aria-live="polite"></div>
+      </div>
+
+      <div class="field field-file reveal-fields" id="vehiclePhotoField" hidden>
+        <label for="reg-vehicle-photo">Vehicle photo</label>
+        <input type="file" id="reg-vehicle-photo" name="vehicle_photo" accept="image/*" aria-describedby="err-vehicle_photo">
+        <div class="file-hint">A clear photo of the vehicle you'll be driving.</div>
+        <div class="file-preview" id="preview-vehicle_photo" hidden>
+          <img alt="" hidden>
+          <span class="file-chip" hidden></span>
+          <button type="button" class="file-remove" aria-label="Remove vehicle photo">×</button>
+        </div>
+        <div class="err" id="err-vehicle_photo" aria-live="polite"></div>
+      </div>
+
+      <p class="form-trust">Your Partner ID is assigned the moment you submit</p>
+      <button type="submit" class="btn">Submit Application <span class="arr">→</span></button>
+      <div class="form-error" id="formError" role="alert" aria-live="assertive" hidden></div>
+    </form>
+
+    <div class="form-success" id="regSuccess" role="status">
+      <div class="check"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+      <h3>You're registered.</h3>
+      <p>Your application has been received. Please save your Partner ID — we'll reference it in all future communication with you.</p>
+      <p class="reg-id-line">Your Partner ID: <strong id="partnerIdDisplay"></strong><button type="button" class="copy-btn" id="copyPartnerId" aria-label="Copy Partner ID" title="Copy to clipboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></button></p>
+    </div>
+
+  </div>
+</main>
+
+<footer class="legal-foot">
+  <div class="wrap">
+    <span>© 2026 Majesty Tours Sri Lanka. All rights reserved.</span>
+    <span class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="cancellation.html">Cancellation Policy</a>
+      <a href="register.html" aria-current="page">Partner Registration</a>
+    </span>
+  </div>
+</footer>
+
+<script src="assets/registration.js" defer></script>
+</body>
+</html>

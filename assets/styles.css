@@ -291,8 +291,9 @@ section{position:relative}
 .js-ready .reveal:not(.in){opacity:0;transform:translateY(42px)}
 .js-ready .reveal.in{opacity:1;transform:none}
 .reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}.reveal.d5{transition-delay:.5s}
-/* word-by-word heading reveal */
-.split .w{display:inline-block;overflow:hidden;vertical-align:top}
+/* word-by-word heading reveal — line-height bumped past the heading's tight 1.04 so
+   the reveal mask (overflow:hidden) doesn't clip ascenders/descenders of the serif display font */
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;line-height:1.3}
 .split .w i{display:inline-block;font-style:inherit;transform:translateY(105%);transition:transform .9s var(--ease)}
 .split.in .w i{transform:none}
 .split.in .w:nth-child(2) i{transition-delay:.06s}
@@ -490,42 +491,26 @@ section{position:relative}
 /* ---------- WHEN TO GO ---------- */
 .season{background:var(--bg)}
 .season .sec-head > p{color:var(--text-muted)}
-/* month strip — full-width 12-col grid above the two-column data panel */
+/* month strip */
 .months{display:grid;grid-template-columns:repeat(12,1fr);gap:.4rem;margin:1.6rem 0}
 .mo{text-align:center;padding:.85rem .2rem .65rem;border:1px solid var(--line);border-radius:6px;cursor:pointer;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mid);transition:.3s var(--ease);background:transparent}
 .mo.active{background:var(--navy);color:var(--paper);border-color:var(--navy);box-shadow:none}
-/* season stripe: inset bottom border shows which coast peaks */
-.mo-west{box-shadow:inset 0 -3px 0 var(--forest)}
-.mo-east{box-shadow:inset 0 -3px 0 oklch(54% .18 228)}
-.mo-west.mo-east{box-shadow:inset 0 -3px 0 var(--gold)}
-/* two-column data panel */
-.season-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:2.6rem;align-items:start}
-/* left column */
-.season-aside .lead{font-family:var(--display);font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.34;font-weight:300}
-.season-legend{margin-top:1.2rem;display:flex;flex-direction:column;gap:.6rem}
-.sl-item{display:flex;align-items:center;gap:.7rem;font-size:.8rem;color:var(--text-mid)}
-.sl-dot{width:10px;height:10px;border-radius:50%;flex:none}
-.sl-dot.west{background:var(--forest)}
-.sl-dot.east{background:oklch(54% .18 228)}
-.sl-dot.mixed{background:var(--gold)}
-/* right column readout */
-.season-readout{padding:.2rem 0}
-/* best-pick card */
-.best-pick{padding:1.1rem 1.3rem;background:oklch(30% .06 140 / 8%);border:1px solid oklch(42% .09 140 / 20%);border-radius:8px;margin-bottom:1.1rem}
-.best-pick .bp-label{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mid);margin-bottom:.35rem}
-.best-pick .bp-region{font-family:var(--display);font-size:1.25rem;color:var(--forest-deep)}
-.best-pick .bp-tag{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);margin-left:.7rem}
-/* region rows */
-.season-readout .reg{display:flex;align-items:center;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--line)}
-.season-readout .reg:last-child{border-bottom:none}
-.season-readout .reg .rn{font-family:var(--display);font-size:1rem;flex:none;width:165px}
-.season-readout .reg .gauge{height:5px;border-radius:5px;background:var(--paper-2);overflow:hidden;flex:1}
-.season-readout .reg .gauge i{display:block;height:100%;border-radius:5px;width:100%;transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
-.season-readout .reg .gauge i.q-exc{background:var(--forest)}
-.season-readout .reg .gauge i.q-good{background:var(--gold)}
-.season-readout .reg .gauge i.q-fair{background:oklch(55% .06 50)}
-.season-readout .reg .gauge i.q-off{background:var(--line)}
-.season-readout .reg .rv{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);flex:none;width:76px;text-align:right;white-space:nowrap}
+/* suggested-trips panel — swaps in the actual itineraries that fit the picked month */
+.ss-label{font-family:var(--display);font-size:1.15rem;color:var(--forest-deep);margin-bottom:1.1rem}
+.season-suggest-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.ss-card{border:1px solid var(--line);border-radius:10px;padding:1.2rem 1.3rem;transition:.3s var(--ease)}
+.ss-card:hover{border-color:var(--forest)}
+.ss-top{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-bottom:.7rem}
+.ss-tag{font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;padding:.22rem .6rem;border-radius:20px;white-space:nowrap}
+.ss-tag.q-exc{background:oklch(30% .06 140 / 8%);color:var(--forest-deep)}
+.ss-tag.q-good{background:oklch(55% .12 85 / 16%);color:oklch(38% .1 75)}
+.ss-price{font-family:var(--display);font-style:italic;color:var(--forest-deep);font-size:.95rem;white-space:nowrap}
+.ss-name{font-family:var(--display);font-size:1.2rem;font-weight:400;margin-bottom:.5rem}
+.ss-blurb{font-size:.85rem;color:var(--text-mid);line-height:1.55;margin-bottom:1rem}
+.ss-link{display:inline-flex;align-items:center;gap:.4rem;padding:0;border:0;background:none;font-family:var(--body);font-size:.8rem;font-weight:500;letter-spacing:.04em;color:var(--forest-deep);cursor:pointer}
+.ss-link:hover{color:var(--forest)}
+.ss-link .arr{transition:transform .3s var(--ease)}
+.ss-link:hover .arr{transform:translateX(3px)}
 
 /* ---------- GALLERY ---------- */
 .gal-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
@@ -860,8 +845,10 @@ footer .logo-tagline{color:rgba(244,236,224,.55)}
   .burger{display:flex;z-index:1001;min-width:44px;min-height:44px;justify-content:center;align-items:center}
   .burger.open span{background:var(--ink)}
   .navlinks .nav-cta{border-color:rgba(33,26,18,.35)}
-  .intro,.map-grid,.contact-grid,.foot-grid,.sec-head,.season-grid,.tour-detail-inner{grid-template-columns:1fr;gap:1.8rem}
-  .months{grid-template-columns:repeat(6,1fr)}
+  .intro,.map-grid,.contact-grid,.foot-grid,.sec-head,.tour-detail-inner{grid-template-columns:1fr;gap:1.8rem}
+  /* month strip scrolls as one row instead of wrapping, so Jan→Dec order stays readable */
+  .months{display:flex;overflow-x:auto;gap:.5rem;scroll-snap-type:x proximity;padding-bottom:.3rem}
+  .mo{flex:0 0 64px;scroll-snap-align:start}
   .fleet-grid{grid-template-columns:repeat(2,1fr)}
   .act-grid{grid-template-columns:repeat(2,1fr)}
   .fleet-xfer{flex-direction:column;gap:1rem}
@@ -884,8 +871,7 @@ footer .logo-tagline{color:rgba(244,236,224,.55)}
   .g1,.g2,.g3,.g4,.g5,.g6{grid-column:span 1;grid-row:span 1}
   .logo-tagline{display:none}
   .lb .x{top:12px;right:12px}
-  .months{grid-template-columns:repeat(4,1fr)}
-  .season-readout .reg .rn{width:auto;flex:1}
+  .season-suggest-grid{grid-template-columns:1fr}
 }
 
 /* ---------- COARSE POINTER: minimum 44px touch targets ---------- */
@@ -956,6 +942,16 @@ footer .logo-tagline{color:rgba(244,236,224,.55)}
 .ph-welcome-nameplate{background-image:url('img-welcome-nameplate.webp');background-color:#3a2010;background-position:center 25%}
 .ph-nameplate-richi{background-image:url('img-nameplate-richi.webp');background-color:#3a2010;background-position:center 25%}
 .ph-colombo-bus{background-image:url('img-colombo-city-bus.webp');background-color:#7a1f1f;background-position:center 22%}
+.ph-polonnaruwa-staircase{background-image:url('img-polonnaruwa-staircase.webp');background-color:#4a3324;background-position:center 40%}
+.ph-sigiriya-group-photo{background-image:url('img-sigiriya-group-photo.webp');background-color:#8a3b2e;background-position:center 30%}
+.ph-tea-factory-tasting{background-image:url('img-tea-factory-tasting.webp');background-color:#2c3c26;background-position:center 40%}
+.ph-rail-tunnel{background-image:url('img-rail-tunnel.webp');background-color:#2c3c26;background-position:center 45%}
+.ph-mangrove-boat-tour{background-image:url('img-mangrove-boat-tour.webp');background-color:#2c3c26;background-position:center 40%}
+.ph-sloth-bear{background-image:url('img-sloth-bear.webp');background-color:#3a2a1a;background-position:center 35%}
+.ph-mangrove-boat-family{background-image:url('img-mangrove-boat-family.webp');background-color:#2c3c26;background-position:center 40%}
+.ph-turtle-hatchling-hand{background-image:url('img-turtle-hatchling-hand.webp');background-color:#c2a06a;background-position:center 50%}
+.ph-snorkeling-pair{background-image:url('img-snorkeling-pair.webp');background-color:#0e4a4a;background-position:center 45%}
+.ph-dolphin-pod{background-image:url('img-dolphin-pod.webp');background-color:#0e233e;background-position:center 50%}
 /* interstitial: whale drone over tea plantation */
 .interstitial .par.bg{background-image:url('img-whale-drone.webp');background-color:#0c1a2e}
 /* gallery ph backgrounds are injected by JS IntersectionObserver — never pre-fetch */
@@ -1114,11 +1110,6 @@ footer .logo-tagline{color:rgba(244,236,224,.55)}
 /* --- Activities: single column on very small screens --- */
 @media(max-width:400px){
   .act-grid{grid-template-columns:1fr}
-}
-
-/* --- Season month strip: 3 columns on tiny phones --- */
-@media(max-width:380px){
-  .months{grid-template-columns:repeat(3,1fr)}
 }
 
 /* --- Season readout: hide the rating label on tiny screens to prevent overflow --- */

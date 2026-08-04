@@ -34,7 +34,9 @@
       "images": [
         { "image": "assets/img-sigiriya.webp", "caption": "Sigiriya · Lion Rock" },
         { "image": "", "caption": "Dambulla · Cave Temples" },
-        { "image": "", "caption": "Kandy · Temple of the Tooth" }
+        { "image": "assets/img-temple-tooth-portrait.webp", "caption": "Kandy · Temple of the Tooth" },
+        { "image": "assets/img-polonnaruwa-staircase.webp", "caption": "Polonnaruwa · the ancient staircase" },
+        { "image": "assets/img-sigiriya-group-photo.webp", "caption": "Sigiriya · the group beneath the rock" }
       ],
       "itinerary": [
         { "day": "Day 1", "title": "Arrival | BIA → Dambulla", "text": "Welcome to Sri Lanka! Meet your private chauffeur guide at Bandaranaike International Airport and begin your journey to the Cultural Triangle.", "highlights": ["Airport Meet & Greet", "Scenic Drive to Dambulla", "Dambulla Royal Cave Temple (UNESCO World Heritage Site)"], "overnight": "Dambulla / Sigiriya" },
@@ -68,10 +70,12 @@
         { "image": "assets/img-tea-pickers.webp", "caption": "Tea country · Nuwara Eliya" },
         { "image": "assets/img-tea-moment.webp", "caption": "Meeting the tea pickers" },
         { "image": "assets/img-tea-guests.webp", "caption": "Learning to pick tea" },
-        { "image": "", "caption": "Ella · Nine Arches Bridge" }
+        { "image": "assets/img-nine-arch-bridge.webp", "caption": "Ella · Nine Arches Bridge" },
+        { "image": "assets/img-tea-factory-tasting.webp", "caption": "Hill country · tasting at the tea factory" },
+        { "image": "assets/img-rail-tunnel.webp", "caption": "Demodara · through the old rail tunnel" }
       ],
       "itinerary": [
-        { "day": "Day 1", "title": "Arrival | BIA → Kandy", "text": "Meet your private chauffeur guide at Bandaranaike International Airport and begin your scenic drive into Sri Lanka's beautiful hill country.", "highlights": ["Airport Meet & Greet", "Scenic Drive to Kandy", "Pinnawala Elephant Orphanage", "Peradeniya Botanical Garden", "Temple of the Sacred Tooth Relic", "Kandy Lake", "Kandy Viewpoint", "Wood Carving Factory", "Evening Kandy Cultural Dance Performance"], "overnight": "Kandy" },
+        { "day": "Day 1", "title": "Arrival | BIA → Kandy", "text": "Welcome to Sri Lanka! Meet your private chauffeur guide at Bandaranaike International Airport and begin your scenic drive into Sri Lanka's beautiful hill country.", "highlights": ["Airport Meet & Greet", "Scenic Drive to Kandy", "Pinnawala Elephant Orphanage", "Peradeniya Botanical Garden", "Temple of the Sacred Tooth Relic", "Kandy Lake", "Kandy Viewpoint", "Wood Carving Factory", "Evening Kandy Cultural Dance Performance"], "overnight": "Kandy" },
         { "day": "Day 2", "title": "Kandy → Nuwara Eliya", "text": "Journey through Sri Lanka's scenic hill country, passing lush tea plantations, cascading waterfalls, and misty mountain landscapes. Explore the charming town of Nuwara Eliya, known for its cool climate, colonial architecture, and breathtaking natural beauty.", "highlights": ["Tea Factory Tour & Tea Tasting", "Ramboda Waterfall", "Gregory Lake", "Nuwara Eliya City Tour", "Colonial Buildings & Victoria Park (Photo Stops)"], "overnight": "Nuwara Eliya" },
         { "day": "Day 3", "title": "Nuwara Eliya → Scenic Train Journey → Ella", "text": "Enjoy one of the world's most beautiful train journeys through rolling tea plantations, mist-covered mountains, and picturesque villages before exploring Ella.", "highlights": ["Scenic Blue Train Journey (Nanu Oya → Ella)", "Nine Arch Bridge", "Little Adam's Peak", "Ravana Falls", "Flying Ravana Mega Zipline", "Tea Plantation Walk", "Ella Town Exploration", "Relax and Enjoy Ella's Cafés and Mountain Atmosphere"], "overnight": "Ella" },
         { "day": "Day 4", "title": "Ella → BIA", "text": "After breakfast, begin your scenic return journey to Bandaranaike International Airport.", "highlights": ["Beautiful Hill Country Drive", "Scenic Viewpoints Along the Way", "Local Fruit Stalls", "Gem Museum Visit", "Transfer to Bandaranaike International Airport"] }
@@ -101,7 +105,9 @@
         { "image": "assets/img-leopard.webp", "caption": "Yala · leopard at water" },
         { "image": "assets/img-safari-jeep.webp", "caption": "Into the wild" },
         { "image": "assets/img-turtle.webp", "caption": "Sea turtle, southern coast" },
-        { "image": "", "caption": "Udawalawe · elephants" }
+        { "image": "", "caption": "Udawalawe · elephants" },
+        { "image": "assets/img-mangrove-boat-tour.webp", "caption": "Madu River · gliding beneath the mangroves" },
+        { "image": "assets/img-sloth-bear.webp", "caption": "Yala · a sloth bear on the move" }
       ],
       "itinerary": [
         { "day": "Day 1", "title": "Arrival | BIA → Bentota", "text": "Welcome to Sri Lanka! Meet your private chauffeur guide at Bandaranaike International Airport and begin your journey along the scenic southwest coast.", "highlights": ["Airport Meet & Greet", "Madu River Boat Safari", "Sea Turtle Hatchery Visit", "Scenic Coastal Drive"], "overnight": "Bentota" },
@@ -139,7 +145,11 @@
         { "image": "assets/img-whale-drone.webp", "caption": "Blue whale, aerial view" },
         { "image": "assets/img-dolphins.webp", "caption": "Spinner dolphins, offshore" },
         { "image": "assets/img-surf.webp", "caption": "Riding a wave · Weligama" },
-        { "image": "", "caption": "Stilt fishers · Koggala" }
+        { "image": "assets/img-stilt-fishermen-sunset.webp", "caption": "Southern coast · stilt fishermen at sunset" },
+        { "image": "assets/img-mangrove-boat-family.webp", "caption": "Mangroves · the family boat ride" },
+        { "image": "assets/img-turtle-hatchling-hand.webp", "caption": "A hatchling, cradled before the sea" },
+        { "image": "assets/img-snorkeling-pair.webp", "caption": "Southern coast · snorkeling side by side" },
+        { "image": "assets/img-dolphin-pod.webp", "caption": "Southern coast · a pod of dolphins" }
       ],
       "itinerary": [
         { "day": "Day 1", "title": "Arrival | BIA → Balapitiya → Kosgoda → Galle", "text": "Welcome to Sri Lanka! Meet your private chauffeur guide at Bandaranaike International Airport and begin your scenic journey along the Southern Coast.", "highlights": ["Airport Meet & Greet", "Scenic Coastal Drive", "Madu River Boat Safari", "Cinnamon Island Visit", "Mangrove Forests & Wildlife", "Spice & Herbal Garden Visit", "Sea Turtle Hatchery Visit", "Galle Fort (UNESCO World Heritage Site)", "Dutch Ramparts", "Galle Lighthouse", "Boutique Shopping", "Sunset at Galle Fort"], "overnight": "Galle" },
@@ -245,7 +255,7 @@
         { "image": "assets/img-tea-pickers.webp", "caption": "Tea country · Nuwara Eliya" },
         { "image": "assets/img-leopard.webp", "caption": "Yala · leopard" },
         { "image": "assets/img-sigiriya.webp", "caption": "Sigiriya · Lion Rock" },
-        { "image": "", "caption": "The southern coast" }
+        { "image": "assets/img-coast-aerial-cove.webp", "caption": "The southern coast" }
       ],
       "itinerary": [
         { "day": "Day 1", "title": "Arrival | BIA → Sigiriya", "text": "Welcome to Sri Lanka! Meet your private chauffeur guide at Bandaranaike International Airport and begin your journey into Sri Lanka's Cultural Triangle.", "highlights": ["Airport Meet & Greet", "Scenic Drive to Sigiriya", "Spice & Herbal Garden Visit", "Sigiriya Village Experience", "Traditional Sri Lankan Lunch", "Evening Relaxation"], "overnight": "Sigiriya" },

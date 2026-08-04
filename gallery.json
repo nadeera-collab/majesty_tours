@@ -113,10 +113,6 @@
       "caption": "Kingfisher with a catch"
     },
     {
-      "image": "assets/img-fleet-van-real.webp",
-      "caption": "The fleet, ready to go"
-    },
-    {
       "image": "assets/img-leopards-pair.webp",
       "caption": "Yala · two leopards, a rare sighting"
     },
@@ -190,31 +186,408 @@
     },
     {
       "video": "assets/vid-ravana-falls-wide.mp4",
+      "poster": "assets/vid-ravana-falls-wide-poster.webp",
       "caption": "Ella · Ravana Falls, in motion"
     },
     {
       "video": "assets/vid-elephant-river-hose.mp4",
+      "poster": "assets/vid-elephant-river-hose-poster.webp",
       "caption": "Pinnawala · elephants at the river"
     },
     {
       "video": "assets/vid-tea-mist-walk.mp4",
+      "poster": "assets/vid-tea-mist-walk-poster.webp",
       "caption": "Hill country · through the tea, in mist"
     },
     {
       "video": "assets/vid-sigiriya-path.mp4",
+      "poster": "assets/vid-sigiriya-path-poster.webp",
       "caption": "Sigiriya · the path to the rock"
     },
     {
       "video": "assets/vid-ravana-falls-viewers.mp4",
+      "poster": "assets/vid-ravana-falls-viewers-poster.webp",
       "caption": "Ella · taking in Ravana Falls"
     },
     {
       "video": "assets/vid-elephant-hand-feed.mp4",
+      "poster": "assets/vid-elephant-hand-feed-poster.webp",
       "caption": "Pinnawala · a close encounter"
     },
     {
       "video": "assets/vid-ravana-falls-pool.mp4",
+      "poster": "assets/vid-ravana-falls-pool-poster.webp",
       "caption": "Ella · a rockier falls pool"
+    },
+    {
+      "image": "assets/img-tea-estate-arrival.webp",
+      "caption": "Hill country · arriving at the tea estate"
+    },
+    {
+      "image": "assets/img-tea-country-path.webp",
+      "caption": "Hill country · the path through tea country"
+    },
+    {
+      "image": "assets/img-tea-field-watching.webp",
+      "caption": "Hill country · watching the pickers at work"
+    },
+    {
+      "image": "assets/img-tea-shop-gathering.webp",
+      "caption": "Hill country · gathered at the roadside tea hut"
+    },
+    {
+      "image": "assets/img-tea-photo-op.webp",
+      "caption": "Hill country · capturing the moment"
+    },
+    {
+      "image": "assets/img-tea-pickers-meeting.webp",
+      "caption": "Hill country · meeting the tea pickers"
+    },
+    {
+      "image": "assets/img-tea-leaves-lesson.webp",
+      "caption": "Hill country · a lesson in the leaves"
+    },
+    {
+      "image": "assets/img-tea-pickers-greeting.webp",
+      "caption": "Hill country · warm greetings among the bushes"
+    },
+    {
+      "image": "assets/img-tea-group-photo.webp",
+      "caption": "Hill country · the group photo"
+    },
+    {
+      "image": "assets/img-tea-pickers-portrait.webp",
+      "caption": "Hill country · a portrait among the bushes"
+    },
+    {
+      "image": "assets/img-tea-pickers-smiles.webp",
+      "caption": "Hill country · smiles in the tea rows"
+    },
+    {
+      "image": "assets/img-tea-pickers-gathering.webp",
+      "caption": "Hill country · gathered among the tea rows"
+    },
+    {
+      "image": "assets/img-airport-guest-arrival.webp",
+      "caption": "Bandaranaike Airport · touching down"
+    },
+    {
+      "image": "assets/img-hotel-arrival-selfie.webp",
+      "caption": "Arrival · the first smiles of the trip"
+    },
+    {
+      "image": "assets/img-snorkeling-pair.webp",
+      "caption": "Southern coast · snorkeling side by side"
+    },
+    {
+      "image": "assets/img-mangrove-boat-tour.webp",
+      "caption": "Mangroves · gliding beneath the roots"
+    },
+    {
+      "image": "assets/img-beach-boat-launch.webp",
+      "caption": "Southern coast · launching out to sea"
+    },
+    {
+      "image": "assets/img-boats-offshore.webp",
+      "caption": "Southern coast · the boats gather offshore"
+    },
+    {
+      "image": "assets/img-turtle-hatchling-hand.webp",
+      "caption": "A hatchling, cradled before the sea"
+    },
+    {
+      "image": "assets/img-airport-welcome-sign.webp",
+      "caption": "Bandaranaike Airport · greeted on arrival"
+    },
+    {
+      "image": "assets/img-airport-family-arrival.webp",
+      "caption": "Bandaranaike Airport · the whole family, just landed"
+    },
+    {
+      "image": "assets/img-boat-tour-group.webp",
+      "caption": "Southern coast · the whole crew, life jackets on"
+    },
+    {
+      "image": "assets/img-sigiriya-group-photo.webp",
+      "caption": "Sigiriya · the group beneath the rock"
+    },
+    {
+      "image": "assets/img-safari-truck-family.webp",
+      "caption": "Safari · the whole family aboard"
+    },
+    {
+      "image": "assets/img-safari-twins.webp",
+      "caption": "Safari · matching outfits, matching smiles"
+    },
+    {
+      "image": "assets/img-whale-shark-surface.webp",
+      "caption": "Southern coast · a whale shark near the surface"
+    },
+    {
+      "image": "assets/img-safari-truck-portrait.webp",
+      "caption": "Safari · settling in for the ride"
+    },
+    {
+      "image": "assets/img-dolphin-diving.webp",
+      "caption": "Southern coast · a dolphin diving"
+    },
+    {
+      "image": "assets/img-whale-fin-breach.webp",
+      "caption": "Whale watching · a fin breaks the surface"
+    },
+    {
+      "image": "assets/img-whale-blow-aerial.webp",
+      "caption": "Whale watching · the blow, seen from above"
+    },
+    {
+      "image": "assets/img-whale-distant-fluke.webp",
+      "caption": "Whale watching · a distant fluke"
+    },
+    {
+      "image": "assets/img-whale-lookout-deck.webp",
+      "caption": "Whale watching · eyes on the horizon"
+    },
+    {
+      "image": "assets/img-whale-shark-spotted.webp",
+      "caption": "Southern coast · spotting the whale shark"
+    },
+    {
+      "image": "assets/img-whale-fluke-splash.webp",
+      "caption": "Whale watching · fluke and splash"
+    },
+    {
+      "image": "assets/img-whale-coastal-view.webp",
+      "caption": "Whale watching · a whale off the coast"
+    },
+    {
+      "image": "assets/img-boat-guests-lookout.webp",
+      "caption": "Whale watching · keeping watch from the bow"
+    },
+    {
+      "image": "assets/img-whale-drone-boat.webp",
+      "caption": "Whale watching · whale and boat, from above"
+    },
+    {
+      "image": "assets/img-dolphin-pod.webp",
+      "caption": "Southern coast · a pod of dolphins"
+    },
+    {
+      "image": "assets/img-whale-hazy-coast.webp",
+      "caption": "Whale watching · a hazy coastline"
+    },
+    {
+      "image": "assets/img-whale-arch-dive.webp",
+      "caption": "Whale watching · arching into a dive"
+    },
+    {
+      "image": "assets/img-whale-tail-tanker.webp",
+      "caption": "Whale watching · tail up, tanker beyond"
+    },
+    {
+      "image": "assets/img-dolphins-leaping.webp",
+      "caption": "Southern coast · dolphins leaping"
+    },
+    {
+      "image": "assets/img-leopard-drinking.webp",
+      "caption": "Yala · a leopard pauses to drink"
+    },
+    {
+      "image": "assets/img-whale-tail-spray.webp",
+      "caption": "Whale watching · tail lifted, spray falling"
+    },
+    {
+      "image": "assets/img-surf-ride.webp",
+      "caption": "South coast · riding a wave"
+    },
+    {
+      "image": "assets/img-airport-group-arrival.webp",
+      "caption": "Bandaranaike Airport · touching down together"
+    },
+    {
+      "image": "assets/img-tea-factory-tasting.webp",
+      "caption": "Hill country · tasting at the tea factory"
+    },
+    {
+      "video": "assets/vid-tea-estate-walk.mp4",
+      "poster": "assets/vid-tea-estate-walk-poster.webp",
+      "caption": "Hill country · walking through the tea estate"
+    },
+    {
+      "video": "assets/vid-tea-leaf-handoff.mp4",
+      "poster": "assets/vid-tea-leaf-handoff-poster.webp",
+      "caption": "Hill country · handing over the leaves"
+    },
+    {
+      "video": "assets/vid-tea-field-group.mp4",
+      "poster": "assets/vid-tea-field-group-poster.webp",
+      "caption": "Hill country · among the tea rows"
+    },
+    {
+      "video": "assets/vid-wild-elephants-road.mp4",
+      "poster": "assets/vid-wild-elephants-road-poster.webp",
+      "caption": "Wild elephants · crossing the road"
+    },
+    {
+      "video": "assets/vid-hatchery-shark-tank.mp4",
+      "poster": "assets/vid-hatchery-shark-tank-poster.webp",
+      "caption": "Turtle hatchery · a shark glides past"
+    },
+    {
+      "video": "assets/vid-hatchery-turtle-tank.mp4",
+      "poster": "assets/vid-hatchery-turtle-tank-poster.webp",
+      "caption": "Turtle hatchery · a turtle in its tank"
+    },
+    {
+      "video": "assets/vid-hatchery-tunnel-walk.mp4",
+      "poster": "assets/vid-hatchery-tunnel-walk-poster.webp",
+      "caption": "Turtle hatchery · through the aquarium tunnel"
+    },
+    {
+      "video": "assets/vid-hatchery-tanks-rows.mp4",
+      "poster": "assets/vid-hatchery-tanks-rows-poster.webp",
+      "caption": "Turtle hatchery · rows of hatchling tanks"
+    },
+    {
+      "image": "assets/img-airport-sign-photo.webp",
+      "caption": "Bandaranaike Airport · posing beneath the welcome sign"
+    },
+    {
+      "image": "assets/img-airport-name-board.webp",
+      "caption": "Bandaranaike Airport · a personal welcome sign"
+    },
+    {
+      "image": "assets/img-elephant-hand-feeding.webp",
+      "caption": "Pinnawala · feeding the elephants by hand"
+    },
+    {
+      "image": "assets/img-tea-grading-box.webp",
+      "caption": "Hill country · grades of tea on display"
+    },
+    {
+      "image": "assets/img-tea-pickers-mother-daughter.webp",
+      "caption": "Hill country · picking tea, mother and daughter"
+    },
+    {
+      "image": "assets/img-tea-picker-basket.webp",
+      "caption": "Hill country · a basket of fresh leaves"
+    },
+    {
+      "image": "assets/img-mangrove-boat-family.webp",
+      "caption": "Mangroves · the family boat ride"
+    },
+    {
+      "image": "assets/img-mangrove-dock-flag.webp",
+      "caption": "Mangroves · flying the flag at the jetty"
+    },
+    {
+      "image": "assets/img-mangrove-walkway-flag.webp",
+      "caption": "Mangroves · out along the wooden walkway"
+    },
+    {
+      "image": "assets/img-mangrove-stilt-house.webp",
+      "caption": "Mangroves · a stilt house at dusk"
+    },
+    {
+      "image": "assets/img-mangrove-boat-group.webp",
+      "caption": "Mangroves · the group, out on the water"
+    },
+    {
+      "image": "assets/img-mangrove-boat-canopy.webp",
+      "caption": "Mangroves · deep in the mangrove canopy"
+    },
+    {
+      "image": "assets/img-whale-boat-deck-portrait.webp",
+      "caption": "Whale watching · out on the back deck"
+    },
+    {
+      "video": "assets/vid-snorkel-turtle-swim.mp4",
+      "poster": "assets/vid-snorkel-turtle-swim-poster.webp",
+      "caption": "Southern coast · snorkeling with a turtle"
+    },
+    {
+      "video": "assets/vid-scuba-reef-dive.mp4",
+      "poster": "assets/vid-scuba-reef-dive-poster.webp",
+      "caption": "Southern coast · diving the reef"
+    },
+    {
+      "video": "assets/vid-elephant-feeding-time.mp4",
+      "poster": "assets/vid-elephant-feeding-time-poster.webp",
+      "caption": "Pinnawala · lending a hand at feeding time"
+    },
+    {
+      "video": "assets/vid-elephant-river-bathing.mp4",
+      "poster": "assets/vid-elephant-river-bathing-poster.webp",
+      "caption": "Pinnawala · bathing with the elephants"
+    },
+    {
+      "video": "assets/vid-mangrove-branch-reach.mp4",
+      "poster": "assets/vid-mangrove-branch-reach-poster.webp",
+      "caption": "Mangroves · reaching for the branches"
+    },
+    {
+      "video": "assets/vid-mangrove-river-cruise.mp4",
+      "poster": "assets/vid-mangrove-river-cruise-poster.webp",
+      "caption": "Mangroves · down the river"
+    },
+    {
+      "video": "assets/vid-mangrove-guide-helm.mp4",
+      "poster": "assets/vid-mangrove-guide-helm-poster.webp",
+      "caption": "Mangroves · our guide, steering upriver"
+    },
+    {
+      "video": "assets/vid-mangrove-wide-water.mp4",
+      "poster": "assets/vid-mangrove-wide-water-poster.webp",
+      "caption": "Mangroves · wide water, cloudy sky"
+    },
+    {
+      "video": "assets/vid-mangrove-open-water.mp4",
+      "poster": "assets/vid-mangrove-open-water-poster.webp",
+      "caption": "Mangroves · out toward open water"
+    },
+    {
+      "video": "assets/vid-mangrove-narrow-channel.mp4",
+      "poster": "assets/vid-mangrove-narrow-channel-poster.webp",
+      "caption": "Mangroves · through the narrow channel"
+    },
+    {
+      "video": "assets/vid-mangrove-lagoon-wind.mp4",
+      "poster": "assets/vid-mangrove-lagoon-wind-poster.webp",
+      "caption": "Mangroves · winding through the lagoon"
+    },
+    {
+      "video": "assets/vid-whale-scanning-water.mp4",
+      "poster": "assets/vid-whale-scanning-water-poster.webp",
+      "caption": "Whale watching · scanning open water"
+    },
+    {
+      "video": "assets/vid-whale-far-out-sea.mp4",
+      "poster": "assets/vid-whale-far-out-sea-poster.webp",
+      "caption": "Whale watching · far out to sea"
+    },
+    {
+      "video": "assets/vid-whale-out-swells.mp4",
+      "poster": "assets/vid-whale-out-swells-poster.webp",
+      "caption": "Whale watching · out on the swells"
+    },
+    {
+      "video": "assets/vid-whale-horizon-spot.mp4",
+      "poster": "assets/vid-whale-horizon-spot-poster.webp",
+      "caption": "Whale watching · something on the horizon"
+    },
+    {
+      "video": "assets/vid-whale-eyes-on-water.mp4",
+      "poster": "assets/vid-whale-eyes-on-water-poster.webp",
+      "caption": "Whale watching · all eyes on the water"
+    },
+    {
+      "video": "assets/vid-mangrove-fishing-boat.mp4",
+      "poster": "assets/vid-mangrove-fishing-boat-poster.webp",
+      "caption": "Mangroves · a fisherman's boat, tucked in the cove"
+    },
+    {
+      "video": "assets/vid-scuba-turtle-encounter.mp4",
+      "poster": "assets/vid-scuba-turtle-encounter-poster.webp",
+      "caption": "Southern coast · a diver meets a turtle"
     }
   ]
 }
