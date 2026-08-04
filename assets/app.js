@@ -286,6 +286,14 @@ const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
 let heroGoTo=null;
 
+/* opens a tour's accordion card and scrolls to it — shared by the map's route panel and the season section */
+function openTourByIndex(idx){
+  const wrap=document.querySelector(`.tour-wrap[data-tour-index="${idx}"]`);
+  if(!wrap)return;
+  if(!wrap.classList.contains('open'))$('.tour',wrap).click();
+  wrap.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+}
+
 /* ---------- HERO LOADER ---------- */
 const heroLoader=document.getElementById('heroLoader');
 if(heroLoader){
@@ -545,16 +553,17 @@ const M=window.MAP;
 const rootStyle=getComputedStyle(document.documentElement);
 const routeColor=name=>rootStyle.getPropertyValue('--route-'+name).trim();
 const routes={
-  culture:{label:'The Cultural Triangle',days:'5 days',price:'from $690',tourIndex:0,stops:['Colombo','Dambulla','Sigiriya','Polonnaruwa','Kandy','Colombo'],blurb:'Dry-zone kingdoms rock fortress, cave temples and the last royal capital, round trip from Colombo.',color:routeColor('culture')},
-  hill:{label:'Hill Country & Tea',days:'4 days',price:'from $590',tourIndex:1,stops:['Colombo','Kandy','NuwaraEliya','Ella','Colombo'],blurb:'The misted tea highlands, the blue train and the bridge at Ella, round trip from Colombo.',color:routeColor('hill')},
-  wild:{label:'Wildlife & Safari',days:'3 days',price:'from $390',tourIndex:2,stops:['Colombo','Bentota','Udawalawe','Galle','Colombo'],blurb:'A turtle hatchery at Bentota, elephant herds at Udawalawe (or leopards in Yala) and the ramparts of Galle, round trip from Colombo.',color:routeColor('wild')},
-  coast:{label:'Southern Coast',days:'3 days',price:'from $390',tourIndex:3,stops:['Colombo','Balapitiya','Kosgoda','Galle','Mirissa','Unawatuna','Colombo'],blurb:"Cinnamon islands, a turtle hatchery, Galle's ramparts, the whales off Mirissa and Unawatuna's bay, round trip from Colombo.",color:routeColor('coast')},
-  trinco:{label:'East Coast',days:'4 days',price:'from $590',tourIndex:4,stops:['Colombo','Dambulla','Trincomalee','Nilaveli','Minneriya','PigeonIsland','Pasikuda','Colombo'],blurb:"Koneswaram Temple, Pigeon Island's reef, an elephant safari at Minneriya and the beaches of Pasikuda, round trip from Colombo.",color:routeColor('trinco')},
-  arugam:{label:'Arugam Bay',days:'3 days',price:'from $390',tourIndex:5,stops:['Colombo','ArugamBay','Kumana','Colombo'],blurb:"Sri Lanka's surf capital and the wetlands of Kumana, round trip from Colombo.",color:routeColor('arugam')},
-  grand:{label:'The Grand Island',days:'14 days',price:'from $1,990',tourIndex:6,stops:['Colombo','Sigiriya','Polonnaruwa','Kandy','NuwaraEliya','Ella','Yala','Mirissa','Galle','Trincomalee','Pasikuda','Colombo'],blurb:'Everything coast to summit, north to south, unhurried over two weeks, round trip from Colombo.',color:routeColor('grand')}
+  culture:{label:'The Cultural Triangle',days:'5 days',price:'from $690',tourIndex:0,stops:['BIA','Dambulla','Sigiriya','Polonnaruwa','Kandy','Colombo','BIA'],blurb:'Dry-zone kingdoms rock fortress, cave temples and the last royal capital, round trip from BIA.',color:routeColor('culture')},
+  hill:{label:'Hill Country & Tea',days:'4 days',price:'from $590',tourIndex:1,stops:['BIA','Kandy','NuwaraEliya','Ella','Colombo','BIA'],blurb:'The misted tea highlands, the blue train and the bridge at Ella, round trip from BIA.',color:routeColor('hill')},
+  wild:{label:'Wildlife & Safari',days:'3 days',price:'from $390',tourIndex:2,stops:['BIA','Bentota','Udawalawe','Galle','Colombo','BIA'],blurb:'A turtle hatchery at Bentota, elephant herds at Udawalawe (or leopards in Yala) and the ramparts of Galle, round trip from BIA.',color:routeColor('wild')},
+  coast:{label:'Southern Coast',days:'3 days',price:'from $390',tourIndex:3,stops:['BIA','Balapitiya','Kosgoda','Galle','Mirissa','Unawatuna','Colombo','BIA'],blurb:"Cinnamon islands, a turtle hatchery, Galle's ramparts, the whales off Mirissa and Unawatuna's bay, round trip from BIA.",color:routeColor('coast')},
+  trinco:{label:'East Coast',days:'4 days',price:'from $590',tourIndex:4,stops:['BIA','Dambulla','Trincomalee','Nilaveli','Minneriya','PigeonIsland','Pasikuda','Colombo','BIA'],blurb:"Koneswaram Temple, Pigeon Island's reef, an elephant safari at Minneriya and the beaches of Pasikuda, round trip from BIA.",color:routeColor('trinco')},
+  arugam:{label:'Arugam Bay',days:'3 days',price:'from $390',tourIndex:5,stops:['BIA','ArugamBay','Kumana','Colombo','BIA'],blurb:"Sri Lanka's surf capital and the wetlands of Kumana, round trip from BIA.",color:routeColor('arugam')},
+  grand:{label:'The Grand Island',days:'14 days',price:'from $1,990',tourIndex:6,stops:['BIA','Sigiriya','Polonnaruwa','Kandy','NuwaraEliya','Ella','Yala','Mirissa','Galle','Trincomalee','Pasikuda','Colombo','BIA'],blurb:'Everything coast to summit, north to south, unhurried over two weeks, round trip from BIA.',color:routeColor('grand')}
 };
 const cityInfo={
-  Colombo:{label:'Colombo',sub:'Capital · arrival',ph:'ph-beach'},
+  BIA:{label:'BIA',sub:'Bandaranaike International Airport · arrival & departure',ph:'ph-airport-welcome'},
+  Colombo:{label:'Colombo',sub:'Capital · city tour',ph:'ph-beach'},
   Negombo:{label:'Negombo',sub:'Lagoon & beach',ph:'ph-beach'},
   Kandy:{label:'Kandy',sub:'Hill capital · Tooth Temple',ph:'ph-kandy'},
   Dambulla:{label:'Dambulla',sub:'Golden cave temples',ph:'ph-temple'},
@@ -612,27 +621,39 @@ if(svg&&M){
   rm.addEventListener('click',e=>{
     const btn=e.target.closest('.route-meta-link');
     if(!btn)return;
-    const wrap=document.querySelector(`.tour-wrap[data-tour-index="${btn.dataset.tourIndex}"]`);
-    if(!wrap)return;
-    if(!wrap.classList.contains('open'))$('.tour',wrap).click();
-    wrap.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+    openTourByIndex(btn.dataset.tourIndex);
   });
 
-  // smooth path through points (Catmull-Rom -> bezier)
+  // smooth path through points (centripetal Catmull-Rom -> bezier)
+  // centripetal (alpha=0.5) parameterizes each segment by its own length, so a short
+  // hop next to a long one (e.g. every route's final "...far city -> Colombo -> BIA")
+  // no longer produces a control point that overshoots miles off the intended path.
   function smooth(pts){
     if(pts.length<2)return '';
+    const ALPHA=0.5;
+    const dist=(a,b)=>Math.hypot(b[0]-a[0],b[1]-a[1]);
     let d=`M${pts[0][0]} ${pts[0][1]}`;
     for(let i=0;i<pts.length-1;i++){
-      const p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||pts[i+1];
-      const c1x=p1[0]+(p2[0]-p0[0])/6,c1y=p1[1]+(p2[1]-p0[1])/6;
-      const c2x=p2[0]-(p3[0]-p1[0])/6,c2y=p2[1]-(p3[1]-p1[1])/6;
+      const p1=pts[i],p2=pts[i+1];
+      const p0=pts[i-1]||[2*p1[0]-p2[0],2*p1[1]-p2[1]];
+      const p3=pts[i+2]||[2*p2[0]-p1[0],2*p2[1]-p1[1]];
+      const t0=0;
+      const t1=t0+Math.pow(dist(p0,p1)||1e-6,ALPHA);
+      const t2=t1+Math.pow(dist(p1,p2)||1e-6,ALPHA);
+      const t3=t2+Math.pow(dist(p2,p3)||1e-6,ALPHA);
+      const m1x=(t2-t1)*((p1[0]-p0[0])/(t1-t0)-(p2[0]-p0[0])/(t2-t0)+(p2[0]-p1[0])/(t2-t1));
+      const m1y=(t2-t1)*((p1[1]-p0[1])/(t1-t0)-(p2[1]-p0[1])/(t2-t0)+(p2[1]-p1[1])/(t2-t1));
+      const m2x=(t2-t1)*((p2[0]-p1[0])/(t2-t1)-(p3[0]-p1[0])/(t3-t1)+(p3[0]-p2[0])/(t3-t2));
+      const m2y=(t2-t1)*((p2[1]-p1[1])/(t2-t1)-(p3[1]-p1[1])/(t3-t1)+(p3[1]-p2[1])/(t3-t2));
+      const c1x=p1[0]+m1x/3,c1y=p1[1]+m1y/3;
+      const c2x=p2[0]-m2x/3,c2y=p2[1]-m2y/3;
       d+=` C${c1x.toFixed(1)} ${c1y.toFixed(1)} ${c2x.toFixed(1)} ${c2y.toFixed(1)} ${p2[0]} ${p2[1]}`;
     }
     return d;
   }
 
   // pins + labels
-  const labelOffsets={Galle:[-6,14,'end'],Mirissa:[8,16,'start'],Ella:[10,4,'start'],NuwaraEliya:[-10,-8,'end'],Mannar:[12,4,'start'],Jaffna:[12,2,'start'],Dambulla:[-9,14,'end'],Yala:[10,4,'start'],ArugamBay:[10,14,'start'],Bentota:[8,-4,'start'],Udawalawe:[8,-6,'start'],Balapitiya:[10,4,'start'],Kosgoda:[10,4,'start'],Unawatuna:[10,-6,'start'],Nilaveli:[-8,10,'end'],PigeonIsland:[-8,-8,'end'],Minneriya:[4,22,'start'],Pasikuda:[8,-8,'start'],Kumana:[-8,12,'end']};
+  const labelOffsets={BIA:[-9,-6,'end'],Galle:[-6,14,'end'],Mirissa:[8,16,'start'],Ella:[10,4,'start'],NuwaraEliya:[-10,-8,'end'],Mannar:[12,4,'start'],Jaffna:[12,2,'start'],Dambulla:[-9,14,'end'],Yala:[10,4,'start'],ArugamBay:[10,14,'start'],Bentota:[8,-4,'start'],Udawalawe:[8,-6,'start'],Balapitiya:[10,4,'start'],Kosgoda:[10,4,'start'],Unawatuna:[10,-6,'start'],Nilaveli:[-8,10,'end'],PigeonIsland:[-8,-8,'end'],Minneriya:[4,22,'start'],Pasikuda:[8,-8,'start'],Kumana:[-8,12,'end']};
   Object.keys(cityInfo).forEach(key=>{
     const c=M.cities[key];if(!c)return;
     const g=document.createElementNS(NS,'g');g.setAttribute('class','pin');g.dataset.city=key;
@@ -735,53 +756,42 @@ if(svg&&M){
 }
 
 /* ============================================================
-   WHEN TO GO
+   WHEN TO GO — pick a month, see the trips that actually fit it
    ============================================================ */
 const seasonData={
-  // score 0-100 per region per month index 0=Jan
-  regions:['West & South coast','Cultural Triangle','Hill Country','East coast'],
-  scores:[
-    [92,94,90,72,55,45,55,60,62,82,88,90], // west/south
-    [88,90,88,80,72,70,72,75,78,82,80,85], // cultural triangle
-    [82,86,88,80,70,62,60,64,72,78,72,78], // hill
-    [55,60,68,82,92,94,95,94,88,72,58,52]  // east
-  ],
-  notes:[
-    'Peak season on the south and west coasts dry, sunny, the whales are running off Mirissa.',
-    'Peak season continues ideal across the cultural triangle and the south.',
-    'Lovely island-wide; the hill country is crisp and clear before the heat.',
-    'Shoulder the east coast wakes up as the south begins to soften.',
-    'The east coast hits its stride; Arugam Bay is at its best.',
-    'East-coast season quieter, cheaper everywhere else, with afternoon showers in the south.',
-    'Prime east-coast surf and sun; cultural sites remain very doable.',
-    'East coast still excellent; the Kandy Esala Perahera lights up the hills.',
-    'Transition month good light island-wide as the southwest monsoon eases.',
-    'The south and west reopen; warm seas return to Galle and Mirissa.',
-    'Coast season building again; clear, golden days return to the southwest.',
-    'High season opens festive, dry and bright along the south and west.'
+  // score 0-100 per region per month index 0=Jan, mapped to a routes{} key for its itinerary
+  regions:[
+    {name:'West & South coast',routeKey:'coast',scores:[92,94,90,72,55,45,55,60,62,82,88,90]},
+    {name:'Cultural Triangle',routeKey:'culture',scores:[88,90,88,80,72,70,72,75,78,82,80,85]},
+    {name:'Hill Country',routeKey:'hill',scores:[82,86,88,80,70,62,60,64,72,78,72,78]},
+    {name:'East coast',routeKey:'trinco',scores:[55,60,68,82,92,94,95,94,88,72,58,52]}
   ]
 };
-const monthsBox=$('#months'),seasonReadout=$('#seasonReadout');
+const monthsBox=$('#months'),seasonSuggest=$('#seasonSuggest'),seasonMonthName=$('#seasonMonthName');
 if(monthsBox){
   const MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const MO_FULL=['January','February','March','April','May','June','July','August','September','October','November','December'];
   MO.forEach((m,i)=>{
     const b=document.createElement('button');b.className='mo';b.textContent=m;b.dataset.i=i;
-    if(seasonData.scores[0][i]>=70)b.classList.add('mo-west');
-    if(seasonData.scores[3][i]>=70)b.classList.add('mo-east');
     b.onclick=()=>setMonth(i);monthsBox.appendChild(b);
+  });
+  seasonSuggest.addEventListener('click',e=>{
+    const btn=e.target.closest('.ss-link');
+    if(!btn)return;
+    openTourByIndex(btn.dataset.tourIndex);
   });
   function setMonth(i){
     $$('.mo',monthsBox).forEach(b=>b.classList.toggle('active',+b.dataset.i===i));
-    const scored=seasonData.regions.map((r,ri)=>({r,v:seasonData.scores[ri][i]}));
-    const best=scored.reduce((a,b)=>b.v>a.v?b:a);
-    const bestTag=best.v>=85?'Excellent':best.v>=70?'Good':best.v>=58?'Fair':'Off-season';
-    const rows=scored.map(({r,v})=>{
-      const tag=v>=85?'Excellent':v>=70?'Good':v>=58?'Fair':'Off-season';
-      const cls=v>=85?'q-exc':v>=70?'q-good':v>=58?'q-fair':'q-off';
-      return `<div class="reg"><span class="rn">${r}</span><span class="gauge"><i class="${cls}" data-w="${v}"></i></span><span class="rv">${tag}</span></div>`;
+    if(seasonMonthName)seasonMonthName.textContent=MO_FULL[i];
+    const fits=seasonData.regions
+      .map(r=>({v:r.scores[i],route:routes[r.routeKey]}))
+      .filter(r=>r.v>=70&&r.route)
+      .sort((a,b)=>b.v-a.v);
+    seasonSuggest.innerHTML=fits.map(({v,route})=>{
+      const tag=v>=85?'Excellent':'Good';
+      const cls=v>=85?'q-exc':'q-good';
+      return `<div class="ss-card"><div class="ss-top"><span class="ss-tag ${cls}">${tag} now</span><span class="ss-price">${route.price}</span></div><h3 class="ss-name">${route.label}</h3><p class="ss-blurb">${route.blurb}</p><button type="button" class="ss-link" data-tour-index="${route.tourIndex}">View itinerary <span class="arr">→</span></button></div>`;
     }).join('');
-    seasonReadout.innerHTML=`<div class="best-pick"><div class="bp-label">Best this month</div><div class="bp-region">${best.r}<span class="bp-tag">${bestTag}</span></div></div>${rows}`;
-    requestAnimationFrame(()=>requestAnimationFrame(()=>{$$('#seasonReadout .gauge i').forEach(g=>g.style.transform='scaleX('+g.dataset.w/100+')');}));
   }
   const now=new Date().getMonth();
   setMonth(now);
@@ -806,6 +816,7 @@ function renderGallery(items){
     el.className='gitem g'+(i+1)+(isVideo?' video-item':'');
     el.dataset.ph=ph;
     if(isVideo)el.dataset.video=src;else el.dataset.img=src;
+    if(item.poster)el.dataset.poster=item.poster;
     el.setAttribute('role','button');
     el.setAttribute('tabindex','0');
     el.setAttribute('aria-label',(item.caption||'')+(isVideo?' — play video':' — open full screen'));
@@ -839,7 +850,7 @@ function initLightbox(){
   if(!lb)return;
   const items=$$('.gitem');
   if(!items.length)return;
-  const data=items.map(g=>({ph:g.dataset.ph,img:g.dataset.img||'',video:g.dataset.video||'',cap:$('.cap',g)?.textContent||''}));
+  const data=items.map(g=>({ph:g.dataset.ph,img:g.dataset.img||'',video:g.dataset.video||'',poster:g.dataset.poster||'',cap:$('.cap',g)?.textContent||''}));
   const stage=$('.lb-stage',lb);
   let cur=0,lastFocus=null;
   stage.innerHTML='';
@@ -854,6 +865,7 @@ function initLightbox(){
     if(item.video){
       const v=document.createElement('video');
       v.src=item.video;
+      if(item.poster)v.poster=item.poster;
       v.controls=true;
       v.playsInline=true;
       v.preload='metadata';
@@ -941,7 +953,9 @@ function initGalleryLazy(){
       if(!e.isIntersecting)return;
       const phEl=e.target.querySelector('.ph');
       if(phEl&&e.target.dataset.video){
-        if(!phEl.getAttribute('src')){
+        if(e.target.dataset.poster){
+          if(!phEl.getAttribute('poster'))phEl.setAttribute('poster',e.target.dataset.poster);
+        }else if(!phEl.getAttribute('src')){
           phEl.setAttribute('src',e.target.dataset.video);
           phEl.addEventListener('loadeddata',()=>{phEl.play().then(()=>phEl.pause()).catch(()=>{});},{once:true});
         }
@@ -1288,13 +1302,11 @@ function fleetRange(slug,label,count){
   return{label,images};
 }
 const FLEET_GALLERIES={
-  'sedan':{label:'Luxury Sedan Car',images:[
-    {img:'assets/img-fleet-car.webp',cap:'Luxury Sedan Car'}
-  ]},
-  'kdh-flat-roof':fleetRange('kdh-flat-roof','KDH Van · Flat Roof',37),
-  'kdh-high-roof':fleetRange('kdh-high-roof','KDH Van · High Roof',30),
-  'mini-coaster':fleetRange('mini-coaster','Mini Coaster',7),
-  'coaster':fleetRange('coaster','Coaster',5),
+  'sedan':fleetRange('sedan','Luxury Sedan Car',5),
+  'kdh-flat-roof':fleetRange('kdh-flat-roof','KDH Van · Flat Roof',4),
+  'kdh-high-roof':fleetRange('kdh-high-roof','KDH Van · High Roof',3),
+  'mini-coach':fleetRange('mini-coach','Mini Coach',3),
+  'coach':fleetRange('coach','Coach',5),
   'suv':fleetRange('suv','SUV',37)
 };
 

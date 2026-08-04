@@ -1,0 +1,97 @@
+/* ============================================================
+   MAJESTY TOURS Sri Lanka — Partner Registration portal
+   Loaded on register.html only, layered on top of legal.css
+   (which supplies the shared :root tokens + nav/head/foot shell).
+   ============================================================ */
+
+/* ---------- PAGE BODY ---------- */
+.reg-body{padding:clamp(2.5rem,6vw,4.5rem) 0 clamp(3rem,7vw,5rem)}
+.reg-body .lead{margin-bottom:2.2rem}
+
+/* ---------- BASE FIELD / BUTTON PATTERNS (mirrors assets/styles.css,
+   duplicated here since register.html does not load styles.css) ---------- */
+.field{margin-bottom:1.2rem;position:relative}
+.field label{display:inline-block;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mid);margin-bottom:.5rem;transition:color .25s var(--ease),transform .25s var(--ease),letter-spacing .25s var(--ease)}
+.field:focus-within label{color:var(--forest-deep);transform:translateY(-2px);letter-spacing:.18em}
+.field input,.field textarea,.field select{width:100%;background:transparent;border:none;border-bottom:1px solid var(--line);padding:.7rem 0;font-family:var(--body);font-size:1rem;color:var(--ink);transition:.4s}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--forest);border-bottom-width:2px;padding-bottom:calc(.7rem - 1px)}
+.field input:focus-visible,.field textarea:focus-visible,.field select:focus-visible{outline:none}
+.field.invalid input,.field.invalid textarea,.field.invalid select{border-color:var(--clay)}
+.field.invalid label,.field.invalid>legend{color:var(--clay)}
+.field .err{font-size:.74rem;color:var(--clay);margin-top:.4rem;height:0;opacity:0;overflow:hidden;transition:.3s}
+.field.invalid .err{height:auto;opacity:1}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+@media(max-width:540px){.field-row{grid-template-columns:1fr}}
+
+.hp{position:absolute;left:-9999px}
+
+.btn{display:inline-flex;align-items:center;gap:.7rem;background:var(--navy);color:var(--paper);padding:1.1rem 2.4rem;border-radius:50px;font-size:.86rem;letter-spacing:.08em;transition:.4s var(--ease);border:none;cursor:pointer;font-family:var(--body);position:relative}
+.btn .arr{transition:transform .4s var(--ease)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(33,26,18,.3)}
+.btn:hover .arr{transform:translateX(5px)}
+.btn:active{transform:translateY(0) scale(.97);box-shadow:0 4px 12px rgba(33,26,18,.2);transition-duration:80ms}
+.btn:disabled{opacity:.55;cursor:not-allowed;transform:none!important;box-shadow:none!important}
+.btn-spinner{display:inline-block;width:13px;height:13px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin .65s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.form-trust{font-size:.74rem;letter-spacing:.08em;color:var(--text-mid);margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem}
+.form-trust::before{content:"✓";color:var(--forest-deep);font-weight:500}
+
+.form-error{margin-top:1rem;padding:.8rem 1rem;background:oklch(97% .012 25);border:1px solid oklch(50% .12 25 / 35%);border-radius:6px;font-size:.86rem;color:var(--clay);line-height:1.5}
+
+.form-success{text-align:center;padding:3rem 1rem;opacity:0;transform:scale(.95);transition:.5s var(--ease);display:none}
+.form-success.show{display:block;opacity:1;transform:none}
+.form-success .check{width:64px;height:64px;border-radius:50%;border:2px solid var(--forest);margin:0 auto 1.4rem;display:flex;align-items:center;justify-content:center}
+.form-success .check svg{width:30px;height:30px;stroke:var(--forest);fill:none;stroke-width:2;stroke-dasharray:40;stroke-dashoffset:40;animation:dash .6s .2s var(--ease) forwards}
+@keyframes dash{to{stroke-dashoffset:0}}
+.form-success h3{font-size:2rem;margin-bottom:.6rem}
+.form-success p{color:var(--text-muted);max-width:46ch;margin-inline:auto}
+
+.copy-btn{background:none;border:none;cursor:pointer;padding:.2rem;color:var(--gold);opacity:.55;transition:opacity .2s;display:inline-flex;align-items:center;line-height:1;position:relative}
+.copy-btn svg{width:14px;height:14px}
+.copy-btn:hover{opacity:1}
+.copy-btn::after{content:'Copied!';position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:.65rem;font-weight:600;letter-spacing:.06em;padding:.15rem .4rem;border-radius:4px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s}
+.copy-btn.copied{opacity:1}
+.copy-btn.copied::after{opacity:1}
+
+/* ---------- PARTNER ID RESULT LINE ---------- */
+.reg-id-line{font-size:1.3rem;color:var(--navy);margin-top:.4rem;display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap}
+.reg-id-line strong{font-family:var(--display);letter-spacing:.03em;color:var(--forest-deep)}
+
+/* ---------- FIELDSET RESET (radio / checkbox groups live in <fieldset>) ---------- */
+.field fieldset{border:none;padding:0;margin:0}
+.field legend{display:inline-block;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-mid);margin-bottom:.5rem;padding:0}
+
+/* ---------- PILL TOGGLES (Yes/No radios, language checkboxes) ---------- */
+.radio-pills,.check-pills{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.3rem}
+.radio-pill,.check-pill{position:relative;display:inline-flex;align-items:center;gap:.4rem;
+  padding:.55rem 1.2rem;border:1px solid var(--line);border-radius:999px;
+  font-size:.86rem;color:var(--text-mid);cursor:pointer;transition:.25s var(--ease);user-select:none}
+.radio-pill input,.check-pill input{position:absolute;opacity:0;width:0;height:0}
+.radio-pill:has(input:checked),.check-pill:has(input:checked){border-color:var(--forest);background:var(--forest);color:var(--paper)}
+.radio-pill:has(input:focus-visible),.check-pill:has(input:focus-visible){outline:2px solid var(--gold);outline-offset:2px}
+.radio-pill:hover,.check-pill:hover{border-color:var(--forest)}
+
+/* ---------- CONDITIONAL VEHICLE FIELDS ---------- */
+.reveal-fields{margin-top:.2rem}
+.reveal-fields[hidden]{display:none}
+
+/* ---------- FILE UPLOAD + PREVIEW ---------- */
+.field-file input[type=file]{
+  width:100%;font-family:var(--body);font-size:.86rem;color:var(--text-mid);
+  border:1px dashed var(--line);border-radius:8px;padding:.7rem;background:transparent;cursor:pointer;
+}
+.field-file input[type=file]:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.field-file .file-hint{font-size:.72rem;color:var(--text-faint,var(--text-mid));margin-top:.35rem}
+.file-preview{margin-top:.6rem;display:flex;align-items:center;gap:.7rem}
+.file-preview[hidden]{display:none}
+.file-preview img{width:56px;height:56px;object-fit:cover;border-radius:8px;border:1px solid var(--card-border);flex-shrink:0}
+.file-preview .file-chip{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--text-mid);background:var(--paper-2);padding:.5rem .8rem;border-radius:8px;border:1px solid var(--card-border)}
+.file-remove{background:none;border:none;color:var(--clay);cursor:pointer;font-size:1.15rem;line-height:1;padding:.2rem .4rem}
+.file-remove:hover{opacity:.7}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:540px){
+  .radio-pills,.check-pills{gap:.5rem}
+  .radio-pill,.check-pill{padding:.5rem 1rem;font-size:.82rem}
+}

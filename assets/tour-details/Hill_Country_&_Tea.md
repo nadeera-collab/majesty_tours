@@ -14,7 +14,7 @@ Escape to the cool highlands of Sri Lanka on an unforgettable journey through mi
 
 ### Day 1 – Arrival | BIA → Kandy
 
-Meet your private chauffeur guide at Bandaranaike International Airport and begin your scenic drive into Sri Lanka's beautiful hill country.
+Welcome to Sri Lanka! Meet your private chauffeur guide at Bandaranaike International Airport and begin your scenic drive into Sri Lanka's beautiful hill country.
 
 Highlights
 - Airport Meet & Greet
