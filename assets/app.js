@@ -50,6 +50,14 @@
         if(b) durEl.appendChild(b);
         durEl.appendChild(document.createTextNode(t.duration));
       }
+      // keep the cart button's identity in sync — it's read at click time
+      // (see cartToggle wiring), so a CMS rename/price-change must update
+      // these or the cart keeps adding the tour under its old name/price.
+      const cartBtn = wrap.querySelector('.tour-cart-btn');
+      if(cartBtn){
+        if(t.name) cartBtn.dataset.item = t.name;
+        if(t.price) cartBtn.dataset.price = t.price;
+      }
     });
 
     tours.forEach((t, i) => {

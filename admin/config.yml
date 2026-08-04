@@ -55,22 +55,98 @@ collections:
             name: "tours"
             widget: "list"
             allow_add: false
+            allow_remove: false
+            allow_reorder: false
             minimize_collapsed: true
+            hint: "Tours can't be added, removed, or reordered here — each one maps to a fixed block of hand-built HTML (itinerary, images, booking button) on the site by position. Doing so would scramble which content shows under which title."
             fields:
               - { label: "Name", name: "name", widget: "string" }
               - { label: "Tags / Destinations", name: "tags", widget: "string" }
               - { label: "Price (e.g. from $390)", name: "price", widget: "string" }
               - { label: "Duration (e.g. 4 days · private)", name: "duration", widget: "string" }
+              - { label: "Route (internal reference — not currently displayed on the site)", name: "route", widget: "text", required: false }
+              - { label: "Overview", name: "overview", widget: "text", required: false }
               - label: "Slideshow Images"
                 name: "images"
                 widget: "list"
-                allow_add: true
-                allow_delete: true
+                allow_add: false
+                allow_remove: false
                 minimize_collapsed: true
                 summary: "{{fields.caption}}"
+                hint: "Photos can't be added or removed — each tour has a fixed number of slide slots on the site, so a new photo here would silently never show, and removing one would leave a stale slide behind. Reordering is fine; only edit Photo/Caption in place."
                 fields:
                   - { label: "Photo", name: "image", widget: "image", required: false }
                   - { label: "Caption", name: "caption", widget: "string", required: false }
+              - label: "Itinerary"
+                name: "itinerary"
+                widget: "list"
+                required: false
+                minimize_collapsed: true
+                summary: "{{fields.day}} — {{fields.title}}"
+                fields:
+                  - { label: "Day Label (e.g. Day 1)", name: "day", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "text", widget: "text", required: false }
+                  - label: "Highlights"
+                    name: "highlights"
+                    widget: "list"
+                    required: false
+                    field: { label: "Highlight", name: "highlight", widget: "string" }
+                    hint: "Leave blank if this day uses Options below instead (e.g. a choice of national park)."
+                  - { label: "Overnight Stay", name: "overnight", widget: "string", required: false }
+                  - label: "Options (only for days offering a choice, e.g. Udawalawe OR Yala)"
+                    name: "options"
+                    widget: "list"
+                    required: false
+                    minimize_collapsed: true
+                    summary: "{{fields.label}}"
+                    hint: "Use this instead of Highlights/Overnight above when the day has alternative options."
+                    fields:
+                      - { label: "Option Label", name: "label", widget: "string" }
+                      - label: "Highlights"
+                        name: "highlights"
+                        widget: "list"
+                        required: false
+                        field: { label: "Highlight", name: "highlight", widget: "string" }
+                      - { label: "Overnight Stay", name: "overnight", widget: "string", required: false }
+              - label: "Tour Highlights (summary chips)"
+                name: "highlights"
+                widget: "list"
+                required: false
+                field: { label: "Highlight", name: "highlight", widget: "string" }
+              - label: "Inclusions"
+                name: "inclusions"
+                widget: "list"
+                required: false
+                field: { label: "Inclusion", name: "inclusion", widget: "string" }
+              - label: "Tour Themes"
+                name: "themes"
+                widget: "list"
+                required: false
+                minimize_collapsed: true
+                summary: "{{fields.icon}} {{fields.label}}"
+                fields:
+                  - { label: "Icon (emoji)", name: "icon", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+              - label: "Tour Facts"
+                name: "facts"
+                widget: "object"
+                required: false
+                fields:
+                  - { label: "Duration (e.g. 5 Days / 4 Nights)", name: "duration", widget: "string", required: false }
+                  - { label: "Tour Type", name: "type", widget: "string", required: false }
+                  - { label: "Starting Point", name: "start", widget: "string", required: false }
+                  - { label: "Ending Point", name: "end", widget: "string", required: false }
+                  - { label: "Number of Destinations", name: "destinations", widget: "number", required: false }
+                  - { label: "UNESCO Sites", name: "unesco", widget: "number", required: false }
+                  - { label: "National Parks", name: "parks", widget: "number", required: false }
+                  - { label: "Best For", name: "bestFor", widget: "string", required: false }
+              - label: "Destinations Covered"
+                name: "destinationsCovered"
+                widget: "list"
+                required: false
+                field: { label: "Destination", name: "destination", widget: "string" }
+              - { label: "Why Choose This Tour?", name: "whyChoose", widget: "text", required: false }
 
       - label: "Gallery Photos"
         name: "gallery"
@@ -81,7 +157,7 @@ collections:
             name: "items"
             widget: "list"
             allow_add: true
-            allow_delete: true
+            allow_remove: true
             minimize_collapsed: true
             summary: "{{fields.caption}}"
             fields:
