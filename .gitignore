@@ -4,7 +4,6 @@ assets/.DS_Store
 
 # Raw source material (not referenced by the website)
 majesty contents/
-fleet/
 
 # Editor
 .vscode/
