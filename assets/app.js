@@ -12,11 +12,16 @@
 
     const set = (sel, val) => { const el = document.querySelector(sel); if(el && val) el.textContent = val; };
     const href = (sel, val) => { const el = document.querySelector(sel); if(el && val && val !== '#') el.href = val; };
+    const setTel = (sel, val) => { const el = document.querySelector(sel); if(el && val) el.href = 'tel:' + val.replace(/[^\d+]/g,''); };
 
     set('[data-c="phone_primary"]', c.phone_primary);
     set('[data-c="phone_secondary"]', c.phone_secondary);
     set('[data-c="email"]', c.email);
     set('[data-c="location"]', c.location);
+    setTel('[data-tel="phone_primary"]', c.phone_primary);
+    setTel('[data-tel="phone_secondary"]', c.phone_secondary);
+    const mailEl = document.querySelector('[data-mail="email"]');
+    if(mailEl && c.email) mailEl.href = 'mailto:' + c.email;
 
     href('[data-p="google"]', p.google);
     href('[data-p="tripadvisor"]', p.tripadvisor);
@@ -512,12 +517,32 @@ const secObserver=new IntersectionObserver(es=>{
 },{rootMargin:'-45% 0px -50% 0px'});
 ['about','tours','activities','map','season','gallery','fleet','contact'].forEach(id=>{const s=$('#'+id);if(s)secObserver.observe(s);});
 
+/* ---------- ANCHOR NAV: self-contained scroll (doesn't depend on native
+   fragment-scroll timing or on the reveal IntersectionObserver having fired) ---------- */
+function scrollToSection(id){
+  const target=document.getElementById(id);
+  if(!target)return;
+  document.querySelectorAll('.reveal:not(.in),.split:not(.in)').forEach(el=>el.classList.add('in'));
+  const header=document.querySelector('header');
+  const offset=(header?.getBoundingClientRect().bottom||0)+12;
+  const top=Math.max(0,target.getBoundingClientRect().top+window.scrollY-offset);
+  window.scrollTo({top,behavior:'smooth'});
+}
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href^="#"]');
+  if(!a||a.classList.contains('skip-link'))return;
+  const id=a.getAttribute('href').slice(1);
+  if(!id||!document.getElementById(id))return;
+  e.preventDefault();
+  history.pushState(null,'','#'+id);
+  scrollToSection(id);
+});
 
 /* ---------- REVEAL ON SCROLL ---------- */
 document.documentElement.classList.add('js-ready');
 const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
-}),{threshold:.16});
+}),{threshold:.16,rootMargin:'0px 0px 250px 0px'});
 $$('.reveal,.split').forEach(el=>io.observe(el));
 
 /* ---------- STAT COUNTERS ---------- */
@@ -1585,6 +1610,8 @@ if(form){
           ['#fcName','#fcPhone','#fcEmail'].forEach(s=>{const el=$(s);if(el)el.value='';});
           const fcErr=$('#fcError');if(fcErr)fcErr.hidden=true;
           const fcSub2=$('#fcSubmit');if(fcSub2){fcSub2.disabled=false;fcSub2.innerHTML='Send inquiry →';}
+          submitBtn.disabled=false;
+          submitBtn.innerHTML='Send inquiry <span class="arr">→</span>';
         },600);
       },7000);
     }catch(err){
@@ -1737,10 +1764,13 @@ function initDateRangePicker(cfg){
   }
 
   function fmt(d){return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});}
+  // Local-date YYYY-MM-DD — NOT toISOString(), which converts to UTC first and
+  // rolls the date back a day for any timezone ahead of UTC (e.g. Sri Lanka, UTC+5:30).
+  function isoLocal(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
 
   function syncFields(){
-    if(cfg.dateFrom)cfg.dateFrom.value=rangeStart?rangeStart.toISOString().slice(0,10):'';
-    if(cfg.dateTo)cfg.dateTo.value=rangeEnd?rangeEnd.toISOString().slice(0,10):'';
+    if(cfg.dateFrom)cfg.dateFrom.value=rangeStart?isoLocal(rangeStart):'';
+    if(cfg.dateTo)cfg.dateTo.value=rangeEnd?isoLocal(rangeEnd):'';
     if(display){
       if(rangeStart&&rangeEnd){
         display.textContent=`${fmt(rangeStart)}  →  ${fmt(rangeEnd)}`;
@@ -1887,5 +1917,13 @@ setTimeout(()=>{
   document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in'));
   document.querySelectorAll('.split:not(.in)').forEach(el=>el.classList.add('in'));
 },1200);
+
+/* Direct/shared anchor links (e.g. loading the page on "#gallery"): force-reveal
+   and re-assert scroll position once gallery/fleet content above has settled,
+   instead of relying on the browser's native fragment-scroll timing. */
+if(location.hash){
+  const hashId=location.hash.slice(1);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>scrollToSection(hashId)));
+}
 
 })();
