@@ -852,6 +852,11 @@ footer .logo-tagline{color:rgba(244,236,224,.55)}
 @media(max-width:900px){
   .navlinks{position:fixed;inset:0;background:var(--bg);flex-direction:column;justify-content:center;gap:2rem;transform:translateX(100%);transition:.5s var(--ease)}
   .navlinks.open{transform:none}
+  /* .nav.scrolled's backdrop-filter creates a new containing block for this fixed
+     full-screen menu, shrinking it to the header's own height instead of the
+     viewport once the page has scrolled. Drop the filter while the menu is open
+     so .navlinks{inset:0} sizes against the viewport again. */
+  .nav:has(.navlinks.open){backdrop-filter:none}
   .navlinks a{font-size:1.4rem;font-family:var(--display);color:var(--ink)}
   .burger{display:flex;z-index:1001;min-width:44px;min-height:44px;justify-content:center;align-items:center}
   .burger.open span{background:var(--ink)}
