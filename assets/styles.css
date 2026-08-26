@@ -733,7 +733,7 @@ section{position:relative}
 .fc-toggle{width:52px;height:52px;border-radius:50%;background:var(--navy);border:1px solid var(--paper-a22);color:var(--paper);cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 4px 20px rgba(0,0,0,.4);transition:.3s var(--ease);flex:none}
 .fc-badge{position:absolute;top:-4px;right:-4px;background:var(--gold);color:var(--ink);font-size:.62rem;font-weight:700;width:18px;height:18px;border-radius:50%;display:none;align-items:center;justify-content:center;line-height:1}
 #floatCart.has-items .fc-badge{display:flex}
-.fc-panel{position:absolute;bottom:calc(100% + 10px);right:0;width:268px;background:var(--navy);border:1px solid var(--paper-a20);border-radius:14px;padding:1.1rem;box-shadow:0 8px 36px rgba(0,0,0,.5);opacity:0;transform:translateY(10px) scale(.96);pointer-events:none;transition:.3s var(--ease);transform-origin:bottom right}
+.fc-panel{position:absolute;bottom:calc(100% + 10px);right:0;width:268px;max-height:calc(100vh - 170px);overflow-y:auto;overscroll-behavior:contain;background:var(--navy);border:1px solid var(--paper-a20);border-radius:14px;padding:1.1rem;box-shadow:0 8px 36px rgba(0,0,0,.5);opacity:0;transform:translateY(10px) scale(.96);pointer-events:none;transition:.3s var(--ease);transform-origin:bottom right}
 #floatCart.open .fc-panel{opacity:1;transform:none;pointer-events:auto}
 .fc-panel-head{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-a58);margin-bottom:.8rem}
 .fc-items{display:flex;flex-direction:column;gap:.4rem;min-height:1.8rem}
@@ -780,7 +780,21 @@ section{position:relative}
 .fc-success-ref{font-size:.72rem;letter-spacing:.1em;color:var(--gold);font-family:var(--body);margin:0}
 @media(max-width:600px){
   #floatCart{bottom:86px;right:16px}
-  .fc-panel{width:calc(100vw - 32px);right:0}
+  /* Anchoring the panel above the corner toggle (the default `bottom:calc(100%
+     + 10px)`) reserves ~150px it never uses, which forces the calendar into an
+     internal scrollbar on shorter screens. Drop it down near the true bottom
+     edge instead (it overlaps the toggle while open — fine, since tapping
+     outside the panel already closes it) to reclaim that space, and cap its
+     height against a small top/bottom margin so it always sits fully on
+     screen without needing to scroll. */
+  #floatCart .fc-panel{
+    width:calc(100vw - 32px);
+    right:0;
+    bottom:-66px;
+    max-height:calc(100vh - 40px);
+    overflow-y:auto;
+    overscroll-behavior:contain;
+  }
 }
 
 /* ---------- FOOTER ---------- */
@@ -1033,7 +1047,7 @@ footer .logo-tagline{color:rgba(244,236,224,.55)}
 .pax-label{font-size:.75rem;color:var(--paper-a58);white-space:nowrap}
 
 /* === CALENDAR DROPDOWN === */
-.cal-dropdown{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:300;background:var(--navy);border:1px solid var(--paper-a16);border-radius:14px;padding:1.3rem 1.3rem 1rem;box-shadow:0 16px 56px rgba(0,0,0,.55)}
+.cal-dropdown{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:910;background:var(--navy);border:1px solid var(--paper-a16);border-radius:14px;padding:1.3rem 1.3rem 1rem;box-shadow:0 16px 56px rgba(0,0,0,.55)}
 .cal-months{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
 @media(max-width:620px){.cal-months{grid-template-columns:1fr}}
 .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:.85rem}
