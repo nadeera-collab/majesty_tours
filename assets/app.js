@@ -65,6 +65,12 @@
       }
     });
 
+    // the map and "when to go" widgets keep their own price copy (they can
+    // render before this fetch resolves) — push the CMS's live prices into
+    // them too, or a price edit here would never show up over there.
+    window.__mtToursData = tours;
+    if(window.__mtSyncRoutePrices) window.__mtSyncRoutePrices(tours);
+
     tours.forEach((t, i) => {
       if(!t.images || !t.images.length) return;
       const wrap = document.querySelector('[data-tour-index="' + i + '"]');
@@ -615,6 +621,21 @@ const routes={
   arugam:{label:'Arugam Bay',days:'3 days',price:'from $390',tourIndex:5,stops:['BIA','ArugamBay','Kumana','Colombo','BIA'],blurb:"Sri Lanka's surf capital and the wetlands of Kumana, round trip from BIA.",color:routeColor('arugam')},
   grand:{label:'The Grand Island',days:'14 days',price:'from $1,990',tourIndex:6,stops:['BIA','Sigiriya','Polonnaruwa','Kandy','NuwaraEliya','Ella','Yala','Mirissa','Galle','Trincomalee','Pasikuda','Colombo','BIA'],blurb:'Everything coast to summit, north to south, unhurried over two weeks, round trip from BIA.',color:routeColor('grand')}
 };
+// The prices above are duplicated from content.json's tours (matched by
+// tourIndex) so the map/season widgets can render before that fetch
+// resolves. Once it does, pull the CMS's live prices in over these so a
+// price edit in /admin doesn't leave this map/season copy stale.
+const priceRefreshHooks=[];
+function syncRoutePricesFromTours(tours){
+  if(!Array.isArray(tours))return;
+  Object.values(routes).forEach(r=>{
+    const t=tours[r.tourIndex];
+    if(t&&t.price)r.price=t.price;
+  });
+  priceRefreshHooks.forEach(fn=>{try{fn();}catch(e){}});
+}
+window.__mtSyncRoutePrices=syncRoutePricesFromTours;
+if(window.__mtToursData)syncRoutePricesFromTours(window.__mtToursData);
 const cityInfo={
   BIA:{label:'BIA',sub:'Bandaranaike International Airport · arrival & departure',ph:'ph-airport-welcome'},
   Colombo:{label:'Colombo',sub:'Capital · city tour',ph:'ph-beach'},
@@ -818,6 +839,7 @@ if(svg&&M){
     }
   }),{threshold:.35});
   mapIo.observe($('#map'));
+  priceRefreshHooks.push(()=>{if(rm.classList.contains('show'))drawRoute(activeRoute,true);});
 }
 
 /* ============================================================
@@ -862,6 +884,10 @@ if(monthsBox){
   setMonth(now);
   const seasonIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){setMonth(now);seasonIo.disconnect();}}),{threshold:.12});
   seasonIo.observe($('#season'));
+  priceRefreshHooks.push(()=>{
+    const activeBtn=$$('.mo',monthsBox).find(b=>b.classList.contains('active'));
+    setMonth(activeBtn?+activeBtn.dataset.i:now);
+  });
 }
 
 /* ============================================================
