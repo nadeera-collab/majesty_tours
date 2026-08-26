@@ -32,11 +32,12 @@
       "route": "Bandaranaike International Airport (BIA) → Dambulla → Sigiriya → Polonnaruwa → Kandy → Colombo → Bandaranaike International Airport (BIA)",
       "overview": "Discover the timeless beauty of Sri Lanka's Cultural Triangle on a journey through ancient kingdoms, UNESCO World Heritage Sites, breathtaking landscapes, and vibrant local traditions. This carefully designed tour combines history, culture, nature, and city sightseeing, making it the perfect introduction to Sri Lanka.",
       "images": [
-        { "image": "assets/img-sigiriya.webp", "caption": "Sigiriya · Lion Rock" },
-        { "image": "", "caption": "Dambulla · Cave Temples" },
-        { "image": "assets/img-temple-tooth-portrait.webp", "caption": "Kandy · Temple of the Tooth" },
-        { "image": "assets/img-polonnaruwa-staircase.webp", "caption": "Polonnaruwa · the ancient staircase" },
-        { "image": "assets/img-sigiriya-group-photo.webp", "caption": "Sigiriya · the group beneath the rock" }
+        { "image": "assets/img-cultural-triangle-01.jpeg", "caption": "Dambulla · the cave temple's painted shrine" },
+        { "image": "assets/img-cultural-triangle-02.jpeg", "caption": "Dambulla · the golden temple entrance" },
+        { "image": "assets/img-cultural-triangle-03.jpeg", "caption": "Dambulla · rows of seated Buddhas" },
+        { "image": "assets/img-cultural-triangle-04.jpeg", "caption": "Polonnaruwa · the Gal Vihara Buddha" },
+        { "image": "assets/img-cultural-triangle-05.jpeg", "caption": "Sigiriya · the summit palace from above" },
+        { "image": "assets/img-cultural-triangle-06.jpeg", "caption": "Kandy · the Temple of the Sacred Tooth Relic" }
       ],
       "itinerary": [
         { "day": "Day 1", "title": "Arrival | BIA → Dambulla", "text": "Welcome to Sri Lanka! Meet your private chauffeur guide at Bandaranaike International Airport and begin your journey to the Cultural Triangle.", "highlights": ["Airport Meet & Greet", "Scenic Drive to Dambulla", "Dambulla Royal Cave Temple (UNESCO World Heritage Site)"], "overnight": "Dambulla / Sigiriya" },
@@ -72,7 +73,11 @@
         { "image": "assets/img-tea-guests.webp", "caption": "Learning to pick tea" },
         { "image": "assets/img-nine-arch-bridge.webp", "caption": "Ella · Nine Arches Bridge" },
         { "image": "assets/img-tea-factory-tasting.webp", "caption": "Hill country · tasting at the tea factory" },
-        { "image": "assets/img-rail-tunnel.webp", "caption": "Demodara · through the old rail tunnel" }
+        { "image": "assets/img-rail-tunnel.webp", "caption": "Demodara · through the old rail tunnel" },
+        { "image": "assets/img-hillcountry-07.jpeg", "caption": "Ella · the tea-field swing" },
+        { "image": "assets/img-hillcountry-08.jpeg", "caption": "Kandy · the lake" },
+        { "image": "assets/img-hillcountry-09.jpeg", "caption": "Ella · Nine Arches Bridge at golden hour" },
+        { "image": "assets/img-hillcountry-10.jpeg", "caption": "Nuwara Eliya · rolling tea plantations" }
       ],
       "itinerary": [
         { "day": "Day 1", "title": "Arrival | BIA → Kandy", "text": "Welcome to Sri Lanka! Meet your private chauffeur guide at Bandaranaike International Airport and begin your scenic drive into Sri Lanka's beautiful hill country.", "highlights": ["Airport Meet & Greet", "Scenic Drive to Kandy", "Pinnawala Elephant Orphanage", "Peradeniya Botanical Garden", "Temple of the Sacred Tooth Relic", "Kandy Lake", "Kandy Viewpoint", "Wood Carving Factory", "Evening Kandy Cultural Dance Performance"], "overnight": "Kandy" },
@@ -105,9 +110,12 @@
         { "image": "assets/img-leopard.webp", "caption": "Yala · leopard at water" },
         { "image": "assets/img-safari-jeep.webp", "caption": "Into the wild" },
         { "image": "assets/img-turtle.webp", "caption": "Sea turtle, southern coast" },
-        { "image": "", "caption": "Udawalawe · elephants" },
+        { "image": "assets/img-wildlife-udawalawe-elephants.jpeg", "caption": "Udawalawe · elephants" },
         { "image": "assets/img-mangrove-boat-tour.webp", "caption": "Madu River · gliding beneath the mangroves" },
-        { "image": "assets/img-sloth-bear.webp", "caption": "Yala · a sloth bear on the move" }
+        { "image": "assets/img-sloth-bear.webp", "caption": "Yala · a sloth bear on the move" },
+        { "image": "assets/img-wildlife-07.jpeg", "caption": "Udawalawe · a closer look" },
+        { "image": "assets/img-wildlife-08.jpeg", "caption": "On safari · golden hour by the waterhole" },
+        { "image": "assets/img-wildlife-09.jpeg", "caption": "Yala · a leopard on the move" }
       ],
       "itinerary": [
         { "day": "Day 1", "title": "Arrival | BIA → Bentota", "text": "Welcome to Sri Lanka! Meet your private chauffeur guide at Bandaranaike International Airport and begin your journey along the scenic southwest coast.", "highlights": ["Airport Meet & Greet", "Madu River Boat Safari", "Sea Turtle Hatchery Visit", "Scenic Coastal Drive"], "overnight": "Bentota" },
@@ -149,7 +157,12 @@
         { "image": "assets/img-mangrove-boat-family.webp", "caption": "Mangroves · the family boat ride" },
         { "image": "assets/img-turtle-hatchling-hand.webp", "caption": "A hatchling, cradled before the sea" },
         { "image": "assets/img-snorkeling-pair.webp", "caption": "Southern coast · snorkeling side by side" },
-        { "image": "assets/img-dolphin-pod.webp", "caption": "Southern coast · a pod of dolphins" }
+        { "image": "assets/img-dolphin-pod.webp", "caption": "Southern coast · a pod of dolphins" },
+        { "image": "assets/img-southcoast-10.jpeg", "caption": "Weligama · riding a wave" },
+        { "image": "assets/img-southcoast-11.jpeg", "caption": "Galle · the lighthouse" },
+        { "image": "assets/img-southcoast-12.jpeg", "caption": "Unawatuna · the bay from above" },
+        { "image": "assets/img-southcoast-13.jpeg", "caption": "Weligama · surf village signs" },
+        { "image": "assets/img-southcoast-14.jpeg", "caption": "Mirissa · a whale's farewell dive" }
       ],
       "itinerary": [
         { "day": "Day 1", "title": "Arrival | BIA → Balapitiya → Kosgoda → Galle", "text": "Welcome to Sri Lanka! Meet your private chauffeur guide at Bandaranaike International Airport and begin your scenic journey along the Southern Coast.", "highlights": ["Airport Meet & Greet", "Scenic Coastal Drive", "Madu River Boat Safari", "Cinnamon Island Visit", "Mangrove Forests & Wildlife", "Spice & Herbal Garden Visit", "Sea Turtle Hatchery Visit", "Galle Fort (UNESCO World Heritage Site)", "Dutch Ramparts", "Galle Lighthouse", "Boutique Shopping", "Sunset at Galle Fort"], "overnight": "Galle" },
@@ -181,9 +194,9 @@
       "route": "Bandaranaike International Airport (BIA) → Dambulla → Trincomalee → Nilaveli → Minneriya → Pigeon Island → Pasikuda → Colombo → Bandaranaike International Airport (BIA)",
       "overview": "Discover the untouched beauty of Sri Lanka's breathtaking East Coast on an unforgettable journey filled with pristine beaches, crystal-clear waters, marine adventures, wildlife encounters, ancient temples, and relaxing coastal escapes. Visit the UNESCO-listed Dambulla Cave Temple, embark on a seasonal whale and dolphin watching excursion in Trincomalee, explore the sacred Koneswaram Temple overlooking the Indian Ocean, enjoy an exciting wildlife safari, snorkel among vibrant coral reefs at Pigeon Island National Park, relax on the white sandy beaches of Nilaveli and Pasikuda, experience thrilling water sports, and conclude your holiday with a guided tour of Colombo before your departure.",
       "images": [
-        { "image": "", "caption": "Fort Frederick · East Coast" },
-        { "image": "", "caption": "East Coast harbour" },
-        { "image": "", "caption": "Pigeon Island · reef snorkelling" }
+        { "image": "assets/img-eastcoast-01.jpeg", "caption": "East coast · jet-ski spray" },
+        { "image": "assets/img-eastcoast-02.jpeg", "caption": "Pasikuda · white sand & calm water" },
+        { "image": "assets/img-eastcoast-03.jpeg", "caption": "Trincomalee · a painted fishing boat" }
       ],
       "itinerary": [
         { "day": "Day 1", "title": "Arrival | BIA → Dambulla → Trincomalee", "text": "Welcome to Sri Lanka! Meet your private chauffeur guide at Bandaranaike International Airport and begin your journey towards the beautiful East Coast.", "highlights": ["Airport Meet & Greet", "Scenic Drive through Sri Lanka's Cultural Region", "Dambulla Cave Temple (UNESCO World Heritage Site)", "Spice & Herbal Garden Visit", "Scenic Drive to Trincomalee", "Evening Beach Walk", "Oceanfront Sunset"], "overnight": "Trincomalee" },
@@ -218,9 +231,13 @@
       "route": "Bandaranaike International Airport (BIA) → Arugam Bay → Kumana National Park → Colombo → Bandaranaike International Airport (BIA)",
       "overview": "Discover the beauty of Sri Lanka's famous surfing destination on an unforgettable journey featuring world-class surfing, pristine beaches, exciting water activities, diverse wildlife, breathtaking lagoons, and cultural experiences. Ride the legendary waves of Arugam Bay, explore the natural wonders of Kumana National Park, enjoy a peaceful lagoon safari, relax on golden beaches, and conclude your journey with a guided Colombo city experience before your departure.",
       "images": [
-        { "image": "", "caption": "Arugam Bay · the surf capital" },
-        { "image": "", "caption": "Arugam Bay beach" },
-        { "image": "", "caption": "Waves at Arugam Bay" }
+        { "image": "assets/img-arugam-01.jpeg", "caption": "Arugam Bay · fishing boats at rest" },
+        { "image": "assets/img-arugam-02.jpeg", "caption": "Arugam Bay · catching a wave" },
+        { "image": "assets/img-arugam-03.jpeg", "caption": "Kumana · spotted deer" },
+        { "image": "assets/img-arugam-04.jpeg", "caption": "Kumana · a peacock's call" },
+        { "image": "assets/img-arugam-05.jpeg", "caption": "Kumana · birdlife at dusk" },
+        { "image": "assets/img-arugam-06.jpeg", "caption": "Kumana · crocodile and painted stork" },
+        { "image": "assets/img-arugam-07.jpeg", "caption": "Arugam Bay · boards ready to go" }
       ],
       "itinerary": [
         { "day": "Day 1", "title": "Arrival | BIA → Arugam Bay", "text": "Welcome to Sri Lanka! Meet your private chauffeur guide at Bandaranaike International Airport and begin your scenic journey towards Arugam Bay, one of the world's most renowned surfing destinations.", "highlights": ["Airport Meet & Greet", "Scenic Drive Through Sri Lankan Countryside", "Arrival at Arugam Bay", "Arugam Bay Beach", "Surfing Session", "Beach Leisure", "Sunset by the Ocean"], "overnight": "Arugam Bay" },
@@ -251,11 +268,14 @@
       "route": "Bandaranaike International Airport (BIA) → Sigiriya → Polonnaruwa → Kandy → Nuwara Eliya → Ella → Yala National Park → Mirissa → Galle → Trincomalee → Pasikuda → Colombo → Bandaranaike International Airport (BIA)",
       "overview": "Experience the ultimate journey around Sri Lanka on this unforgettable 14-day island adventure. From ancient UNESCO World Heritage Sites and breathtaking hill country landscapes to thrilling wildlife safaris, pristine beaches, marine adventures, scenic train journeys, and vibrant cities, this carefully crafted itinerary showcases the very best the island has to offer. Designed to avoid repeated experiences while maintaining the perfect balance of culture, nature, wildlife, adventure, relaxation, and authentic local encounters, this is the complete Sri Lankan holiday.",
       "images": [
-        { "image": "assets/img-whale-aerial.webp", "caption": "Blue whale · Mirissa" },
-        { "image": "assets/img-tea-pickers.webp", "caption": "Tea country · Nuwara Eliya" },
-        { "image": "assets/img-leopard.webp", "caption": "Yala · leopard" },
-        { "image": "assets/img-sigiriya.webp", "caption": "Sigiriya · Lion Rock" },
-        { "image": "assets/img-coast-aerial-cove.webp", "caption": "The southern coast" }
+        { "image": "assets/img-grandisland-01.jpeg", "caption": "Unawatuna · a headland from above" },
+        { "image": "assets/img-grandisland-02.jpeg", "caption": "Galle Fort · the lighthouse at dusk" },
+        { "image": "assets/img-grandisland-03.jpeg", "caption": "A roadside shrine, south coast" },
+        { "image": "assets/img-grandisland-04.jpeg", "caption": "A secluded cove, south coast" },
+        { "image": "assets/img-grandisland-05.jpeg", "caption": "Southern coast · stilt fishermen" },
+        { "image": "assets/img-grandisland-06.jpeg", "caption": "Hill country · a highland waterfall" },
+        { "image": "assets/img-grandisland-07.jpeg", "caption": "Polonnaruwa · a seated rock-cut Buddha" },
+        { "image": "assets/img-grandisland-08.jpeg", "caption": "Galle Fort · the old town from above" }
       ],
       "itinerary": [
         { "day": "Day 1", "title": "Arrival | BIA → Sigiriya", "text": "Welcome to Sri Lanka! Meet your private chauffeur guide at Bandaranaike International Airport and begin your journey into Sri Lanka's Cultural Triangle.", "highlights": ["Airport Meet & Greet", "Scenic Drive to Sigiriya", "Spice & Herbal Garden Visit", "Sigiriya Village Experience", "Traditional Sri Lankan Lunch", "Evening Relaxation"], "overnight": "Sigiriya" },

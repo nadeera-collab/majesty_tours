@@ -1017,6 +1017,14 @@ footer .logo-tagline{color:rgba(244,236,224,.55)}
 .media-dot::before{content:'';position:absolute;inset:-19px}
 .media-dot.active{background:var(--paper);transform:scale(1.4)}
 @media(pointer:coarse){.media-dot{padding:6px;background-clip:content-box}}
+.media-nav{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border:1px solid rgba(244,236,224,.4);border-radius:50%;background:rgba(33,26,18,.35);color:var(--paper);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:.25s var(--ease);backdrop-filter:blur(2px)}
+.media-nav:hover{background:rgba(33,26,18,.6);border-color:rgba(244,236,224,.7)}
+.media-nav:active{transform:translateY(-50%) scale(.9)}
+.media-nav svg{width:16px;height:16px;flex:none}
+.media-nav-prev{left:.6rem}
+.media-nav-next{right:.6rem}
+@media(pointer:coarse){.media-nav{width:38px;height:38px}}
+@media(max-width:480px){.media-nav{width:32px;height:32px}.media-nav svg{width:14px;height:14px}.media-nav-prev{left:.45rem}.media-nav-next{right:.45rem}}
 
 /* ---------- GALLERY SECTION (dark) ---------- */
 .gallery-sec{background:var(--navy)}

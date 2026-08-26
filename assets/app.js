@@ -1132,10 +1132,28 @@ $$('.media-dots').forEach(dotsEl=>{
     dotsEl.append(b);
   });
 
+  // prev/next arrows — only worth showing when there's more than one photo
+  if(slides.length>1){
+    const mkArrow=(dir,label)=>{
+      const b=document.createElement('button');
+      b.type='button';
+      b.className='media-nav media-nav-'+dir;
+      b.setAttribute('aria-label',label);
+      b.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(dir==='prev'?'<path d="M15 18l-6-6 6-6"/>':'<path d="M9 18l6-6-6-6"/>')+'</svg>';
+      b.onclick=e=>{
+        e.stopPropagation();
+        goTo(dir==='prev'?(current-1+slides.length)%slides.length:(current+1)%slides.length);
+      };
+      return b;
+    };
+    media.append(mkArrow('prev','Previous photo'),mkArrow('next','Next photo'));
+  }
+
   // drag / swipe
   let startX=0,dragging=false,moved=false;
   media.addEventListener('pointerdown',e=>{
     if(e.button&&e.button!==0)return;
+    if(e.target.closest('.media-dot,.media-nav'))return; // let their own click handlers fire untouched
     startX=e.clientX;dragging=true;moved=false;
     media.setPointerCapture(e.pointerId);
   });
