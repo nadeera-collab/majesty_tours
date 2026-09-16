@@ -401,7 +401,7 @@ if(heroLoader){
 /* ---------- HERO HEADLINE LETTER REVEAL ---------- */
 const h1=$('#heroH1');
 if(h1){
-  const words=["The","island","that","keeps","its","promises."];
+  const words=h1.textContent.trim().split(/\s+/);
   let html='';
   words.forEach((w,wi)=>{
     html+='<span style="display:inline-block;white-space:nowrap">';

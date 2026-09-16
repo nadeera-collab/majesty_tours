@@ -712,6 +712,8 @@ section{position:relative}
 .tour-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}
 .tour-cart-btn{display:inline-flex;align-items:center;gap:.35rem;padding:.42rem .9rem;border:1px solid var(--line);border-radius:30px;background:transparent;font-family:var(--body);font-size:.78rem;color:var(--text-mid);cursor:pointer;transition:.3s var(--ease);white-space:nowrap;flex:none}
 .tour-cart-btn.in-cart{background:var(--gold);border-color:var(--gold);color:var(--ink);font-weight:500}
+.tour-more-link{font-family:var(--body);font-size:.78rem;color:var(--forest);white-space:nowrap;transition:.3s var(--ease)}
+.tour-more-link:hover{color:var(--clay)}
 .fleet-xfer{flex-wrap:wrap;gap:1rem}
 .fleet-xfer-cart{flex:none;align-self:center}
 

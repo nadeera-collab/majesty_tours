@@ -1,7 +1,47 @@
 [build]
+  command = "node scripts/build-pages.mjs"
   publish = "."
 
 [[headers]]
   for = "/admin/*"
   [headers.values]
     X-Robots-Tag = "noindex"
+
+# URL scheme: internal links already use .html for the legal pages
+# (see footer of index.html), so that stays canonical. These redirects
+# just catch anyone who bookmarked/linked the extensionless form.
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 301
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 301
+[[redirects]]
+  from = "/cancellation"
+  to = "/cancellation.html"
+  status = 301
+[[redirects]]
+  from = "/register"
+  to = "/register.html"
+  status = 301
+
+# Generated tour/day-trip/experience pages are directories with their own
+# index.html (e.g. /tours/foo/index.html) — force the trailing slash so
+# there's one canonical form instead of both /tours/foo and /tours/foo/.
+[[redirects]]
+  from = "/tours/:slug"
+  to = "/tours/:slug/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/day-trips/:slug"
+  to = "/day-trips/:slug/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/experiences/:slug"
+  to = "/experiences/:slug/"
+  status = 301
+  force = true

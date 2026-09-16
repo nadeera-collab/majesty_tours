@@ -66,6 +66,9 @@ collections:
               - { label: "Duration (e.g. 4 days · private)", name: "duration", widget: "string" }
               - { label: "Route (internal reference — not currently displayed on the site)", name: "route", widget: "text", required: false }
               - { label: "Overview", name: "overview", widget: "text", required: false }
+              - { label: "URL slug (tour page address, e.g. /tours/hill-country-ella-tea-tour/) — changing this moves the live page, so edit with care", name: "slug", widget: "string", required: false }
+              - { label: "SEO title (browser tab / Google result title for this tour's page)", name: "seo_title", widget: "string", required: false }
+              - { label: "Meta description (140–160 characters, shown under the title in Google)", name: "meta_description", widget: "text", required: false }
               - label: "Slideshow Images"
                 name: "images"
                 widget: "list"
@@ -147,6 +150,81 @@ collections:
                 required: false
                 field: { label: "Destination", name: "destination", widget: "string" }
               - { label: "Why Choose This Tour?", name: "whyChoose", widget: "text", required: false }
+
+          - label: "Day Trips (draft — new products, uncheck Draft to publish)"
+            name: "dayTrips"
+            widget: "list"
+            allow_add: true
+            allow_remove: true
+            allow_reorder: true
+            minimize_collapsed: true
+            summary: "{{fields.name}}{{fields.draft}}"
+            hint: "Unlike Tours above, these can be freely added/removed — they're new pages, not fixed HTML blocks. While Draft is checked, the page is noindex and left out of the sitemap."
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "URL slug", name: "slug", widget: "string" }
+              - { label: "Tags / Destinations", name: "tags", widget: "string" }
+              - { label: "SEO title", name: "seo_title", widget: "string" }
+              - { label: "Meta description", name: "meta_description", widget: "text" }
+              - { label: "Overview", name: "overview", widget: "text" }
+              - { label: "Price (leave as TODO until confirmed)", name: "price", widget: "string", required: false }
+              - { label: "Duration (leave as TODO until confirmed)", name: "duration", widget: "string", required: false }
+              - label: "What's included"
+                name: "inclusions"
+                widget: "list"
+                required: false
+                field: { label: "Inclusion", name: "inclusion", widget: "string" }
+              - { label: "Related tour slug (links back to a real tour page)", name: "relatedTourSlug", widget: "string", required: false }
+              - { label: "Draft (uncheck to publish: adds to sitemap, allows indexing)", name: "draft", widget: "boolean", default: true }
+
+          - label: "Experiences (draft — new products, uncheck Draft to publish)"
+            name: "experiences"
+            widget: "list"
+            allow_add: true
+            allow_remove: true
+            allow_reorder: true
+            minimize_collapsed: true
+            summary: "{{fields.name}}{{fields.draft}}"
+            hint: "Unlike Tours above, these can be freely added/removed — they're new pages, not fixed HTML blocks. While Draft is checked, the page is noindex and left out of the sitemap."
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "URL slug", name: "slug", widget: "string" }
+              - { label: "Tags", name: "tags", widget: "string" }
+              - { label: "SEO title", name: "seo_title", widget: "string" }
+              - { label: "Meta description", name: "meta_description", widget: "text" }
+              - { label: "Overview", name: "overview", widget: "text" }
+              - { label: "Price (leave as TODO until confirmed)", name: "price", widget: "string", required: false }
+              - { label: "Duration (leave as TODO until confirmed)", name: "duration", widget: "string", required: false }
+              - label: "What's included"
+                name: "inclusions"
+                widget: "list"
+                required: false
+                field: { label: "Inclusion", name: "inclusion", widget: "string" }
+              - { label: "Related tour slug (links back to a real tour page, optional)", name: "relatedTourSlug", widget: "string", required: false }
+              - { label: "Draft (uncheck to publish: adds to sitemap, allows indexing)", name: "draft", widget: "boolean", default: true }
+
+          - label: "Extended / Combination Tours (draft — new products, uncheck Draft to publish)"
+            name: "extendedTours"
+            widget: "list"
+            allow_add: true
+            allow_remove: true
+            allow_reorder: true
+            minimize_collapsed: true
+            summary: "{{fields.name}}{{fields.draft}}"
+            hint: "Multi-tour combinations (7-day, 10-day, honeymoon, etc.) built from two or more existing Tours. While Draft is checked, the page is noindex and left out of the sitemap."
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "URL slug", name: "slug", widget: "string" }
+              - { label: "Tags", name: "tags", widget: "string" }
+              - { label: "SEO title", name: "seo_title", widget: "string" }
+              - { label: "Meta description", name: "meta_description", widget: "text" }
+              - { label: "Overview", name: "overview", widget: "text" }
+              - label: "Component tour slugs (which existing Tours this combines)"
+                name: "componentSlugs"
+                widget: "list"
+                required: false
+                field: { label: "Tour slug", name: "tourSlug", widget: "string" }
+              - { label: "Draft (uncheck to publish: adds to sitemap, allows indexing)", name: "draft", widget: "boolean", default: true }
 
       - label: "Gallery Photos"
         name: "gallery"
