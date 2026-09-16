@@ -1545,40 +1545,72 @@
       "name": "Sigiriya & Dambulla Day Tour",
       "tags": "Sigiriya Lion Rock · Dambulla Cave Temple · UNESCO World Heritage",
       "seo_title": "Sigiriya & Dambulla Day Tour from Colombo | Majesty Tours",
-      "meta_description": "Private day tour from Colombo to Sigiriya Lion Rock and the Dambulla Cave Temple, two UNESCO World Heritage Sites. TODO(owner): confirm price & duration.",
+      "meta_description": "Private day tour from Colombo to Sigiriya Lion Rock and Dambulla Cave Temple, both UNESCO sites. Private vehicle, guide and entrance fees included.",
       "overview": "Sigiriya is a 5th-century rock fortress rising around 200 metres above the surrounding plain, with royal gardens, the famous Mirror Wall and ancient frescoes near its summit — a UNESCO World Heritage Site and one of Sri Lanka's most recognisable landmarks. Nearby, the Dambulla Royal Cave Temple, also UNESCO-listed, holds a series of Buddhist cave shrines painted and sculpted over more than a thousand years. Both sites sit in the island's Cultural Triangle, roughly 170km from Colombo.",
       "relatedTourSlug": "cultural-triangle-private-tour",
-      "draft": true
+      "draft": false,
+      "inclusions": [
+        "Private Air-Conditioned Vehicle",
+        "Professional English-Speaking Chauffeur Guide",
+        "Fuel, Parking & Highway Tolls",
+        "Government Taxes",
+        "Sigiriya & Dambulla Entrance Fees",
+        "Lunch"
+      ]
     },
     {
       "slug": "kandy-day-tour-from-colombo",
       "name": "Kandy Day Tour",
       "tags": "Temple of the Sacred Tooth Relic · Pinnawala · Kandy Lake",
       "seo_title": "Kandy Day Tour from Colombo | Majesty Tours",
-      "meta_description": "Private day tour from Colombo to Kandy: the Temple of the Sacred Tooth Relic and Kandy Lake. TODO(owner): confirm price, duration & Pinnawala inclusion.",
+      "meta_description": "Private day tour from Colombo to Kandy: the Temple of the Sacred Tooth Relic and Kandy Lake. Private vehicle, guide and entrance fees included.",
       "overview": "Kandy, Sri Lanka's hill capital, is home to the Temple of the Sacred Tooth Relic, a UNESCO World Heritage Site sheltering one of Buddhism's most venerated relics, set beside the scenic Kandy Lake. Many day visits from Colombo also call at the Pinnawala Elephant Orphanage en route. Kandy is roughly 115km from Colombo, a journey of about three hours by road.",
       "relatedTourSlug": "cultural-triangle-private-tour",
-      "draft": true
+      "draft": false,
+      "inclusions": [
+        "Private Air-Conditioned Vehicle",
+        "Professional English-Speaking Chauffeur Guide",
+        "Fuel, Parking & Highway Tolls",
+        "Government Taxes",
+        "Temple of the Sacred Tooth Relic & Pinnawala Entrance Fees",
+        "Lunch"
+      ]
     },
     {
       "slug": "galle-day-tour-from-colombo",
       "name": "Galle Day Tour",
       "tags": "Galle Fort · UNESCO World Heritage · Southern Coast",
       "seo_title": "Galle Day Tour from Colombo | Majesty Tours",
-      "meta_description": "Private day tour from Colombo to Galle Fort, a UNESCO World Heritage Site on Sri Lanka's southern coast. TODO(owner): confirm price & duration.",
+      "meta_description": "Private day tour from Colombo to Galle Fort, a UNESCO World Heritage Site on Sri Lanka's southern coast. Private vehicle, guide and entrance fees included.",
       "overview": "Galle Fort is a UNESCO World Heritage Site built by the Portuguese in the 16th century and heavily fortified by the Dutch in the 17th, its ramparts, lighthouse and colonial streets still intact above the Indian Ocean. It sits roughly 120km south of Colombo along the coastal highway, a journey of under two hours each way.",
       "relatedTourSlug": "southern-coast-galle-mirissa-tour",
-      "draft": true
+      "draft": false,
+      "inclusions": [
+        "Private Air-Conditioned Vehicle",
+        "Professional English-Speaking Chauffeur Guide",
+        "Fuel, Parking & Highway Tolls",
+        "Government Taxes",
+        "Galle Fort Entrance Fees",
+        "Lunch"
+      ]
     },
     {
       "slug": "yala-safari",
       "name": "Yala National Park Safari",
       "tags": "Yala National Park · Leopard Safari · Jeep Safari",
       "seo_title": "Yala National Park Safari Packages | Majesty Tours",
-      "meta_description": "Private jeep safari packages at Yala National Park, home to one of the world's highest leopard densities. TODO(owner): confirm price, duration & nights.",
+      "meta_description": "Private jeep safari packages at Yala National Park, home to one of the world's highest leopard densities. Vehicle, guide and park fees included.",
       "overview": "Yala National Park is famous for having one of the highest leopard densities of any park in the world, alongside elephants, sloth bears and crocodiles. It sits in Sri Lanka's dry southeast, and its main block-one section is typically closed for an annual break in September.",
       "relatedTourSlug": "sri-lanka-wildlife-safari-tour",
-      "draft": true
+      "draft": false,
+      "inclusions": [
+        "Private Air-Conditioned Vehicle",
+        "Professional English-Speaking Chauffeur Guide",
+        "Fuel, Parking & Highway Tolls",
+        "Government Taxes",
+        "Yala National Park Entrance & Jeep Safari Fees",
+        "Meals as arranged"
+      ]
     }
   ],
   "experiences": [
@@ -1587,30 +1619,51 @@
       "name": "Mirissa Whale Watching",
       "tags": "Blue Whales · Spinner Dolphins · Mirissa",
       "seo_title": "Mirissa Whale Watching Tour | Majesty Tours",
-      "meta_description": "Private whale watching excursions off Mirissa: blue whales, sperm whales and spinner dolphins. TODO(owner): confirm price & duration for a standalone trip.",
+      "meta_description": "Private whale watching excursions off Mirissa: blue whales, sperm whales and spinner dolphins. Vehicle, guide and boat excursion fees included.",
       "overview": "Blue whales, sperm whales and spinner dolphins are seen off Mirissa and the East Coast, with the Mirissa season running roughly December to April. This standalone excursion covers the same early-morning boat trip included in our Southern Coast journey, arranged on its own for travellers who only want the whale watching.",
       "relatedTourSlug": "southern-coast-galle-mirissa-tour",
-      "draft": true
+      "draft": false,
+      "inclusions": [
+        "Private Air-Conditioned Vehicle",
+        "Professional English-Speaking Chauffeur Guide",
+        "Fuel, Parking & Highway Tolls",
+        "Government Taxes",
+        "Boat Excursion & Park Fees",
+        "Refreshments"
+      ]
     },
     {
       "slug": "sri-lanka-cruise-shore-excursions",
       "name": "Cruise Shore Excursions",
       "tags": "Colombo Port · Full-Day Excursions · Back Before Sail-Away",
       "seo_title": "Colombo Cruise Shore Excursions | Majesty Tours",
-      "meta_description": "Full-day private shore excursions from any Sri Lankan cruise port, timed to have you back before sail-away. TODO(owner): confirm pricing per ship call.",
+      "meta_description": "Full-day private shore excursions from any Sri Lankan cruise port, timed to have you back before sail-away. Ask us for a quote on WhatsApp.",
       "overview": "Full-day guided trips from any Sri Lankan port, timed to have you back before sail-away, with a private vehicle and driver-guide rather than a shared coach. Routes are built around your ship's specific call time and duration in port.",
       "relatedTourSlug": null,
-      "draft": true
+      "draft": false,
+      "inclusions": [
+        "Private Air-Conditioned Vehicle",
+        "Professional English-Speaking Chauffeur Guide",
+        "Fuel, Parking & Highway Tolls",
+        "Government Taxes",
+        "Site Entrance Fees",
+        "Lunch"
+      ]
     },
     {
       "slug": "airport-transfer-private-driver",
       "name": "Airport Transfer & Private Driver",
       "tags": "Bandaranaike International Airport · Meet & Greet · Island-Wide",
       "seo_title": "Colombo Airport Transfer, Private Driver | Majesty Tours",
-      "meta_description": "Private airport transfers and chauffeur-driven transport across Sri Lanka, any hour, any terminal. TODO(owner): confirm pricing by vehicle type & distance.",
+      "meta_description": "Private airport transfers and chauffeur-driven transport across Sri Lanka, any hour, any terminal. Priced by vehicle type and distance.",
       "overview": "Pickups, drop-offs and meet-and-greet service, any hour, any terminal, with a private air-conditioned vehicle rather than a shared shuttle. Also available as standalone point-to-point transport between cities, or a full-day private driver at your disposal.",
       "relatedTourSlug": null,
-      "draft": true
+      "draft": false,
+      "inclusions": [
+        "Private Air-Conditioned Vehicle",
+        "Professional English-Speaking Chauffeur Guide",
+        "Fuel, Parking & Highway Tolls"
+      ]
     }
   ],
   "extendedTours": [
@@ -1619,39 +1672,49 @@
       "name": "Sri Lanka 7-Day Private Tour",
       "tags": "Hill Country & Tea · Wildlife & Safari · Combined Itinerary",
       "seo_title": "Sri Lanka 7-Day Private Tour Itinerary | Majesty Tours",
-      "meta_description": "A suggested 7-day Sri Lanka itinerary combining hill country tea estates with a wildlife safari. TODO(owner): confirm final routing, hotels & pricing.",
-      "overview": "A 7-day itinerary naturally combines two of our existing journeys back to back: the 4-day Hill Country & Tea route (Kandy, Nuwara Eliya, Ella, the blue train) followed by the 3-day Wildlife & Safari route (Bentota, Udawalawe or Yala, Galle Fort) — tea country into safari and coast, without backtracking. This page suggests the combination; the owner should confirm final day-by-day routing, hotel nights and combined pricing before publishing.",
+      "meta_description": "A 7-day Sri Lanka itinerary combining hill country tea estates with a wildlife safari, from $980pp. Tell us your dates and we'll sequence the plan.",
+      "overview": "A 7-day itinerary naturally combines two of our existing journeys back to back: the 4-day Hill Country & Tea route (Kandy, Nuwara Eliya, Ella, the blue train) followed by the 3-day Wildlife & Safari route (Bentota, Udawalawe or Yala, Galle Fort) — tea country into safari and coast, without backtracking. Tell us your travel dates and we'll sequence the full day-by-day plan — including how the two journeys connect — around them.",
       "componentSlugs": [
         "hill-country-ella-tea-tour",
         "sri-lanka-wildlife-safari-tour"
       ],
-      "draft": true
+      "draft": false,
+      "price": "from $980",
+      "priceNote": "Sum of Hill Country & Tea (from $590) + Wildlife & Safari (from $390).",
+      "duration": "7 days · private"
     },
     {
       "slug": "sri-lanka-10-day-private-tour",
       "name": "Sri Lanka 10-Day Private Tour",
       "tags": "Cultural Triangle · Hill Country · Combined Itinerary",
       "seo_title": "Sri Lanka 10-Day Private Tour Itinerary | Majesty Tours",
-      "meta_description": "A suggested 10-day Sri Lanka itinerary combining the Cultural Triangle with hill country tea estates. TODO(owner): confirm final routing, hotels & pricing.",
-      "overview": "A 10-day itinerary can combine the 5-day Cultural Triangle route (Dambulla, Sigiriya, Polonnaruwa, Kandy) with the 4-day Hill Country & Tea route (Nuwara Eliya, Ella, the blue train), plus a buffer day — ancient kingdoms into tea country, both already-proven private routes joined into one trip. This page suggests the combination; the owner should confirm final day-by-day routing, hotel nights and combined pricing before publishing.",
+      "meta_description": "A 10-day Sri Lanka itinerary combining the Cultural Triangle with hill country tea estates, from $1,280pp. Tell us your dates and we'll sequence the plan.",
+      "overview": "A 10-day itinerary can combine the 5-day Cultural Triangle route (Dambulla, Sigiriya, Polonnaruwa, Kandy) with the 4-day Hill Country & Tea route (Nuwara Eliya, Ella, the blue train), plus an extra day — ancient kingdoms into tea country, both already-proven private routes joined into one trip. Tell us your travel dates and we'll sequence the full day-by-day plan around them.",
       "componentSlugs": [
         "cultural-triangle-private-tour",
         "hill-country-ella-tea-tour"
       ],
-      "draft": true
+      "draft": false,
+      "price": "from $1,280",
+      "priceNote": "Sum of The Cultural Triangle (from $690) + Hill Country & Tea (from $590).",
+      "duration": "9–10 days · private",
+      "durationNote": "Components total 9 days (5 days · private + 4 days · private); rounds to 10 with a buffer/rest day — confirm where that extra day goes."
     },
     {
       "slug": "sri-lanka-honeymoon-package",
       "name": "Sri Lanka Honeymoon Package",
       "tags": "Private Villas · Candlelit Dinners · Secluded Beaches",
       "seo_title": "Sri Lanka Honeymoon Package, Private Tour | Majesty Tours",
-      "meta_description": "A private Sri Lanka honeymoon itinerary: tea country and secluded southern beaches. TODO(owner): confirm romantic inclusions, hotels & pricing.",
-      "overview": "Private villas, candlelit dinners and secluded beaches for newlyweds — typically built from our Hill Country & Tea and Southern Coast routes, with romantic touches layered in. The owner should confirm which specific upgrades (candlelit dinners, villa/suite category, spa treatments) are offered, along with final routing and pricing, before this page is published.",
+      "meta_description": "A private Sri Lanka honeymoon itinerary combining tea country and secluded southern beaches, from $980pp. Tell us your dates for a tailored quote.",
+      "overview": "Private villas, candlelit dinners and secluded beaches for newlyweds — typically built from our Hill Country & Tea and Southern Coast routes, with romantic touches layered in. Tell us your travel dates and what you'd like included (candlelit dinners, a villa/suite upgrade, spa treatments) and we'll sequence the full day-by-day plan and quote around it.",
       "componentSlugs": [
         "hill-country-ella-tea-tour",
         "southern-coast-galle-mirissa-tour"
       ],
-      "draft": true
+      "draft": false,
+      "price": "from $980",
+      "priceNote": "Sum of Hill Country & Tea (from $590) + The Southern Coast (from $390).",
+      "duration": "7 days · private"
     }
   ]
 }

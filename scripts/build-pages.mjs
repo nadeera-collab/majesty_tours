@@ -499,11 +499,31 @@ ${siteFooter()}
 function findTour(slug) { return tours.find(t => t.slug === slug); }
 
 function draftFactsRow(item) {
-  return `<div class="tour-facts">
-      <span class="tour-fact todo-chip">${item.price ? esc(item.price) : 'TODO(owner): price'}</span>
-      <span class="tour-fact todo-chip">${item.duration ? esc(item.duration) : 'TODO(owner): duration'}</span>
+  // No price/duration on file (day trips & experiences): priced on request,
+  // point straight to WhatsApp rather than showing a placeholder figure.
+  if (!item.price && !item.duration) {
+    return `<div class="tour-facts">
       <span class="tour-fact">Private vehicle &amp; driver-guide</span>
-    </div>`;
+      <span class="tour-fact">Priced on request</span>
+    </div>
+    <p class="price-note">Price and duration depend on group size, season and exact stops — message us on WhatsApp for a personal quote.</p>`;
+  }
+  // Price/duration on file (the combination tours: real sums of published prices).
+  const notes = [item.priceNote, item.durationNote].filter(Boolean);
+  return `<div class="tour-facts">
+      <span class="tour-fact">${esc(item.price)}</span>
+      <span class="tour-fact">${esc(item.duration)}</span>
+      <span class="tour-fact">Private vehicle &amp; driver-guide</span>
+    </div>
+    ${notes.length ? `<p class="price-note">${notes.map(esc).join(' ')}</p>` : ''}`;
+}
+
+function inclusionsList(inclusions) {
+  const items = inclusions?.length ? inclusions : ['TODO(owner): confirm what’s included (vehicle, guide, entrance fees, meals?)'];
+  return items.map(i => {
+    const isTodo = /^TODO\(owner\)/.test(i);
+    return `<li${isTodo ? ' class="todo-item"' : ''}>${esc(i)}</li>`;
+  }).join('\n        ');
 }
 
 function buildSimplePage(item, urlPrefix) {
@@ -512,10 +532,39 @@ function buildSimplePage(item, urlPrefix) {
   const related = item.relatedTourSlug ? findTour(item.relatedTourSlug) : null;
   const robots = item.draft ? 'noindex, follow' : 'index, follow';
 
+  const jsonLdGraph = [
+    {
+      '@type': 'TouristTrip',
+      name: item.name,
+      description: item.overview,
+      ...(item.price ? {
+        offers: {
+          '@type': 'Offer',
+          price: priceNumber(item.price),
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          url: canonical
+        }
+      } : {}),
+      provider: { '@id': `${SITE_URL}/#agency` }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'Tours', item: `${SITE_URL}/tours/` },
+        { '@type': 'ListItem', position: 3, name: item.name, item: canonical }
+      ]
+    }
+  ];
+
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
 ${headBlock({ title: item.seo_title, description: item.meta_description, canonical, ogImage, robots })}
+${item.draft ? '' : `<script type="application/ld+json">
+${JSON.stringify({ '@context': 'https://schema.org', '@graph': jsonLdGraph }, null, 2)}
+</script>`}
 </head>
 <body>
 
@@ -547,8 +596,8 @@ ${siteNav('/tours/', '← All tours')}
     <section class="tour-section tour-overview">
       <h2>Overview</h2>
       <p>${esc(item.overview)}</p>
-      <ul class="tour-included-grid todo-list">
-        ${(item.inclusions?.length ? item.inclusions.map(i => `<li>${esc(i)}</li>`) : ['<li>TODO(owner): confirm what’s included (vehicle, guide, entrance fees, meals?)</li>']).join('\n        ')}
+      <ul class="tour-included-grid">
+        ${inclusionsList(item.inclusions)}
       </ul>
     </section>
 
@@ -588,10 +637,39 @@ function buildCombinationPage(item) {
   const components = (item.componentSlugs || []).map(findTour).filter(Boolean);
   const robots = item.draft ? 'noindex, follow' : 'index, follow';
 
+  const jsonLdGraph = [
+    {
+      '@type': 'TouristTrip',
+      name: item.name,
+      description: item.overview,
+      ...(item.price ? {
+        offers: {
+          '@type': 'Offer',
+          price: priceNumber(item.price),
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          url: canonical
+        }
+      } : {}),
+      provider: { '@id': `${SITE_URL}/#agency` }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'Tours', item: `${SITE_URL}/tours/` },
+        { '@type': 'ListItem', position: 3, name: item.name, item: canonical }
+      ]
+    }
+  ];
+
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
 ${headBlock({ title: item.seo_title, description: item.meta_description, canonical, ogImage, robots })}
+${item.draft ? '' : `<script type="application/ld+json">
+${JSON.stringify({ '@context': 'https://schema.org', '@graph': jsonLdGraph }, null, 2)}
+</script>`}
 </head>
 <body>
 

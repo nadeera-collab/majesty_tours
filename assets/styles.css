@@ -714,6 +714,7 @@ section{position:relative}
 .tour-cart-btn.in-cart{background:var(--gold);border-color:var(--gold);color:var(--ink);font-weight:500}
 .tour-more-link{font-family:var(--body);font-size:.78rem;color:var(--forest);white-space:nowrap;transition:.3s var(--ease)}
 .tour-more-link:hover{color:var(--clay)}
+.act-card .tour-more-link{display:inline-block;margin-top:.6rem}
 .fleet-xfer{flex-wrap:wrap;gap:1rem}
 .fleet-xfer-cart{flex:none;align-self:center}
 

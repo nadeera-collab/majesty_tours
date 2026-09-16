@@ -94,9 +94,9 @@
 /* ---------- DRAFT / TODO markers (Phase 3 pages) ---------- */
 .draft-banner{background:#fff6df;border:1px solid #e3c675;color:#6b5215;border-radius:10px;padding:1rem 1.3rem;margin-bottom:1.6rem;font-size:.9rem}
 .draft-banner strong{color:#4a3a0f}
-.todo-chip{background:#fff6df;border:1px dashed #c9a227;color:#6b5215;font-weight:600}
-.todo-list li{color:#6b5215}
-.todo-list li::before{content:"\25a2";color:#c9a227}
+.tour-included-grid li.todo-item{color:#6b5215}
+.tour-included-grid li.todo-item::before{content:"\25a2";color:#c9a227}
+.price-note{font-size:.82rem;color:rgba(244,236,224,.62);margin-top:.7rem;max-width:62ch}
 .tour-component-list{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.8rem}
 .tour-component-list a{border:1px solid var(--card-border);border-radius:999px;padding:.4rem .9rem;font-size:.85rem;color:var(--forest-deep)}
 

@@ -167,8 +167,9 @@ collections:
               - { label: "SEO title", name: "seo_title", widget: "string" }
               - { label: "Meta description", name: "meta_description", widget: "text" }
               - { label: "Overview", name: "overview", widget: "text" }
-              - { label: "Price (leave as TODO until confirmed)", name: "price", widget: "string", required: false }
-              - { label: "Duration (leave as TODO until confirmed)", name: "duration", widget: "string", required: false }
+              - { label: "Price (leave blank to show “Priced on request” and point to WhatsApp)", name: "price", widget: "string", required: false }
+              - { label: "Duration (leave blank to show “Priced on request” and point to WhatsApp)", name: "duration", widget: "string", required: false }
+              - { label: "Price note (only used if Price is filled in)", name: "priceNote", widget: "text", required: false }
               - label: "What's included"
                 name: "inclusions"
                 widget: "list"
@@ -193,8 +194,9 @@ collections:
               - { label: "SEO title", name: "seo_title", widget: "string" }
               - { label: "Meta description", name: "meta_description", widget: "text" }
               - { label: "Overview", name: "overview", widget: "text" }
-              - { label: "Price (leave as TODO until confirmed)", name: "price", widget: "string", required: false }
-              - { label: "Duration (leave as TODO until confirmed)", name: "duration", widget: "string", required: false }
+              - { label: "Price (leave blank to show “Priced on request” and point to WhatsApp)", name: "price", widget: "string", required: false }
+              - { label: "Duration (leave blank to show “Priced on request” and point to WhatsApp)", name: "duration", widget: "string", required: false }
+              - { label: "Price note (only used if Price is filled in)", name: "priceNote", widget: "text", required: false }
               - label: "What's included"
                 name: "inclusions"
                 widget: "list"
@@ -224,6 +226,10 @@ collections:
                 widget: "list"
                 required: false
                 field: { label: "Tour slug", name: "tourSlug", widget: "string" }
+              - { label: "Price (auto-derivable as the sum of the component tours' prices)", name: "price", widget: "string", required: false }
+              - { label: "Duration (auto-derivable as the sum of the component tours' durations)", name: "duration", widget: "string", required: false }
+              - { label: "Price note (shown on the page — explains the price derivation)", name: "priceNote", widget: "text", required: false }
+              - { label: "Duration note (shown on the page, optional)", name: "durationNote", widget: "text", required: false }
               - { label: "Draft (uncheck to publish: adds to sitemap, allows indexing)", name: "draft", widget: "boolean", default: true }
 
       - label: "Gallery Photos"
