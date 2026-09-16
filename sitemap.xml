@@ -7,19 +7,19 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://majestytourssrilanka.com/privacy.html</loc>
+    <loc>https://majestytourssrilanka.com/privacy</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://majestytourssrilanka.com/terms.html</loc>
+    <loc>https://majestytourssrilanka.com/terms</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://majestytourssrilanka.com/cancellation.html</loc>
+    <loc>https://majestytourssrilanka.com/cancellation</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -110,6 +110,18 @@
   </url>
   <url>
     <loc>https://majestytourssrilanka.com/experiences/airport-transfer-private-driver/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://majestytourssrilanka.com/tours/colombo-city/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://majestytourssrilanka.com/experiences/tea-factory-tours/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

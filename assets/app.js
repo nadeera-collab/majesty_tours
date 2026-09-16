@@ -1560,6 +1560,7 @@ document.addEventListener('click',e=>{
       fd.append('message','');
       fd.append('inquiry_id',inquiryId);
       await fetch(FORM_ENDPOINT,{method:'POST',body:fd,mode:'no-cors'});
+      window.gtag?.('event','generate_lead',{inquiry_id:inquiryId,form_id:'floating_cart'});
 
       // Show inline thank-you
       const fcPanel=$('#floatCart .fc-panel');
@@ -1629,6 +1630,7 @@ if(form){
       fd.append('cart_total_hint',buildCartTotalHint());
       fd.append('inquiry_id',inquiryId);
       await fetch(FORM_ENDPOINT,{method:'POST',body:fd,mode:'no-cors'});
+      window.gtag?.('event','generate_lead',{inquiry_id:inquiryId,form_id:'contact_form'});
 
       const idDisplay=$('#inqIdDisplay');
       if(idDisplay)idDisplay.textContent=inquiryId;

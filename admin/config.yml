@@ -190,6 +190,7 @@ collections:
             fields:
               - { label: "Name", name: "name", widget: "string" }
               - { label: "URL slug", name: "slug", widget: "string" }
+              - { label: "URL section (leave blank for /experiences/, or set to \"tours\" for a page like the free Colombo City Tour that belongs under /tours/)", name: "urlPrefix", widget: "string", required: false }
               - { label: "Tags", name: "tags", widget: "string" }
               - { label: "SEO title", name: "seo_title", widget: "string" }
               - { label: "Meta description", name: "meta_description", widget: "text" }
@@ -197,6 +198,14 @@ collections:
               - { label: "Price (leave blank to show “Priced on request” and point to WhatsApp)", name: "price", widget: "string", required: false }
               - { label: "Duration (leave blank to show “Priced on request” and point to WhatsApp)", name: "duration", widget: "string", required: false }
               - { label: "Price note (only used if Price is filled in)", name: "priceNote", widget: "text", required: false }
+              - label: "Photos (optional)"
+                name: "images"
+                widget: "list"
+                required: false
+                summary: "{{fields.caption}}"
+                fields:
+                  - { label: "Photo", name: "image", widget: "image", required: false }
+                  - { label: "Caption", name: "caption", widget: "string", required: false }
               - label: "What's included"
                 name: "inclusions"
                 widget: "list"

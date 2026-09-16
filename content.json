@@ -1664,6 +1664,105 @@
         "Professional English-Speaking Chauffeur Guide",
         "Fuel, Parking & Highway Tolls"
       ]
+    },
+    {
+      "name": "The Colombo City Tour",
+      "slug": "colombo-city",
+      "urlPrefix": "tours",
+      "tags": "Independence Square · Galle Face Green · Pettah Market · Free with every journey",
+      "seo_title": "Colombo City Tour, Free with Every Booking | Majesty Tours",
+      "meta_description": "A complimentary open-top double-decker city tour of Colombo, included free with every Majesty Tours booking. See the fort, temples, harbour and colonial streets.",
+      "overview": "Book any journey with us and we'll add a complimentary open-deck double-decker sightseeing tour of Colombo, Sri Lanka's original hop-on city bus, at no extra cost. See the fort, the temples, the harbour and the colonial streets from the top deck before you head out to explore the rest of the island — Independence Square, Gangaramaya Temple, the Old Parliament Building, Galle Face Green, Port City, Pettah Market, the Lotus Tower and more.",
+      "price": "Free with every journey",
+      "duration": "Included · open-top double-decker bus tour",
+      "inclusions": [
+        "Private Air-Conditioned Vehicle",
+        "Professional English-Speaking Chauffeur Guide",
+        "Fuel, Parking & Highway Tolls",
+        "Government Taxes",
+        "Open-Top Double-Decker Bus Tour of Colombo"
+      ],
+      "images": [
+        {
+          "image": "assets/img-colombo-01.jpeg",
+          "caption": "Independence Square · the memorial fountains"
+        },
+        {
+          "image": "assets/img-colombo-02.jpeg",
+          "caption": "Independence Memorial Hall"
+        },
+        {
+          "image": "assets/img-colombo-03.jpeg",
+          "caption": "The Old Parliament Building"
+        },
+        {
+          "image": "assets/img-colombo-04.jpeg",
+          "caption": "Gangaramaya Temple"
+        },
+        {
+          "image": "assets/img-colombo-05.jpeg",
+          "caption": "A Hindu kovil in the old town"
+        },
+        {
+          "image": "assets/img-colombo-06.jpeg",
+          "caption": "Jami-Ul-Alfar · the Red Mosque"
+        },
+        {
+          "image": "assets/img-colombo-07.jpeg",
+          "caption": "Pettah Market · the busy streets"
+        },
+        {
+          "image": "assets/img-colombo-08.jpeg",
+          "caption": "Colombo Fort · the railway station"
+        },
+        {
+          "image": "assets/img-colombo-09.jpeg",
+          "caption": "Fort · old meets new skyline"
+        },
+        {
+          "image": "assets/img-colombo-10.jpeg",
+          "caption": "The Dutch Hospital shopping precinct"
+        },
+        {
+          "image": "assets/img-colombo-11.jpeg",
+          "caption": "Beira Lake · the footbridge at dusk"
+        },
+        {
+          "image": "assets/img-colombo-12.jpeg",
+          "caption": "Port City · the bridge to the skyline"
+        },
+        {
+          "image": "assets/img-colombo-13.jpeg",
+          "caption": "The Lotus Tower, lit up at night"
+        },
+        {
+          "image": "assets/img-colombo-14.jpeg",
+          "caption": "Galle Face Green · sunset by the sea"
+        },
+        {
+          "image": "assets/img-colombo-15.jpeg",
+          "caption": "Gangaramaya Temple, after dark"
+        }
+      ],
+      "relatedTourSlug": "cultural-triangle-private-tour",
+      "draft": false
+    },
+    {
+      "name": "Tea Factory Tours & Tastings",
+      "slug": "tea-factory-tours",
+      "tags": "Matale · Kandy · Nuwara Eliya · Guided Cupping Session",
+      "seo_title": "Sri Lanka Tea Factory Tours & Tastings | Majesty Tours",
+      "meta_description": "Private guided tea factory tours across Sri Lanka's hill country: see the leaf withered, rolled and fired, then compare highland grades in a tasting.",
+      "overview": "See the leaf withered, rolled and fired, then compare highland grades in a guided cupping session. Working tea factories across the hill country — around Kandy and Nuwara Eliya — open their floors to private visits, walking you through each stage of processing before a tasting of the estate's own grades.",
+      "inclusions": [
+        "Private Air-Conditioned Vehicle",
+        "Professional English-Speaking Chauffeur Guide",
+        "Fuel, Parking & Highway Tolls",
+        "Government Taxes",
+        "Tea Factory Entrance & Tasting Fees"
+      ],
+      "relatedTourSlug": "hill-country-ella-tea-tour",
+      "draft": false
     }
   ],
   "extendedTours": [
