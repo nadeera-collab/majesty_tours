@@ -942,6 +942,14 @@ footer .logo-tagline{color:rgba(244,236,224,.55)}
 .ph-airport-welcome{background-image:url('img-airport-welcome.webp');background-color:#3a2010;background-position:center 40%}
 /* real leopard over stock */
 .ph-leopard{background-image:url('img-leopard.webp');background-color:#2a1a08;background-position:center 35%}
+/* tour hover-preview thumbnails + first gallery slide (real tour-details photos) */
+.ph-cultural-triangle-1{background-image:url('img-cultural-triangle-01.jpeg');background-color:#8a3b2e}
+.ph-hillcountry-1{background-image:url('img-hillcountry-01.jpeg');background-color:#2c3c26}
+.ph-wildlife-1{background-image:url('img-wildlife-01.jpeg');background-color:#2c3c26}
+.ph-southcoast-1{background-image:url('img-southcoast-01.jpeg');background-color:#1f6b6b}
+.ph-eastcoast-1{background-image:url('img-eastcoast-01.jpeg');background-color:#1f4a5e}
+.ph-arugam-1{background-image:url('img-arugam-01.jpeg');background-color:#1f6b6b}
+.ph-grandisland-1{background-image:url('img-grandisland-01.jpeg');background-color:#8a3b2e}
 /* new gallery images */
 .ph-whale-breach{background-image:url('img-whale-breach.webp');background-color:#0c1a2e;background-position:center 35%}
 .ph-whale-beneath{background-image:url('img-whale-beneath.webp');background-color:#0c1a2e;background-position:center 50%}
