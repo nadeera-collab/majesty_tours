@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "static-preview",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["-y", "serve", "-l", "3057", "."],
-      "port": 3057
+      "name": "majesty-tours",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8000"],
+      "port": 8000
     }
   ]
 }
