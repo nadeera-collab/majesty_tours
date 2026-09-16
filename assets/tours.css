@@ -1,0 +1,106 @@
+/* ============================================================
+   MAJESTY TOURS Sri Lanka — Tour landing pages
+   Extends the shared legal.css design tokens (:root, .wrap,
+   .legal-nav, .legal-foot) with tour-page-specific components.
+   ============================================================ */
+
+/* ---------- BREADCRUMB ---------- */
+.tour-crumb{font-size:.8rem;letter-spacing:.02em;color:rgba(244,236,224,.68);margin-bottom:1.4rem}
+.tour-crumb a{color:rgba(244,236,224,.85);border:none}
+.tour-crumb a:hover{color:var(--gold)}
+.tour-crumb span[aria-hidden]{margin:0 .4rem;opacity:.6}
+
+/* ---------- HEAD BAND ---------- */
+.tour-head{background:var(--navy);color:var(--paper);padding:clamp(2.6rem,6vw,4.4rem) 0 clamp(2.2rem,5vw,3rem)}
+.tour-head .wrap{width:min(900px,92vw)}
+.tour-eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.tour-head h1{font-size:clamp(2rem,5vw,2.9rem);color:var(--paper);max-width:24ch}
+.tour-head .tour-tags{margin-top:.9rem;color:rgba(244,236,224,.72);font-size:.95rem;letter-spacing:.02em}
+.tour-head p.tour-lede{margin-top:1.2rem;color:rgba(244,236,224,.82);font-size:1.05rem;max-width:62ch}
+
+.tour-facts{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+.tour-fact{background:rgba(244,236,224,.08);border:1px solid rgba(244,236,224,.22);border-radius:999px;padding:.5rem 1rem;font-size:.82rem;letter-spacing:.02em;color:var(--paper)}
+.tour-fact b{color:var(--gold);font-weight:600}
+
+.tour-cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.5rem;border-radius:999px;font-size:.92rem;letter-spacing:.02em;font-weight:500;border:1px solid transparent;transition:transform .2s var(--ease),background .2s var(--ease),color .2s var(--ease);cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.btn-gold:hover{background:#dab63a;color:var(--navy);border-color:#dab63a}
+.btn-ghost{background:transparent;color:var(--paper);border-color:rgba(244,236,224,.5)}
+.btn-ghost:hover{background:rgba(244,236,224,.1);color:var(--paper);border-color:var(--paper)}
+
+/* ---------- BODY ---------- */
+.tour-body{padding:clamp(2.4rem,6vw,4rem) 0 clamp(2.6rem,6vw,4rem)}
+.tour-body .wrap{width:min(900px,92vw)}
+.tour-section{margin-bottom:clamp(2.4rem,5vw,3.4rem)}
+.tour-section h2{font-size:clamp(1.4rem,3vw,1.8rem);color:var(--navy);margin-bottom:1.2rem}
+.tour-section > p{color:var(--text-muted);margin-bottom:1rem}
+
+/* included */
+.tour-included-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.6rem .9rem;list-style:none}
+.tour-included-grid li{display:flex;align-items:flex-start;gap:.6rem;color:var(--text-muted);font-size:.95rem}
+.tour-included-grid li::before{content:"✓";color:var(--forest);font-weight:700;flex-shrink:0}
+
+/* gallery */
+.tour-gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.7rem}
+.tour-gallery-grid img{width:100%;height:150px;object-fit:cover;border-radius:8px;border:1px solid var(--card-border)}
+
+/* itinerary */
+.tour-day{display:flex;gap:1.2rem;padding:1.4rem 0;border-top:1px solid var(--line)}
+.tour-day:first-child{border-top:none;padding-top:0}
+.tour-day-num{flex-shrink:0;width:3.4rem;height:3.4rem;border-radius:50%;background:var(--paper-2);color:var(--navy);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:1.1rem}
+.tour-day-body h3{font-size:1.15rem;color:var(--navy);margin-bottom:.4rem}
+.tour-day-body p{color:var(--text-muted);margin-bottom:.6rem}
+.tour-day-body ul{margin:0 0 .5rem;padding-left:1.2rem;color:var(--text-muted);font-size:.92rem}
+.tour-day-body li{margin-bottom:.25rem}
+.tour-day-option{margin:.7rem 0;padding:.8rem 1rem;background:var(--paper-2);border-radius:8px}
+.tour-day-option b{display:block;color:var(--navy);margin-bottom:.4rem;font-size:.92rem}
+.tour-overnight{display:inline-block;margin-top:.3rem;font-size:.78rem;letter-spacing:.03em;color:var(--forest-deep);background:rgba(74,107,57,.1);border-radius:999px;padding:.25rem .7rem}
+
+/* season */
+.tour-season-box{background:var(--paper-2);border-radius:10px;padding:1.4rem 1.6rem;color:var(--text-muted)}
+
+/* FAQ */
+.tour-faq details{border-top:1px solid var(--line);padding:1rem 0}
+.tour-faq details:last-child{border-bottom:1px solid var(--line)}
+.tour-faq summary{cursor:pointer;font-weight:500;color:var(--navy);list-style:none;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+.tour-faq summary::-webkit-details-marker{display:none}
+.tour-faq summary::after{content:"+";font-size:1.3rem;color:var(--gold);flex-shrink:0}
+.tour-faq details[open] summary::after{content:"–"}
+.tour-faq p{margin-top:.7rem;color:var(--text-muted)}
+
+/* related */
+.tour-related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.tour-related-card{display:block;border:1px solid var(--card-border);border-radius:10px;padding:1.1rem 1.3rem;color:inherit}
+.tour-related-card:hover{border-color:var(--gold);color:inherit}
+.tour-related-card h3{font-size:1.05rem;color:var(--navy);margin-bottom:.35rem;border:none}
+.tour-related-card .rel-meta{font-size:.82rem;color:var(--text-mid)}
+
+/* bottom CTA band */
+.tour-cta-band{background:var(--navy);color:var(--paper);border-radius:14px;padding:clamp(1.8rem,4vw,2.6rem);text-align:center}
+.tour-cta-band h2{color:var(--paper);margin-bottom:.6rem;border:none;padding:0}
+.tour-cta-band p{color:rgba(244,236,224,.78);margin-bottom:1.4rem}
+.tour-cta-band .tour-cta-row{justify-content:center}
+
+/* ---------- TOURS INDEX PAGE ---------- */
+.tours-index-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:.5rem}
+.tours-index-card{display:block;border:1px solid var(--card-border);border-radius:12px;padding:1.5rem 1.6rem;color:inherit;background:#fff}
+.tours-index-card:hover{border-color:var(--gold);color:inherit}
+.tours-index-card h2{font-size:1.25rem;color:var(--navy);margin-bottom:.4rem;border:none;padding:0}
+.tours-index-card .tic-tags{font-size:.85rem;color:var(--text-mid);margin-bottom:.7rem}
+.tours-index-card .tic-meta{display:flex;justify-content:space-between;font-size:.85rem;color:var(--forest-deep);font-weight:500}
+
+/* ---------- DRAFT / TODO markers (Phase 3 pages) ---------- */
+.draft-banner{background:#fff6df;border:1px solid #e3c675;color:#6b5215;border-radius:10px;padding:1rem 1.3rem;margin-bottom:1.6rem;font-size:.9rem}
+.draft-banner strong{color:#4a3a0f}
+.tour-included-grid li.todo-item{color:#6b5215}
+.tour-included-grid li.todo-item::before{content:"\25a2";color:#c9a227}
+.price-note{font-size:.82rem;color:rgba(244,236,224,.62);margin-top:.7rem;max-width:62ch}
+.tour-component-list{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.8rem}
+.tour-component-list a{border:1px solid var(--card-border);border-radius:999px;padding:.4rem .9rem;font-size:.85rem;color:var(--forest-deep)}
+
+@media (max-width:640px){
+  .tour-day{flex-direction:column;gap:.6rem}
+  .tour-day-num{width:2.6rem;height:2.6rem;font-size:.95rem}
+}
