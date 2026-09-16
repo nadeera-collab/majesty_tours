@@ -225,7 +225,7 @@ function headBlock({ title, description, canonical, ogImage, robots = 'index, fo
 function siteNav(backHref, backLabel) {
   return `<nav class="legal-nav">
   <div class="wrap">
-    <a href="/index.html" class="legal-logo" aria-label="Majesty Tours home">
+    <a href="/" class="legal-logo" aria-label="Majesty Tours home">
       <img src="/assets/logo-shield-dark.png" alt="" width="34" height="41">
       <span>
         <span class="name">Majesty Tours</span>
@@ -242,11 +242,11 @@ function siteFooter() {
   <div class="wrap">
     <span>&copy; 2026 Majesty Tours Sri Lanka. All rights reserved.</span>
     <span class="foot-links">
-      <a href="/index.html">Home</a>
+      <a href="/">Home</a>
       <a href="/tours/">All Tours</a>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-      <a href="/cancellation.html">Cancellation Policy</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/cancellation">Cancellation Policy</a>
     </span>
   </div>
 </footer>`;
@@ -326,7 +326,7 @@ ${siteNav('/tours/', '← All tours')}
 <header class="tour-head">
   <div class="wrap">
     <nav class="tour-crumb" aria-label="Breadcrumb">
-      <a href="/index.html">Home</a><span aria-hidden="true">›</span><a href="/tours/">Tours</a><span aria-hidden="true">›</span>${esc(tour.name)}
+      <a href="/">Home</a><span aria-hidden="true">›</span><a href="/tours/">Tours</a><span aria-hidden="true">›</span>${esc(tour.name)}
     </nav>
     <div class="tour-eyebrow">Private tour · Est. 2009</div>
     <h1>${extra.h1}</h1>
@@ -341,7 +341,7 @@ ${siteNav('/tours/', '← All tours')}
     </div>
     <div class="tour-cta-row">
       <a class="btn btn-gold" href="${whatsappHref(tour.name)}" target="_blank" rel="noopener noreferrer">Enquire on WhatsApp →</a>
-      <a class="btn btn-ghost" href="/index.html#contact">Enquire online</a>
+      <a class="btn btn-ghost" href="/#contact">Enquire online</a>
     </div>
   </div>
 </header>
@@ -403,7 +403,7 @@ ${siteNav('/tours/', '← All tours')}
       <p>Tell us your travel dates and we'll confirm availability and a final quote.</p>
       <div class="tour-cta-row">
         <a class="btn btn-gold" href="${whatsappHref(tour.name)}" target="_blank" rel="noopener noreferrer">Enquire on WhatsApp →</a>
-        <a class="btn btn-ghost" href="/index.html#contact">Enquire online</a>
+        <a class="btn btn-ghost" href="/#contact">Enquire online</a>
       </div>
     </div>
 
@@ -465,12 +465,12 @@ ${JSON.stringify(jsonLd, null, 2)}
 
 <a href="#main" class="skip-link">Skip to content</a>
 
-${siteNav('/index.html', '← Back to site')}
+${siteNav('/', '← Back to site')}
 
 <header class="tour-head">
   <div class="wrap">
     <nav class="tour-crumb" aria-label="Breadcrumb">
-      <a href="/index.html">Home</a><span aria-hidden="true">›</span>Tours
+      <a href="/">Home</a><span aria-hidden="true">›</span>Tours
     </nav>
     <div class="tour-eyebrow">Private tours · Est. 2009</div>
     <h1>Sri Lanka Private Tour Packages</h1>
@@ -526,9 +526,12 @@ function inclusionsList(inclusions) {
   }).join('\n        ');
 }
 
-function buildSimplePage(item, urlPrefix) {
+const EYEBROW_BY_PREFIX = { 'day-trips': 'Day trip', experiences: 'Experience', tours: 'Tour' };
+
+function buildSimplePage(item, urlPrefixDefault) {
+  const urlPrefix = item.urlPrefix || urlPrefixDefault;
   const canonical = `${SITE_URL}/${urlPrefix}/${item.slug}/`;
-  const ogImage = `${SITE_URL}/assets/og-image.jpg`;
+  const ogImage = item.images?.[0] ? `${SITE_URL}/${item.images[0].image}` : `${SITE_URL}/assets/og-image.jpg`;
   const related = item.relatedTourSlug ? findTour(item.relatedTourSlug) : null;
   const robots = item.draft ? 'noindex, follow' : 'index, follow';
 
@@ -575,15 +578,15 @@ ${siteNav('/tours/', '← All tours')}
 <header class="tour-head">
   <div class="wrap">
     <nav class="tour-crumb" aria-label="Breadcrumb">
-      <a href="/index.html">Home</a><span aria-hidden="true">›</span><a href="/tours/">Tours</a><span aria-hidden="true">›</span>${esc(item.name)}
+      <a href="/">Home</a><span aria-hidden="true">›</span><a href="/tours/">Tours</a><span aria-hidden="true">›</span>${esc(item.name)}
     </nav>
-    <div class="tour-eyebrow">${urlPrefix === 'day-trips' ? 'Day trip' : 'Experience'} · Est. 2009</div>
+    <div class="tour-eyebrow">${EYEBROW_BY_PREFIX[urlPrefix] || 'Experience'} · Est. 2009</div>
     <h1>${esc(item.name)}</h1>
     <div class="tour-tags">${esc(item.tags)}</div>
     ${draftFactsRow(item)}
     <div class="tour-cta-row">
       <a class="btn btn-gold" href="${whatsappHref(item.name)}" target="_blank" rel="noopener noreferrer">Enquire on WhatsApp →</a>
-      <a class="btn btn-ghost" href="/index.html#contact">Enquire online</a>
+      <a class="btn btn-ghost" href="/#contact">Enquire online</a>
     </div>
   </div>
 </header>
@@ -601,6 +604,13 @@ ${siteNav('/tours/', '← All tours')}
       </ul>
     </section>
 
+    ${item.images?.length ? `<section class="tour-section tour-gallery">
+      <h2>Gallery</h2>
+      <div class="tour-gallery-grid">
+        ${item.images.map(img => `<img src="/${img.image}" alt="${esc(img.caption || item.name)}" loading="lazy" width="400" height="300">`).join('\n        ')}
+      </div>
+    </section>` : ''}
+
     ${related ? `<section class="tour-section tour-related">
       <h2>Related tour</h2>
       <div class="tour-related-grid">
@@ -616,7 +626,7 @@ ${siteNav('/tours/', '← All tours')}
       <p>Tell us your travel dates and we'll confirm availability and a final quote.</p>
       <div class="tour-cta-row">
         <a class="btn btn-gold" href="${whatsappHref(item.name)}" target="_blank" rel="noopener noreferrer">Enquire on WhatsApp →</a>
-        <a class="btn btn-ghost" href="/index.html#contact">Enquire online</a>
+        <a class="btn btn-ghost" href="/#contact">Enquire online</a>
       </div>
     </div>
 
@@ -680,7 +690,7 @@ ${siteNav('/tours/', '← All tours')}
 <header class="tour-head">
   <div class="wrap">
     <nav class="tour-crumb" aria-label="Breadcrumb">
-      <a href="/index.html">Home</a><span aria-hidden="true">›</span><a href="/tours/">Tours</a><span aria-hidden="true">›</span>${esc(item.name)}
+      <a href="/">Home</a><span aria-hidden="true">›</span><a href="/tours/">Tours</a><span aria-hidden="true">›</span>${esc(item.name)}
     </nav>
     <div class="tour-eyebrow">Private tour · Suggested combination</div>
     <h1>${esc(item.name)}</h1>
@@ -688,7 +698,7 @@ ${siteNav('/tours/', '← All tours')}
     ${draftFactsRow(item)}
     <div class="tour-cta-row">
       <a class="btn btn-gold" href="${whatsappHref(item.name)}" target="_blank" rel="noopener noreferrer">Enquire on WhatsApp →</a>
-      <a class="btn btn-ghost" href="/index.html#contact">Enquire online</a>
+      <a class="btn btn-ghost" href="/#contact">Enquire online</a>
     </div>
   </div>
 </header>
@@ -740,26 +750,26 @@ console.log('wrote', 'tours/index.html');
 /* Phase 3: day trips, experiences, extended/combination tours.
    All start life with draft:true (noindex, excluded from sitemap) until
    the owner fills in the TODOs and unchecks Draft in the CMS. */
-const dayTripsDir = join(ROOT, 'day-trips');
-const experiencesDir = join(ROOT, 'experiences');
 const publishedUrls = []; // non-draft Phase 3 pages only, for the sitemap
 
 (content.dayTrips || []).forEach(item => {
-  const dir = join(dayTripsDir, item.slug);
+  const prefix = item.urlPrefix || 'day-trips';
+  const dir = join(ROOT, prefix, item.slug);
   ensureDir(dir);
   writeFileSync(join(dir, 'index.html'), buildSimplePage(item, 'day-trips'));
-  generatedUrls.push(`/day-trips/${item.slug}/`);
-  if (!item.draft) publishedUrls.push({ loc: `/day-trips/${item.slug}/`, changefreq: 'monthly', priority: '0.6' });
-  console.log('wrote', `day-trips/${item.slug}/index.html`, item.draft ? '(draft, noindex)' : '(published)');
+  generatedUrls.push(`/${prefix}/${item.slug}/`);
+  if (!item.draft) publishedUrls.push({ loc: `/${prefix}/${item.slug}/`, changefreq: 'monthly', priority: '0.6' });
+  console.log('wrote', `${prefix}/${item.slug}/index.html`, item.draft ? '(draft, noindex)' : '(published)');
 });
 
 (content.experiences || []).forEach(item => {
-  const dir = join(experiencesDir, item.slug);
+  const prefix = item.urlPrefix || 'experiences';
+  const dir = join(ROOT, prefix, item.slug);
   ensureDir(dir);
   writeFileSync(join(dir, 'index.html'), buildSimplePage(item, 'experiences'));
-  generatedUrls.push(`/experiences/${item.slug}/`);
-  if (!item.draft) publishedUrls.push({ loc: `/experiences/${item.slug}/`, changefreq: 'monthly', priority: '0.6' });
-  console.log('wrote', `experiences/${item.slug}/index.html`, item.draft ? '(draft, noindex)' : '(published)');
+  generatedUrls.push(`/${prefix}/${item.slug}/`);
+  if (!item.draft) publishedUrls.push({ loc: `/${prefix}/${item.slug}/`, changefreq: 'monthly', priority: '0.6' });
+  console.log('wrote', `${prefix}/${item.slug}/index.html`, item.draft ? '(draft, noindex)' : '(published)');
 });
 
 (content.extendedTours || []).forEach(item => {
@@ -774,9 +784,9 @@ const publishedUrls = []; // non-draft Phase 3 pages only, for the sitemap
 /* ---------- sitemap.xml ---------- */
 const staticEntries = [
   { loc: '/', changefreq: 'weekly', priority: '1.0', lastmod: '2026-07-23' },
-  { loc: '/privacy.html', changefreq: 'yearly', priority: '0.3', lastmod: '2026-07-23' },
-  { loc: '/terms.html', changefreq: 'yearly', priority: '0.3', lastmod: '2026-07-23' },
-  { loc: '/cancellation.html', changefreq: 'yearly', priority: '0.3', lastmod: '2026-07-23' }
+  { loc: '/privacy', changefreq: 'yearly', priority: '0.3', lastmod: '2026-07-23' },
+  { loc: '/terms', changefreq: 'yearly', priority: '0.3', lastmod: '2026-07-23' },
+  { loc: '/cancellation', changefreq: 'yearly', priority: '0.3', lastmod: '2026-07-23' }
   // register.html intentionally omitted: it's a partner registration page, not a
   // booking page, so it's left indexable (robots.txt/meta unchanged) but out of the sitemap.
 ];

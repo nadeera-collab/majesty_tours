@@ -7,25 +7,50 @@
   [headers.values]
     X-Robots-Tag = "noindex"
 
-# URL scheme: internal links already use .html for the legal pages
-# (see footer of index.html), so that stays canonical. These redirects
-# just catch anyone who bookmarked/linked the extensionless form.
+# Raw data files and the orphaned source-photo dump — not pages, shouldn't
+# be indexed. assets/tour-details/*.jpeg (93 unrenamed "WhatsApp Image..."
+# files, ~16MB) aren't referenced anywhere in index.html or app.js.
+[[headers]]
+  for = "/*.json"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+[[headers]]
+  for = "/assets/tour-details/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+# URL scheme: extensionless is canonical (Google already indexed /privacy,
+# not /privacy.html — a live check confirmed this before Netlify's own
+# default "pretty URLs" redirect even runs). Explicit rules here so the
+# .html form always 301s, and index.html -> / for the homepage.
+# NOTE: this direction matters — a rule redirecting extensionless -> .html
+# would fight Netlify's default pretty-URL behavior (which already 301s
+# .html -> extensionless) and create a redirect loop. Don't reverse it.
 [[redirects]]
-  from = "/privacy"
-  to = "/privacy.html"
+  from = "/index.html"
+  to = "/"
   status = 301
+  force = true
 [[redirects]]
-  from = "/terms"
-  to = "/terms.html"
+  from = "/privacy.html"
+  to = "/privacy"
   status = 301
+  force = true
 [[redirects]]
-  from = "/cancellation"
-  to = "/cancellation.html"
+  from = "/terms.html"
+  to = "/terms"
   status = 301
+  force = true
 [[redirects]]
-  from = "/register"
-  to = "/register.html"
+  from = "/cancellation.html"
+  to = "/cancellation"
   status = 301
+  force = true
+[[redirects]]
+  from = "/register.html"
+  to = "/register"
+  status = 301
+  force = true
 
 # Generated tour/day-trip/experience pages are directories with their own
 # index.html (e.g. /tours/foo/index.html) — force the trailing slash so
