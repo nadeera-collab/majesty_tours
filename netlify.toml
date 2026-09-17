@@ -97,20 +97,13 @@
   force = true
 
 # Generated tour/day-trip/experience pages are directories with their own
-# index.html (e.g. /tours/foo/index.html). Force the trailing slash so
-# there's one canonical form instead of both /tours/foo and /tours/foo/.
-[[redirects]]
-  from = "/tours/:slug"
-  to = "/tours/:slug/"
-  status = 301
-  force = true
-[[redirects]]
-  from = "/day-trips/:slug"
-  to = "/day-trips/:slug/"
-  status = 301
-  force = true
-[[redirects]]
-  from = "/experiences/:slug"
-  to = "/experiences/:slug/"
-  status = 301
-  force = true
+# index.html (e.g. /tours/foo/index.html). Netlify serves those at
+# /tours/foo/ and already 301s the slashless /tours/foo to it, so there is
+# deliberately NO redirect rule here.
+#
+# There used to be one ("/tours/:slug" -> "/tours/:slug/", force = true).
+# Netlify normalises the trailing slash when matching, so that pattern also
+# matched /tours/foo/ and redirected it to itself: an infinite 301 loop that
+# took all 20 inner pages down with ERR_TOO_MANY_REDIRECTS while /tours/ and
+# the legal pages kept working. Dropping force is not enough, the rule still
+# matches the slashed form. Don't reintroduce it in any form.
