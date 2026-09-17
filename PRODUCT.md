@@ -14,21 +14,22 @@ Majesty Tours is a private Sri Lanka tour operator founded in 2009. The site exi
 
 ## Brand Personality
 
-Unhurried, cinematic, specific. The brand promise is journeys crafted with care, not rushed packages. The voice is expert and personal — a knowledgeable guide, not a call center. Emotionally the site should evoke quiet anticipation: the feeling of studying a beautiful map before a journey you know will be worth it.
+Unhurried, cinematic, specific. The brand promise is journeys crafted with care, not rushed packages. The voice is expert and personal: a knowledgeable guide, not a call center. Emotionally the site should evoke quiet anticipation: the feeling of studying a beautiful map before a journey you know will be worth it.
 
 ## Anti-references
 
-- **Generic OTA / booking engine**: Expedia, Booking.com — price-first card grids, transactional filters, feature checklists. Majesty earns trust through atmosphere and specificity, not through price display and stars.
+- **Generic OTA / booking engine**: Expedia, Booking.com, with price-first card grids, transactional filters and feature checklists. Majesty earns trust through atmosphere and specificity, not through price display and stars.
 - No African safari branding (khaki + earth-tone generic wildlife lodge aesthetic, which reads as Botswana, not Sri Lanka).
 - No backpacker / adventure-travel framing (bold primary colors, youth-hostel energy).
 
 ## Design Principles
 
-1. **Place before product**: Sri Lanka — 6°N, the island the old maps called Serendib — is the product. Every section should feel unmistakably of this place, not generically tropical.
+1. **Place before product**: Sri Lanka (6°N, the island the old maps called Serendib) is the product. Every section should feel unmistakably of this place, not generically tropical.
 2. **Trust through specificity**: Named routes, real day itineraries, actual seasons. Specificity does the work that "luxury" and "crafted" copy cannot.
 3. **Unhurried atmosphere**: Pacing, spacing, and motion should feel as deliberate as the journeys themselves. No aggressive CTAs, no urgency patterns, no countdown timers.
 4. **Personal at scale**: The team is small and expert. The design should feel like you are corresponding with someone who knows the island deeply, not submitting a ticket.
-5. **Photography leads**: The image is the argument. Layout, type, and interaction exist to frame the photography, not compete with it.
+5. **No em-dashes**: the em-dash (`—`) is not used anywhere in site copy, alt text, UI strings or code comments. Use a colon, a comma, parentheses or a full stop. En-dashes stay for numeric ranges (12–14 hours, January–April).
+6. **Photography leads**: The image is the argument. Layout, type, and interaction exist to frame the photography, not compete with it.
 
 ## Accessibility & Inclusion
 

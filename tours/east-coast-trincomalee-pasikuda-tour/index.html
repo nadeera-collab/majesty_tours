@@ -31,6 +31,8 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap"></noscript>
 <link rel="stylesheet" href="/assets/legal.css">
 <link rel="stylesheet" href="/assets/tours.css">
+<link rel="preload" as="image" type="image/webp" imagesrcset="/assets/opt/img-eastcoast-01-400.webp 400w, /assets/opt/img-eastcoast-01-800.webp 800w" imagesizes="(max-width:820px) 92vw, 440px">
+<script src="/assets/tour-page.js" defer></script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V924557NG6"></script>
@@ -49,6 +51,14 @@
       "@id": "https://majestytourssrilanka.com/tours/east-coast-trincomalee-pasikuda-tour/#trip",
       "name": "The East Coast Escape",
       "description": "Discover the untouched beauty of Sri Lanka's breathtaking East Coast on an unforgettable journey filled with pristine beaches, crystal-clear waters, marine adventures, wildlife encounters, ancient temples, and relaxing coastal escapes. Visit the UNESCO-listed Dambulla Cave Temple, embark on a seasonal whale and dolphin watching excursion in Trincomalee, explore the sacred Koneswaram Temple overlooking the Indian Ocean, enjoy an exciting wildlife safari, snorkel among vibrant coral reefs at Pigeon Island National Park, relax on the white sandy beaches of Nilaveli and Pasikuda, experience thrilling water sports, and conclude your holiday with a guided tour of Colombo before your departure.",
+      "image": [
+        "https://majestytourssrilanka.com/assets/img-eastcoast-01.jpeg",
+        "https://majestytourssrilanka.com/assets/img-eastcoast-02.jpeg",
+        "https://majestytourssrilanka.com/assets/img-eastcoast-03.jpeg",
+        "https://majestytourssrilanka.com/assets/img-eastcoast-04.jpeg",
+        "https://majestytourssrilanka.com/assets/img-eastcoast-05.jpeg",
+        "https://majestytourssrilanka.com/assets/img-eastcoast-06.jpeg"
+      ],
       "touristType": [
         "Couples",
         "Families",
@@ -137,7 +147,7 @@
           "name": "Is The East Coast Escape a private tour?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Every Majesty Tours itinerary, including The East Coast Escape, is private — your own air-conditioned vehicle and English-speaking chauffeur guide, with no other travellers on your schedule."
+            "text": "Yes. Every Majesty Tours itinerary, including The East Coast Escape, is private: your own air-conditioned vehicle and English-speaking chauffeur guide, with no other travellers on your schedule."
           }
         },
         {
@@ -145,7 +155,7 @@
           "name": "Can I customise this itinerary?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. This is a sample itinerary — the route, pace, hotel category and stops can all be adjusted to your interests and travel dates. Tell us what you’d like changed when you enquire."
+            "text": "Yes. This is a sample itinerary: the route, pace, hotel category and stops can all be adjusted to your interests and travel dates. Tell us what you’d like changed when you enquire."
           }
         },
         {
@@ -169,7 +179,7 @@
           "name": "Do I get the free Colombo City Tour with this package?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — every Majesty Tours booking includes a complimentary open-top double-decker sightseeing tour of Colombo at no extra cost."
+            "text": "Yes. Every Majesty Tours booking includes a complimentary open-top double-decker sightseeing tour of Colombo at no extra cost."
           }
         },
         {
@@ -181,6 +191,29 @@
           }
         }
       ]
+    },
+    {
+      "@type": "TravelAgency",
+      "@id": "https://majestytourssrilanka.com/#agency",
+      "name": "Majesty Tours",
+      "url": "https://majestytourssrilanka.com/",
+      "logo": "https://majestytourssrilanka.com/logo-shield.png",
+      "image": "https://majestytourssrilanka.com/assets/og-image.jpg",
+      "telephone": "+94755499691",
+      "email": "info@majestytourssrilanka.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "14 Sir Baron Jayathilake Mawatha",
+        "addressLocality": "Colombo",
+        "postalCode": "00100",
+        "addressCountry": "LK"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Sri Lanka"
+      },
+      "foundingDate": "2009",
+      "priceRange": "$390-$1990"
     }
   ]
 }
@@ -193,7 +226,7 @@
 <nav class="legal-nav">
   <div class="wrap">
     <a href="/" class="legal-logo" aria-label="Majesty Tours home">
-      <img src="/assets/logo-shield-dark.png" alt="" width="34" height="41">
+      <picture><source type="image/webp" srcset="/assets/opt/logo-shield-dark-68.webp 68w, /assets/opt/logo-shield-dark-136.webp 136w" sizes="34px"><img src="/assets/logo-shield-dark.png" alt="" width="200" height="200" loading="eager" decoding="async"></picture>
       <span>
         <span class="name">Majesty Tours</span>
         <span class="tag">Your travel with our care</span>
@@ -211,7 +244,7 @@
     <div class="tour-eyebrow">Private tour · Est. 2009</div>
     <h1>East Coast Private Tour: Trincomalee, Pigeon Island &amp; Pasikuda</h1>
     <div class="tour-tags">Trincomalee · Pigeon Island · Nilaveli · Pasikuda</div>
-    <p class="tour-lede">A 4-day private journey to Sri Lanka’s quieter East Coast — whale watching, Koneswaram Temple, coral reefs and white-sand beaches — with your own driver-guide and hotels arranged throughout.</p>
+    <p class="tour-lede">A 4-day private journey to Sri Lanka’s quieter East Coast, taking in whale watching, Koneswaram Temple, coral reefs and white-sand beaches, with your own driver-guide and hotels arranged throughout.</p>
     <div class="tour-facts">
       <span class="tour-fact"><b>from $590</b> per person</span>
       <span class="tour-fact">4 days · private</span>
@@ -220,7 +253,7 @@
       <span class="tour-fact">Free Colombo City Tour</span>
     </div>
     <div class="tour-cta-row">
-      <a class="btn btn-gold" href="https://wa.me/94755499691?text=Hi%20Majesty%20Tours!%20I'd%20like%20to%20enquire%20about%20the%20The%20East%20Coast%20Escape%20tour." target="_blank" rel="noopener noreferrer">Enquire on WhatsApp →</a>
+      <a class="btn btn-gold" href="https://wa.me/94755499691?text=Hi%20Majesty%20Tours!%20I'd%20like%20to%20enquire%20about%20the%20The%20East%20Coast%20Escape%20tour." target="_blank" rel="noopener noreferrer" data-lead="whatsapp">Enquire on WhatsApp →</a>
       <a class="btn btn-ghost" href="/#contact">Enquire online</a>
     </div>
   </div>
@@ -230,8 +263,15 @@
   <div class="wrap">
 
     <section class="tour-section tour-overview">
-      <h2>Overview</h2>
-      <p>Discover the untouched beauty of Sri Lanka's breathtaking East Coast on an unforgettable journey filled with pristine beaches, crystal-clear waters, marine adventures, wildlife encounters, ancient temples, and relaxing coastal escapes. Visit the UNESCO-listed Dambulla Cave Temple, embark on a seasonal whale and dolphin watching excursion in Trincomalee, explore the sacred Koneswaram Temple overlooking the Indian Ocean, enjoy an exciting wildlife safari, snorkel among vibrant coral reefs at Pigeon Island National Park, relax on the white sandy beaches of Nilaveli and Pasikuda, experience thrilling water sports, and conclude your holiday with a guided tour of Colombo before your departure.</p>
+      <div class="tour-intro">
+        <div class="tour-intro-text">
+          <h2>Overview</h2>
+          <p>Discover the untouched beauty of Sri Lanka's breathtaking East Coast on an unforgettable journey filled with pristine beaches, crystal-clear waters, marine adventures, wildlife encounters, ancient temples, and relaxing coastal escapes. Visit the UNESCO-listed Dambulla Cave Temple, embark on a seasonal whale and dolphin watching excursion in Trincomalee, explore the sacred Koneswaram Temple overlooking the Indian Ocean, enjoy an exciting wildlife safari, snorkel among vibrant coral reefs at Pigeon Island National Park, relax on the white sandy beaches of Nilaveli and Pasikuda, experience thrilling water sports, and conclude your holiday with a guided tour of Colombo before your departure.</p>
+          <p>Experience the untouched paradise of Sri Lanka's spectacular East Coast in the comfort of a private vehicle with an experienced chauffeur guide. Visit the UNESCO-listed Dambulla Cave Temple, embark on a seasonal whale and dolphin watching excursion in Trincomalee, explore the sacred Koneswaram Temple and the dramatic cliffs of Swami Rock, enjoy an exciting safari in Minneriya National Park, snorkel among colourful coral reefs and tropical marine life at Pigeon Island National Park, unwind on the pristine beaches of Nilaveli and Pasikuda, experience exciting water sports, and conclude your journey with a guided tour of Colombo's iconic landmarks and shopping districts before your airport transfer. Carefully designed to combine marine adventures, wildlife, heritage, city exploration, and relaxation, this itinerary offers the perfect East Coast holiday.</p>
+        </div>
+        <div class="tour-hero"><picture><source type="image/webp" srcset="/assets/opt/img-eastcoast-01-400.webp 400w, /assets/opt/img-eastcoast-01-800.webp 800w" sizes="(max-width:820px) 92vw, 440px"><img src="/assets/img-eastcoast-01.jpeg" alt="Trincomalee · a whale's breach" width="1280" height="851" loading="eager" fetchpriority="high" decoding="async"></picture></div>
+      </div>
+      <h3 class="tour-subhead">What's included</h3>
       <ul class="tour-included-grid">
         <li>3 Nights Accommodation</li>
         <li>Daily Breakfast &amp; Dinner</li>
@@ -244,17 +284,92 @@
       </ul>
     </section>
 
-    <section class="tour-section tour-gallery">
+    <section class="tour-section tour-highlights">
+      <h2>Trip highlights</h2>
+      <ul class="tour-highlight-grid">
+        <li>Dambulla Cave Temple (UNESCO World Heritage Site)</li>
+        <li>Whale Watching in Trincomalee</li>
+        <li>Blue Whales &amp; Spinner Dolphins</li>
+        <li>Koneswaram Temple</li>
+        <li>Swami Rock</li>
+        <li>Fort Frederick</li>
+        <li>Nilaveli Beach</li>
+        <li>Minneriya National Park Jeep Safari</li>
+        <li>Asian Elephant Gathering</li>
+        <li>Pigeon Island National Park</li>
+        <li>Snorkeling Experience</li>
+        <li>Coral Reef Exploration</li>
+        <li>Sea Turtle Watching</li>
+        <li>Optional Scuba Diving</li>
+        <li>Glass Bottom Boat Ride</li>
+        <li>Pasikuda Beach</li>
+        <li>Water Sports</li>
+        <li>Colombo City Tour</li>
+        <li>Gangaramaya Temple</li>
+        <li>Independence Square</li>
+        <li>Galle Face Green</li>
+        <li>Port City</li>
+        <li>Shopping in Colombo</li>
+        <li>Scenic East Coast Drive</li>
+      </ul>
+    </section>
+
+    <section class="tour-section tour-practical">
+      <h2>Trip at a glance</h2>
+      <dl class="tour-practical-list">
+        <div><dt>Duration</dt><dd>4 Days / 3 Nights</dd></div>
+        <div><dt>Tour type</dt><dd>Private Tour</dd></div>
+        <div><dt>Starts</dt><dd>Bandaranaike International Airport (BIA)</dd></div>
+        <div><dt>Ends</dt><dd>Bandaranaike International Airport (BIA)</dd></div>
+        <div><dt>Destinations</dt><dd>7</dd></div>
+        <div><dt>UNESCO World Heritage Sites</dt><dd>1</dd></div>
+        <div><dt>National parks</dt><dd>2</dd></div>
+        <div><dt>Best for</dt><dd>Couples · Families · Friends · Solo Travelers</dd></div>
+      </dl>
+      <h3 class="tour-subhead">Destinations covered</h3>
+      <ul class="tour-chip-list">
+        <li>Dambulla</li>
+        <li>Trincomalee</li>
+        <li>Nilaveli</li>
+        <li>Minneriya</li>
+        <li>Pigeon Island</li>
+        <li>Pasikuda</li>
+        <li>Colombo</li>
+      </ul>
+      <p class="tour-route"><strong>Route:</strong> Bandaranaike International Airport (BIA) → Dambulla → Trincomalee → Nilaveli → Minneriya → Pigeon Island → Pasikuda → Colombo → Bandaranaike International Airport (BIA)</p>
+    </section>
+
+    <section class="tour-section tour-gallery" id="gallery">
       <h2>Gallery</h2>
-      <div class="tour-gallery-grid">
-        <img src="/assets/img-eastcoast-01.jpeg" alt="Trincomalee · a whale's breach" loading="lazy" width="400" height="300">
-        <img src="/assets/img-eastcoast-02.jpeg" alt="Trincomalee · Koneswaram Temple" loading="lazy" width="400" height="300">
-        <img src="/assets/img-eastcoast-03.jpeg" alt="Trincomalee · a painted fishing boat" loading="lazy" width="400" height="300">
-        <img src="/assets/img-eastcoast-04.jpeg" alt="Nilaveli · the beach from above" loading="lazy" width="400" height="300">
-        <img src="/assets/img-eastcoast-05.jpeg" alt="Pigeon Island · a hawksbill turtle" loading="lazy" width="400" height="300">
-        <img src="/assets/img-eastcoast-06.jpeg" alt="Pigeon Island · snorkeling with turtles" loading="lazy" width="400" height="300">
-        <img src="/assets/img-eastcoast-07.jpeg" alt="Pasikuda · white sand &amp; calm water" loading="lazy" width="400" height="300">
-        <img src="/assets/img-eastcoast-08.jpeg" alt="East coast · jet-ski spray" loading="lazy" width="400" height="300">
+      <div class="tour-gallery-grid" data-lightbox>
+        <button type="button" class="tg-item" data-full="/assets/img-eastcoast-02.jpeg" data-cap="Trincomalee · Koneswaram Temple" aria-label="Open photo 1: Trincomalee · Koneswaram Temple">
+          <picture><source type="image/webp" srcset="/assets/opt/img-eastcoast-02-400.webp 400w, /assets/opt/img-eastcoast-02-800.webp 800w" sizes="(max-width:640px) 45vw, 220px"><img src="/assets/img-eastcoast-02.jpeg" alt="Trincomalee · Koneswaram Temple" width="1280" height="852" loading="lazy" decoding="async"></picture>
+          <span class="tg-cap">Trincomalee · Koneswaram Temple</span>
+        </button>
+        <button type="button" class="tg-item" data-full="/assets/img-eastcoast-03.jpeg" data-cap="Trincomalee · a painted fishing boat" aria-label="Open photo 2: Trincomalee · a painted fishing boat">
+          <picture><source type="image/webp" srcset="/assets/opt/img-eastcoast-03-400.webp 400w, /assets/opt/img-eastcoast-03-800.webp 800w" sizes="(max-width:640px) 45vw, 220px"><img src="/assets/img-eastcoast-03.jpeg" alt="Trincomalee · a painted fishing boat" width="1280" height="853" loading="lazy" decoding="async"></picture>
+          <span class="tg-cap">Trincomalee · a painted fishing boat</span>
+        </button>
+        <button type="button" class="tg-item" data-full="/assets/img-eastcoast-04.jpeg" data-cap="Nilaveli · the beach from above" aria-label="Open photo 3: Nilaveli · the beach from above">
+          <picture><source type="image/webp" srcset="/assets/opt/img-eastcoast-04-400.webp 400w, /assets/opt/img-eastcoast-04-800.webp 800w" sizes="(max-width:640px) 45vw, 220px"><img src="/assets/img-eastcoast-04.jpeg" alt="Nilaveli · the beach from above" width="853" height="1280" loading="lazy" decoding="async"></picture>
+          <span class="tg-cap">Nilaveli · the beach from above</span>
+        </button>
+        <button type="button" class="tg-item" data-full="/assets/img-eastcoast-05.jpeg" data-cap="Pigeon Island · a hawksbill turtle" aria-label="Open photo 4: Pigeon Island · a hawksbill turtle">
+          <picture><source type="image/webp" srcset="/assets/opt/img-eastcoast-05-400.webp 400w, /assets/opt/img-eastcoast-05-800.webp 800w" sizes="(max-width:640px) 45vw, 220px"><img src="/assets/img-eastcoast-05.jpeg" alt="Pigeon Island · a hawksbill turtle" width="904" height="1280" loading="lazy" decoding="async"></picture>
+          <span class="tg-cap">Pigeon Island · a hawksbill turtle</span>
+        </button>
+        <button type="button" class="tg-item" data-full="/assets/img-eastcoast-06.jpeg" data-cap="Pigeon Island · snorkeling with turtles" aria-label="Open photo 5: Pigeon Island · snorkeling with turtles">
+          <picture><source type="image/webp" srcset="/assets/opt/img-eastcoast-06-400.webp 400w, /assets/opt/img-eastcoast-06-800.webp 800w" sizes="(max-width:640px) 45vw, 220px"><img src="/assets/img-eastcoast-06.jpeg" alt="Pigeon Island · snorkeling with turtles" width="1280" height="960" loading="lazy" decoding="async"></picture>
+          <span class="tg-cap">Pigeon Island · snorkeling with turtles</span>
+        </button>
+        <button type="button" class="tg-item" data-full="/assets/img-eastcoast-07.jpeg" data-cap="Pasikuda · white sand &amp; calm water" aria-label="Open photo 6: Pasikuda · white sand &amp; calm water">
+          <picture><source type="image/webp" srcset="/assets/opt/img-eastcoast-07-400.webp 400w, /assets/opt/img-eastcoast-07-800.webp 800w" sizes="(max-width:640px) 45vw, 220px"><img src="/assets/img-eastcoast-07.jpeg" alt="Pasikuda · white sand &amp; calm water" width="1280" height="748" loading="lazy" decoding="async"></picture>
+          <span class="tg-cap">Pasikuda · white sand &amp; calm water</span>
+        </button>
+        <button type="button" class="tg-item" data-full="/assets/img-eastcoast-08.jpeg" data-cap="East coast · jet-ski spray" aria-label="Open photo 7: East coast · jet-ski spray">
+          <picture><source type="image/webp" srcset="/assets/opt/img-eastcoast-08-400.webp 400w, /assets/opt/img-eastcoast-08-800.webp 800w" sizes="(max-width:640px) 45vw, 220px"><img src="/assets/img-eastcoast-08.jpeg" alt="East coast · jet-ski spray" width="853" height="1280" loading="lazy" decoding="async"></picture>
+          <span class="tg-cap">East coast · jet-ski spray</span>
+        </button>
       </div>
     </section>
 
@@ -318,11 +433,11 @@
       <h2>Frequently asked questions</h2>
       <details>
         <summary>Is The East Coast Escape a private tour?</summary>
-        <p>Yes. Every Majesty Tours itinerary, including The East Coast Escape, is private — your own air-conditioned vehicle and English-speaking chauffeur guide, with no other travellers on your schedule.</p>
+        <p>Yes. Every Majesty Tours itinerary, including The East Coast Escape, is private: your own air-conditioned vehicle and English-speaking chauffeur guide, with no other travellers on your schedule.</p>
       </details>
       <details>
         <summary>Can I customise this itinerary?</summary>
-        <p>Yes. This is a sample itinerary — the route, pace, hotel category and stops can all be adjusted to your interests and travel dates. Tell us what you’d like changed when you enquire.</p>
+        <p>Yes. This is a sample itinerary: the route, pace, hotel category and stops can all be adjusted to your interests and travel dates. Tell us what you’d like changed when you enquire.</p>
       </details>
       <details>
         <summary>Are hotels included?</summary>
@@ -334,7 +449,7 @@
       </details>
       <details>
         <summary>Do I get the free Colombo City Tour with this package?</summary>
-        <p>Yes — every Majesty Tours booking includes a complimentary open-top double-decker sightseeing tour of Colombo at no extra cost.</p>
+        <p>Yes. Every Majesty Tours booking includes a complimentary open-top double-decker sightseeing tour of Colombo at no extra cost.</p>
       </details>
       <details>
         <summary>Why is the East Coast best visited at a different time of year than the rest of Sri Lanka?</summary>
@@ -360,7 +475,7 @@
       <h2>Ready to plan The East Coast Escape?</h2>
       <p>Tell us your travel dates and we'll confirm availability and a final quote.</p>
       <div class="tour-cta-row">
-        <a class="btn btn-gold" href="https://wa.me/94755499691?text=Hi%20Majesty%20Tours!%20I'd%20like%20to%20enquire%20about%20the%20The%20East%20Coast%20Escape%20tour." target="_blank" rel="noopener noreferrer">Enquire on WhatsApp →</a>
+        <a class="btn btn-gold" href="https://wa.me/94755499691?text=Hi%20Majesty%20Tours!%20I'd%20like%20to%20enquire%20about%20the%20The%20East%20Coast%20Escape%20tour." target="_blank" rel="noopener noreferrer" data-lead="whatsapp">Enquire on WhatsApp →</a>
         <a class="btn btn-ghost" href="/#contact">Enquire online</a>
       </div>
     </div>

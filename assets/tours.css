@@ -1,5 +1,5 @@
 /* ============================================================
-   MAJESTY TOURS Sri Lanka — Tour landing pages
+   MAJESTY TOURS Sri Lanka: Tour landing pages
    Extends the shared legal.css design tokens (:root, .wrap,
    .legal-nav, .legal-foot) with tour-page-specific components.
    ============================================================ */
@@ -42,9 +42,55 @@
 .tour-included-grid li{display:flex;align-items:flex-start;gap:.6rem;color:var(--text-muted);font-size:.95rem}
 .tour-included-grid li::before{content:"✓";color:var(--forest);font-weight:700;flex-shrink:0}
 
+/* intro: copy beside a hero photo */
+.tour-intro{display:grid;grid-template-columns:1fr;gap:1.4rem;align-items:start}
+.tour-intro-text h2{margin-bottom:1rem}
+.tour-intro-text p{color:var(--text-muted);margin-bottom:1rem}
+.tour-hero img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--card-border);background:var(--paper-2)}
+@media (min-width:820px){
+  .tour-intro{grid-template-columns:1fr minmax(320px,440px);gap:2rem}
+}
+.tour-subhead{font-size:1rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mid);margin:1.8rem 0 .9rem;font-family:var(--body,inherit);font-weight:500}
+
+/* highlights */
+.tour-highlight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:.7rem .9rem;list-style:none}
+.tour-highlight-grid li{display:flex;align-items:flex-start;gap:.65rem;color:var(--text-muted);font-size:.95rem;background:var(--paper-2);border-radius:8px;padding:.75rem .95rem}
+.tour-highlight-grid li::before{content:"★";color:var(--gold);flex-shrink:0;font-size:.85rem;line-height:1.5}
+
+/* at a glance / good to know */
+.tour-practical-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0 1.6rem}
+.tour-practical-list > div{display:flex;flex-direction:column;gap:.15rem;padding:.8rem 0;border-bottom:1px solid var(--line)}
+.tour-practical-list dt{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid)}
+.tour-practical-list dd{margin:0;color:var(--text-muted);font-size:.95rem}
+.tour-chip-list{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0}
+.tour-chip-list li{border:1px solid var(--card-border);border-radius:999px;padding:.35rem .85rem;font-size:.85rem;color:var(--forest-deep)}
+.tour-route{margin-top:1.1rem;font-size:.88rem;color:var(--text-mid);line-height:1.7}
+
 /* gallery */
-.tour-gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.7rem}
-.tour-gallery-grid img{width:100%;height:150px;object-fit:cover;border-radius:8px;border:1px solid var(--card-border)}
+.tour-gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.7rem}
+.tg-item{position:relative;display:block;padding:0;border:1px solid var(--card-border);border-radius:10px;overflow:hidden;background:var(--paper-2);cursor:zoom-in;font:inherit;text-align:left}
+.tg-item img{width:100%;height:190px;object-fit:cover;display:block;transition:transform .45s var(--ease)}
+.tg-item:hover img,.tg-item:focus-visible img{transform:scale(1.05)}
+.tg-item:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.tg-cap{position:absolute;left:0;right:0;bottom:0;padding:1.6rem .7rem .55rem;font-size:.76rem;line-height:1.35;color:#fff;background:linear-gradient(to top,rgba(10,20,35,.82),rgba(10,20,35,0));opacity:0;transform:translateY(6px);transition:opacity .25s var(--ease),transform .25s var(--ease)}
+.tg-item:hover .tg-cap,.tg-item:focus-visible .tg-cap{opacity:1;transform:none}
+@media (hover:none){.tg-cap{opacity:1;transform:none}}
+
+/* fleet cards */
+.tour-fleet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.2rem}
+.tour-fleet-card{border:1px solid var(--card-border);border-radius:12px;padding:1rem 1.1rem 1.2rem;background:#fff}
+.tour-fleet-card img{width:100%;height:120px;object-fit:contain;margin-bottom:.7rem}
+.tour-fleet-card h3{font-size:1rem;color:var(--navy);margin-bottom:.2rem;border:none}
+.tour-fleet-card .tf-cap{font-size:.8rem;color:var(--forest-deep);font-weight:500;margin-bottom:.5rem}
+.tour-fleet-card p{font-size:.88rem;color:var(--text-muted);margin:0}
+
+/* combination tours: one block per component route */
+.tour-combo-part{border:1px solid var(--card-border);border-radius:12px;padding:1.3rem 1.4rem;margin-bottom:1.4rem;background:#fff}
+.combo-part-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem .9rem;padding-bottom:1rem;margin-bottom:.4rem;border-bottom:1px solid var(--line)}
+.combo-part-num{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);width:100%}
+.combo-part-head h3{font-size:1.2rem;color:var(--navy);margin:0;border:none}
+.combo-part-meta{font-size:.82rem;color:var(--text-mid)}
+.combo-part-link{margin-left:auto;font-size:.85rem;color:var(--forest-deep);white-space:nowrap}
 
 /* itinerary */
 .tour-day{display:flex;gap:1.2rem;padding:1.4rem 0;border-top:1px solid var(--line)}
@@ -83,13 +129,42 @@
 .tour-cta-band p{color:rgba(244,236,224,.78);margin-bottom:1.4rem}
 .tour-cta-band .tour-cta-row{justify-content:center}
 
-/* ---------- TOURS INDEX PAGE ---------- */
+/* ---------- TOURS HUB PAGE ---------- */
+.hub-jump{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem}
+.hub-jump a{border:1px solid rgba(244,236,224,.34);border-radius:999px;padding:.45rem 1rem;font-size:.82rem;color:rgba(244,236,224,.9)}
+.hub-jump a:hover{border-color:var(--gold);color:var(--gold)}
+.hub-lede{color:var(--text-muted);margin:-.5rem 0 1.3rem;max-width:64ch}
+
 .tours-index-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-top:.5rem}
-.tours-index-card{display:block;border:1px solid var(--card-border);border-radius:12px;padding:1.5rem 1.6rem;color:inherit;background:#fff}
-.tours-index-card:hover{border-color:var(--gold);color:inherit}
-.tours-index-card h2{font-size:1.25rem;color:var(--navy);margin-bottom:.4rem;border:none;padding:0}
-.tours-index-card .tic-tags{font-size:.85rem;color:var(--text-mid);margin-bottom:.7rem}
-.tours-index-card .tic-meta{display:flex;justify-content:space-between;font-size:.85rem;color:var(--forest-deep);font-weight:500}
+.tours-index-card{display:flex;flex-direction:column;border:1px solid var(--card-border);border-radius:12px;overflow:hidden;color:inherit;background:#fff;transition:border-color .2s var(--ease),transform .2s var(--ease)}
+.tours-index-card:hover{border-color:var(--gold);color:inherit;transform:translateY(-3px)}
+.tic-media{overflow:hidden;background:var(--paper-2)}
+.tic-media img{width:100%;height:170px;object-fit:cover;display:block;transition:transform .45s var(--ease)}
+.tours-index-card:hover .tic-media img{transform:scale(1.05)}
+.tic-body{display:flex;flex-direction:column;flex:1;padding:1.2rem 1.3rem 1.3rem}
+.tours-index-card h3{font-size:1.18rem;color:var(--navy);margin-bottom:.4rem;border:none;padding:0}
+.tours-index-card .tic-tags{font-size:.85rem;color:var(--text-mid);margin-bottom:.9rem}
+.tours-index-card .tic-meta{display:flex;justify-content:space-between;gap:1rem;margin-top:auto;font-size:.85rem;color:var(--forest-deep);font-weight:500}
+
+/* ---------- GALLERY LIGHTBOX ---------- */
+html.tlb-open{overflow:hidden}
+.tlb{position:fixed;inset:0;z-index:9999;background:rgba(8,16,28,.94);display:flex;align-items:center;justify-content:center}
+.tlb[hidden]{display:none}
+.tlb-stage{max-width:min(1200px,94vw);max-height:80vh;display:flex;align-items:center;justify-content:center}
+.tlb-stage img{max-width:min(1200px,94vw);max-height:80vh;width:auto;height:auto;border-radius:6px;box-shadow:0 24px 70px rgba(0,0,0,.55)}
+.tlb-bar{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem clamp(1rem,4vw,2.4rem) 1.4rem;color:rgba(244,236,224,.9);font-size:.86rem}
+.tlb-count{flex-shrink:0;color:rgba(244,236,224,.6);font-variant-numeric:tabular-nums}
+.tlb-x,.tlb-nav{position:absolute;background:rgba(244,236,224,.1);border:1px solid rgba(244,236,224,.28);color:var(--paper);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s var(--ease),border-color .2s var(--ease)}
+.tlb-x:hover,.tlb-nav:hover{background:rgba(244,236,224,.2);border-color:var(--gold)}
+.tlb-x:focus-visible,.tlb-nav:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.tlb-x{top:clamp(.8rem,3vw,1.6rem);right:clamp(.8rem,3vw,1.6rem);width:2.6rem;height:2.6rem;font-size:1rem}
+.tlb-nav{top:50%;transform:translateY(-50%);width:3rem;height:3rem;font-size:1.9rem;line-height:1;padding-bottom:.2rem}
+.tlb-prev{left:clamp(.5rem,2vw,1.6rem)}
+.tlb-next{right:clamp(.5rem,2vw,1.6rem)}
+@media (max-width:640px){
+  .tlb-stage,.tlb-stage img{max-height:70vh}
+  .tlb-nav{width:2.5rem;height:2.5rem;font-size:1.5rem}
+}
 
 /* ---------- DRAFT / TODO markers (Phase 3 pages) ---------- */
 .draft-banner{background:#fff6df;border:1px solid #e3c675;color:#6b5215;border-radius:10px;padding:1rem 1.3rem;margin-bottom:1.6rem;font-size:.9rem}
@@ -103,4 +178,24 @@
 @media (max-width:640px){
   .tour-day{flex-direction:column;gap:.6rem}
   .tour-day-num{width:2.6rem;height:2.6rem;font-size:.95rem}
+  /* Two columns rather than one full-width tile per photo: a 12–19 photo
+     gallery is otherwise an enormous scroll, and it keeps the rendered
+     tile close to the 45vw the srcset `sizes` attribute promises. */
+  .tour-gallery-grid{grid-template-columns:repeat(2,1fr);gap:.5rem}
+  .tg-item img{height:140px}
+  .tg-cap{font-size:.7rem;padding:1.2rem .5rem .45rem}
+  .combo-part-link{margin-left:0;width:100%}
+}
+
+/* ---------- REDUCED MOTION ----------
+   PRODUCT.md targets WCAG AA with reduced-motion alternatives for every
+   animation. styles.css already covers the homepage; these are the
+   transforms introduced by the tour-page components. */
+@media (prefers-reduced-motion:reduce){
+  .btn:hover{transform:none}
+  .tours-index-card:hover{transform:none}
+  .tours-index-card:hover .tic-media img{transform:none}
+  .tg-item img,.tic-media img{transition:none}
+  .tg-item:hover img,.tg-item:focus-visible img{transform:none}
+  .tg-cap{transition:none;transform:none}
 }

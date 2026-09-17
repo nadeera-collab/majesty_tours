@@ -58,15 +58,15 @@ collections:
             allow_remove: false
             allow_reorder: false
             minimize_collapsed: true
-            hint: "Tours can't be added, removed, or reordered here — each one maps to a fixed block of hand-built HTML (itinerary, images, booking button) on the site by position. Doing so would scramble which content shows under which title."
+            hint: "Tours can't be added, removed, or reordered here. Each one maps to a fixed block of hand-built HTML (itinerary, images, booking button) on the site by position. Doing so would scramble which content shows under which title."
             fields:
               - { label: "Name", name: "name", widget: "string" }
               - { label: "Tags / Destinations", name: "tags", widget: "string" }
               - { label: "Price (e.g. from $390)", name: "price", widget: "string" }
               - { label: "Duration (e.g. 4 days · private)", name: "duration", widget: "string" }
-              - { label: "Route (internal reference — not currently displayed on the site)", name: "route", widget: "text", required: false }
+              - { label: "Route (internal reference, not currently displayed on the site)", name: "route", widget: "text", required: false }
               - { label: "Overview", name: "overview", widget: "text", required: false }
-              - { label: "URL slug (tour page address, e.g. /tours/hill-country-ella-tea-tour/) — changing this moves the live page, so edit with care", name: "slug", widget: "string", required: false }
+              - { label: "URL slug (tour page address, e.g. /tours/hill-country-ella-tea-tour/). Changing this moves the live page, so edit with care", name: "slug", widget: "string", required: false }
               - { label: "SEO title (browser tab / Google result title for this tour's page)", name: "seo_title", widget: "string", required: false }
               - { label: "Meta description (140–160 characters, shown under the title in Google)", name: "meta_description", widget: "text", required: false }
               - label: "Slideshow Images"
@@ -76,7 +76,7 @@ collections:
                 allow_remove: false
                 minimize_collapsed: true
                 summary: "{{fields.caption}}"
-                hint: "Photos can't be added or removed — each tour has a fixed number of slide slots on the site, so a new photo here would silently never show, and removing one would leave a stale slide behind. Reordering is fine; only edit Photo/Caption in place."
+                hint: "Photos can't be added or removed. Each tour has a fixed number of slide slots on the site, so a new photo here would silently never show, and removing one would leave a stale slide behind. Reordering is fine; only edit Photo/Caption in place."
                 fields:
                   - { label: "Photo", name: "image", widget: "image", required: false }
                   - { label: "Caption", name: "caption", widget: "string", required: false }
@@ -85,7 +85,7 @@ collections:
                 widget: "list"
                 required: false
                 minimize_collapsed: true
-                summary: "{{fields.day}} — {{fields.title}}"
+                summary: "{{fields.day}}: {{fields.title}}"
                 fields:
                   - { label: "Day Label (e.g. Day 1)", name: "day", widget: "string" }
                   - { label: "Title", name: "title", widget: "string" }
@@ -151,7 +151,7 @@ collections:
                 field: { label: "Destination", name: "destination", widget: "string" }
               - { label: "Why Choose This Tour?", name: "whyChoose", widget: "text", required: false }
 
-          - label: "Day Trips (draft — new products, uncheck Draft to publish)"
+          - label: "Day Trips (draft: new products, uncheck Draft to publish)"
             name: "dayTrips"
             widget: "list"
             allow_add: true
@@ -159,7 +159,7 @@ collections:
             allow_reorder: true
             minimize_collapsed: true
             summary: "{{fields.name}}{{fields.draft}}"
-            hint: "Unlike Tours above, these can be freely added/removed — they're new pages, not fixed HTML blocks. While Draft is checked, the page is noindex and left out of the sitemap."
+            hint: "Unlike Tours above, these can be freely added/removed: they're new pages, not fixed HTML blocks. While Draft is checked, the page is noindex and left out of the sitemap."
             fields:
               - { label: "Name", name: "name", widget: "string" }
               - { label: "URL slug", name: "slug", widget: "string" }
@@ -175,10 +175,63 @@ collections:
                 widget: "list"
                 required: false
                 field: { label: "Inclusion", name: "inclusion", widget: "string" }
+              - label: "Hero photo (large photo beside the Overview; defaults to the first gallery photo)"
+                name: "heroImage"
+                widget: "image"
+                required: false
+              - label: "Photos (gallery grid + lightbox)"
+                name: "images"
+                widget: "list"
+                required: false
+                summary: "{{fields.caption}}"
+                fields:
+                  - { label: "Photo", name: "image", widget: "image", required: false }
+                  - { label: "Caption", name: "caption", widget: "string", required: false }
+              - label: "Highlights (shown as a grid of starred points)"
+                name: "highlights"
+                widget: "list"
+                required: false
+                field: { label: "Highlight", name: "highlight", widget: "string" }
+              - label: "Itinerary / how it runs"
+                name: "itinerary"
+                widget: "list"
+                required: false
+                minimize_collapsed: true
+                summary: "{{fields.day}}: {{fields.title}}"
+                hint: "For a day trip, use the Stage field for “Early morning”, “Midday”, etc. rather than “Day 1”."
+                fields:
+                  - { label: "Stage or day label", name: "day", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "text", widget: "text" }
+                  - label: "Highlights"
+                    name: "highlights"
+                    widget: "list"
+                    required: false
+                    field: { label: "Highlight", name: "highlight", widget: "string" }
+                  - { label: "Overnight stay (multi-day trips only)", name: "overnight", widget: "string", required: false }
+              - label: "Good to know (label + value rows)"
+                name: "practical"
+                widget: "list"
+                required: false
+                minimize_collapsed: true
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Value", name: "value", widget: "text" }
+              - { label: "Best time to go", name: "bestTime", widget: "text", required: false }
+              - label: "FAQs (also published as FAQ schema for Google)"
+                name: "faqs"
+                widget: "list"
+                required: false
+                minimize_collapsed: true
+                summary: "{{fields.q}}"
+                fields:
+                  - { label: "Question", name: "q", widget: "string" }
+                  - { label: "Answer", name: "a", widget: "text" }
               - { label: "Related tour slug (links back to a real tour page)", name: "relatedTourSlug", widget: "string", required: false }
               - { label: "Draft (uncheck to publish: adds to sitemap, allows indexing)", name: "draft", widget: "boolean", default: true }
 
-          - label: "Experiences (draft — new products, uncheck Draft to publish)"
+          - label: "Experiences (draft: new products, uncheck Draft to publish)"
             name: "experiences"
             widget: "list"
             allow_add: true
@@ -186,7 +239,7 @@ collections:
             allow_reorder: true
             minimize_collapsed: true
             summary: "{{fields.name}}{{fields.draft}}"
-            hint: "Unlike Tours above, these can be freely added/removed — they're new pages, not fixed HTML blocks. While Draft is checked, the page is noindex and left out of the sitemap."
+            hint: "Unlike Tours above, these can be freely added/removed: they're new pages, not fixed HTML blocks. While Draft is checked, the page is noindex and left out of the sitemap."
             fields:
               - { label: "Name", name: "name", widget: "string" }
               - { label: "URL slug", name: "slug", widget: "string" }
@@ -198,7 +251,11 @@ collections:
               - { label: "Price (leave blank to show “Priced on request” and point to WhatsApp)", name: "price", widget: "string", required: false }
               - { label: "Duration (leave blank to show “Priced on request” and point to WhatsApp)", name: "duration", widget: "string", required: false }
               - { label: "Price note (only used if Price is filled in)", name: "priceNote", widget: "text", required: false }
-              - label: "Photos (optional)"
+              - label: "Hero photo (large photo beside the Overview; defaults to the first gallery photo)"
+                name: "heroImage"
+                widget: "image"
+                required: false
+              - label: "Photos (gallery grid + lightbox)"
                 name: "images"
                 widget: "list"
                 required: false
@@ -206,6 +263,58 @@ collections:
                 fields:
                   - { label: "Photo", name: "image", widget: "image", required: false }
                   - { label: "Caption", name: "caption", widget: "string", required: false }
+              - label: "Highlights (shown as a grid of starred points)"
+                name: "highlights"
+                widget: "list"
+                required: false
+                field: { label: "Highlight", name: "highlight", widget: "string" }
+              - label: "Itinerary / how it runs"
+                name: "itinerary"
+                widget: "list"
+                required: false
+                minimize_collapsed: true
+                summary: "{{fields.day}}: {{fields.title}}"
+                hint: "For a day trip, use the Stage field for “Early morning”, “Midday”, etc. rather than “Day 1”."
+                fields:
+                  - { label: "Stage or day label", name: "day", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "text", widget: "text" }
+                  - label: "Highlights"
+                    name: "highlights"
+                    widget: "list"
+                    required: false
+                    field: { label: "Highlight", name: "highlight", widget: "string" }
+                  - { label: "Overnight stay (multi-day trips only)", name: "overnight", widget: "string", required: false }
+              - label: "Good to know (label + value rows)"
+                name: "practical"
+                widget: "list"
+                required: false
+                minimize_collapsed: true
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Value", name: "value", widget: "text" }
+              - { label: "Best time to go", name: "bestTime", widget: "text", required: false }
+              - label: "FAQs (also published as FAQ schema for Google)"
+                name: "faqs"
+                widget: "list"
+                required: false
+                minimize_collapsed: true
+                summary: "{{fields.q}}"
+                fields:
+                  - { label: "Question", name: "q", widget: "string" }
+                  - { label: "Answer", name: "a", widget: "text" }
+              - label: "Vehicle cards (only used on the transfer page)"
+                name: "fleet"
+                widget: "list"
+                required: false
+                minimize_collapsed: true
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: "Vehicle", name: "name", widget: "string" }
+                  - { label: "Capacity", name: "capacity", widget: "string" }
+                  - { label: "Photo", name: "image", widget: "image", required: false }
+                  - { label: "Note", name: "note", widget: "text" }
               - label: "What's included"
                 name: "inclusions"
                 widget: "list"
@@ -214,7 +323,7 @@ collections:
               - { label: "Related tour slug (links back to a real tour page, optional)", name: "relatedTourSlug", widget: "string", required: false }
               - { label: "Draft (uncheck to publish: adds to sitemap, allows indexing)", name: "draft", widget: "boolean", default: true }
 
-          - label: "Extended / Combination Tours (draft — new products, uncheck Draft to publish)"
+          - label: "Extended / Combination Tours (draft: new products, uncheck Draft to publish)"
             name: "extendedTours"
             widget: "list"
             allow_add: true
@@ -237,8 +346,24 @@ collections:
                 field: { label: "Tour slug", name: "tourSlug", widget: "string" }
               - { label: "Price (auto-derivable as the sum of the component tours' prices)", name: "price", widget: "string", required: false }
               - { label: "Duration (auto-derivable as the sum of the component tours' durations)", name: "duration", widget: "string", required: false }
-              - { label: "Price note (shown on the page — explains the price derivation)", name: "priceNote", widget: "text", required: false }
+              - { label: "Price note (shown on the page, explains the price derivation)", name: "priceNote", widget: "text", required: false }
               - { label: "Duration note (shown on the page, optional)", name: "durationNote", widget: "text", required: false }
+              - label: "Hero photo (defaults to the first photo of the first component tour)"
+                name: "heroImage"
+                widget: "image"
+                required: false
+              - { label: "Lede (one line under the title)", name: "lede", widget: "text", required: false }
+              - label: "Why this combination"
+                name: "whyThis"
+                widget: "list"
+                required: false
+                field: { label: "Point", name: "point", widget: "string" }
+              - { label: "Best time to go", name: "bestTime", widget: "text", required: false }
+              - label: "Optional add-ons (honeymoon-style extras, shown as their own block)"
+                name: "addOns"
+                widget: "list"
+                required: false
+                field: { label: "Add-on", name: "addOn", widget: "string" }
               - { label: "Draft (uncheck to publish: adds to sitemap, allows indexing)", name: "draft", widget: "boolean", default: true }
 
       - label: "Gallery Photos"

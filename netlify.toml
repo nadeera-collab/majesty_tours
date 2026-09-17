@@ -7,7 +7,51 @@
   [headers.values]
     X-Robots-Tag = "noindex"
 
-# Raw data files and the orphaned source-photo dump — not pages, shouldn't
+# Netlify's default for static files is "public, max-age=0, must-revalidate",
+# which means every photo on a page costs a conditional request on every
+# repeat view. On the 19-photo Grand Island page that's 19 round trips
+# before anything renders. The generated derivatives in /assets/opt/ are
+# content-addressed by width and never change in place (a new photo gets a
+# new name), so they're safe to cache hard.
+[[headers]]
+  for = "/assets/opt/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Source photos and videos are replaced rarely and only by an explicit
+# upload, so a week of caching makes repeat visits far cheaper. These
+# prefixes are deliberately narrow so they can't also match a file under
+# /assets/opt/. Netlify applies every matching rule, and two rules
+# setting Cache-Control on one path would emit it twice.
+[[headers]]
+  for = "/assets/img-*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+[[headers]]
+  for = "/assets/vid-*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+[[headers]]
+  for = "/assets/wiki-*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+[[headers]]
+  for = "/assets/fleet/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
+# CSS and JS are not fingerprinted, so they keep a short cache and always
+# revalidate, because a deploy has to be able to change them immediately.
+[[headers]]
+  for = "/assets/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+[[headers]]
+  for = "/assets/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# Raw data files and the orphaned source-photo dump are not pages and shouldn't
 # be indexed. assets/tour-details/*.jpeg (93 unrenamed "WhatsApp Image..."
 # files, ~16MB) aren't referenced anywhere in index.html or app.js.
 [[headers]]
@@ -20,10 +64,10 @@
     X-Robots-Tag = "noindex"
 
 # URL scheme: extensionless is canonical (Google already indexed /privacy,
-# not /privacy.html — a live check confirmed this before Netlify's own
+# not /privacy.html; a live check confirmed this before Netlify's own
 # default "pretty URLs" redirect even runs). Explicit rules here so the
 # .html form always 301s, and index.html -> / for the homepage.
-# NOTE: this direction matters — a rule redirecting extensionless -> .html
+# NOTE: this direction matters. A rule redirecting extensionless -> .html
 # would fight Netlify's default pretty-URL behavior (which already 301s
 # .html -> extensionless) and create a redirect loop. Don't reverse it.
 [[redirects]]
@@ -53,7 +97,7 @@
   force = true
 
 # Generated tour/day-trip/experience pages are directories with their own
-# index.html (e.g. /tours/foo/index.html) — force the trailing slash so
+# index.html (e.g. /tours/foo/index.html). Force the trailing slash so
 # there's one canonical form instead of both /tours/foo and /tours/foo/.
 [[redirects]]
   from = "/tours/:slug"

@@ -7,3 +7,8 @@ majesty contents/
 
 # Editor
 .vscode/
+
+# Local-only tooling (sharp, for scripts/optimize-images.mjs).
+# The deploy build is deliberately dependency-free.
+node_modules/
+package-lock.json

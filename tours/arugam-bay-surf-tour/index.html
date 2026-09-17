@@ -31,6 +31,8 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap"></noscript>
 <link rel="stylesheet" href="/assets/legal.css">
 <link rel="stylesheet" href="/assets/tours.css">
+<link rel="preload" as="image" type="image/webp" imagesrcset="/assets/opt/img-arugam-01-400.webp 400w, /assets/opt/img-arugam-01-800.webp 800w" imagesizes="(max-width:820px) 92vw, 440px">
+<script src="/assets/tour-page.js" defer></script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V924557NG6"></script>
@@ -49,6 +51,14 @@
       "@id": "https://majestytourssrilanka.com/tours/arugam-bay-surf-tour/#trip",
       "name": "The Arugam Bay Surf Escape",
       "description": "Discover the beauty of Sri Lanka's famous surfing destination on an unforgettable journey featuring world-class surfing, pristine beaches, exciting water activities, diverse wildlife, breathtaking lagoons, and cultural experiences. Ride the legendary waves of Arugam Bay, explore the natural wonders of Kumana National Park, enjoy a peaceful lagoon safari, relax on golden beaches, and conclude your journey with a guided Colombo city experience before your departure.",
+      "image": [
+        "https://majestytourssrilanka.com/assets/img-arugam-01.jpeg",
+        "https://majestytourssrilanka.com/assets/img-arugam-02.jpeg",
+        "https://majestytourssrilanka.com/assets/img-arugam-03.jpeg",
+        "https://majestytourssrilanka.com/assets/img-arugam-04.jpeg",
+        "https://majestytourssrilanka.com/assets/img-arugam-05.jpeg",
+        "https://majestytourssrilanka.com/assets/img-arugam-06.jpeg"
+      ],
       "touristType": [
         "Surfers",
         "Couples",
@@ -123,7 +133,7 @@
           "name": "Is The Arugam Bay Surf Escape a private tour?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Every Majesty Tours itinerary, including The Arugam Bay Surf Escape, is private — your own air-conditioned vehicle and English-speaking chauffeur guide, with no other travellers on your schedule."
+            "text": "Yes. Every Majesty Tours itinerary, including The Arugam Bay Surf Escape, is private: your own air-conditioned vehicle and English-speaking chauffeur guide, with no other travellers on your schedule."
           }
         },
         {
@@ -131,7 +141,7 @@
           "name": "Can I customise this itinerary?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. This is a sample itinerary — the route, pace, hotel category and stops can all be adjusted to your interests and travel dates. Tell us what you’d like changed when you enquire."
+            "text": "Yes. This is a sample itinerary: the route, pace, hotel category and stops can all be adjusted to your interests and travel dates. Tell us what you’d like changed when you enquire."
           }
         },
         {
@@ -155,7 +165,7 @@
           "name": "Do I get the free Colombo City Tour with this package?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — every Majesty Tours booking includes a complimentary open-top double-decker sightseeing tour of Colombo at no extra cost."
+            "text": "Yes. Every Majesty Tours booking includes a complimentary open-top double-decker sightseeing tour of Colombo at no extra cost."
           }
         },
         {
@@ -163,10 +173,33 @@
           "name": "Do I need to be an experienced surfer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No — Arugam Bay has breaks and board/lesson arrangements suited to beginners as well as its famous experienced-surfer points; let us know your level when you enquire."
+            "text": "No. Arugam Bay has breaks and board/lesson arrangements suited to beginners as well as its famous experienced-surfer points; let us know your level when you enquire."
           }
         }
       ]
+    },
+    {
+      "@type": "TravelAgency",
+      "@id": "https://majestytourssrilanka.com/#agency",
+      "name": "Majesty Tours",
+      "url": "https://majestytourssrilanka.com/",
+      "logo": "https://majestytourssrilanka.com/logo-shield.png",
+      "image": "https://majestytourssrilanka.com/assets/og-image.jpg",
+      "telephone": "+94755499691",
+      "email": "info@majestytourssrilanka.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "14 Sir Baron Jayathilake Mawatha",
+        "addressLocality": "Colombo",
+        "postalCode": "00100",
+        "addressCountry": "LK"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Sri Lanka"
+      },
+      "foundingDate": "2009",
+      "priceRange": "$390-$1990"
     }
   ]
 }
@@ -179,7 +212,7 @@
 <nav class="legal-nav">
   <div class="wrap">
     <a href="/" class="legal-logo" aria-label="Majesty Tours home">
-      <img src="/assets/logo-shield-dark.png" alt="" width="34" height="41">
+      <picture><source type="image/webp" srcset="/assets/opt/logo-shield-dark-68.webp 68w, /assets/opt/logo-shield-dark-136.webp 136w" sizes="34px"><img src="/assets/logo-shield-dark.png" alt="" width="200" height="200" loading="eager" decoding="async"></picture>
       <span>
         <span class="name">Majesty Tours</span>
         <span class="tag">Your travel with our care</span>
@@ -206,7 +239,7 @@
       <span class="tour-fact">Free Colombo City Tour</span>
     </div>
     <div class="tour-cta-row">
-      <a class="btn btn-gold" href="https://wa.me/94755499691?text=Hi%20Majesty%20Tours!%20I'd%20like%20to%20enquire%20about%20the%20The%20Arugam%20Bay%20Surf%20Escape%20tour." target="_blank" rel="noopener noreferrer">Enquire on WhatsApp →</a>
+      <a class="btn btn-gold" href="https://wa.me/94755499691?text=Hi%20Majesty%20Tours!%20I'd%20like%20to%20enquire%20about%20the%20The%20Arugam%20Bay%20Surf%20Escape%20tour." target="_blank" rel="noopener noreferrer" data-lead="whatsapp">Enquire on WhatsApp →</a>
       <a class="btn btn-ghost" href="/#contact">Enquire online</a>
     </div>
   </div>
@@ -216,8 +249,15 @@
   <div class="wrap">
 
     <section class="tour-section tour-overview">
-      <h2>Overview</h2>
-      <p>Discover the beauty of Sri Lanka's famous surfing destination on an unforgettable journey featuring world-class surfing, pristine beaches, exciting water activities, diverse wildlife, breathtaking lagoons, and cultural experiences. Ride the legendary waves of Arugam Bay, explore the natural wonders of Kumana National Park, enjoy a peaceful lagoon safari, relax on golden beaches, and conclude your journey with a guided Colombo city experience before your departure.</p>
+      <div class="tour-intro">
+        <div class="tour-intro-text">
+          <h2>Overview</h2>
+          <p>Discover the beauty of Sri Lanka's famous surfing destination on an unforgettable journey featuring world-class surfing, pristine beaches, exciting water activities, diverse wildlife, breathtaking lagoons, and cultural experiences. Ride the legendary waves of Arugam Bay, explore the natural wonders of Kumana National Park, enjoy a peaceful lagoon safari, relax on golden beaches, and conclude your journey with a guided Colombo city experience before your departure.</p>
+          <p>Experience the excitement of Sri Lanka's most famous surfing destination with the comfort of a private vehicle and an experienced chauffeur guide. Enjoy surfing sessions at Arugam Bay, one of the world's most popular surfing locations, with optional lessons and equipment arrangements available for beginners and experienced surfers. Explore the peaceful waters of Pottuvil Lagoon, discover the incredible wildlife of Kumana National Park including elephants, leopards, crocodiles, and exotic birds, and complete your journey with a guided Colombo city tour before your airport transfer. Carefully designed to combine adventure, beach relaxation, wildlife, and sightseeing, this itinerary offers an unforgettable Sri Lankan holiday experience.</p>
+        </div>
+        <div class="tour-hero"><picture><source type="image/webp" srcset="/assets/opt/img-arugam-01-400.webp 400w, /assets/opt/img-arugam-01-800.webp 800w" sizes="(max-width:820px) 92vw, 440px"><img src="/assets/img-arugam-01.jpeg" alt="Arugam Bay · fishing boats at rest" width="1280" height="960" loading="eager" fetchpriority="high" decoding="async"></picture></div>
+      </div>
+      <h3 class="tour-subhead">What's included</h3>
       <ul class="tour-included-grid">
         <li>2 Nights Accommodation</li>
         <li>Daily Breakfast &amp; Dinner</li>
@@ -230,16 +270,71 @@
       </ul>
     </section>
 
-    <section class="tour-section tour-gallery">
+    <section class="tour-section tour-highlights">
+      <h2>Trip highlights</h2>
+      <ul class="tour-highlight-grid">
+        <li>Arugam Bay Beach</li>
+        <li>Surfing Sessions</li>
+        <li>Pottuvil Lagoon Safari</li>
+        <li>Mangrove Forests</li>
+        <li>Bird Watching</li>
+        <li>Kumana National Park Safari</li>
+        <li>Leopards, Elephants &amp; Sloth Bears</li>
+        <li>Crocodiles &amp; Wildlife</li>
+        <li>Colombo City Tour</li>
+        <li>Shopping Experience</li>
+        <li>Scenic Road Trip</li>
+      </ul>
+    </section>
+
+    <section class="tour-section tour-practical">
+      <h2>Trip at a glance</h2>
+      <dl class="tour-practical-list">
+        <div><dt>Duration</dt><dd>3 Days / 2 Nights</dd></div>
+        <div><dt>Tour type</dt><dd>Private Tour</dd></div>
+        <div><dt>Starts</dt><dd>Bandaranaike International Airport (BIA)</dd></div>
+        <div><dt>Ends</dt><dd>Bandaranaike International Airport (BIA)</dd></div>
+        <div><dt>Destinations</dt><dd>4</dd></div>
+        <div><dt>National parks</dt><dd>1</dd></div>
+        <div><dt>Best for</dt><dd>Surfers · Couples · Families · Friends · Solo Travelers</dd></div>
+      </dl>
+      <h3 class="tour-subhead">Destinations covered</h3>
+      <ul class="tour-chip-list">
+        <li>Arugam Bay</li>
+        <li>Pottuvil</li>
+        <li>Kumana National Park</li>
+        <li>Colombo</li>
+      </ul>
+      <p class="tour-route"><strong>Route:</strong> Bandaranaike International Airport (BIA) → Arugam Bay → Kumana National Park → Colombo → Bandaranaike International Airport (BIA)</p>
+    </section>
+
+    <section class="tour-section tour-gallery" id="gallery">
       <h2>Gallery</h2>
-      <div class="tour-gallery-grid">
-        <img src="/assets/img-arugam-01.jpeg" alt="Arugam Bay · fishing boats at rest" loading="lazy" width="400" height="300">
-        <img src="/assets/img-arugam-02.jpeg" alt="Arugam Bay · catching a wave" loading="lazy" width="400" height="300">
-        <img src="/assets/img-arugam-03.jpeg" alt="Kumana · spotted deer" loading="lazy" width="400" height="300">
-        <img src="/assets/img-arugam-04.jpeg" alt="Kumana · a peacock's call" loading="lazy" width="400" height="300">
-        <img src="/assets/img-arugam-05.jpeg" alt="Kumana · birdlife at dusk" loading="lazy" width="400" height="300">
-        <img src="/assets/img-arugam-06.jpeg" alt="Kumana · crocodile and painted stork" loading="lazy" width="400" height="300">
-        <img src="/assets/img-arugam-07.jpeg" alt="Arugam Bay · boards ready to go" loading="lazy" width="400" height="300">
+      <div class="tour-gallery-grid" data-lightbox>
+        <button type="button" class="tg-item" data-full="/assets/img-arugam-02.jpeg" data-cap="Arugam Bay · catching a wave" aria-label="Open photo 1: Arugam Bay · catching a wave">
+          <picture><source type="image/webp" srcset="/assets/opt/img-arugam-02-400.webp 400w, /assets/opt/img-arugam-02-800.webp 800w" sizes="(max-width:640px) 45vw, 220px"><img src="/assets/img-arugam-02.jpeg" alt="Arugam Bay · catching a wave" width="1280" height="696" loading="lazy" decoding="async"></picture>
+          <span class="tg-cap">Arugam Bay · catching a wave</span>
+        </button>
+        <button type="button" class="tg-item" data-full="/assets/img-arugam-03.jpeg" data-cap="Kumana · spotted deer" aria-label="Open photo 2: Kumana · spotted deer">
+          <picture><source type="image/webp" srcset="/assets/opt/img-arugam-03-400.webp 400w, /assets/opt/img-arugam-03-800.webp 800w" sizes="(max-width:640px) 45vw, 220px"><img src="/assets/img-arugam-03.jpeg" alt="Kumana · spotted deer" width="1280" height="720" loading="lazy" decoding="async"></picture>
+          <span class="tg-cap">Kumana · spotted deer</span>
+        </button>
+        <button type="button" class="tg-item" data-full="/assets/img-arugam-04.jpeg" data-cap="Kumana · a peacock's call" aria-label="Open photo 3: Kumana · a peacock's call">
+          <picture><source type="image/webp" srcset="/assets/opt/img-arugam-04-400.webp 400w, /assets/opt/img-arugam-04-800.webp 800w" sizes="(max-width:640px) 45vw, 220px"><img src="/assets/img-arugam-04.jpeg" alt="Kumana · a peacock's call" width="1280" height="853" loading="lazy" decoding="async"></picture>
+          <span class="tg-cap">Kumana · a peacock's call</span>
+        </button>
+        <button type="button" class="tg-item" data-full="/assets/img-arugam-05.jpeg" data-cap="Kumana · birdlife at dusk" aria-label="Open photo 4: Kumana · birdlife at dusk">
+          <picture><source type="image/webp" srcset="/assets/opt/img-arugam-05-400.webp 400w, /assets/opt/img-arugam-05-800.webp 800w" sizes="(max-width:640px) 45vw, 220px"><img src="/assets/img-arugam-05.jpeg" alt="Kumana · birdlife at dusk" width="853" height="1280" loading="lazy" decoding="async"></picture>
+          <span class="tg-cap">Kumana · birdlife at dusk</span>
+        </button>
+        <button type="button" class="tg-item" data-full="/assets/img-arugam-06.jpeg" data-cap="Kumana · crocodile and painted stork" aria-label="Open photo 5: Kumana · crocodile and painted stork">
+          <picture><source type="image/webp" srcset="/assets/opt/img-arugam-06-400.webp 400w, /assets/opt/img-arugam-06-800.webp 800w" sizes="(max-width:640px) 45vw, 220px"><img src="/assets/img-arugam-06.jpeg" alt="Kumana · crocodile and painted stork" width="1280" height="910" loading="lazy" decoding="async"></picture>
+          <span class="tg-cap">Kumana · crocodile and painted stork</span>
+        </button>
+        <button type="button" class="tg-item" data-full="/assets/img-arugam-07.jpeg" data-cap="Arugam Bay · boards ready to go" aria-label="Open photo 6: Arugam Bay · boards ready to go">
+          <picture><source type="image/webp" srcset="/assets/opt/img-arugam-07-400.webp 400w, /assets/opt/img-arugam-07-800.webp 800w" sizes="(max-width:640px) 45vw, 220px"><img src="/assets/img-arugam-07.jpeg" alt="Arugam Bay · boards ready to go" width="853" height="1280" loading="lazy" decoding="async"></picture>
+          <span class="tg-cap">Arugam Bay · boards ready to go</span>
+        </button>
       </div>
     </section>
 
@@ -283,7 +378,7 @@
     <section class="tour-section tour-season">
       <h2>Best time to go</h2>
       <div class="tour-season-box">
-        <p>Arugam Bay’s surf season runs May to September, the same dry stretch that favours the whole East Coast — outside those months the swell and weather are far less reliable.</p>
+        <p>Arugam Bay’s surf season runs May to September, the same dry stretch that favours the whole East Coast. Outside those months the swell and weather are far less reliable.</p>
         <p><strong>Best months for this route:</strong> Apr, May, Jun, Jul, Aug, Sep.</p>
       </div>
     </section>
@@ -292,11 +387,11 @@
       <h2>Frequently asked questions</h2>
       <details>
         <summary>Is The Arugam Bay Surf Escape a private tour?</summary>
-        <p>Yes. Every Majesty Tours itinerary, including The Arugam Bay Surf Escape, is private — your own air-conditioned vehicle and English-speaking chauffeur guide, with no other travellers on your schedule.</p>
+        <p>Yes. Every Majesty Tours itinerary, including The Arugam Bay Surf Escape, is private: your own air-conditioned vehicle and English-speaking chauffeur guide, with no other travellers on your schedule.</p>
       </details>
       <details>
         <summary>Can I customise this itinerary?</summary>
-        <p>Yes. This is a sample itinerary — the route, pace, hotel category and stops can all be adjusted to your interests and travel dates. Tell us what you’d like changed when you enquire.</p>
+        <p>Yes. This is a sample itinerary: the route, pace, hotel category and stops can all be adjusted to your interests and travel dates. Tell us what you’d like changed when you enquire.</p>
       </details>
       <details>
         <summary>Are hotels included?</summary>
@@ -308,11 +403,11 @@
       </details>
       <details>
         <summary>Do I get the free Colombo City Tour with this package?</summary>
-        <p>Yes — every Majesty Tours booking includes a complimentary open-top double-decker sightseeing tour of Colombo at no extra cost.</p>
+        <p>Yes. Every Majesty Tours booking includes a complimentary open-top double-decker sightseeing tour of Colombo at no extra cost.</p>
       </details>
       <details>
         <summary>Do I need to be an experienced surfer?</summary>
-        <p>No — Arugam Bay has breaks and board/lesson arrangements suited to beginners as well as its famous experienced-surfer points; let us know your level when you enquire.</p>
+        <p>No. Arugam Bay has breaks and board/lesson arrangements suited to beginners as well as its famous experienced-surfer points; let us know your level when you enquire.</p>
       </details>
     </section>
 
@@ -334,7 +429,7 @@
       <h2>Ready to plan The Arugam Bay Surf Escape?</h2>
       <p>Tell us your travel dates and we'll confirm availability and a final quote.</p>
       <div class="tour-cta-row">
-        <a class="btn btn-gold" href="https://wa.me/94755499691?text=Hi%20Majesty%20Tours!%20I'd%20like%20to%20enquire%20about%20the%20The%20Arugam%20Bay%20Surf%20Escape%20tour." target="_blank" rel="noopener noreferrer">Enquire on WhatsApp →</a>
+        <a class="btn btn-gold" href="https://wa.me/94755499691?text=Hi%20Majesty%20Tours!%20I'd%20like%20to%20enquire%20about%20the%20The%20Arugam%20Bay%20Surf%20Escape%20tour." target="_blank" rel="noopener noreferrer" data-lead="whatsapp">Enquire on WhatsApp →</a>
         <a class="btn btn-ghost" href="/#contact">Enquire online</a>
       </div>
     </div>
