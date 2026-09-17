@@ -55,7 +55,7 @@
         if(b) durEl.appendChild(b);
         durEl.appendChild(document.createTextNode(t.duration));
       }
-      // keep the cart button's identity in sync — it's read at click time
+      // keep the cart button's identity in sync, because it's read at click time
       // (see cartToggle wiring), so a CMS rename/price-change must update
       // these or the cart keeps adding the tour under its old name/price.
       const cartBtn = wrap.querySelector('.tour-cart-btn');
@@ -66,7 +66,7 @@
     });
 
     // the map and "when to go" widgets keep their own price copy (they can
-    // render before this fetch resolves) — push the CMS's live prices into
+    // render before this fetch resolves), so push the CMS's live prices into
     // them too, or a price edit here would never show up over there.
     window.__mtToursData = tours;
     if(window.__mtSyncRoutePrices) window.__mtSyncRoutePrices(tours);
@@ -305,7 +305,7 @@ const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
 const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
 let heroGoTo=null;
 
-/* opens a tour's accordion card and scrolls to it — shared by the map's route panel and the season section */
+/* opens a tour's accordion card and scrolls to it. Shared by the map's route panel and the season section */
 function openTourByIndex(idx){
   const wrap=document.querySelector(`.tour-wrap[data-tour-index="${idx}"]`);
   if(!wrap)return;
@@ -732,7 +732,7 @@ if(svg&&M){
   Object.keys(cityInfo).forEach(key=>{
     const c=M.cities[key];if(!c)return;
     const g=document.createElementNS(NS,'g');g.setAttribute('class','pin');g.dataset.city=key;
-    g.setAttribute('tabindex','0');g.setAttribute('role','button');g.setAttribute('aria-label',cityInfo[key].label+' — view location');
+    g.setAttribute('tabindex','0');g.setAttribute('role','button');g.setAttribute('aria-label',cityInfo[key].label+', view location');
     const halo=document.createElementNS(NS,'circle');halo.setAttribute('class','halo');halo.setAttribute('cx',c[0]);halo.setAttribute('cy',c[1]);halo.setAttribute('r','4');
     const core=document.createElementNS(NS,'circle');core.setAttribute('class','core');core.setAttribute('cx',c[0]);core.setAttribute('cy',c[1]);core.setAttribute('r','3.4');
     g.appendChild(halo);g.appendChild(core);
@@ -809,7 +809,7 @@ if(svg&&M){
     if(instant||reduce){routeEl.style.strokeDashoffset=0;const pt=routeEl.getPointAtLength(len);dot.setAttribute('cx',pt.x);dot.setAttribute('cy',pt.y);}
     else travelRAF=requestAnimationFrame(frame);
   }
-  // gentle continuous travel after draw — paused whenever the map scrolls
+  // gentle continuous travel after draw, paused whenever the map scrolls
   // out of view (see mapIo below) so it doesn't run forever in the background
   let mapInView=false,lastRouteLen=null;
   function loopDot(len){
@@ -843,7 +843,7 @@ if(svg&&M){
 }
 
 /* ============================================================
-   WHEN TO GO — pick a month, see the trips that actually fit it
+   WHEN TO GO: pick a month, see the trips that actually fit it
    ============================================================ */
 const seasonData={
   // score 0-100 per region per month index 0=Jan, mapped to a routes{} key for its itinerary
@@ -891,7 +891,7 @@ if(monthsBox){
 }
 
 /* ============================================================
-   GALLERY — render, lightbox, lazy-load, expand/collapse
+   GALLERY: render, lightbox, lazy-load, expand/collapse
    ============================================================ */
 function renderGallery(items){
   const grid=document.getElementById('galleryGrid');
@@ -910,7 +910,7 @@ function renderGallery(items){
     if(item.poster)el.dataset.poster=item.poster;
     el.setAttribute('role','button');
     el.setAttribute('tabindex','0');
-    el.setAttribute('aria-label',(item.caption||'')+(isVideo?' — play video':' — open full screen'));
+    el.setAttribute('aria-label',(item.caption||'')+(isVideo?', play video':', open full screen'));
     let mediaEl;
     if(isVideo){
       mediaEl=document.createElement('video');
@@ -1132,7 +1132,7 @@ $$('.media-dots').forEach(dotsEl=>{
     dotsEl.append(b);
   });
 
-  // prev/next arrows — only worth showing when there's more than one photo
+  // prev/next arrows, only worth showing when there's more than one photo
   if(slides.length>1){
     const mkArrow=(dir,label)=>{
       const b=document.createElement('button');
@@ -1227,7 +1227,7 @@ wireCopyBtn('copyInqId',()=>document.getElementById('inqIdDisplay')?.textContent
 wireCopyBtn('copyFcRef',()=>document.getElementById('fcSuccessRef')?.textContent?.replace(/^Ref:\s*/,'').trim());
 
 /* ============================================================
-   CART — page-scoped so section buttons share the same state
+   CART: page-scoped so section buttons share the same state
    ============================================================ */
 const cart=new Set();
 const cartPrices=new Map();
@@ -1316,7 +1316,7 @@ function updateCart(){
     if(cart.size===0)fc.classList.remove('open');
     const fcItems=fc.querySelector('.fc-items');
     if(fcItems){
-      if(cart.size===0)fcItems.innerHTML='<span class="fc-empty">No items yet — explore above</span>';
+      if(cart.size===0)fcItems.innerHTML='<span class="fc-empty">No items yet, explore above</span>';
       else renderCartTags(fcItems);
     }
     const hasItems=cart.size>0;
@@ -1403,7 +1403,7 @@ $$('.act-card[data-item]').forEach(card=>{
 $$('.fleet-xfer-cart').forEach(btn=>btn.onclick=()=>cartToggle(btn.dataset.item,btn));
 
 /* ============================================================
-   FLEET GALLERIES — per-vehicle-category lightbox
+   FLEET GALLERIES: per-vehicle-category lightbox
    ============================================================ */
 function fleetRange(slug,label,count){
   const images=[];
@@ -1496,7 +1496,7 @@ function initFleetGalleries(){
 }
 initFleetGalleries();
 
-// Floating cart — use event delegation because #floatCart is injected after this script
+// Floating cart: use event delegation because #floatCart is injected after this script
 document.addEventListener('click',e=>{
   const fc=document.querySelector('#floatCart');
   if(!fc)return;
@@ -1580,7 +1580,7 @@ document.addEventListener('click',e=>{
       },6000);
 
     }catch(err){
-      if(errEl){errEl.textContent='Something went wrong — please try again.';errEl.hidden=false;}
+      if(errEl){errEl.textContent='Something went wrong. Please try again.';errEl.hidden=false;}
       if(fcSub){fcSub.disabled=false;fcSub.innerHTML='Send inquiry →';}
     }
   })();
@@ -1640,7 +1640,7 @@ if(form){
       const successH=successEl.querySelector('h3');
       if(successH){successH.setAttribute('tabindex','-1');successH.focus();}
 
-      // auto-dismiss after 7 s — fade out, reset everything
+      // auto-dismiss after 7 s: fade out, reset everything
       setTimeout(()=>{
         successEl.classList.add('fade-out');
         setTimeout(()=>{
@@ -1662,7 +1662,7 @@ if(form){
       },7000);
     }catch(err){
       if(errBanner){
-        errBanner.textContent='Something went wrong — please try again, or reach us directly at info@majestytourssrilanka.com';
+        errBanner.textContent='Something went wrong. Please try again, or reach us directly at info@majestytourssrilanka.com';
         errBanner.hidden=false;
         errBanner.setAttribute('tabindex','-1');
         errBanner.focus();
@@ -1810,7 +1810,7 @@ function initDateRangePicker(cfg){
   }
 
   function fmt(d){return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});}
-  // Local-date YYYY-MM-DD — NOT toISOString(), which converts to UTC first and
+  // Local-date YYYY-MM-DD, NOT toISOString(), which converts to UTC first and
   // rolls the date back a day for any timezone ahead of UTC (e.g. Sri Lanka, UTC+5:30).
   function isoLocal(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
 

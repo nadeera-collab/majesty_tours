@@ -1,5 +1,5 @@
 /* ============================================================
-   MAJESTY TOURS Sri Lanka — Partner Registration portal
+   MAJESTY TOURS Sri Lanka: Partner Registration portal
    Standalone script for register.html (no dependency on app.js).
    ============================================================ */
 (function(){
@@ -117,7 +117,7 @@ function wireFileField(inputId,{maxMB,acceptPdf}){
     }
     const capMB=isPdf?MAX_RAW_MB.pdf:maxMB;
     if(file.size>capMB*1024*1024){
-      setFieldError(wrapper,`This file is too large — please choose a file under ${capMB}MB (yours is ${humanSize(file.size)}).`);
+      setFieldError(wrapper,`This file is too large. Please choose a file under ${capMB}MB (yours is ${humanSize(file.size)}).`);
       input.value='';
       return;
     }
@@ -297,7 +297,7 @@ form.onsubmit=async(e)=>{
     const h3=$('h3',successEl);
     if(h3){h3.setAttribute('tabindex','-1');h3.focus();}
   }catch(err){
-    showFormError('Something went wrong submitting your application — please try again, or reach us on WhatsApp directly.');
+    showFormError('Something went wrong submitting your application. Please try again, or reach us on WhatsApp directly.');
     submitBtn.disabled=false;
     submitBtn.innerHTML=originalLabel;
   }

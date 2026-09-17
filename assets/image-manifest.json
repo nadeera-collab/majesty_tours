@@ -1,0 +1,1326 @@
+{
+ "assets/img-airport-family-arrival.webp": {
+  "w": 1600,
+  "h": 1200,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-airport-family-arrival"
+ },
+ "assets/img-airport-group-arrival.webp": {
+  "w": 679,
+  "h": 452,
+  "widths": [
+   400
+  ],
+  "stem": "img-airport-group-arrival"
+ },
+ "assets/img-airport-guest-arrival.webp": {
+  "w": 720,
+  "h": 1280,
+  "widths": [
+   400
+  ],
+  "stem": "img-airport-guest-arrival"
+ },
+ "assets/img-airport-name-board.webp": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-airport-name-board"
+ },
+ "assets/img-airport-sign-photo.webp": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-airport-sign-photo"
+ },
+ "assets/img-airport-welcome-sign.webp": {
+  "w": 1200,
+  "h": 1600,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-airport-welcome-sign"
+ },
+ "assets/img-arugam-01.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-arugam-01"
+ },
+ "assets/img-arugam-02.jpeg": {
+  "w": 1280,
+  "h": 696,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-arugam-02"
+ },
+ "assets/img-arugam-03.jpeg": {
+  "w": 1280,
+  "h": 720,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-arugam-03"
+ },
+ "assets/img-arugam-04.jpeg": {
+  "w": 1280,
+  "h": 853,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-arugam-04"
+ },
+ "assets/img-arugam-05.jpeg": {
+  "w": 853,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-arugam-05"
+ },
+ "assets/img-arugam-06.jpeg": {
+  "w": 1280,
+  "h": 910,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-arugam-06"
+ },
+ "assets/img-arugam-07.jpeg": {
+  "w": 853,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-arugam-07"
+ },
+ "assets/img-boat-guests-lookout.webp": {
+  "w": 853,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-boat-guests-lookout"
+ },
+ "assets/img-boat-tour-group.webp": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-boat-tour-group"
+ },
+ "assets/img-coast-aerial-cove.webp": {
+  "w": 880,
+  "h": 1100,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-coast-aerial-cove"
+ },
+ "assets/img-colombo-01.jpeg": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-colombo-01"
+ },
+ "assets/img-colombo-02.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-colombo-02"
+ },
+ "assets/img-colombo-03.jpeg": {
+  "w": 1280,
+  "h": 686,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-colombo-03"
+ },
+ "assets/img-colombo-04.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-colombo-04"
+ },
+ "assets/img-colombo-05.jpeg": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-colombo-05"
+ },
+ "assets/img-colombo-06.jpeg": {
+  "w": 941,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-colombo-06"
+ },
+ "assets/img-colombo-07.jpeg": {
+  "w": 853,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-colombo-07"
+ },
+ "assets/img-colombo-08.jpeg": {
+  "w": 854,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-colombo-08"
+ },
+ "assets/img-colombo-09.jpeg": {
+  "w": 1280,
+  "h": 872,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-colombo-09"
+ },
+ "assets/img-colombo-10.jpeg": {
+  "w": 851,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-colombo-10"
+ },
+ "assets/img-colombo-11.jpeg": {
+  "w": 1280,
+  "h": 853,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-colombo-11"
+ },
+ "assets/img-colombo-12.jpeg": {
+  "w": 961,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-colombo-12"
+ },
+ "assets/img-colombo-13.jpeg": {
+  "w": 720,
+  "h": 1280,
+  "widths": [
+   400
+  ],
+  "stem": "img-colombo-13"
+ },
+ "assets/img-colombo-14.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-colombo-14"
+ },
+ "assets/img-colombo-15.jpeg": {
+  "w": 853,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-colombo-15"
+ },
+ "assets/img-cultural-triangle-01.jpeg": {
+  "w": 1280,
+  "h": 720,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-cultural-triangle-01"
+ },
+ "assets/img-cultural-triangle-02.jpeg": {
+  "w": 1280,
+  "h": 1024,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-cultural-triangle-02"
+ },
+ "assets/img-cultural-triangle-03.jpeg": {
+  "w": 1280,
+  "h": 853,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-cultural-triangle-03"
+ },
+ "assets/img-cultural-triangle-04.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-cultural-triangle-04"
+ },
+ "assets/img-cultural-triangle-05.jpeg": {
+  "w": 1070,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-cultural-triangle-05"
+ },
+ "assets/img-cultural-triangle-06.jpeg": {
+  "w": 853,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-cultural-triangle-06"
+ },
+ "assets/img-dolphin-pod.webp": {
+  "w": 1024,
+  "h": 576,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-dolphin-pod"
+ },
+ "assets/img-dolphins-leaping.webp": {
+  "w": 779,
+  "h": 1280,
+  "widths": [
+   400
+  ],
+  "stem": "img-dolphins-leaping"
+ },
+ "assets/img-eastcoast-01.jpeg": {
+  "w": 1280,
+  "h": 851,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-eastcoast-01"
+ },
+ "assets/img-eastcoast-02.jpeg": {
+  "w": 1280,
+  "h": 852,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-eastcoast-02"
+ },
+ "assets/img-eastcoast-03.jpeg": {
+  "w": 1280,
+  "h": 853,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-eastcoast-03"
+ },
+ "assets/img-eastcoast-04.jpeg": {
+  "w": 853,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-eastcoast-04"
+ },
+ "assets/img-eastcoast-05.jpeg": {
+  "w": 904,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-eastcoast-05"
+ },
+ "assets/img-eastcoast-06.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-eastcoast-06"
+ },
+ "assets/img-eastcoast-07.jpeg": {
+  "w": 1280,
+  "h": 748,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-eastcoast-07"
+ },
+ "assets/img-eastcoast-08.jpeg": {
+  "w": 853,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-eastcoast-08"
+ },
+ "assets/img-elephant-calf.webp": {
+  "w": 1000,
+  "h": 665,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-elephant-calf"
+ },
+ "assets/img-elephant-hand-feeding.webp": {
+  "w": 1600,
+  "h": 1200,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-elephant-hand-feeding"
+ },
+ "assets/img-elephant-pool-view.webp": {
+  "w": 960,
+  "h": 720,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-elephant-pool-view"
+ },
+ "assets/img-elephant-river-wide.webp": {
+  "w": 825,
+  "h": 1100,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-elephant-river-wide"
+ },
+ "assets/img-fleet-car.webp": {
+  "w": 1147,
+  "h": 500,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-fleet-car"
+ },
+ "assets/img-fleet-coach-big.webp": {
+  "w": 800,
+  "h": 491,
+  "widths": [
+   400
+  ],
+  "stem": "img-fleet-coach-big"
+ },
+ "assets/img-fleet-kdh-flat-roof.webp": {
+  "w": 1052,
+  "h": 664,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-fleet-kdh-flat-roof"
+ },
+ "assets/img-fleet-kdh-high-roof.webp": {
+  "w": 800,
+  "h": 476,
+  "widths": [
+   400
+  ],
+  "stem": "img-fleet-kdh-high-roof"
+ },
+ "assets/img-fleet-minicoach.webp": {
+  "w": 655,
+  "h": 500,
+  "widths": [
+   400
+  ],
+  "stem": "img-fleet-minicoach"
+ },
+ "assets/img-fleet-suv.webp": {
+  "w": 800,
+  "h": 431,
+  "widths": [
+   400
+  ],
+  "stem": "img-fleet-suv"
+ },
+ "assets/img-fleet-van-real.webp": {
+  "w": 619,
+  "h": 1100,
+  "widths": [
+   400
+  ],
+  "stem": "img-fleet-van-real"
+ },
+ "assets/img-grandisland-01.jpeg": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-01"
+ },
+ "assets/img-grandisland-02.jpeg": {
+  "w": 1280,
+  "h": 853,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-02"
+ },
+ "assets/img-grandisland-03.jpeg": {
+  "w": 1280,
+  "h": 954,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-03"
+ },
+ "assets/img-grandisland-04.jpeg": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-04"
+ },
+ "assets/img-grandisland-05.jpeg": {
+  "w": 1280,
+  "h": 852,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-05"
+ },
+ "assets/img-grandisland-06.jpeg": {
+  "w": 1280,
+  "h": 917,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-06"
+ },
+ "assets/img-grandisland-07.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-07"
+ },
+ "assets/img-grandisland-08.jpeg": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-08"
+ },
+ "assets/img-grandisland-09.jpeg": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-09"
+ },
+ "assets/img-grandisland-10.jpeg": {
+  "w": 853,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-10"
+ },
+ "assets/img-grandisland-11.jpeg": {
+  "w": 1280,
+  "h": 853,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-11"
+ },
+ "assets/img-grandisland-12.jpeg": {
+  "w": 1280,
+  "h": 854,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-12"
+ },
+ "assets/img-grandisland-13.jpeg": {
+  "w": 1280,
+  "h": 853,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-13"
+ },
+ "assets/img-grandisland-14.jpeg": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-14"
+ },
+ "assets/img-grandisland-15.jpeg": {
+  "w": 1280,
+  "h": 856,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-15"
+ },
+ "assets/img-grandisland-16.jpeg": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-16"
+ },
+ "assets/img-grandisland-17.jpeg": {
+  "w": 1280,
+  "h": 720,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-17"
+ },
+ "assets/img-grandisland-18.jpeg": {
+  "w": 1280,
+  "h": 853,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-18"
+ },
+ "assets/img-grandisland-19.jpeg": {
+  "w": 1280,
+  "h": 909,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-grandisland-19"
+ },
+ "assets/img-hillcountry-01.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-hillcountry-01"
+ },
+ "assets/img-hillcountry-02.jpeg": {
+  "w": 720,
+  "h": 1280,
+  "widths": [
+   400
+  ],
+  "stem": "img-hillcountry-02"
+ },
+ "assets/img-hillcountry-03.jpeg": {
+  "w": 853,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-hillcountry-03"
+ },
+ "assets/img-hillcountry-04.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-hillcountry-04"
+ },
+ "assets/img-hillcountry-05.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-hillcountry-05"
+ },
+ "assets/img-hillcountry-06.jpeg": {
+  "w": 1280,
+  "h": 853,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-hillcountry-06"
+ },
+ "assets/img-hillcountry-07.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-hillcountry-07"
+ },
+ "assets/img-hillcountry-08.jpeg": {
+  "w": 853,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-hillcountry-08"
+ },
+ "assets/img-hillcountry-09.jpeg": {
+  "w": 1280,
+  "h": 854,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-hillcountry-09"
+ },
+ "assets/img-hillcountry-10.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-hillcountry-10"
+ },
+ "assets/img-hillcountry-11.jpeg": {
+  "w": 853,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-hillcountry-11"
+ },
+ "assets/img-hillcountry-12.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-hillcountry-12"
+ },
+ "assets/img-hotel-arrival-selfie.webp": {
+  "w": 1600,
+  "h": 1200,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-hotel-arrival-selfie"
+ },
+ "assets/img-journey-end.webp": {
+  "w": 825,
+  "h": 1100,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-journey-end"
+ },
+ "assets/img-kingfisher.webp": {
+  "w": 879,
+  "h": 1100,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-kingfisher"
+ },
+ "assets/img-leopard-cub.webp": {
+  "w": 1100,
+  "h": 716,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-leopard-cub"
+ },
+ "assets/img-leopard-portrait.webp": {
+  "w": 733,
+  "h": 1100,
+  "widths": [
+   400
+  ],
+  "stem": "img-leopard-portrait"
+ },
+ "assets/img-leopard-waterhole.webp": {
+  "w": 1600,
+  "h": 1066,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-leopard-waterhole"
+ },
+ "assets/img-leopards-pair.webp": {
+  "w": 1080,
+  "h": 1080,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-leopards-pair"
+ },
+ "assets/img-mangrove-boat-canopy.webp": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-mangrove-boat-canopy"
+ },
+ "assets/img-peacock-fan.webp": {
+  "w": 1600,
+  "h": 1059,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-peacock-fan"
+ },
+ "assets/img-perahera-dancers-gold.webp": {
+  "w": 733,
+  "h": 1100,
+  "widths": [
+   400
+  ],
+  "stem": "img-perahera-dancers-gold"
+ },
+ "assets/img-perahera-fire-dancer.webp": {
+  "w": 728,
+  "h": 1092,
+  "widths": [
+   400
+  ],
+  "stem": "img-perahera-fire-dancer"
+ },
+ "assets/img-perahera-tusker.webp": {
+  "w": 1080,
+  "h": 1080,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-perahera-tusker"
+ },
+ "assets/img-rice-curry-leaf.webp": {
+  "w": 813,
+  "h": 1100,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-rice-curry-leaf"
+ },
+ "assets/img-safari-kid-thumbsup.webp": {
+  "w": 1200,
+  "h": 1600,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-safari-kid-thumbsup"
+ },
+ "assets/img-safari-truck-family.webp": {
+  "w": 1600,
+  "h": 1204,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-safari-truck-family"
+ },
+ "assets/img-sigiriya-aerial.webp": {
+  "w": 825,
+  "h": 1100,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-sigiriya-aerial"
+ },
+ "assets/img-sigiriya-group-photo.webp": {
+  "w": 826,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-sigiriya-group-photo"
+ },
+ "assets/img-sigiriya-lake-view.webp": {
+  "w": 825,
+  "h": 1100,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-sigiriya-lake-view"
+ },
+ "assets/img-sigiriya-sunset-embrace.webp": {
+  "w": 720,
+  "h": 960,
+  "widths": [
+   400
+  ],
+  "stem": "img-sigiriya-sunset-embrace"
+ },
+ "assets/img-sloth-bear.webp": {
+  "w": 879,
+  "h": 1100,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-sloth-bear"
+ },
+ "assets/img-southcoast-01.jpeg": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-southcoast-01"
+ },
+ "assets/img-southcoast-02.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-southcoast-02"
+ },
+ "assets/img-southcoast-03.jpeg": {
+  "w": 848,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-southcoast-03"
+ },
+ "assets/img-southcoast-04.jpeg": {
+  "w": 853,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-southcoast-04"
+ },
+ "assets/img-southcoast-05.jpeg": {
+  "w": 853,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-southcoast-05"
+ },
+ "assets/img-southcoast-06.jpeg": {
+  "w": 1280,
+  "h": 850,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-southcoast-06"
+ },
+ "assets/img-southcoast-07.jpeg": {
+  "w": 1280,
+  "h": 853,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-southcoast-07"
+ },
+ "assets/img-southcoast-08.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-southcoast-08"
+ },
+ "assets/img-southcoast-09.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-southcoast-09"
+ },
+ "assets/img-southcoast-10.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-southcoast-10"
+ },
+ "assets/img-southcoast-11.jpeg": {
+  "w": 1280,
+  "h": 853,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-southcoast-11"
+ },
+ "assets/img-southcoast-12.jpeg": {
+  "w": 775,
+  "h": 1280,
+  "widths": [
+   400
+  ],
+  "stem": "img-southcoast-12"
+ },
+ "assets/img-southcoast-13.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-southcoast-13"
+ },
+ "assets/img-tea-country-path.webp": {
+  "w": 1600,
+  "h": 1200,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-tea-country-path"
+ },
+ "assets/img-tea-estate-arrival.webp": {
+  "w": 1200,
+  "h": 1600,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-tea-estate-arrival"
+ },
+ "assets/img-tea-factory-tasting.webp": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-tea-factory-tasting"
+ },
+ "assets/img-tea-field-watching.webp": {
+  "w": 1600,
+  "h": 1200,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-tea-field-watching"
+ },
+ "assets/img-tea-grading-box.webp": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-tea-grading-box"
+ },
+ "assets/img-tea-leaves-lesson.webp": {
+  "w": 1200,
+  "h": 1600,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-tea-leaves-lesson"
+ },
+ "assets/img-tea-picker-basket.webp": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-tea-picker-basket"
+ },
+ "assets/img-tea-pickers-meeting.webp": {
+  "w": 1200,
+  "h": 1600,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-tea-pickers-meeting"
+ },
+ "assets/img-tea-pickers-mother-daughter.webp": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-tea-pickers-mother-daughter"
+ },
+ "assets/img-temple-tooth-night.webp": {
+  "w": 447,
+  "h": 447,
+  "widths": [
+   400
+  ],
+  "stem": "img-temple-tooth-night"
+ },
+ "assets/img-temple-tooth-portrait.webp": {
+  "w": 827,
+  "h": 1100,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-temple-tooth-portrait"
+ },
+ "assets/img-turtle-hatchlings.webp": {
+  "w": 842,
+  "h": 842,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-turtle-hatchlings"
+ },
+ "assets/img-van-boarding.webp": {
+  "w": 1100,
+  "h": 825,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-van-boarding"
+ },
+ "assets/img-whale-arch-dive.webp": {
+  "w": 1024,
+  "h": 683,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-whale-arch-dive"
+ },
+ "assets/img-whale-blow-aerial.webp": {
+  "w": 1280,
+  "h": 720,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-whale-blow-aerial"
+ },
+ "assets/img-whale-boat-deck-portrait.webp": {
+  "w": 960,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-whale-boat-deck-portrait"
+ },
+ "assets/img-whale-drone-boat.webp": {
+  "w": 960,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-whale-drone-boat"
+ },
+ "assets/img-whale-fluke-splash.webp": {
+  "w": 720,
+  "h": 480,
+  "widths": [
+   400
+  ],
+  "stem": "img-whale-fluke-splash"
+ },
+ "assets/img-whale-shark-surface.webp": {
+  "w": 1024,
+  "h": 683,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-whale-shark-surface"
+ },
+ "assets/img-whale-tail-spray.webp": {
+  "w": 1280,
+  "h": 854,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-whale-tail-spray"
+ },
+ "assets/img-wildlife-01.jpeg": {
+  "w": 1280,
+  "h": 853,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-wildlife-01"
+ },
+ "assets/img-wildlife-02.jpeg": {
+  "w": 961,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-wildlife-02"
+ },
+ "assets/img-wildlife-03.jpeg": {
+  "w": 1280,
+  "h": 720,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-wildlife-03"
+ },
+ "assets/img-wildlife-04.jpeg": {
+  "w": 1280,
+  "h": 960,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-wildlife-04"
+ },
+ "assets/img-wildlife-05.jpeg": {
+  "w": 854,
+  "h": 1280,
+  "widths": [
+   400,
+   800
+  ],
+  "stem": "img-wildlife-05"
+ },
+ "assets/logo-shield-dark.png": {
+  "w": 200,
+  "h": 200,
+  "widths": [
+   68,
+   136
+  ],
+  "stem": "logo-shield-dark"
+ },
+ "assets/logo-shield.png": {
+  "w": 200,
+  "h": 200,
+  "widths": [
+   68,
+   136
+  ],
+  "stem": "logo-shield"
+ }
+}

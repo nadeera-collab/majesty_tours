@@ -1546,7 +1546,7 @@
       "tags": "Sigiriya Lion Rock · Dambulla Cave Temple · UNESCO World Heritage",
       "seo_title": "Sigiriya & Dambulla Day Tour from Colombo | Majesty Tours",
       "meta_description": "Private day tour from Colombo to Sigiriya Lion Rock and Dambulla Cave Temple, both UNESCO sites. Private vehicle, guide and entrance fees included.",
-      "overview": "Sigiriya is a 5th-century rock fortress rising around 200 metres above the surrounding plain, with royal gardens, the famous Mirror Wall and ancient frescoes near its summit — a UNESCO World Heritage Site and one of Sri Lanka's most recognisable landmarks. Nearby, the Dambulla Royal Cave Temple, also UNESCO-listed, holds a series of Buddhist cave shrines painted and sculpted over more than a thousand years. Both sites sit in the island's Cultural Triangle, roughly 170km from Colombo.",
+      "overview": "Sigiriya is a 5th-century rock fortress rising around 200 metres above the surrounding plain, with royal gardens, the famous Mirror Wall and ancient frescoes near its summit. It is a UNESCO World Heritage Site and one of Sri Lanka's most recognisable landmarks. Nearby, the Dambulla Royal Cave Temple, also UNESCO-listed, holds a series of Buddhist cave shrines painted and sculpted over more than a thousand years. Both sites sit in the island's Cultural Triangle, roughly 170km from Colombo.",
       "relatedTourSlug": "cultural-triangle-private-tour",
       "draft": false,
       "inclusions": [
@@ -1556,6 +1556,168 @@
         "Government Taxes",
         "Sigiriya & Dambulla Entrance Fees",
         "Lunch"
+      ],
+      "heroImage": "assets/img-cultural-triangle-04.jpeg",
+      "highlights": [
+        "Sigiriya Lion Rock Fortress (UNESCO World Heritage Site)",
+        "The water gardens at the foot of the rock",
+        "The Mirror Wall and the 5th-century frescoes",
+        "The summit palace ruins and the view over the plain",
+        "Dambulla Royal Cave Temple (UNESCO World Heritage Site)",
+        "Five cave shrines painted and sculpted over a thousand years",
+        "A traditional Sri Lankan lunch",
+        "Optional: Pidurangala Rock, for the view back at Sigiriya"
+      ],
+      "itinerary": [
+        {
+          "day": "Early morning",
+          "title": "Pickup in Colombo and the drive north",
+          "text": "We collect you from your Colombo hotel, the airport or the cruise terminal well before dawn breaks. This is a long day, and an early start is what makes it comfortable. Sigiriya is roughly 170km away, about four hours by road.",
+          "highlights": [
+            "Hotel, airport or port pickup",
+            "Expressway and the Kurunegala road north",
+            "Breakfast or a tea stop on the way"
+          ]
+        },
+        {
+          "day": "Mid-morning",
+          "title": "Sigiriya Lion Rock",
+          "text": "The climb comes first, while the air is still cool and the stairways are quieter. From the landscaped water gardens you pass the frescoes and the Mirror Wall on your way to the lion’s paws, then take the final stairways to the summit and the ruins of the palace.",
+          "highlights": [
+            "Royal water gardens",
+            "The Sigiriya frescoes",
+            "The Mirror Wall",
+            "The lion’s paws and the summit stairways",
+            "The palace ruins and the view over the dry zone"
+          ]
+        },
+        {
+          "day": "Midday",
+          "title": "Lunch",
+          "text": "A traditional Sri Lankan rice and curry lunch near Sigiriya, included in the day and a welcome sit-down after the climb.",
+          "highlights": [
+            "Traditional Sri Lankan rice and curry"
+          ]
+        },
+        {
+          "day": "Afternoon",
+          "title": "Dambulla Royal Cave Temple",
+          "text": "Twenty minutes down the road, five cave shrines sit under an overhanging rock face, their ceilings painted and their floors crowded with Buddha statues added by successive kings. Shoulders and knees covered, shoes off at the entrance.",
+          "highlights": [
+            "Five cave shrines",
+            "Ceiling frescoes following the contours of the rock",
+            "Reclining and seated Buddha statues",
+            "The view back over the plain from the temple terrace"
+          ]
+        },
+        {
+          "day": "Evening",
+          "title": "Return to Colombo",
+          "text": "The drive back south, with a stop or two along the way, and a drop-off wherever you need it: your hotel, the airport or back at the ship."
+        }
+      ],
+      "practical": [
+        {
+          "label": "Distance from Colombo",
+          "value": "About 170km each way, roughly four hours by road"
+        },
+        {
+          "label": "Door to door",
+          "value": "A long day: allow 13–14 hours from pickup to drop-off"
+        },
+        {
+          "label": "The climb",
+          "value": "Around 1,200 steps to the summit, with railings and level landings to rest on"
+        },
+        {
+          "label": "Dress code",
+          "value": "Shoulders and knees covered for Dambulla; shoes are removed at the temple entrance"
+        },
+        {
+          "label": "Bring",
+          "value": "Water, a hat, sunscreen and shoes you can climb in"
+        },
+        {
+          "label": "Pickup",
+          "value": "Your Colombo hotel, Bandaranaike Airport or the cruise terminal"
+        }
+      ],
+      "bestTime": "The Cultural Triangle sits in the dry zone, so this trip runs year-round. January to April and July to August are the driest and clearest. Whatever the month, the climb is far more pleasant started early, which is why the day begins before sunrise.",
+      "faqs": [
+        {
+          "q": "How long is the drive from Colombo to Sigiriya?",
+          "a": "About four hours each way for the roughly 170km, using the expressway for the first stretch and the A-road north through Kurunegala after that. That is the reason for the pre-dawn start: it puts you on the rock before the midday heat."
+        },
+        {
+          "q": "Do I have to climb Sigiriya to enjoy the day?",
+          "a": "No. The water gardens, the boulder gardens and the museum at the base are worth the visit on their own, and the view of the rock from Pidurangala nearby is the photograph most people are after. Tell your guide and the day is arranged around what you want to do."
+        },
+        {
+          "q": "What should I wear?",
+          "a": "Shoes you can climb 1,200 steps in, and clothing that covers shoulders and knees for the Dambulla cave temple. Shoes and hats come off at the temple entrance, so socks are worth having on a hot day, because the stone gets warm."
+        },
+        {
+          "q": "Are the entrance fees included?",
+          "a": "Yes. Both the Sigiriya and Dambulla entrance fees are included in the price, along with the vehicle, chauffeur guide, fuel, parking, tolls and lunch."
+        },
+        {
+          "q": "Can we add Polonnaruwa or a Minneriya safari to the same day?",
+          "a": "Honestly, no. Not without making the day unpleasant. Sigiriya and Dambulla already fill it. If you want Polonnaruwa, Minneriya and Kandy as well, the 5-day Cultural Triangle private tour covers all of them at a sane pace."
+        },
+        {
+          "q": "Can this run as a cruise shore excursion?",
+          "a": "Only on a long call. Sigiriya is four hours from Colombo each way, so the ship needs to be in port for the best part of a day. Send us your call and sail-away times and we will tell you honestly whether it fits."
+        }
+      ],
+      "images": [
+        {
+          "image": "assets/img-cultural-triangle-04.jpeg",
+          "caption": "Sigiriya · the summit palace from above"
+        },
+        {
+          "image": "assets/img-grandisland-01.jpeg",
+          "caption": "Sigiriya · the summit at dawn"
+        },
+        {
+          "image": "assets/img-sigiriya-aerial.webp",
+          "caption": "Sigiriya · the Lion Rock"
+        },
+        {
+          "image": "assets/img-grandisland-02.jpeg",
+          "caption": "Pidurangala · watching over Sigiriya"
+        },
+        {
+          "image": "assets/img-sigiriya-lake-view.webp",
+          "caption": "Sigiriya · across the water"
+        },
+        {
+          "image": "assets/img-cultural-triangle-01.jpeg",
+          "caption": "Dambulla · the golden temple entrance"
+        },
+        {
+          "image": "assets/img-grandisland-03.jpeg",
+          "caption": "Dambulla · the Golden Temple"
+        },
+        {
+          "image": "assets/img-cultural-triangle-02.jpeg",
+          "caption": "Dambulla · rows of seated Buddhas"
+        },
+        {
+          "image": "assets/img-cultural-triangle-03.jpeg",
+          "caption": "Dambulla · the cave temple’s painted shrine"
+        },
+        {
+          "image": "assets/img-sigiriya-group-photo.webp",
+          "caption": "Sigiriya · the group beneath the rock"
+        },
+        {
+          "image": "assets/img-sigiriya-sunset-embrace.webp",
+          "caption": "Sigiriya · sunset over the rock"
+        },
+        {
+          "image": "assets/img-rice-curry-leaf.webp",
+          "caption": "Lunch · rice and curry on a banana leaf"
+        }
       ]
     },
     {
@@ -1574,6 +1736,178 @@
         "Government Taxes",
         "Temple of the Sacred Tooth Relic & Pinnawala Entrance Fees",
         "Lunch"
+      ],
+      "heroImage": "assets/img-cultural-triangle-06.jpeg",
+      "highlights": [
+        "Temple of the Sacred Tooth Relic (UNESCO World Heritage Site)",
+        "Pinnawala Elephant Orphanage, on the way up",
+        "Kandy Lake and the viewpoint above the city",
+        "Peradeniya Royal Botanical Gardens",
+        "A working tea factory and a tasting",
+        "A wood carving or batik workshop",
+        "Kandyan cultural dance performance, if the timing works"
+      ],
+      "itinerary": [
+        {
+          "day": "Early morning",
+          "title": "Pickup in Colombo and the climb inland",
+          "text": "An early start from your hotel, the airport or the port. Kandy is about 115km inland: roughly three hours, and a steady climb as the coconut plantations give way to the first hills.",
+          "highlights": [
+            "Hotel, airport or port pickup",
+            "The Colombo–Kandy road through Kegalle",
+            "A tea or breakfast stop along the way"
+          ]
+        },
+        {
+          "day": "Mid-morning",
+          "title": "Pinnawala Elephant Orphanage",
+          "text": "Pinnawala sits just off the Kandy road, which makes it a natural first stop. The herd is walked down to the Maha Oya river to bathe, and bottle-feeding of the younger animals happens on a fixed schedule, so your guide will time the stop around it.",
+          "highlights": [
+            "The herd at the river",
+            "Bottle-feeding (subject to the orphanage’s fixed times)",
+            "The elephant nursery"
+          ]
+        },
+        {
+          "day": "Midday",
+          "title": "Gardens, tea and lunch",
+          "text": "Peradeniya’s Royal Botanical Gardens sit on a loop of the Mahaweli river just outside Kandy: orchid house, palm avenue and a giant Java fig. A working tea factory nearby opens its floors for a walk-through and a tasting, and lunch follows.",
+          "highlights": [
+            "Peradeniya Royal Botanical Gardens",
+            "Tea factory tour and tasting",
+            "Lunch",
+            "Wood carving or batik workshop"
+          ]
+        },
+        {
+          "day": "Afternoon",
+          "title": "Kandy: the Temple of the Sacred Tooth Relic",
+          "text": "The temple shelters a tooth relic of the Buddha and is the most venerated Buddhist site in the country. Where the schedule allows, your guide will time the visit around one of the daily puja ceremonies, when the drummers play and the inner chamber is opened.",
+          "highlights": [
+            "Temple of the Sacred Tooth Relic",
+            "The drummers and the daily puja",
+            "Kandy Lake",
+            "The viewpoint above the city",
+            "The old town and the market"
+          ]
+        },
+        {
+          "day": "Evening",
+          "title": "Cultural dance, then back to Colombo",
+          "text": "If your timing allows, the evening Kandyan dance performance (drummers, masked dancers and fire-walking) runs before the drive back down to Colombo.",
+          "highlights": [
+            "Kandyan cultural dance performance",
+            "The drive back to Colombo",
+            "Drop-off at your hotel, the airport or the ship"
+          ]
+        }
+      ],
+      "practical": [
+        {
+          "label": "Distance from Colombo",
+          "value": "About 115km each way, roughly three hours by road"
+        },
+        {
+          "label": "Door to door",
+          "value": "Allow 12–13 hours from pickup to drop-off"
+        },
+        {
+          "label": "Dress code",
+          "value": "Shoulders and knees covered at the Temple of the Sacred Tooth Relic; shoes are removed at the entrance"
+        },
+        {
+          "label": "Pinnawala",
+          "value": "Feeding and river-bathing run to fixed times, so the stop is planned around them"
+        },
+        {
+          "label": "Walking",
+          "value": "Gentle. The gardens and the temple involve a fair amount of level walking, no climbing"
+        },
+        {
+          "label": "Pickup",
+          "value": "Your Colombo hotel, Bandaranaike Airport or the cruise terminal"
+        }
+      ],
+      "bestTime": "Kandy sits at about 500m, so it is cooler and greener than the coast all year. December to April is the driest stretch. If you can travel in late July or August, the Esala Perahera (nights of caparisoned tuskers, drummers, dancers and fire) is the single most spectacular thing in the Sri Lankan calendar, and worth planning a trip around.",
+      "faqs": [
+        {
+          "q": "How long is the drive from Colombo to Kandy?",
+          "a": "Around three hours each way for the 115km. It is a hill road for the second half, so it is slower than the distance suggests. An early start keeps the day comfortable."
+        },
+        {
+          "q": "Is Pinnawala included, or is it optional?",
+          "a": "It is included in the entrance fees for this day, and it sits directly on the Kandy road, so it costs you no detour. If you would rather skip it and spend longer in Kandy, just say so."
+        },
+        {
+          "q": "What should I wear for the Temple of the Sacred Tooth Relic?",
+          "a": "Shoulders and knees covered. A shawl or a long skirt over shorts is enough. Shoes and hats come off at the entrance, and white or light clothing is customary though not required."
+        },
+        {
+          "q": "Can we see the Kandyan dance performance?",
+          "a": "Usually, yes. The performance runs in the early evening and fits the day if the temple visit goes to plan. It does make for a later return to Colombo, so tell us in advance whether you would like it included."
+        },
+        {
+          "q": "Can we visit the Esala Perahera on a day trip?",
+          "a": "The procession runs on ten nights in late July or August and finishes late, so a same-day return to Colombo makes for a very long night. Most people prefer an overnight in Kandy for it, and we can arrange that, or fold it into a longer private tour."
+        },
+        {
+          "q": "Is this better as part of a longer tour?",
+          "a": "If Kandy is all you want, the day trip does it well. If you also want Sigiriya, Dambulla and Polonnaruwa, the 5-day Cultural Triangle private tour covers the whole region without four hours of driving a day."
+        }
+      ],
+      "images": [
+        {
+          "image": "assets/img-cultural-triangle-06.jpeg",
+          "caption": "Kandy · the Temple of the Sacred Tooth Relic"
+        },
+        {
+          "image": "assets/img-grandisland-06.jpeg",
+          "caption": "Kandy · the temple across the water"
+        },
+        {
+          "image": "assets/img-temple-tooth-portrait.webp",
+          "caption": "Kandy · the Temple of the Tooth"
+        },
+        {
+          "image": "assets/img-temple-tooth-night.webp",
+          "caption": "Kandy · the temple by night"
+        },
+        {
+          "image": "assets/img-hillcountry-01.jpeg",
+          "caption": "Kandy · the lake"
+        },
+        {
+          "image": "assets/img-elephant-river-wide.webp",
+          "caption": "Pinnawala · the herd at the river"
+        },
+        {
+          "image": "assets/img-elephant-hand-feeding.webp",
+          "caption": "Pinnawala · feeding the elephants by hand"
+        },
+        {
+          "image": "assets/img-elephant-pool-view.webp",
+          "caption": "Pinnawala · elephants beyond the pool"
+        },
+        {
+          "image": "assets/img-elephant-calf.webp",
+          "caption": "Pinnawala · mother and calf"
+        },
+        {
+          "image": "assets/img-tea-factory-tasting.webp",
+          "caption": "On the way · tasting at the tea factory"
+        },
+        {
+          "image": "assets/img-perahera-dancers-gold.webp",
+          "caption": "Kandy · dancers in gold, Esala Perahera"
+        },
+        {
+          "image": "assets/img-perahera-tusker.webp",
+          "caption": "Kandy · the tusker, Esala Perahera"
+        },
+        {
+          "image": "assets/img-perahera-fire-dancer.webp",
+          "caption": "Kandy · fire dancer, Esala Perahera"
+        }
       ]
     },
     {
@@ -1592,6 +1926,171 @@
         "Government Taxes",
         "Galle Fort Entrance Fees",
         "Lunch"
+      ],
+      "heroImage": "assets/img-grandisland-14.jpeg",
+      "highlights": [
+        "Galle Fort (UNESCO World Heritage Site)",
+        "The Dutch ramparts and the Galle lighthouse",
+        "The colonial streets, galleries and boutiques inside the walls",
+        "A Madu River boat safari through the mangroves",
+        "Cinnamon Island and a spice garden",
+        "The sea turtle hatchery at Kosgoda",
+        "The Koggala stilt fishermen",
+        "Unawatuna beach and its reef"
+      ],
+      "itinerary": [
+        {
+          "day": "Morning",
+          "title": "Down the coast to the Madu River",
+          "text": "The southern expressway makes this the easiest of the day trips: Galle is about 120km from Colombo and under two hours away. We break the drive at Balapitiya for a boat safari through the Madu River mangroves.",
+          "highlights": [
+            "Hotel, airport or port pickup",
+            "Madu River boat safari",
+            "Mangrove forests and their birdlife",
+            "Cinnamon Island",
+            "Spice and herbal garden"
+          ]
+        },
+        {
+          "day": "Late morning",
+          "title": "The turtle hatchery at Kosgoda",
+          "text": "A short hop south, the hatchery works with eggs recovered from the beaches. There are tanks of hatchlings, a few resident adults that could not be released, and, if the timing lands, a release into the surf.",
+          "highlights": [
+            "Sea turtle hatchery",
+            "Hatchling tanks",
+            "Turtle release, when one is scheduled"
+          ]
+        },
+        {
+          "day": "Midday",
+          "title": "Galle Fort",
+          "text": "Portuguese-built in the 16th century, heavily refortified by the Dutch in the 17th, and still lived in: a grid of low colonial houses, churches, galleries and cafés inside a sea wall you can walk the whole way round. Lunch is inside the walls.",
+          "highlights": [
+            "The Dutch ramparts",
+            "Galle lighthouse",
+            "The old town streets and boutiques",
+            "The Dutch Reformed Church",
+            "Lunch inside the fort"
+          ]
+        },
+        {
+          "day": "Afternoon",
+          "title": "Koggala, Unawatuna and the coast road back",
+          "text": "East of Galle the stilt fishermen perch on their poles in the shallows; west of it, Unawatuna’s sheltered bay and reef are a good swimming stop before turning back north.",
+          "highlights": [
+            "Koggala stilt fishermen",
+            "Unawatuna beach and the coral reef",
+            "Swimming and beach time",
+            "Scenic coastal drive back to Colombo"
+          ]
+        }
+      ],
+      "practical": [
+        {
+          "label": "Distance from Colombo",
+          "value": "About 120km each way, under two hours on the southern expressway"
+        },
+        {
+          "label": "Door to door",
+          "value": "Allow 10–12 hours, depending on how many stops you want"
+        },
+        {
+          "label": "Walking",
+          "value": "Level and easy. The fort is flat, the ramparts are a gentle walk"
+        },
+        {
+          "label": "Bring",
+          "value": "Swimwear and a towel if you want the Unawatuna stop, plus sun protection"
+        },
+        {
+          "label": "Best light",
+          "value": "Sunset from the ramparts is the picture, worth timing the day to end there"
+        },
+        {
+          "label": "Pickup",
+          "value": "Your Colombo hotel, Bandaranaike Airport or the cruise terminal"
+        }
+      ],
+      "bestTime": "The south coast is at its driest and calmest from December to March, which is also when the sea is best for swimming at Unawatuna. The fort itself is worth walking in any month: the ramparts catch a breeze even in the heat, and a monsoon sky over the lighthouse is no bad thing.",
+      "faqs": [
+        {
+          "q": "How long is the drive from Colombo to Galle?",
+          "a": "Under two hours each way on the southern expressway, for about 120km. It is the shortest of our day trips, which is why there is time for the Madu River, the turtle hatchery and the coast as well as the fort itself."
+        },
+        {
+          "q": "Is the Madu River boat safari included?",
+          "a": "The vehicle, chauffeur guide, fuel, parking, tolls, Galle Fort entrance and lunch are included. The boat safari and the hatchery are the standard stops on the way down and we will quote them with the day. Tell us on WhatsApp which of them you want."
+        },
+        {
+          "q": "Can we swim?",
+          "a": "Yes. Unawatuna is the usual stop, a sheltered bay with a reef close in. Bring swimwear and a towel. Between May and September the southwest monsoon can make the sea rough, and your guide will tell you honestly when it is not a swimming day."
+        },
+        {
+          "q": "Are the stilt fishermen genuine?",
+          "a": "The practice is genuine and it is still done, but at the roadside spots near Koggala the men on the poles are largely posing for photographs and will expect a small payment. Your guide will tell you what is reasonable before you get out of the vehicle."
+        },
+        {
+          "q": "Does this work as a cruise shore excursion from Colombo port?",
+          "a": "It is the best of the options for a shorter call: Galle is close enough that even a half-day in port leaves time for the fort. Send us your call and sail-away times and we will build the route to fit them."
+        },
+        {
+          "q": "Should we stay overnight instead?",
+          "a": "Galle Fort after dark, once the day visitors have gone, is a different and better place. If you have the time, the 3-day Southern Coast private tour gives you that plus Mirissa whale watching and the beaches."
+        }
+      ],
+      "images": [
+        {
+          "image": "assets/img-grandisland-14.jpeg",
+          "caption": "Galle Fort · the old town from above"
+        },
+        {
+          "image": "assets/img-southcoast-04.jpeg",
+          "caption": "Galle Fort · the ramparts’ jumping place"
+        },
+        {
+          "image": "assets/img-grandisland-15.jpeg",
+          "caption": "Galle Fort · the ramparts and the sea"
+        },
+        {
+          "image": "assets/img-southcoast-03.jpeg",
+          "caption": "Galle · the lighthouse"
+        },
+        {
+          "image": "assets/img-grandisland-16.jpeg",
+          "caption": "Galle Fort · the lighthouse at dusk"
+        },
+        {
+          "image": "assets/img-southcoast-05.jpeg",
+          "caption": "Galle Fort · the old town after dark"
+        },
+        {
+          "image": "assets/img-southcoast-01.jpeg",
+          "caption": "Madu River · the mangrove boat safari"
+        },
+        {
+          "image": "assets/img-mangrove-boat-canopy.webp",
+          "caption": "Madu River · deep in the mangrove canopy"
+        },
+        {
+          "image": "assets/img-southcoast-02.jpeg",
+          "caption": "Kosgoda · a sea turtle at the hatchery"
+        },
+        {
+          "image": "assets/img-turtle-hatchlings.webp",
+          "caption": "Kosgoda · hatchlings making for the sea"
+        },
+        {
+          "image": "assets/img-southcoast-13.jpeg",
+          "caption": "Koggala · stilt fishermen"
+        },
+        {
+          "image": "assets/img-grandisland-17.jpeg",
+          "caption": "Unawatuna · the headland from above"
+        },
+        {
+          "image": "assets/img-coast-aerial-cove.webp",
+          "caption": "Southern coast · a cove from above"
+        }
       ]
     },
     {
@@ -1610,6 +2109,169 @@
         "Government Taxes",
         "Yala National Park Entrance & Jeep Safari Fees",
         "Meals as arranged"
+      ],
+      "heroImage": "assets/img-wildlife-03.jpeg",
+      "highlights": [
+        "One of the highest leopard densities of any national park in the world",
+        "Wild elephants, sloth bears, spotted deer and crocodiles",
+        "A private jeep with a tracker, not a shared seat",
+        "Dawn or late-afternoon game drives, when the animals move",
+        "Peacocks, painted storks, bee-eaters and the park’s lagoon birdlife",
+        "The option of Udawalawe instead, for reliable elephant herds"
+      ],
+      "itinerary": [
+        {
+          "day": "Before dawn",
+          "title": "Into the park at opening",
+          "text": "Jeeps line up at the gate before it opens. The first hour after sunrise is when leopards are most often on the tracks and the light is at its best, so the early start is not negotiable if you want the sightings.",
+          "highlights": [
+            "Park gate at opening",
+            "Private jeep and tracker",
+            "The first light along the tank bunds"
+          ]
+        },
+        {
+          "day": "Morning",
+          "title": "The game drive",
+          "text": "Block one of Yala mixes scrub, rock outcrops and lagoons, which is what makes the wildlife so varied. Your tracker works the radio network and the waterholes: leopard, elephant, sloth bear, crocodile, buffalo, spotted deer and a long list of birds.",
+          "highlights": [
+            "Leopard",
+            "Wild elephant",
+            "Sloth bear",
+            "Crocodiles at the waterholes",
+            "Spotted deer and sambar",
+            "Peacocks and the lagoon birdlife"
+          ]
+        },
+        {
+          "day": "Midday",
+          "title": "Out of the park",
+          "text": "The middle of the day is quiet for game viewing, so the drive ends late morning. Breakfast or lunch is taken outside the park.",
+          "highlights": [
+            "Breakfast or lunch outside the park"
+          ]
+        },
+        {
+          "day": "Late afternoon",
+          "title": "A second drive, if you want one",
+          "text": "The afternoon session runs until the gates close at dusk and is a genuinely different drive, with the animals coming back to the water as the heat drops. Most people who have travelled a long way for a leopard take both sessions.",
+          "highlights": [
+            "Afternoon game drive",
+            "The waterholes at dusk",
+            "Sunset over the park"
+          ]
+        }
+      ],
+      "practical": [
+        {
+          "label": "Where it is",
+          "value": "Sri Lanka’s dry south-east, roughly 300km from Colombo, five to six hours by road"
+        },
+        {
+          "label": "Best as",
+          "value": "An overnight rather than a day return from Colombo: the driving alone is 10–12 hours"
+        },
+        {
+          "label": "Game drive times",
+          "value": "Dawn until mid-morning, and late afternoon until the gates close"
+        },
+        {
+          "label": "Annual closure",
+          "value": "Block one normally closes for its annual break in September"
+        },
+        {
+          "label": "The alternative",
+          "value": "Udawalawe is closer, open all year and far more reliable for large elephant herds"
+        },
+        {
+          "label": "Bring",
+          "value": "Neutral clothing, a hat, sunglasses, a long lens if you have one, and something warm for the dawn start"
+        }
+      ],
+      "bestTime": "February to July is the driest stretch, when the waterholes shrink and the animals concentrate around them. Those are the best leopard odds of the year. December to March is the most comfortable weather overall. Block one usually closes for its annual break in September; if your dates fall then, Udawalawe or Kumana is the answer and we will say so.",
+      "faqs": [
+        {
+          "q": "Can I do Yala as a day trip from Colombo?",
+          "a": "We would rather you did not. Yala is five to six hours from Colombo each way, so a same-day return means 10–12 hours in a vehicle for one game drive, arriving at the worst time of day for sightings. An overnight nearby costs little more and is a completely different experience."
+        },
+        {
+          "q": "Am I guaranteed to see a leopard?",
+          "a": "No, and anyone who guarantees it is selling something. Yala has one of the highest leopard densities anywhere, which makes the odds good, particularly on a dawn drive in the dry months, but these are wild animals on their own schedule."
+        },
+        {
+          "q": "Is the jeep private?",
+          "a": "Yes. You get your own jeep and tracker rather than a shared seat, which means you decide how long to sit at a sighting and are not moved on for someone else’s schedule."
+        },
+        {
+          "q": "Udawalawe or Yala: which should we choose?",
+          "a": "Udawalawe if you want elephants: the herds there are large, resident and seen on nearly every drive, and it is closer to the coast. Yala if the leopard is what you came for, and you can accept that you might not see one."
+        },
+        {
+          "q": "Is Yala suitable for children?",
+          "a": "Yes, and children generally love it, though the dawn start and several hours of rough track are a lot for very young ones. The afternoon drive is the gentler of the two if you are travelling with small children."
+        },
+        {
+          "q": "What if Yala is closed for its annual break?",
+          "a": "Block one usually closes in September. Other blocks sometimes stay open, and Udawalawe and Kumana run all year. We will tell you what is actually open on your dates rather than sell you a closed park."
+        }
+      ],
+      "images": [
+        {
+          "image": "assets/img-wildlife-03.jpeg",
+          "caption": "Yala · a leopard on the prowl"
+        },
+        {
+          "image": "assets/img-leopard-portrait.webp",
+          "caption": "Yala · leopard, eye to eye"
+        },
+        {
+          "image": "assets/img-leopard-waterhole.webp",
+          "caption": "Yala · leopard at the waterhole"
+        },
+        {
+          "image": "assets/img-leopards-pair.webp",
+          "caption": "Yala · two leopards, a rare sighting"
+        },
+        {
+          "image": "assets/img-leopard-cub.webp",
+          "caption": "Yala · a leopard cub peeks out"
+        },
+        {
+          "image": "assets/img-sloth-bear.webp",
+          "caption": "Yala · a sloth bear on the move"
+        },
+        {
+          "image": "assets/img-wildlife-01.jpeg",
+          "caption": "A herd grazing at dusk"
+        },
+        {
+          "image": "assets/img-wildlife-02.jpeg",
+          "caption": "An elephant family in the rain"
+        },
+        {
+          "image": "assets/img-wildlife-04.jpeg",
+          "caption": "Golden hour by the waterhole"
+        },
+        {
+          "image": "assets/img-arugam-03.jpeg",
+          "caption": "Spotted deer in the scrub"
+        },
+        {
+          "image": "assets/img-peacock-fan.webp",
+          "caption": "A peacock, tail fanned"
+        },
+        {
+          "image": "assets/img-kingfisher.webp",
+          "caption": "A kingfisher with a catch"
+        },
+        {
+          "image": "assets/img-safari-truck-family.webp",
+          "caption": "Safari · the whole family aboard"
+        },
+        {
+          "image": "assets/img-safari-kid-thumbsup.webp",
+          "caption": "Safari · thumbs up from the back row"
+        }
       ]
     }
   ],
@@ -1630,6 +2292,169 @@
         "Government Taxes",
         "Boat Excursion & Park Fees",
         "Refreshments"
+      ],
+      "heroImage": "assets/img-southcoast-06.jpeg",
+      "highlights": [
+        "Blue whales, the largest animal that has ever lived",
+        "Sperm whales, Bryde’s whales and the occasional whale shark",
+        "Spinner dolphins, often in pods of hundreds",
+        "An early-morning departure, when the sea is at its flattest",
+        "A private transfer to the harbour rather than a shared coach",
+        "Season roughly December to April off Mirissa"
+      ],
+      "itinerary": [
+        {
+          "day": "Before dawn",
+          "title": "The drive to Mirissa harbour",
+          "text": "Boats leave early, because the sea off the south coast is flattest in the first hours of the day and the sightings are better before the wind gets up. We collect you from your hotel in the dark and have you at the harbour for boarding.",
+          "highlights": [
+            "Hotel pickup in a private vehicle",
+            "Boarding at Mirissa harbour",
+            "Life jackets and the safety briefing"
+          ]
+        },
+        {
+          "day": "Early morning",
+          "title": "Out to the shelf",
+          "text": "The continental shelf drops away close to shore here, which is the whole reason Mirissa works. It is a run of an hour or so out to where the blue whales feed, and the crew and spotters work the horizon for a blow.",
+          "highlights": [
+            "The run out to the feeding grounds",
+            "Spotters working the horizon",
+            "Spinner dolphins, often on the way out"
+          ]
+        },
+        {
+          "day": "Morning",
+          "title": "With the whales",
+          "text": "A blue whale surfaces to breathe several times before the long dive, and the fluke coming up is the moment everyone is waiting for. Boats keep their distance and cut engines. This is watching, not chasing.",
+          "highlights": [
+            "Blue whales",
+            "Sperm whales and Bryde’s whales",
+            "The fluke on a sounding dive",
+            "Whale sharks and turtles, occasionally"
+          ]
+        },
+        {
+          "day": "Late morning",
+          "title": "Back to harbour",
+          "text": "Back alongside by late morning, and back at your hotel with the rest of the day free, or carry on to Galle Fort, Coconut Tree Hill or Unawatuna with your driver.",
+          "highlights": [
+            "Return to harbour",
+            "Refreshments aboard",
+            "Onward to Galle, Unawatuna or your hotel"
+          ]
+        }
+      ],
+      "practical": [
+        {
+          "label": "Season",
+          "value": "Roughly December to April off Mirissa; May to September is the East Coast’s turn, out of Trincomalee"
+        },
+        {
+          "label": "Departure",
+          "value": "Early morning: boats leave the harbour around first light"
+        },
+        {
+          "label": "Time at sea",
+          "value": "Typically three to five hours, depending on how far out the whales are"
+        },
+        {
+          "label": "Sea sickness",
+          "value": "Take a tablet the night before if you are prone to it. The swell is real and the boat sits still while watching"
+        },
+        {
+          "label": "Bring",
+          "value": "Sun protection, a windproof layer, and a camera you do not mind getting sea spray on"
+        },
+        {
+          "label": "Included",
+          "value": "Private vehicle, chauffeur guide, fuel, parking, tolls, boat excursion and park fees, and refreshments"
+        }
+      ],
+      "bestTime": "December to April is the Mirissa season, with January to March the most reliable stretch for both blue whales and calm water. Outside those months the southwest monsoon makes the sea off the south coast rough, and the whales have moved round to the east. Between May and September we would send you out of Trincomalee instead.",
+      "faqs": [
+        {
+          "q": "Am I guaranteed to see a whale?",
+          "a": "No. These are wild animals in open ocean and nobody can promise a sighting on any single morning. What Mirissa has is one of the most consistent blue whale seasons in the world, because the continental shelf comes close to shore. In season, the great majority of boats find something."
+        },
+        {
+          "q": "What is the best month?",
+          "a": "January to March. December and April both work, but the sea is flattest and the sightings most reliable in those three months."
+        },
+        {
+          "q": "How long are we at sea?",
+          "a": "Usually three to five hours. If the whales are feeding far out it takes longer, and the crew will keep going rather than turn back early."
+        },
+        {
+          "q": "Will I get sea sick?",
+          "a": "Some people do. The run out is bumpy and the boat then sits more or less still in a swell, which is the part that catches people. If you are prone to it, take a tablet the night before rather than on the morning."
+        },
+        {
+          "q": "Is it suitable for children?",
+          "a": "Yes, with the same caveat about the swell. Younger children usually do better on a calm January morning than at the edges of the season."
+        },
+        {
+          "q": "Can we combine it with Galle on the same day?",
+          "a": "Easily. You are back on land by late morning with your own vehicle and driver waiting, so Galle Fort, Coconut Tree Hill or Unawatuna all fit into the same afternoon."
+        }
+      ],
+      "images": [
+        {
+          "image": "assets/img-southcoast-06.jpeg",
+          "caption": "Mirissa · a whale’s spectacular breach"
+        },
+        {
+          "image": "assets/img-whale-arch-dive.webp",
+          "caption": "Arching into a dive"
+        },
+        {
+          "image": "assets/img-whale-tail-spray.webp",
+          "caption": "Tail lifted, spray falling"
+        },
+        {
+          "image": "assets/img-whale-fluke-splash.webp",
+          "caption": "Fluke and splash"
+        },
+        {
+          "image": "assets/img-whale-blow-aerial.webp",
+          "caption": "The blow, seen from above"
+        },
+        {
+          "image": "assets/img-whale-drone-boat.webp",
+          "caption": "Whale and boat, from above"
+        },
+        {
+          "image": "assets/img-wildlife-05.jpeg",
+          "caption": "A whale’s farewell dive"
+        },
+        {
+          "image": "assets/img-southcoast-07.jpeg",
+          "caption": "Spinner dolphins, offshore"
+        },
+        {
+          "image": "assets/img-dolphins-leaping.webp",
+          "caption": "Dolphins leaping"
+        },
+        {
+          "image": "assets/img-dolphin-pod.webp",
+          "caption": "A pod of dolphins"
+        },
+        {
+          "image": "assets/img-whale-shark-surface.webp",
+          "caption": "A whale shark near the surface"
+        },
+        {
+          "image": "assets/img-boat-guests-lookout.webp",
+          "caption": "Keeping watch from the bow"
+        },
+        {
+          "image": "assets/img-whale-boat-deck-portrait.webp",
+          "caption": "Out on the back deck"
+        },
+        {
+          "image": "assets/img-boat-tour-group.webp",
+          "caption": "The whole crew, life jackets on"
+        }
       ]
     },
     {
@@ -1648,6 +2473,184 @@
         "Government Taxes",
         "Site Entrance Fees",
         "Lunch"
+      ],
+      "heroImage": "assets/img-colombo-09.jpeg",
+      "highlights": [
+        "Built around your ship’s call time and sail-away, not a fixed coach schedule",
+        "A private vehicle and chauffeur guide, not a shared bus of forty",
+        "Colombo, Hambantota and Trincomalee port calls all covered",
+        "Pick-up at the terminal gate and drop-off back at the gangway",
+        "Routes sized honestly to the hours you actually have",
+        "Entrance fees and lunch included"
+      ],
+      "itinerary": [
+        {
+          "day": "Short call",
+          "title": "4–6 hours in port · Colombo",
+          "text": "Enough for the city itself and no more. The open-top double-decker city tour, the temples, the fort and the markets, with time to spare before sail-away.",
+          "highlights": [
+            "Gangaramaya Temple",
+            "Independence Square",
+            "The Old Parliament Building and the fort",
+            "Pettah Market",
+            "Galle Face Green",
+            "Lotus Tower photo stop"
+          ]
+        },
+        {
+          "day": "Full-day call",
+          "title": "8–10 hours in port · Colombo",
+          "text": "Comfortably enough for Galle Fort down the expressway, or for Kandy and Pinnawala inland. Both are real days out with margin built in.",
+          "highlights": [
+            "Galle Fort (UNESCO World Heritage Site), the ramparts and the lighthouse",
+            "or Kandy: the Temple of the Sacred Tooth Relic and Pinnawala",
+            "Madu River boat safari and the turtle hatchery, on the Galle route",
+            "Lunch included"
+          ]
+        },
+        {
+          "day": "Long call",
+          "title": "12+ hours in port · Colombo",
+          "text": "The only window in which the Cultural Triangle genuinely works. Sigiriya and Dambulla are four hours north, so this needs most of a day, and we will tell you plainly if your times do not allow it.",
+          "highlights": [
+            "Sigiriya Lion Rock Fortress",
+            "Dambulla Royal Cave Temple",
+            "Traditional Sri Lankan lunch"
+          ]
+        },
+        {
+          "day": "Hambantota",
+          "title": "Calling at Hambantota",
+          "text": "The southern port puts the dry-zone national parks within easy reach, with Galle a comfortable run west along the coast.",
+          "highlights": [
+            "Yala or Udawalawe jeep safari",
+            "Galle Fort and the southern coast",
+            "Whale watching in season"
+          ]
+        },
+        {
+          "day": "Trincomalee",
+          "title": "Calling at Trincomalee",
+          "text": "Everything worth seeing is close to the harbour here, which makes even a short call worthwhile.",
+          "highlights": [
+            "Koneswaram Temple and Swami Rock",
+            "Fort Frederick",
+            "Nilaveli Beach",
+            "Pigeon Island snorkelling",
+            "Whale watching, May to September"
+          ]
+        }
+      ],
+      "practical": [
+        {
+          "label": "How it works",
+          "value": "Send us your ship, port, call time and sail-away time and we build the route backwards from it"
+        },
+        {
+          "label": "Meeting point",
+          "value": "The terminal gate, with a name board. We cannot drive onto the berth"
+        },
+        {
+          "label": "Getting back",
+          "value": "Every route is planned to have you back at the gate with a margin, not at the last minute"
+        },
+        {
+          "label": "Vehicle",
+          "value": "Anything from a sedan to a 50-seat coach, depending on your party"
+        },
+        {
+          "label": "Included",
+          "value": "Private air-conditioned vehicle, chauffeur guide, fuel, parking, tolls, site entrance fees and lunch"
+        },
+        {
+          "label": "Groups",
+          "value": "Independent travellers, families and full-ship groups all handled"
+        }
+      ],
+      "bestTime": "Cruise calls cluster into the northeast-monsoon months from November to April for the west and south coasts, and May to September for Trincomalee on the east. Because the two coasts run on opposite monsoons, there is no month in which a Sri Lankan port call is a write-off. It only changes which route we would send you on.",
+      "faqs": [
+        {
+          "q": "Will we get back to the ship on time?",
+          "a": "Every route is built backwards from your sail-away time with a margin built in, and we would rather turn down a request than run it too tight. If what you are asking for does not fit your call, we will tell you so before you book."
+        },
+        {
+          "q": "Where exactly do we meet you?",
+          "a": "At the terminal gate, with a name board. Private vehicles are not permitted alongside the berth at Sri Lankan ports, so there is a short shuttle or walk from the gangway to the gate."
+        },
+        {
+          "q": "Is this cheaper than the ship’s own excursion?",
+          "a": "Usually, and it is certainly more private: your own vehicle and guide rather than a shared coach. The trade-off is that an independent excursion is your own arrangement, so we build in more margin than the ship’s operator does."
+        },
+        {
+          "q": "Can we reach Sigiriya on a port call?",
+          "a": "Only on a very long call. Sigiriya is roughly four hours from Colombo each way. If your ship is in for twelve hours or more it works; for anything shorter, Galle or Kandy is the honest answer."
+        },
+        {
+          "q": "Can you handle a large group?",
+          "a": "Yes. The fleet runs from sedans up to 50-seat coaches, so anything from two passengers to a full ship group can be covered. Tell us the numbers and we will size it."
+        },
+        {
+          "q": "What if the ship arrives late?",
+          "a": "We track the arrival and wait. The route is then shortened to whatever the remaining time genuinely allows, and we tell you what has been dropped rather than rushing everything."
+        }
+      ],
+      "images": [
+        {
+          "image": "assets/img-colombo-09.jpeg",
+          "caption": "Colombo Fort · old meets new skyline"
+        },
+        {
+          "image": "assets/img-colombo-08.jpeg",
+          "caption": "Colombo Fort · the railway station"
+        },
+        {
+          "image": "assets/img-colombo-07.jpeg",
+          "caption": "Pettah Market · the busy streets"
+        },
+        {
+          "image": "assets/img-colombo-04.jpeg",
+          "caption": "Gangaramaya Temple"
+        },
+        {
+          "image": "assets/img-colombo-01.jpeg",
+          "caption": "Independence Square · the memorial fountains"
+        },
+        {
+          "image": "assets/img-colombo-14.jpeg",
+          "caption": "Galle Face Green · sunset by the sea"
+        },
+        {
+          "image": "assets/img-grandisland-14.jpeg",
+          "caption": "Galle Fort · the old town from above"
+        },
+        {
+          "image": "assets/img-southcoast-03.jpeg",
+          "caption": "Galle · the lighthouse"
+        },
+        {
+          "image": "assets/img-cultural-triangle-06.jpeg",
+          "caption": "Kandy · the Temple of the Sacred Tooth Relic"
+        },
+        {
+          "image": "assets/img-elephant-river-wide.webp",
+          "caption": "Pinnawala · the herd at the river"
+        },
+        {
+          "image": "assets/img-cultural-triangle-04.jpeg",
+          "caption": "Sigiriya · the summit palace from above"
+        },
+        {
+          "image": "assets/img-eastcoast-02.jpeg",
+          "caption": "Trincomalee · Koneswaram Temple"
+        },
+        {
+          "image": "assets/img-eastcoast-06.jpeg",
+          "caption": "Pigeon Island · snorkelling with turtles"
+        },
+        {
+          "image": "assets/img-wildlife-03.jpeg",
+          "caption": "Yala · a leopard on the prowl"
+        }
       ]
     },
     {
@@ -1663,6 +2666,200 @@
         "Private Air-Conditioned Vehicle",
         "Professional English-Speaking Chauffeur Guide",
         "Fuel, Parking & Highway Tolls"
+      ],
+      "heroImage": "assets/img-airport-name-board.webp",
+      "highlights": [
+        "Meet and greet inside arrivals, with a name board",
+        "Any hour, any terminal, with flights tracked and no charge for delays",
+        "A private air-conditioned vehicle, never a shared shuttle",
+        "Point-to-point transfers between any two towns on the island",
+        "A full-day private driver at your disposal, by the day",
+        "Sedans through to 50-seat coaches, all comprehensively insured"
+      ],
+      "itinerary": [
+        {
+          "day": "Arrivals",
+          "title": "Meeting you at Bandaranaike International",
+          "text": "Your driver is inside the arrivals hall with a name board before your flight lands. We track the arrival, so an early or a late one makes no difference to you. Help with the luggage, then straight to a vehicle that is already cool.",
+          "highlights": [
+            "Name board in the arrivals hall",
+            "Flight tracked, no charge for delays",
+            "Luggage assistance",
+            "Any hour, any terminal"
+          ]
+        },
+        {
+          "day": "On the way",
+          "title": "The run to your hotel",
+          "text": "Colombo, Negombo, the south coast or straight up to the Cultural Triangle, all of it direct, with stops wherever you want them. Ask and your driver will pull in for a SIM card, currency or a first Sri Lankan breakfast.",
+          "highlights": [
+            "Direct to your hotel anywhere on the island",
+            "Stops for a SIM card or currency on request",
+            "Fuel, parking and tolls included"
+          ]
+        },
+        {
+          "day": "Between towns",
+          "title": "Point-to-point transfers",
+          "text": "The same vehicle and driver, run as a one-way between any two places (Kandy to Ella, Colombo to Galle, Sigiriya down to the coast) without the timetable of a train or the crush of a bus.",
+          "highlights": [
+            "One-way transfers island-wide",
+            "Luggage carried, doors to doors",
+            "Photo stops along the way"
+          ]
+        },
+        {
+          "day": "By the day",
+          "title": "A driver at your disposal",
+          "text": "For travellers who have their own plan: a chauffeur guide and vehicle for the day, and you decide where it goes. Fuel, parking and tolls are ours to worry about.",
+          "highlights": [
+            "Full-day private driver",
+            "Your own itinerary, your own pace",
+            "Multi-day hire available"
+          ]
+        },
+        {
+          "day": "Departures",
+          "title": "Getting you back",
+          "text": "Timed against your departure and the traffic that day rather than a rule of thumb, with a drop-off at the right terminal door.",
+          "highlights": [
+            "Departure transfer timed to your flight",
+            "Drop-off at the terminal door"
+          ]
+        }
+      ],
+      "practical": [
+        {
+          "label": "Airport",
+          "value": "Bandaranaike International (CMB), plus Mattala (HRI) and Ratmalana (RML) on request"
+        },
+        {
+          "label": "Hours",
+          "value": "Any hour of the day or night, with no unsocial-hours surcharge"
+        },
+        {
+          "label": "Delays",
+          "value": "Flights are tracked and waiting time for a delayed arrival is not charged"
+        },
+        {
+          "label": "Meeting point",
+          "value": "Inside the arrivals hall, after customs, with a name board"
+        },
+        {
+          "label": "Included",
+          "value": "Private air-conditioned vehicle, chauffeur guide, fuel, parking and highway tolls"
+        },
+        {
+          "label": "Vehicles",
+          "value": "Sedan (1–3), SUV (1–6), KDH van (6–12), mini coach (12–20), coach (20–50)"
+        }
+      ],
+      "fleet": [
+        {
+          "name": "Luxury Sedan Car",
+          "capacity": "1–3 passengers",
+          "image": "assets/img-fleet-car.webp",
+          "note": "Toyota Premio or similar. Nimble and comfortable for couples and solo travellers."
+        },
+        {
+          "name": "SUV",
+          "capacity": "1–6 passengers",
+          "image": "assets/img-fleet-suv.webp",
+          "note": "Nissan X-Trail, Toyota Prado, Land Rover Discovery and similar, for rougher roads."
+        },
+        {
+          "name": "KDH Van · Flat Roof",
+          "capacity": "6–8 passengers",
+          "image": "assets/img-fleet-kdh-flat-roof.webp",
+          "note": "The island favourite: comfortable bench seating, air-conditioned, room for luggage."
+        },
+        {
+          "name": "KDH Van · High Roof",
+          "capacity": "6–12 passengers",
+          "image": "assets/img-fleet-kdh-high-roof.webp",
+          "note": "Extra headroom and captain-chair comfort, for families and small groups."
+        },
+        {
+          "name": "Mini Coach",
+          "capacity": "12–20 passengers",
+          "image": "assets/img-fleet-minicoach.webp",
+          "note": "A mid-size coach for bigger parties, fully air-conditioned with proper coach seating."
+        },
+        {
+          "name": "Coach",
+          "capacity": "20–50 passengers",
+          "image": "assets/img-fleet-coach-big.webp",
+          "note": "Full-size touring coach for large groups, with reclining seats and a PA system."
+        }
+      ],
+      "bestTime": "Transfers run every day of the year, at any hour. The one thing worth knowing is that Colombo traffic is heavy between about 7am and 9.30am and again from 4pm to 7pm, and the airport road is slowest then. Your driver builds that into the timing rather than leaving you to discover it.",
+      "faqs": [
+        {
+          "q": "Where will the driver meet me?",
+          "a": "Inside the arrivals hall at Bandaranaike International, past customs, holding a board with your name on it. You do not need to find your way outside or negotiate with anyone at the rank."
+        },
+        {
+          "q": "What happens if my flight is delayed?",
+          "a": "We track the flight and the driver waits. There is no charge for waiting time on a delayed arrival. The pickup simply moves with the aircraft."
+        },
+        {
+          "q": "Do you operate at night?",
+          "a": "Yes, any hour, and there is no night surcharge. A large share of arrivals into Colombo land between midnight and 5am and they are handled exactly like any other."
+        },
+        {
+          "q": "Can the driver stay with us for the whole trip?",
+          "a": "Yes. That is how our tours work, and you can book the same thing on its own. A chauffeur guide and vehicle by the day, for as many days as you want, with the route entirely yours."
+        },
+        {
+          "q": "Is the fare per person or per vehicle?",
+          "a": "Per vehicle. The quote covers the vehicle, the chauffeur guide, fuel, parking and highway tolls, so the price does not change with the number of seats you fill."
+        },
+        {
+          "q": "Which vehicle do we need?",
+          "a": "It depends on your party and your luggage. As a rule: a sedan for one to three, an SUV for up to six, a KDH van for six to twelve, and a mini coach or coach beyond that. Tell us your numbers and cases and we will pick it for you."
+        }
+      ],
+      "images": [
+        {
+          "image": "assets/img-airport-name-board.webp",
+          "caption": "Bandaranaike Airport · a personal welcome sign"
+        },
+        {
+          "image": "assets/img-airport-welcome-sign.webp",
+          "caption": "Bandaranaike Airport · greeted on arrival"
+        },
+        {
+          "image": "assets/img-airport-guest-arrival.webp",
+          "caption": "Bandaranaike Airport · touching down"
+        },
+        {
+          "image": "assets/img-airport-family-arrival.webp",
+          "caption": "Bandaranaike Airport · the whole family, just landed"
+        },
+        {
+          "image": "assets/img-airport-group-arrival.webp",
+          "caption": "Bandaranaike Airport · touching down together"
+        },
+        {
+          "image": "assets/img-airport-sign-photo.webp",
+          "caption": "Bandaranaike Airport · posing beneath the welcome sign"
+        },
+        {
+          "image": "assets/img-van-boarding.webp",
+          "caption": "Boarding the van"
+        },
+        {
+          "image": "assets/img-hotel-arrival-selfie.webp",
+          "caption": "Arrival · the first smiles of the trip"
+        },
+        {
+          "image": "assets/img-fleet-van-real.webp",
+          "caption": "The KDH van, ready to go"
+        },
+        {
+          "image": "assets/img-journey-end.webp",
+          "caption": "The end of the journey"
+        }
       ]
     },
     {
@@ -1671,8 +2868,8 @@
       "urlPrefix": "tours",
       "tags": "Independence Square · Galle Face Green · Pettah Market · Free with every journey",
       "seo_title": "Colombo City Tour, Free with Every Booking | Majesty Tours",
-      "meta_description": "A complimentary open-top double-decker city tour of Colombo, included free with every Majesty Tours booking. See the fort, temples, harbour and colonial streets.",
-      "overview": "Book any journey with us and we'll add a complimentary open-deck double-decker sightseeing tour of Colombo, Sri Lanka's original hop-on city bus, at no extra cost. See the fort, the temples, the harbour and the colonial streets from the top deck before you head out to explore the rest of the island — Independence Square, Gangaramaya Temple, the Old Parliament Building, Galle Face Green, Port City, Pettah Market, the Lotus Tower and more.",
+      "meta_description": "A complimentary open-top double-decker city tour of Colombo, free with every Majesty Tours booking. See the fort, temples, harbour and colonial streets.",
+      "overview": "Book any journey with us and we'll add a complimentary open-deck double-decker sightseeing tour of Colombo, Sri Lanka's original hop-on city bus, at no extra cost. See the fort, the temples, the harbour and the colonial streets from the top deck before you head out to explore the rest of the island: Independence Square, Gangaramaya Temple, the Old Parliament Building, Galle Face Green, Port City, Pettah Market, the Lotus Tower and more.",
       "price": "Free with every journey",
       "duration": "Included · open-top double-decker bus tour",
       "inclusions": [
@@ -1745,7 +2942,126 @@
         }
       ],
       "relatedTourSlug": "cultural-triangle-private-tour",
-      "draft": false
+      "draft": false,
+      "heroImage": "assets/img-colombo-09.jpeg",
+      "highlights": [
+        "An open-top double-decker sightseeing bus, Colombo’s original",
+        "Included free with every Majesty Tours journey",
+        "Independence Square and the Memorial Hall",
+        "Gangaramaya Temple and Beira Lake",
+        "The Old Parliament Building and the colonial fort",
+        "Pettah Market and the Red Mosque",
+        "Galle Face Green at sunset",
+        "Port City and the Lotus Tower"
+      ],
+      "itinerary": [
+        {
+          "day": "Fort",
+          "title": "The colonial quarter",
+          "text": "The old commercial heart, where Dutch and British buildings stand in the shadow of the new towers. The 1877 railway station, the Old Parliament facing the sea, and the Dutch Hospital, the oldest building in the city and now a courtyard of restaurants and shops.",
+          "highlights": [
+            "Colombo Fort railway station",
+            "The Old Parliament Building",
+            "The Dutch Hospital precinct",
+            "Old and new skyline together"
+          ]
+        },
+        {
+          "day": "Pettah",
+          "title": "The market streets",
+          "text": "Immediately east of the fort, Pettah is a grid of streets that each sell one thing: a street of hardware, a street of fabric, a street of fruit. The scarlet-and-white Jami-Ul-Alfar mosque rises out of the middle of it.",
+          "highlights": [
+            "Pettah Market",
+            "Jami-Ul-Alfar, the Red Mosque",
+            "The street of a hundred fabric shops",
+            "A Hindu kovil in the old town"
+          ]
+        },
+        {
+          "day": "Beira Lake",
+          "title": "Gangaramaya Temple",
+          "text": "Colombo’s best-known temple is a magpie’s nest of a place, with Sri Lankan, Thai, Burmese and Chinese architecture in one compound, with a museum of donated objects and a shrine out on the lake reached by a footbridge.",
+          "highlights": [
+            "Gangaramaya Temple",
+            "The Seema Malaka shrine on the water",
+            "Beira Lake and the footbridge at dusk"
+          ]
+        },
+        {
+          "day": "Cinnamon Gardens",
+          "title": "Independence Square",
+          "text": "The green, quiet end of the city. The Memorial Hall was built for independence in 1948 in the style of a Kandyan audience hall, and the arcade beneath it is where Colombo comes to walk in the evening.",
+          "highlights": [
+            "Independence Memorial Hall",
+            "The memorial fountains",
+            "The colonnade and the evening walkers"
+          ]
+        },
+        {
+          "day": "The seafront",
+          "title": "Galle Face and Port City",
+          "text": "The last stretch runs along the ocean. Galle Face Green fills up at sunset with kite sellers and food carts; beyond it the reclaimed Port City and the Lotus Tower, the tallest structure in South Asia, light up as it gets dark.",
+          "highlights": [
+            "Galle Face Green at sunset",
+            "Street food along the green",
+            "Port City Colombo",
+            "The Lotus Tower, lit up after dark"
+          ]
+        }
+      ],
+      "practical": [
+        {
+          "label": "Cost",
+          "value": "Free, included with every Majesty Tours journey at no extra cost"
+        },
+        {
+          "label": "How long",
+          "value": "Around half a day, usually on your first or last day on the island"
+        },
+        {
+          "label": "The bus",
+          "value": "An open-top double-decker; the top deck is the point, so sun protection helps"
+        },
+        {
+          "label": "Good for",
+          "value": "A first orientation on arrival, or filling the gap before a late departure flight"
+        },
+        {
+          "label": "Dress code",
+          "value": "Shoulders and knees covered for Gangaramaya; shoes off at the shrine"
+        },
+        {
+          "label": "Included",
+          "value": "Private vehicle, chauffeur guide, fuel, parking, tolls and the double-decker bus tour"
+        }
+      ],
+      "bestTime": "Colombo works all year. The city is hottest and most humid in March and April, and the late-afternoon run along Galle Face Green is the best of it in any month, which is why the tour is usually timed to end at sunset. October to December brings the heaviest afternoon rain, and an open top deck is less appealing then.",
+      "faqs": [
+        {
+          "q": "Is the Colombo City Tour really free?",
+          "a": "Yes. Book any journey with us and the open-top double-decker sightseeing tour is added at no extra cost. It is not a deposit, an upsell or a timeshare presentation. It is a city tour we include because most travellers pass through Colombo anyway."
+        },
+        {
+          "q": "When does it happen?",
+          "a": "Usually on your first day, as an orientation, or on your last, to fill the hours before a late flight. Both work. Tell us which suits your arrival and departure times."
+        },
+        {
+          "q": "Can I book it on its own without a tour?",
+          "a": "The complimentary version comes with a journey. If you only want the city tour, message us on WhatsApp and we will quote it as a standalone half day with a private vehicle and guide."
+        },
+        {
+          "q": "How long does it take?",
+          "a": "About half a day. That covers the fort, Pettah, Gangaramaya, Independence Square and the seafront at a pace that leaves time to get out and walk."
+        },
+        {
+          "q": "What should I wear?",
+          "a": "Light clothing and sun protection for the open top deck, and something that covers shoulders and knees for Gangaramaya Temple. Shoes come off at the shrine."
+        },
+        {
+          "q": "Is it worth it if I have been to Colombo before?",
+          "a": "If you have only ever passed through the airport, yes. Most people have not actually seen the city. If you know Colombo well, tell us and we will use the time on the coast or in Negombo instead."
+        }
+      ]
     },
     {
       "name": "Tea Factory Tours & Tastings",
@@ -1753,7 +3069,7 @@
       "tags": "Matale · Kandy · Nuwara Eliya · Guided Cupping Session",
       "seo_title": "Sri Lanka Tea Factory Tours & Tastings | Majesty Tours",
       "meta_description": "Private guided tea factory tours across Sri Lanka's hill country: see the leaf withered, rolled and fired, then compare highland grades in a tasting.",
-      "overview": "See the leaf withered, rolled and fired, then compare highland grades in a guided cupping session. Working tea factories across the hill country — around Kandy and Nuwara Eliya — open their floors to private visits, walking you through each stage of processing before a tasting of the estate's own grades.",
+      "overview": "See the leaf withered, rolled and fired, then compare highland grades in a guided cupping session. Working tea factories across the hill country, around Kandy and Nuwara Eliya, open their floors to private visits, walking you through each stage of processing before a tasting of the estate's own grades.",
       "inclusions": [
         "Private Air-Conditioned Vehicle",
         "Professional English-Speaking Chauffeur Guide",
@@ -1762,7 +3078,173 @@
         "Tea Factory Entrance & Tasting Fees"
       ],
       "relatedTourSlug": "hill-country-ella-tea-tour",
-      "draft": false
+      "draft": false,
+      "heroImage": "assets/img-hillcountry-05.jpeg",
+      "highlights": [
+        "A working factory floor, not a museum: withering, rolling, oxidising, firing",
+        "A guided cupping session across the estate’s own grades",
+        "Meeting the pickers at work in the fields",
+        "High-grown Nuwara Eliya against mid-grown Kandy, tasted side by side",
+        "The grading room: BOP, BOPF, OP, dust and fannings explained",
+        "Factories around Matale, Kandy and Nuwara Eliya"
+      ],
+      "itinerary": [
+        {
+          "day": "In the field",
+          "title": "Where the leaf comes from",
+          "text": "The visit starts in the rows. Two leaves and a bud is the standard pluck, and watching how quickly a practised picker works, and how little of the bush she takes, explains more about tea grades than any display board.",
+          "highlights": [
+            "Walking the tea rows",
+            "Meeting the pickers",
+            "Two leaves and a bud",
+            "The baskets weighed in at the end of a round"
+          ]
+        },
+        {
+          "day": "Withering",
+          "title": "The first floor",
+          "text": "Fresh leaf goes into long withering troughs where air is drawn through it for hours to take out the moisture and make it pliable enough to roll. The smell of this floor is the smell of the whole factory.",
+          "highlights": [
+            "The withering troughs",
+            "Why the leaf has to lose moisture before it can be rolled"
+          ]
+        },
+        {
+          "day": "Rolling & oxidation",
+          "title": "Where black tea becomes black",
+          "text": "Rolling machines bruise and twist the withered leaf to break its cells open, and the oxidation that follows is what turns green leaf coppery brown and builds the flavour. It is timed to the minute and stopped deliberately.",
+          "highlights": [
+            "The rolling machines",
+            "Oxidation beds and the colour change",
+            "How timing decides the character of the tea"
+          ]
+        },
+        {
+          "day": "Firing & grading",
+          "title": "Drying and sorting",
+          "text": "Hot air stops the oxidation dead and dries the tea down for storage. What comes out is then sorted by particle size through a series of meshes, which is all that tea grades really are.",
+          "highlights": [
+            "The dryers",
+            "Grading meshes and sorting",
+            "BOP, BOPF, OP, fannings and dust",
+            "The grading room display"
+          ]
+        },
+        {
+          "day": "The tasting",
+          "title": "The cupping table",
+          "text": "The point of the visit. Several of the estate’s grades brewed to the same strength and timed the same way, tasted along the table so you can actually tell them apart, and understand what altitude does to a cup.",
+          "highlights": [
+            "Guided cupping session",
+            "High-grown against mid-grown",
+            "How to brew each grade at home",
+            "The estate shop"
+          ]
+        }
+      ],
+      "practical": [
+        {
+          "label": "Where",
+          "value": "Working factories around Matale, Kandy and Nuwara Eliya"
+        },
+        {
+          "label": "How long",
+          "value": "Around 45–90 minutes for the factory and tasting, plus the drive and the field walk"
+        },
+        {
+          "label": "Fits with",
+          "value": "A Kandy day trip, the hill country route, or a stop on the way up to Nuwara Eliya"
+        },
+        {
+          "label": "Photography",
+          "value": "Fine on most floors; some factories ask you not to photograph the machinery"
+        },
+        {
+          "label": "Closed days",
+          "value": "Processing usually pauses on Sundays and poya days, so we plan around it"
+        },
+        {
+          "label": "Included",
+          "value": "Private vehicle, chauffeur guide, fuel, parking, tolls and the factory entrance and tasting fees"
+        }
+      ],
+      "bestTime": "Any month works for the tour, but the factory is at its most interesting when it is actually running, which means a weekday, and ideally the afternoon or evening, when the day’s plucking is being processed. Processing pauses on Sundays and poya (full moon) days. For the fields themselves, the hill country is clearest from January to April.",
+      "faqs": [
+        {
+          "q": "Will the factory actually be running?",
+          "a": "On a weekday, usually yes, and it is worth planning for. Plucking happens in the morning and processing follows, so an afternoon visit is more likely to catch machinery in motion. Sundays and poya days are generally quiet."
+        },
+        {
+          "q": "Which factory will we visit?",
+          "a": "It depends on where you are and where you are heading. There are working estates around Matale, Kandy and Nuwara Eliya, and we pick one that fits your route rather than detouring you for the sake of a name."
+        },
+        {
+          "q": "What is the difference between the grades?",
+          "a": "Mostly particle size, not quality. After drying, the tea is sorted through meshes: whole-leaf grades like OP at the coarse end, then BOP, BOPF, fannings and dust. Smaller particles brew faster and stronger, which is why they end up in tea bags."
+        },
+        {
+          "q": "Does altitude really change the taste?",
+          "a": "Noticeably, and the tasting is arranged so you can tell. High-grown tea from around Nuwara Eliya is lighter, brisker and more aromatic; mid-grown Kandy tea is fuller and maltier. Side by side at the same brew strength, the difference is obvious."
+        },
+        {
+          "q": "Can we buy tea at the factory?",
+          "a": "Yes, and the estate shop is generally better value and fresher than the airport. Your guide will tell you what is worth buying and what is priced for visitors."
+        },
+        {
+          "q": "Is it suitable for children?",
+          "a": "Yes. The machinery is genuinely interesting to watch and the walk through the fields is easy. The cupping table is the part they will be least patient with, so we keep that end brisk."
+        }
+      ],
+      "images": [
+        {
+          "image": "assets/img-hillcountry-05.jpeg",
+          "caption": "Nuwara Eliya · rolling tea plantations"
+        },
+        {
+          "image": "assets/img-hillcountry-04.jpeg",
+          "caption": "Nuwara Eliya · mist over the tea fields"
+        },
+        {
+          "image": "assets/img-tea-estate-arrival.webp",
+          "caption": "Arriving at the tea estate"
+        },
+        {
+          "image": "assets/img-tea-country-path.webp",
+          "caption": "The path through tea country"
+        },
+        {
+          "image": "assets/img-tea-picker-basket.webp",
+          "caption": "A basket of fresh leaves"
+        },
+        {
+          "image": "assets/img-tea-pickers-mother-daughter.webp",
+          "caption": "Picking tea, mother and daughter"
+        },
+        {
+          "image": "assets/img-tea-pickers-meeting.webp",
+          "caption": "Meeting the tea pickers"
+        },
+        {
+          "image": "assets/img-tea-leaves-lesson.webp",
+          "caption": "A lesson in the leaves"
+        },
+        {
+          "image": "assets/img-tea-grading-box.webp",
+          "caption": "Grades of tea on display"
+        },
+        {
+          "image": "assets/img-tea-factory-tasting.webp",
+          "caption": "Tasting at the tea factory"
+        },
+        {
+          "image": "assets/img-tea-field-watching.webp",
+          "caption": "Watching the pickers at work"
+        },
+        {
+          "image": "assets/img-hillcountry-12.jpeg",
+          "caption": "Hill country · mountains above the clouds"
+        }
+      ]
     }
   ],
   "extendedTours": [
@@ -1772,7 +3254,7 @@
       "tags": "Hill Country & Tea · Wildlife & Safari · Combined Itinerary",
       "seo_title": "Sri Lanka 7-Day Private Tour Itinerary | Majesty Tours",
       "meta_description": "A 7-day Sri Lanka itinerary combining hill country tea estates with a wildlife safari, from $980pp. Tell us your dates and we'll sequence the plan.",
-      "overview": "A 7-day itinerary naturally combines two of our existing journeys back to back: the 4-day Hill Country & Tea route (Kandy, Nuwara Eliya, Ella, the blue train) followed by the 3-day Wildlife & Safari route (Bentota, Udawalawe or Yala, Galle Fort) — tea country into safari and coast, without backtracking. Tell us your travel dates and we'll sequence the full day-by-day plan — including how the two journeys connect — around them.",
+      "overview": "A 7-day itinerary naturally combines two of our existing journeys back to back: the 4-day Hill Country & Tea route (Kandy, Nuwara Eliya, Ella, the blue train) followed by the 3-day Wildlife & Safari route (Bentota, Udawalawe or Yala, Galle Fort). That is tea country into safari and coast, without backtracking. Tell us your travel dates and we'll sequence the full day-by-day plan around them, including how the two journeys connect.",
       "componentSlugs": [
         "hill-country-ella-tea-tour",
         "sri-lanka-wildlife-safari-tour"
@@ -1780,7 +3262,18 @@
       "draft": false,
       "price": "from $980",
       "priceNote": "Sum of Hill Country & Tea (from $590) + Wildlife & Safari (from $390).",
-      "duration": "7 days · private"
+      "duration": "7 days · private",
+      "heroImage": "assets/img-hillcountry-07.jpeg",
+      "lede": "Tea country into safari and coast: the 4-day Hill Country & Tea route followed by the 3-day Wildlife & Safari route, sequenced so you never double back.",
+      "whyThis": [
+        "Two proven routes joined end to end, not an itinerary invented for a brochure",
+        "Highlands first, then down to the parks and the coast, the natural direction of travel",
+        "The blue train from Nanu Oya to Ella on day three",
+        "A jeep safari at Udawalawe or Yala, your choice",
+        "Galle Fort and the southern coast before the flight home",
+        "Six nights of hotels, daily breakfast and dinner throughout"
+      ],
+      "bestTime": "This route crosses the hill country and the south coast, both of which run on the southwest monsoon, so December to March is the sweet spot, with January to April also excellent in the highlands. July and August are a reasonable second window. Udawalawe is good all year; Yala is at its best from February to July and usually closes block one in September."
     },
     {
       "slug": "sri-lanka-10-day-private-tour",
@@ -1788,7 +3281,7 @@
       "tags": "Cultural Triangle · Hill Country · Combined Itinerary",
       "seo_title": "Sri Lanka 10-Day Private Tour Itinerary | Majesty Tours",
       "meta_description": "A 10-day Sri Lanka itinerary combining the Cultural Triangle with hill country tea estates, from $1,280pp. Tell us your dates and we'll sequence the plan.",
-      "overview": "A 10-day itinerary can combine the 5-day Cultural Triangle route (Dambulla, Sigiriya, Polonnaruwa, Kandy) with the 4-day Hill Country & Tea route (Nuwara Eliya, Ella, the blue train), plus an extra day — ancient kingdoms into tea country, both already-proven private routes joined into one trip. Tell us your travel dates and we'll sequence the full day-by-day plan around them.",
+      "overview": "A 10-day itinerary can combine the 5-day Cultural Triangle route (Dambulla, Sigiriya, Polonnaruwa, Kandy) with the 4-day Hill Country & Tea route (Nuwara Eliya, Ella, the blue train), plus an extra day. Ancient kingdoms into tea country: two already-proven private routes joined into one trip. Tell us your travel dates and we'll sequence the full day-by-day plan around them.",
       "componentSlugs": [
         "cultural-triangle-private-tour",
         "hill-country-ella-tea-tour"
@@ -1797,7 +3290,18 @@
       "price": "from $1,280",
       "priceNote": "Sum of The Cultural Triangle (from $690) + Hill Country & Tea (from $590).",
       "duration": "9–10 days · private",
-      "durationNote": "Components total 9 days (5 days · private + 4 days · private); rounds to 10 with a buffer/rest day — confirm where that extra day goes."
+      "durationNote": "Components total 9 days (5 days · private + 4 days · private); rounds to 10 with a buffer/rest day. Confirm where that extra day goes.",
+      "heroImage": "assets/img-grandisland-01.jpeg",
+      "lede": "Ancient kingdoms into tea country: the 5-day Cultural Triangle route followed by the 4-day Hill Country & Tea route, with a spare day to breathe.",
+      "whyThis": [
+        "Four UNESCO World Heritage Sites across the two routes",
+        "Sigiriya, Dambulla, Polonnaruwa and Kandy at an unhurried pace",
+        "Then Nuwara Eliya, the blue train and Ella",
+        "A buffer day built in for a rest, an extra night, or a beach stop on the way back",
+        "The natural geographic order: dry-zone plains, then the climb into the hills",
+        "Eight or nine nights of hotels, daily breakfast and dinner throughout"
+      ],
+      "bestTime": "The Cultural Triangle is dry-zone and good most of the year, at its best from January to April and again in July and August. The hill country follows the same pattern. Put together, January to April is the strongest window for this combination, with July and August a solid alternative."
     },
     {
       "slug": "sri-lanka-honeymoon-package",
@@ -1805,7 +3309,7 @@
       "tags": "Private Villas · Candlelit Dinners · Secluded Beaches",
       "seo_title": "Sri Lanka Honeymoon Package, Private Tour | Majesty Tours",
       "meta_description": "A private Sri Lanka honeymoon itinerary combining tea country and secluded southern beaches, from $980pp. Tell us your dates for a tailored quote.",
-      "overview": "Private villas, candlelit dinners and secluded beaches for newlyweds — typically built from our Hill Country & Tea and Southern Coast routes, with romantic touches layered in. Tell us your travel dates and what you'd like included (candlelit dinners, a villa/suite upgrade, spa treatments) and we'll sequence the full day-by-day plan and quote around it.",
+      "overview": "Private villas, candlelit dinners and secluded beaches for newlyweds, typically built from our Hill Country & Tea and Southern Coast routes, with romantic touches layered in. Tell us your travel dates and what you'd like included (candlelit dinners, a villa/suite upgrade, spa treatments) and we'll sequence the full day-by-day plan and quote around it.",
       "componentSlugs": [
         "hill-country-ella-tea-tour",
         "southern-coast-galle-mirissa-tour"
@@ -1813,7 +3317,26 @@
       "draft": false,
       "price": "from $980",
       "priceNote": "Sum of Hill Country & Tea (from $590) + The Southern Coast (from $390).",
-      "duration": "7 days · private"
+      "duration": "7 days · private",
+      "heroImage": "assets/img-southcoast-09.jpeg",
+      "lede": "Tea country and the southern coast, built for two: the Hill Country & Tea and Southern Coast routes with the romantic touches layered in.",
+      "whyThis": [
+        "Highland mornings and mist over the tea, then the coast",
+        "Private villa or suite upgrades arranged on request",
+        "Candlelit dinners on the beach or at the estate",
+        "Whale watching off Mirissa and the coves around Unawatuna",
+        "Galle Fort at sunset from the ramparts",
+        "Everything private throughout: your own vehicle, driver-guide and schedule"
+      ],
+      "bestTime": "Both halves of this itinerary sit on the southwest monsoon’s dry side from December to March: the calmest sea for Mirissa, the clearest skies in the highlands, and the best window for a honeymoon. January to March is the pick of it. If your wedding dates fall between May and September, tell us: we would rebuild the same idea around the East Coast instead rather than send you into the rain.",
+      "addOns": [
+        "Private villa or suite upgrade",
+        "Candlelit dinner on the beach",
+        "In-room decoration on arrival",
+        "Couples’ spa treatment in the hills",
+        "A private cooking class with an estate chef",
+        "Sunset cruise on the Madu River"
+      ]
     }
   ]
 }
