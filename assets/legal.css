@@ -120,3 +120,10 @@ table.legal-table td:last-child{font-weight:500;color:var(--navy)}
 .legal-foot a{color:rgba(244,236,224,.85);border:none}
 .legal-foot a:hover{color:var(--gold)}
 .legal-foot .foot-links{display:flex;gap:1rem;flex-wrap:wrap}
+
+/* ---------- SITE CREDIT ---------- */
+.legal-foot .foot-copy{display:inline-flex;align-items:center;flex-wrap:wrap;gap:.3rem 1rem}
+.legal-foot a.site-credit{display:inline-flex;align-items:center;gap:.5rem;font-size:.74rem;letter-spacing:.02em;color:rgba(244,236,224,.5);border:none}
+.legal-foot a.site-credit img{display:block;height:36px;width:auto;opacity:.85;transition:opacity .3s}
+.legal-foot a.site-credit:hover{color:var(--gold)}
+.legal-foot a.site-credit:hover img{opacity:1}

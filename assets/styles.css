@@ -151,6 +151,8 @@ body.has-cursor a,body.has-cursor button,body.has-cursor .tour,body.has-cursor .
   .fc-pax-row .pax-btn:hover:not(:disabled){border-color:var(--gold)}
   .foot-col a:hover{color:var(--paper);transform:translateX(.4rem)}
   .foot-bot a:hover{color:var(--paper)}
+  .foot-bot a.site-credit:hover{color:var(--paper)}
+  .foot-bot a.site-credit:hover img{opacity:1}
   .plat--ink:hover{transform:translateY(-2px)}
   .plat:hover{transform:translateY(-2px)}
   .wa:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(37,211,102,.55)}
@@ -815,6 +817,9 @@ footer .logo-tagline{color:rgba(244,236,224,.55)}
 .foot-col a{display:block;color:var(--text-light);font-size:.92rem;padding:.3rem 0;transition:.3s}
 .foot-bot{display:flex;justify-content:space-between;border-top:1px solid rgba(244,236,224,.12);padding-top:1.4rem;font-size:.78rem;color:var(--text-faint);flex-wrap:wrap;gap:1rem}
 .foot-bot a{color:inherit;transition:color .3s}
+.foot-bot .foot-copy{display:inline-flex;align-items:center;flex-wrap:wrap;gap:.3rem 1rem}
+.foot-bot a.site-credit{display:inline-flex;align-items:center;gap:.5rem;font-size:.74rem;letter-spacing:.02em;color:var(--text-faint)}
+.foot-bot a.site-credit img{display:block;height:36px;width:auto;opacity:.85;transition:opacity .3s}
 /* --- PLATFORM BAR (below destinations strip) --- */
 .platform-bar{background:var(--navy);padding:1rem 0;border-top:1px solid rgba(244,236,224,.08)}
 .platform-bar>.wrap{display:flex;align-items:center;gap:clamp(1.2rem,2.5vw,3rem);flex-wrap:wrap}
