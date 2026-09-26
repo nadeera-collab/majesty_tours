@@ -56,6 +56,24 @@ $$('.field',form).forEach(wrapper=>{
   wrapper.addEventListener('change',()=>clearFieldError(wrapper));
 });
 
+/* ---------- partner type → SLTDA fields optional for drivers ---------- */
+function isDriverSelected(){return form.partner_type.value==='driver';}
+const licenseDocInput=$('#reg-license-doc');
+const sltdaHints=$$('.sltda-optional-hint',form);
+function updateSltdaRequirement(){
+  const optional=isDriverSelected();
+  form.license_number.setAttribute('aria-required',String(!optional));
+  licenseDocInput.setAttribute('aria-required',String(!optional));
+  sltdaHints.forEach(h=>h.hidden=!optional);
+  if(optional){
+    clearFieldError($('#sltdaField'));
+    clearFieldError(form.license_number.closest('.field'));
+    clearFieldError(licenseDocInput.closest('.field'));
+  }
+}
+form.partner_type.addEventListener('change',updateSltdaRequirement);
+updateSltdaRequirement();
+
 /* ---------- own vehicle → conditional reveal ---------- */
 const vehicleFieldsWrap=$('#vehicleFieldsWrap');
 const vehiclePhotoField=$('#vehiclePhotoField');
@@ -95,7 +113,7 @@ function resetFilePreview(input){
   if(img){img.hidden=true;if(img.src){URL.revokeObjectURL(img.src);img.src='';}}
   if(chip){chip.hidden=true;chip.textContent='';}
 }
-function wireFileField(inputId,{maxMB,acceptPdf}){
+function wireFileField(inputId,{maxMB,acceptPdf,isRequired}){
   const input=document.getElementById(inputId);
   if(!input)return;
   const preview=document.getElementById('preview-'+input.name);
@@ -138,11 +156,11 @@ function wireFileField(inputId,{maxMB,acceptPdf}){
   });
   removeBtn?.addEventListener('click',()=>{
     resetFilePreview(input);
-    setFieldError(input.closest('.field'),'This file is required.');
+    if(!isRequired||isRequired())setFieldError(input.closest('.field'),'This file is required.');
   });
 }
 wireFileField('reg-profile-photo',{maxMB:MAX_RAW_MB.photo,acceptPdf:false});
-wireFileField('reg-license-doc',{maxMB:MAX_RAW_MB.photo,acceptPdf:true});
+wireFileField('reg-license-doc',{maxMB:MAX_RAW_MB.photo,acceptPdf:true,isRequired:()=>!isDriverSelected()});
 wireFileField('reg-vehicle-photo',{maxMB:MAX_RAW_MB.photo,acceptPdf:false});
 
 /* ---------- image downscale / base64 encoding ---------- */
@@ -208,8 +226,11 @@ function validateAll(){
   const years=form.years_experience.value;
   if(years===''||Number(years)<0||Number(years)>60)fail(form.years_experience,'Please enter a valid number of years.');
 
-  if(!form.sltda_registered.value)fail($('#sltdaField'),'Please select yes or no.',$('input[name="sltda_registered"]',form));
-  if(!form.license_number.value.trim())fail(form.license_number,'Please enter your SLTDA or guide license number.');
+  const sltdaOptional=isDriverSelected();
+  if(!sltdaOptional){
+    if(!form.sltda_registered.value)fail($('#sltdaField'),'Please select yes or no.',$('input[name="sltda_registered"]',form));
+    if(!form.license_number.value.trim())fail(form.license_number,'Please enter your SLTDA or guide license number.');
+  }
 
   if(!form.own_vehicle.value)fail($('#vehicleYesNoField'),'Please select yes or no.',$('input[name="own_vehicle"]',form));
   const hasVehicle=form.own_vehicle.value==='yes';
@@ -219,7 +240,7 @@ function validateAll(){
   }
 
   if(!$('#reg-profile-photo').files[0])fail($('#reg-profile-photo'),'Please upload a profile photo.');
-  if(!$('#reg-license-doc').files[0])fail($('#reg-license-doc'),'Please upload your license/SLTDA certificate.');
+  if(!sltdaOptional&&!$('#reg-license-doc').files[0])fail($('#reg-license-doc'),'Please upload your license/SLTDA certificate.');
   if(hasVehicle&&!$('#reg-vehicle-photo').files[0])fail($('#reg-vehicle-photo'),'Please upload a photo of your vehicle.');
 
   return firstInvalid;
